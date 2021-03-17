@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="诺风吟/姚永坤">
+    
+    <title>
+        
+            Python max函数不同参数结果比较 |
+        
+        猫猫头-kunkun
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/blog.png">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.png","favicon":"/images/blog.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"欢迎进入猫猫头的代码世界."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.1"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="姚永坤的小窝" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                猫猫头-kunkun
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Python max函数不同参数结果比较</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">诺风吟/姚永坤</span>
+                        
+                            <span class="author-label">Lv1</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-03-15 22:29:08
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/python/">python</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Skill/">Skill</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/python/">python</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.5k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>6 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&emsp; &emsp; 在菜鸟教程中对于max函数描述是这样的：max() 方法返回给定参数的最大值，参数可以为序列。这个描述只是客观的将这个函数的功能给描述出来了，但这只是一个模糊的定义。由于没有指定可传入参数的类型，所以说这就带给了这个函数无限种可能。现在就来讨论讨论吧！如果有哪些地方表述不是很正确希望大家在评论区指出来哦！</p>
+<h2 id="数字类型"><a href="#数字类型" class="headerlink" title="数字类型"></a>数字类型</h2><p>&emsp; &emsp; 首先我们来看看最简单大数字类型。毋庸置疑，当参数是数字的时候，直接返回最大的数就好了。但是要注意的是<strong>这里的数字指的是一系列数，返回其中最大的。</strong><br>下面来看一个简单的例子。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">max</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>)</span><br><span class="line"><span class="number">9</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h2><p>&emsp; &emsp; 我们知道python中字符串是由单引号双引号括起来的一个字符序列。那么当输入max的变量为一个字符串它会返回给我们什么结果呢？</p>
+<p>&emsp; &emsp; 我们先看下面这个例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;a=<span class="string">&#x27;1,6,0,4,5&#x27;</span></span><br><span class="line">&gt;&gt;&gt;<span class="built_in">max</span>(a)</span><br><span class="line"><span class="string">&#x27;6&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>我们输入一个由单个数字组成的字符串，穿入max函数后返回了其中的 ‘6’ 这个字符。难道是将字符转化为数字然后再比较大小吗？那字符串中的 ‘,’ 又去哪了呢？那如果是字母又如何进行比较呢？来看下一个例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;b=<span class="string">&#x27;fabced&#x27;</span></span><br><span class="line">&gt;&gt;&gt;<span class="built_in">max</span>(b)</span><br><span class="line"><span class="string">&#x27;f&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>这里变量b为一个字母组成的字符串，结果返回给我们的是字符 ‘f’ ，这里我们大致应该可以判断出来：<strong>当max函数的输入变量为一个字符串的时候，则返回字符串中字符所对应的ASCII码最大的那个字符。</strong></p>
+<p>&emsp; &emsp; 为了验证这一结论我们利用下面这个例子进行验证：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;c=<span class="string">&#x27;1,a,2,c&#x27;</span></span><br><span class="line">&gt;&gt;&gt;<span class="built_in">max</span>(c)</span><br><span class="line"><span class="string">&#x27;c&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>&emsp; &emsp; 从这个例子我们就可以验证刚刚的结论了：c这个字符串中字符’1’’a’’2’’c’对应的ASCII码的大小分别为49，97，50，99，所以字符’c’所对应的ASCII码值最大固返回字符’c’。那么字符’,’去哪了呢？实际上字符’,’也是参与了比较，由于它所对应的ASCII码为44最小，所以看似跟舍弃了一样。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;c=<span class="string">&#x27;1,a,2,c&#x27;</span></span><br><span class="line">&gt;&gt;&gt;<span class="built_in">min</span>(c)</span><br><span class="line"><span class="string">&#x27;,&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>另外，max函数还可以对于传入的可迭代对象找出元素中的最大值。这里可迭代的对象主要是列表和字典</p>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>同样对于列表，它满足可迭代这样一个特点，这里我们主要分四种情况来讨论：</p>
+<ul>
+<li>元素全为数字<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">max</span>(a)</span><br><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure></li>
+<li>元素全为字符<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;b=[<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;d&#x27;</span>,<span class="string">&#x27;e&#x27;</span>]</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">max</span>(b)</span><br><span class="line"><span class="string">&#x27;e&#x27;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;c=[<span class="string">&#x27;ab&#x27;</span>,<span class="string">&#x27;ac&#x27;</span>,<span class="string">&#x27;ad&#x27;</span>,<span class="string">&#x27;ae&#x27;</span>]</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">max</span>(c)</span><br><span class="line"><span class="string">&#x27;ae&#x27;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;d=[<span class="string">&#x27;1a&#x27;</span>,<span class="string">&#x27;1b&#x27;</span>,<span class="string">&#x27;2a&#x27;</span>,<span class="string">&#x27;2b&#x27;</span>]</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">max</span>(d)</span><br><span class="line"><span class="string">&#x27;2b&#x27;</span></span><br></pre></td></tr></table></figure>
+通过以上几个例子我们不难发现：</li>
+<li><strong>列表中元素类型需一致；（前提条件）</strong></li>
+<li><strong>若列表中元素数字类型值，则返回列表中元素的最大值；</strong></li>
+<li><strong>若列表中元素为字符，字符转换为对应ASCII码值输出最大的；</strong></li>
+<li><strong>若列表中元素为字符串，将组成字符串的每个字符的ASCII码相加，然后输出最大的。</strong></li>
+</ul>
+<h2 id="列表（元组）"><a href="#列表（元组）" class="headerlink" title="列表（元组）"></a>列表（元组）</h2><p>刚刚我们讨论了简单元素组成的列表作为参数的情况，接下来我们看一看由元组组成的列表：我们还是按照上面的步骤来。</p>
+<ul>
+<li><p>全为数字</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;a=[(<span class="number">1</span>,<span class="number">3</span>),(<span class="number">2</span>,<span class="number">2</span>),(<span class="number">1</span>,<span class="number">4</span>),(<span class="number">3</span>,<span class="number">0</span>)]</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">max</span>(a)</span><br><span class="line">(<span class="number">3</span>,<span class="number">0</span>)</span><br></pre></td></tr></table></figure></li>
+<li><p>对应位置元素类型相同</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;b=[(<span class="string">&#x27;a&#x27;</span>,<span class="number">1</span>),(<span class="string">&#x27;b&#x27;</span>,<span class="number">5</span>),(<span class="string">&#x27;a&#x27;</span>,<span class="number">6</span>)]</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">max</span>(b)</span><br><span class="line">(<span class="string">&#x27;b&#x27;</span>,<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;c=[(<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;A&#x27;</span>),(<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;B&#x27;</span>)]</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">max</span>(c)</span><br><span class="line">(<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;B&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+<li><p>元组大小不一致</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;d=[(<span class="number">1</span>,<span class="number">4</span>),(<span class="number">3</span>,<span class="number">1</span>,<span class="number">5</span>),(<span class="number">3</span>,<span class="number">1</span>)]</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">max</span>(d)</span><br><span class="line">(<span class="number">3</span>,<span class="number">1</span>,<span class="number">5</span>)</span><br></pre></td></tr></table></figure></li>
+<li><p>对应位置元素不同</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;e=[(<span class="number">6</span>,<span class="number">4</span>),(<span class="number">6</span>,<span class="number">1</span>,<span class="number">5</span>),(<span class="number">3</span>,<span class="string">&#x27;a&#x27;</span>)]</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">max</span>(e)</span><br><span class="line">(<span class="number">6</span>,<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;f=[(<span class="number">1</span>,<span class="number">4</span>),(<span class="string">&#x27;a&#x27;</span>,<span class="number">2</span>),(<span class="number">3</span>,<span class="number">1</span>)]</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">max</span>(e)</span><br><span class="line">TypeError: <span class="string">&#x27;&gt;&#x27;</span> <span class="keyword">not</span> supported between instances of <span class="string">&#x27;str&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;int&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>通过以上几个例子对比分析我们不难发现：</p>
+</li>
+<li><p>按照元组内部排列顺序<strong>从前到后对应位置</strong>进行比较，<strong>如果对应位置元素类型和大小相同，则比较下一个位置的元素</strong>，按照此规则进行比较直至<strong>找到最大值或者出错</strong>。</p>
+</li>
+<li><p>类型不匹配：列表元组中当比较到<strong>对应位置</strong>发现存在相比较的两个元素<strong>类型不相同</strong>时报错；</p>
+</li>
+<li><p>当比较位置<strong>不存在元素</strong>时，默认为NUL；</p>
+</li>
+<li><p><strong>当比较的元素为数字类型值，则返回列表中元素的最大值；</strong></p>
+</li>
+<li><p><strong>当比较的元素为字符，字符转换为对应ASCII码值返回；</strong></p>
+</li>
+<li><p><strong>当比较的元素为字符串，将组成字符串的每个字符的ASCII码相加返回。</strong></p>
+</li>
+</ul>
+<h2 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h2><ul>
+<li>对于字典类型来说相比较容易一些，只需要比较字典的键值，输出最大的键值；</li>
+<li>键值的比较同上。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;a=&#123;<span class="number">1</span>:<span class="number">1</span>,<span class="number">2</span>:<span class="number">19</span>,<span class="number">3</span>:<span class="number">100</span>,<span class="number">4</span>:<span class="number">1</span>&#125;</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">max</span>(a)</span><br><span class="line"><span class="number">4</span></span><br><span class="line">&gt;&gt;&gt;b=&#123;<span class="number">20</span>:<span class="number">21</span>,<span class="number">5</span>:<span class="number">20</span>,<span class="number">13</span>:<span class="number">14</span>&#125;</span><br><span class="line">&gt;&gt;&gt;<span class="built_in">max</span>(b)</span><br><span class="line"><span class="number">20</span></span><br></pre></td></tr></table></figure>
+        </div>
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2021/03/16/python-skill-string-concatenation/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Python 字符串连接方法</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/03/15/python-study-notes-2/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">python学习笔记（二）</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div id="gitalk-container"></div>
+    <script data-pjax
+            src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+    <script data-pjax>
+
+        function loadGitalk() {
+            let __gitalk__pathname = decodeURI(location.pathname);
+            const __gitalk__pathnameLength = __gitalk__pathname.length;
+            const __gitalk__pathnameMaxLength = 50;
+            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
+                __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
+            }
+
+            try {
+                Gitalk && new Gitalk({
+                    clientID: 'adbde3411133d5bcc532',
+                    clientSecret: 'e52fef77f830f9199ad13341637244bfcfd05ef5',
+                    repo: 'comment-respository',
+                    owner: 'kunkunyy',
+                    admin: ['kunkunyy'],
+                    id: __gitalk__pathname,
+                    language: 'zh-CN'
+                }).render('gitalk-container');
+
+            } catch (e) {
+                window.Gitalk = null;
+            }
+        }
+
+        if ('true') {
+            const loadGitalkTimeout = setTimeout(() => {
+                loadGitalk();
+                clearTimeout(loadGitalkTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadGitalk);
+        }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>&nbsp;-&nbsp;
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">诺风吟/姚永坤</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.1</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.1.</span> <span class="nav-text">数字类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.2.</span> <span class="nav-text">字符串类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%97%E8%A1%A8"><span class="nav-number">1.3.</span> <span class="nav-text">列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%97%E8%A1%A8%EF%BC%88%E5%85%83%E7%BB%84%EF%BC%89"><span class="nav-number">1.4.</span> <span class="nav-text">列表（元组）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E5%85%B8"><span class="nav-number">1.5.</span> <span class="nav-text">字典</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+    <script src="/js/local-search.js"></script>
+
+
+
+    <script src="/js/code-copy.js"></script>
+
+
+
+    <script src="/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="/js/left-side-toggle.js"></script><script src="/js/libs/anime.min.js"></script><script src="/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
