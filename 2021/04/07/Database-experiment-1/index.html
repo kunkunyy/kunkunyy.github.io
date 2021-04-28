@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="诺风吟/姚永坤">
+    
+    <title>
+        
+            数据库实验（一）建立数据库 |
+        
+        猫猫头-kunkun
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/blog.png">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.png","favicon":"/images/blog.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"欢迎进入猫猫头的代码世界."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.1"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="姚永坤的小窝" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                猫猫头-kunkun
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">数据库实验（一）建立数据库</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">诺风吟/姚永坤</span>
+                        
+                            <span class="author-label">Lv3</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-04-07 12:19:09
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/experiment/">experiment</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/experiment/">experiment</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Database-experiment/">Database-experiment</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.9k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>8 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="实验类型"><a href="#实验类型" class="headerlink" title="实验类型"></a>实验类型</h1><p>设计性实验</p>
+<h1 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h1><ul>
+<li>熟悉oracle环境。</li>
+<li>熟练掌握和使用PL-SQL建立数据库基本表。</li>
+<li>使用PL/SQL developer操作数据库。</li>
+<li>熟练掌握SQL 建立关系，及增删改数据。</li>
+</ul>
+<h1 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h1><ul>
+<li>了解SQL PLUS的使用</li>
+<li>使用PL/SQL developer的图形界面，建立图书管理数据库orcl中的读者关系，要求创建主键约束，用户定义的完整性约束（电话号码、身份证号）。</li>
+<li>在建立的读者关系中输入有效数据。</li>
+<li>删除读者关系。</li>
+<li>在PL/SQL developer用SQL代码建立orcl数据库中各关系。</li>
+<li>用SQL 代码完成数据增、删、改。</li>
+</ul>
+<h1 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h1><h2 id="登录数据库"><a href="#登录数据库" class="headerlink" title="登录数据库"></a>登录数据库</h2><ol>
+<li>以SYSTEM登录数据库</li>
+</ol>
+<ul>
+<li>输入口令为你创建数据库时设置的密码</li>
+</ul>
+<img lazyload src="/images/loading.svg" data-src="/2021/04/07/Database-experiment-1/pic1.png" class title="# tu">
+
+<ol start="2">
+<li>注册用户、重新以新用户登录数据库</li>
+</ol>
+<img lazyload src="/images/loading.svg" data-src="/2021/04/07/Database-experiment-1/pic2.png" class title="# tu">
+
+<h2 id="图形化界面建表"><a href="#图形化界面建表" class="headerlink" title="图形化界面建表"></a>图形化界面建表</h2><ol>
+<li>图书分类（图书分类号，类名）</li>
+</ol>
+<img lazyload src="/images/loading.svg" data-src="/2021/04/07/Database-experiment-1/pic3.png" class title="# tu">
+<img lazyload src="/images/loading.svg" data-src="/2021/04/07/Database-experiment-1/pic4.png" class title="# tu">
+<img lazyload src="/images/loading.svg" data-src="/2021/04/07/Database-experiment-1/pic5.png" class title="# tu">
+
+<ol start="2">
+<li>读者 （借书证号，姓名，单位，性别，地址，联系电话，身份证编号）</li>
+</ol>
+<img lazyload src="/images/loading.svg" data-src="/2021/04/07/Database-experiment-1/pic6.png" class title="# tu">
+<img lazyload src="/images/loading.svg" data-src="/2021/04/07/Database-experiment-1/pic7.png" class title="# tu">
+<img lazyload src="/images/loading.svg" data-src="/2021/04/07/Database-experiment-1/pic8.png" class title="# tu">
+
+<ol start="3">
+<li>书目（ISBN, 书名，作者，出版单位，单价，图书分类号）</li>
+</ol>
+<img lazyload src="/images/loading.svg" data-src="/2021/04/07/Database-experiment-1/pic9.png" class title="# tu">
+<img lazyload src="/images/loading.svg" data-src="/2021/04/07/Database-experiment-1/pic10.png" class title="# tu">
+<img lazyload src="/images/loading.svg" data-src="/2021/04/07/Database-experiment-1/pic11.png" class title="# tu">
+
+<ol start="4">
+<li>图书（图书编号，ISBN，是否借出，备注）</li>
+</ol>
+<img lazyload src="/images/loading.svg" data-src="/2021/04/07/Database-experiment-1/pic12.png" class title="# tu">
+<img lazyload src="/images/loading.svg" data-src="/2021/04/07/Database-experiment-1/pic13.png" class title="# tu">
+<img lazyload src="/images/loading.svg" data-src="/2021/04/07/Database-experiment-1/pic14.png" class title="# tu">
+
+<ol start="5">
+<li>借阅 （借阅流水号，借书证号，图书编号，借书日期，归还日期，罚款分类号，备注）</li>
+</ol>
+<img lazyload src="/images/loading.svg" data-src="/2021/04/07/Database-experiment-1/pic15.png" class title="# tu">
+<img lazyload src="/images/loading.svg" data-src="/2021/04/07/Database-experiment-1/pic16.png" class title="# tu">
+<img lazyload src="/images/loading.svg" data-src="/2021/04/07/Database-experiment-1/pic17.png" class title="# tu">
+
+<ol start="6">
+<li>罚款分类（罚款分类号，罚款名称，罚金）</li>
+</ol>
+<img lazyload src="/images/loading.svg" data-src="/2021/04/07/Database-experiment-1/pic18.png" class title="# tu">
+<img lazyload src="/images/loading.svg" data-src="/2021/04/07/Database-experiment-1/pic19.png" class title="# tu">
+<img lazyload src="/images/loading.svg" data-src="/2021/04/07/Database-experiment-1/pic20.png" class title="# tu">
+
+<ol start="7">
+<li>预约（预约流水号，借书证号，ISBN，日期）</li>
+</ol>
+<img lazyload src="/images/loading.svg" data-src="/2021/04/07/Database-experiment-1/pic21.png" class title="# tu">
+<img lazyload src="/images/loading.svg" data-src="/2021/04/07/Database-experiment-1/pic22.png" class title="# tu">
+<img lazyload src="/images/loading.svg" data-src="/2021/04/07/Database-experiment-1/pic23.png" class title="# tu">
+
+<h2 id="建立数据库表：打开tables文件夹。建立以下各关系："><a href="#建立数据库表：打开tables文件夹。建立以下各关系：" class="headerlink" title="建立数据库表：打开tables文件夹。建立以下各关系："></a>建立数据库表：打开tables文件夹。建立以下各关系：</h2><ol>
+<li>图书分类（图书分类号，类名）</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center">图书分类号</th>
+<th align="center">类名</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">100</td>
+<td align="center">文学</td>
+</tr>
+<tr>
+<td align="center">200</td>
+<td align="center">科技</td>
+</tr>
+<tr>
+<td align="center">300</td>
+<td align="center">哲学</td>
+</tr>
+</tbody></table>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> 图书分类</span><br><span class="line">(</span><br><span class="line">  图书分类号 NUMBER <span class="keyword">primary</span> key,</span><br><span class="line">  类名    VARCHAR2(<span class="number">4</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 图书分类 (图书分类号,类名) <span class="keyword">values</span> (<span class="number">100</span>,<span class="string">&#x27;文学&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 图书分类 <span class="keyword">values</span> (<span class="number">200</span>,<span class="string">&#x27;科技&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 图书分类 (图书分类号,类名) <span class="keyword">values</span> (<span class="number">300</span>,<span class="string">&#x27;哲学&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>书目（ISBN, 书名，作者，出版单位，单价，图书分类号）</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center">ISBN</th>
+<th align="center">书名</th>
+<th align="center">作者</th>
+<th align="center">出版单位</th>
+<th align="center">单价</th>
+<th align="center">图书分类号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">7040195836</td>
+<td align="center">数据库系统概论</td>
+<td align="center">王珊</td>
+<td align="center">高等教育出版社</td>
+<td align="center">39.00</td>
+<td align="center">200</td>
+</tr>
+<tr>
+<td align="center">9787508040110</td>
+<td align="center">红楼梦</td>
+<td align="center">曹雪芹</td>
+<td align="center">人民出版社</td>
+<td align="center">20.00</td>
+<td align="center">100</td>
+</tr>
+<tr>
+<td align="center">9787506336239</td>
+<td align="center">红楼梦</td>
+<td align="center">曹雪芹</td>
+<td align="center">作家出版社</td>
+<td align="center">34.30</td>
+<td align="center">100</td>
+</tr>
+<tr>
+<td align="center">9787010073750</td>
+<td align="center">心学之路</td>
+<td align="center">张立文</td>
+<td align="center">人民出版社</td>
+<td align="center">33.80</td>
+<td align="center">300</td>
+</tr>
+</tbody></table>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> 书目</span><br><span class="line">(</span><br><span class="line">  isbn  NUMBER <span class="keyword">primary</span> key</span><br><span class="line">  书名    VARCHAR2(<span class="number">14</span>),</span><br><span class="line">  作者    VARCHAR2(<span class="number">6</span>),</span><br><span class="line">  出版单位  VARCHAR2(<span class="number">14</span>),</span><br><span class="line">  单价    NUMBER,</span><br><span class="line">  图书分类号 NUMBER,</span><br><span class="line">  出版年份  NUMBER,</span><br><span class="line">  <span class="keyword">foreign</span> key(图书分类号) <span class="keyword">references</span> 图书分类(图书分类号)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 书目 <span class="keyword">values</span> (<span class="number">7040195836</span>,<span class="string">&#x27;数据库系统概论&#x27;</span>,<span class="string">&#x27;王珊&#x27;</span>,<span class="string">&#x27;高等教育出社&#x27;</span>,<span class="number">39.00</span>,<span class="string">&#x27;200&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 书目 <span class="keyword">values</span> (<span class="number">9787508040110</span>,<span class="string">&#x27;红楼梦&#x27;</span>,<span class="string">&#x27;曹雪芹&#x27;</span>,<span class="string">&#x27;人民出版社&#x27;</span>,<span class="number">20.00</span>,<span class="string">&#x27;100&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 书目 <span class="keyword">values</span> (<span class="number">9787506336239</span>,<span class="string">&#x27;红楼梦&#x27;</span>,<span class="string">&#x27;曹雪芹&#x27;</span>,<span class="string">&#x27;作家出版社&#x27;</span>,<span class="number">34.30</span>,<span class="string">&#x27;100&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 书目 <span class="keyword">values</span> (<span class="number">9787010073750</span>,<span class="string">&#x27;心学之路&#x27;</span>,<span class="string">&#x27;王珊&#x27;</span>,<span class="string">&#x27;人民出版社&#x27;</span>,<span class="number">33.80</span>,<span class="string">&#x27;300&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>图书（图书编号，ISBN，是否借出，备注）</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center">图书编号</th>
+<th align="center">ISBN</th>
+<th align="center">是否借出</th>
+<th align="center">备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">2001231</td>
+<td align="center">7040195836</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">2001232</td>
+<td align="center">7040195836</td>
+<td align="center">是</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">1005050</td>
+<td align="center">9787506336239</td>
+<td align="center">否</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">1005063</td>
+<td align="center">9787508040110</td>
+<td align="center">是</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">3007071</td>
+<td align="center">9787010073750</td>
+<td align="center">是</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> 图书</span><br><span class="line">(</span><br><span class="line">  图书编号 NUMBER <span class="keyword">primary</span> key,,</span><br><span class="line">  isbn NUMBER,</span><br><span class="line">  是否借出 VARCHAR2(<span class="number">2</span>),</span><br><span class="line">  备注   VARCHAR2(<span class="number">24</span>),</span><br><span class="line">  <span class="keyword">foreign</span> key(ISBN) <span class="keyword">references</span> 书目(ISBN)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 图书 <span class="keyword">values</span> (<span class="number">2001231</span>,<span class="string">&#x27;7040195836&#x27;</span>,<span class="string">&#x27;否&#x27;</span>,<span class="keyword">null</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 图书 <span class="keyword">values</span> (<span class="number">2001232</span>,<span class="string">&#x27;7040195836&#x27;</span>,<span class="string">&#x27;是&#x27;</span>,<span class="keyword">null</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 图书 <span class="keyword">values</span> (<span class="number">1005050</span>,<span class="string">&#x27;9787506336239&#x27;</span>,<span class="string">&#x27;否&#x27;</span>,<span class="keyword">null</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 图书 <span class="keyword">values</span> (<span class="number">1005063</span>,<span class="string">&#x27;9787508040110&#x27;</span>,<span class="string">&#x27;是&#x27;</span>,<span class="keyword">null</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 图书 <span class="keyword">values</span> (<span class="number">3007071</span>,<span class="string">&#x27;9787010073750&#x27;</span>,<span class="string">&#x27;是&#x27;</span>,<span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>读者 （借书证号，姓名，单位，性别，地址，联系电话，身份证编号）</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center">借书证号</th>
+<th align="center">姓名</th>
+<th align="center">单位</th>
+<th align="center">性别</th>
+<th align="center">地址</th>
+<th align="center">联系电话</th>
+<th align="center">身份证编号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">20051001</td>
+<td align="center">王菲</td>
+<td align="center">四川绵阳西科大计算机学院</td>
+<td align="center">女</td>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">..</td>
+</tr>
+<tr>
+<td align="center">20062001</td>
+<td align="center">张江</td>
+<td align="center">四川绵阳中心医院</td>
+<td align="center">男</td>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">..</td>
+</tr>
+<tr>
+<td align="center">20061234</td>
+<td align="center">郭敬明</td>
+<td align="center">四川江油305</td>
+<td align="center">男</td>
+<td align="center">..</td>
+<td align="center">..</td>
+<td align="center">..</td>
+</tr>
+<tr>
+<td align="center">20071235</td>
+<td align="center">李晓明</td>
+<td align="center">四川成都工商银行</td>
+<td align="center">男</td>
+<td align="center">..</td>
+<td align="center">..</td>
+<td align="center">..</td>
+</tr>
+<tr>
+<td align="center">20081237</td>
+<td align="center">赵鑫</td>
+<td align="center">四川广元广元中学</td>
+<td align="center">女</td>
+<td align="center">..</td>
+<td align="center">..</td>
+<td align="center">..</td>
+</tr>
+</tbody></table>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> 读者</span><br><span class="line">(</span><br><span class="line">  借书证号  VARCHAR2(<span class="number">10</span>) <span class="keyword">primary</span> key,</span><br><span class="line">  姓名    VARCHAR2(<span class="number">10</span>),</span><br><span class="line">  单位    VARCHAR2(<span class="number">25</span>),</span><br><span class="line">  性别    VARCHAR2(<span class="number">2</span>),</span><br><span class="line">  地址    VARCHAR2(<span class="number">16</span>),</span><br><span class="line">  联系电话  VARCHAR2(<span class="number">16</span>),</span><br><span class="line">  身份证编号 VARCHAR2(<span class="number">16</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 读者 <span class="keyword">values</span> (<span class="string">&#x27;20051001&#x27;</span>,<span class="string">&#x27;王菲&#x27;</span>,<span class="string">&#x27;四川绵阳西科大计算机学院&#x27;</span>,<span class="string">&#x27;女&#x27;</span>,<span class="keyword">null</span>,<span class="keyword">null</span>,<span class="keyword">null</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 读者 <span class="keyword">values</span> (<span class="string">&#x27;20062001&#x27;</span>,<span class="string">&#x27;张江&#x27;</span>,<span class="string">&#x27;四川绵阳中心医院&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="string">&#x27;绵阳&#x27;</span>,<span class="keyword">null</span>,<span class="keyword">null</span>,<span class="keyword">null</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 读者 <span class="keyword">values</span> (<span class="string">&#x27;20061234&#x27;</span>,<span class="string">&#x27;郭敬明&#x27;</span>,<span class="string">&#x27;四川江油305&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="string">&#x27;四川&#x27;</span>,<span class="keyword">null</span>,<span class="keyword">null</span>,<span class="keyword">null</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 读者 <span class="keyword">values</span> (<span class="string">&#x27;20071235&#x27;</span>,<span class="string">&#x27;李晓明&#x27;</span>,<span class="string">&#x27;四川成都工商银行&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="string">&#x27;成都&#x27;</span>,<span class="keyword">null</span>,<span class="keyword">null</span>,<span class="keyword">null</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 读者 <span class="keyword">values</span> (<span class="string">&#x27;20081237&#x27;</span>,<span class="string">&#x27;赵鑫&#x27;</span>,<span class="string">&#x27;四川广元广元中学&#x27;</span>,<span class="string">&#x27;女&#x27;</span>,<span class="string">&#x27;广元&#x27;</span>,<span class="keyword">null</span>,<span class="keyword">null</span>,<span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>借阅 （借阅流水号，借书证号，图书编号，借书日期，归还日期，罚款分类号，备注）</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center">借书证号</th>
+<th align="center">图书编号</th>
+<th align="center">借书日期</th>
+<th align="center">归还日期</th>
+<th align="center">罚款分类号</th>
+<th align="center">备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">20081237</td>
+<td align="center">3007071</td>
+<td align="center">2010/09/19</td>
+<td align="center">2010/09/20</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">20071235</td>
+<td align="center">1005063</td>
+<td align="center">2010/10/20</td>
+<td align="center">2011/02/20</td>
+<td align="center">1</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">20071235</td>
+<td align="center">2001232</td>
+<td align="center">2011/09/01</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">20061234</td>
+<td align="center">1005063</td>
+<td align="center">2011/9/20</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">20051001</td>
+<td align="center">3007071</td>
+<td align="center">2011/9/10</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">20071235</td>
+<td align="center">1005050</td>
+<td align="center">2011/10/20</td>
+<td align="center">2012/02/20</td>
+<td align="center">1</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> 借阅</span><br><span class="line">(</span><br><span class="line">  借阅流水号 NUMBER <span class="keyword">primary</span> key,</span><br><span class="line">  借书证号  VARCHAR2(<span class="number">16</span>),</span><br><span class="line">  图书编号  NUMBER(<span class="number">10</span>),</span><br><span class="line">  借书日期  <span class="type">DATE</span>,</span><br><span class="line">  归还日期  <span class="type">DATE</span>,</span><br><span class="line">  罚款分类号 NUMBER,</span><br><span class="line">  备注    VARCHAR2(<span class="number">20</span>),</span><br><span class="line">  <span class="keyword">foreign</span> key(借书证号) <span class="keyword">references</span> 读者(借书证号)</span><br><span class="line">  <span class="keyword">foreign</span> key(图书编号) <span class="keyword">references</span> 图书(图书编号)</span><br><span class="line">  <span class="keyword">foreign</span> key(罚款分类号) <span class="keyword">references</span> 罚款分类(罚款分类号)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 借阅 <span class="keyword">values</span> (<span class="number">1</span>,<span class="string">&#x27;20081237&#x27;</span>,<span class="number">3007071</span>,to_date(<span class="string">&#x27;2010-09-19&#x27;</span>,<span class="string">&#x27;yyyy/mm/dd&#x27;</span>),to_date(<span class="string">&#x27;2010-09-20&#x27;</span>,<span class="string">&#x27;yyyy/mm/dd&#x27;</span>),<span class="keyword">null</span>,<span class="keyword">null</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 借阅 <span class="keyword">values</span> (<span class="number">2</span>,<span class="string">&#x27;20071235&#x27;</span>,<span class="number">1005063</span>,to_date(<span class="string">&#x27;2010-10-20&#x27;</span>,<span class="string">&#x27;yyyy/mm/dd&#x27;</span>),to_date(<span class="string">&#x27;2011-02-20&#x27;</span>,<span class="string">&#x27;yyyy/mm/dd&#x27;</span>),<span class="number">1</span>,<span class="keyword">null</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 借阅 <span class="keyword">values</span> (<span class="number">3</span>,<span class="string">&#x27;20071235&#x27;</span>,<span class="number">2001232</span>,to_date(<span class="string">&#x27;2011-09-01&#x27;</span>,<span class="string">&#x27;yyyy/mm/dd&#x27;</span>),<span class="keyword">null</span>,<span class="keyword">null</span>,<span class="keyword">null</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 借阅 <span class="keyword">values</span> (<span class="number">4</span>,<span class="string">&#x27;20061234&#x27;</span>,<span class="number">1005063</span>,to_date(<span class="string">&#x27;2011-09-20&#x27;</span>,<span class="string">&#x27;yyyy/mm/dd&#x27;</span>),<span class="keyword">null</span>,<span class="keyword">null</span>,<span class="keyword">null</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 借阅 <span class="keyword">values</span> (<span class="number">5</span>,<span class="string">&#x27;20051001&#x27;</span>,<span class="number">3007071</span>,to_date(<span class="string">&#x27;2011-09-10&#x27;</span>,<span class="string">&#x27;yyyy/mm/dd&#x27;</span>),<span class="keyword">null</span>,<span class="keyword">null</span>,<span class="keyword">null</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 借阅 <span class="keyword">values</span> (<span class="number">6</span>,<span class="string">&#x27;20071235&#x27;</span>,<span class="number">1005050</span>,to_date(<span class="string">&#x27;2011-10-20&#x27;</span>,<span class="string">&#x27;yyyy/mm/dd&#x27;</span>),to_date(<span class="string">&#x27;2012/02/20&#x27;</span>,<span class="string">&#x27;yyyy/mm/dd&#x27;</span>),<span class="number">1</span>,<span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>罚款分类（罚款分类号，罚款名称，罚金）</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center">罚款分类号</th>
+<th align="center">罚款名称</th>
+<th align="center">罚金</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">延期</td>
+<td align="center">10</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">损坏</td>
+<td align="center">20</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">丢失</td>
+<td align="center">50</td>
+</tr>
+</tbody></table>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> 罚款分类</span><br><span class="line">(</span><br><span class="line">  罚款分类号 NUMBER <span class="keyword">primary</span> key,</span><br><span class="line">  罚款名称  VARCHAR2(<span class="number">10</span>),</span><br><span class="line">  罚金    NUMBER(<span class="number">3</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 罚款分类 <span class="keyword">values</span> (<span class="number">1</span>,<span class="string">&#x27;延期&#x27;</span>,<span class="number">10</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 罚款分类 <span class="keyword">values</span> (<span class="number">2</span>,<span class="string">&#x27;损坏&#x27;</span>,<span class="number">20</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 罚款分类 <span class="keyword">values</span> (<span class="number">3</span>,<span class="string">&#x27;丢失&#x27;</span>,<span class="number">50</span>);</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li>预约 （预约流水号，借书证号，ISBN，预约时间）</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center">预约流水号</th>
+<th align="center">借书证号</th>
+<th align="center">ISBN</th>
+<th align="center">预约时间</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">20081237</td>
+<td align="center">9787508040110</td>
+<td align="center">2011/09/11</td>
+</tr>
+</tbody></table>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> 预约</span><br><span class="line">(</span><br><span class="line">  预约流水号  NUMBER <span class="keyword">primary</span> key,</span><br><span class="line">  借书证号   VARCHAR2(<span class="number">16</span>),</span><br><span class="line">  isbn   NUMBER,</span><br><span class="line">  s_date <span class="type">DATE</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 预约 <span class="keyword">values</span> (<span class="number">1</span>,<span class="string">&#x27;20081237&#x27;</span>,<span class="string">&#x27;9787508040110&#x27;</span>,<span class="string">&#x27;2011/09/11&#x27;</span>,<span class="string">&#x27;yyyy/mm/dd&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用SQL语句练习表的创建、删除、修改操作"><a href="#使用SQL语句练习表的创建、删除、修改操作" class="headerlink" title="使用SQL语句练习表的创建、删除、修改操作"></a>使用SQL语句练习表的创建、删除、修改操作</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> 图书;</span><br><span class="line"></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> 图书 <span class="keyword">add</span> 图书分类号 number;</span><br><span class="line"></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> 图书 <span class="keyword">drop</span> <span class="keyword">column</span> 图书分类号;</span><br><span class="line"></span><br><span class="line">update 图书 <span class="keyword">set</span> 是否借出<span class="operator">=</span><span class="string">&#x27;否&#x27;</span> <span class="keyword">where</span> 图书分类号<span class="operator">=</span><span class="string">&#x27;2002141&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="试根据下面的完整性约束要求，用SQL对上面已经建立好的数据库表进行完整性约束定义。"><a href="#试根据下面的完整性约束要求，用SQL对上面已经建立好的数据库表进行完整性约束定义。" class="headerlink" title="试根据下面的完整性约束要求，用SQL对上面已经建立好的数据库表进行完整性约束定义。"></a>试根据下面的完整性约束要求，用SQL对上面已经建立好的数据库表进行完整性约束定义。</h2><p>读者关系中属性  联系电话  取值为11位数字<br>身份证编号  取值为18位，并且满足身份证编号规则</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> 读者 <span class="keyword">add</span> <span class="keyword">constraint</span> PhoneNumber <span class="keyword">check</span>(regexp_like(联系电话,<span class="string">&#x27;1[3|4|5|7|8][0-9]&#123;9&#125;&#x27;</span>));</span><br><span class="line"></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> 读者 <span class="keyword">add</span> <span class="keyword">constraint</span> IDENTITYNUM <span class="keyword">check</span>(regexp_like(身份证号,<span class="string">&#x27;[1-9\d&#123;5&#125;(19|20)\d&#123;2&#125;((0[1-9])|(1[0-2]))(([0-2][1-9])|([1-3]0)|31)\d&#123;3&#125;[0-9Xx]&#x27;</span>))</span><br></pre></td></tr></table></figure>
+        </div>
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2021/04/28/Database-experiment-2/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">数据库实验（二）数据查询</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/04/05/python-experiment-14/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Python 实验十四 网络爬虫基础（1）</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div id="gitalk-container"></div>
+    <script data-pjax
+            src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+    <script data-pjax>
+
+        function loadGitalk() {
+            let __gitalk__pathname = decodeURI(location.pathname);
+            const __gitalk__pathnameLength = __gitalk__pathname.length;
+            const __gitalk__pathnameMaxLength = 50;
+            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
+                __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
+            }
+
+            try {
+                Gitalk && new Gitalk({
+                    clientID: 'adbde3411133d5bcc532',
+                    clientSecret: 'e52fef77f830f9199ad13341637244bfcfd05ef5',
+                    repo: 'comment-respository',
+                    owner: 'kunkunyy',
+                    admin: ['kunkunyy'],
+                    id: __gitalk__pathname,
+                    language: 'zh-CN'
+                }).render('gitalk-container');
+
+            } catch (e) {
+                window.Gitalk = null;
+            }
+        }
+
+        if ('true') {
+            const loadGitalkTimeout = setTimeout(() => {
+                loadGitalk();
+                clearTimeout(loadGitalkTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadGitalk);
+        }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>&nbsp;-&nbsp;
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">诺风吟/姚永坤</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.1</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">实验类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84"><span class="nav-number">2.</span> <span class="nav-text">实验目的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E5%86%85%E5%AE%B9"><span class="nav-number">3.</span> <span class="nav-text">实验内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4"><span class="nav-number">4.</span> <span class="nav-text">实验步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%99%BB%E5%BD%95%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">4.1.</span> <span class="nav-text">登录数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2%E5%BB%BA%E8%A1%A8"><span class="nav-number">4.2.</span> <span class="nav-text">图形化界面建表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%EF%BC%9A%E6%89%93%E5%BC%80tables%E6%96%87%E4%BB%B6%E5%A4%B9%E3%80%82%E5%BB%BA%E7%AB%8B%E4%BB%A5%E4%B8%8B%E5%90%84%E5%85%B3%E7%B3%BB%EF%BC%9A"><span class="nav-number">4.3.</span> <span class="nav-text">建立数据库表：打开tables文件夹。建立以下各关系：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8SQL%E8%AF%AD%E5%8F%A5%E7%BB%83%E4%B9%A0%E8%A1%A8%E7%9A%84%E5%88%9B%E5%BB%BA%E3%80%81%E5%88%A0%E9%99%A4%E3%80%81%E4%BF%AE%E6%94%B9%E6%93%8D%E4%BD%9C"><span class="nav-number">4.4.</span> <span class="nav-text">使用SQL语句练习表的创建、删除、修改操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%95%E6%A0%B9%E6%8D%AE%E4%B8%8B%E9%9D%A2%E7%9A%84%E5%AE%8C%E6%95%B4%E6%80%A7%E7%BA%A6%E6%9D%9F%E8%A6%81%E6%B1%82%EF%BC%8C%E7%94%A8SQL%E5%AF%B9%E4%B8%8A%E9%9D%A2%E5%B7%B2%E7%BB%8F%E5%BB%BA%E7%AB%8B%E5%A5%BD%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E8%BF%9B%E8%A1%8C%E5%AE%8C%E6%95%B4%E6%80%A7%E7%BA%A6%E6%9D%9F%E5%AE%9A%E4%B9%89%E3%80%82"><span class="nav-number">4.5.</span> <span class="nav-text">试根据下面的完整性约束要求，用SQL对上面已经建立好的数据库表进行完整性约束定义。</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+    <script src="/js/local-search.js"></script>
+
+
+
+    <script src="/js/code-copy.js"></script>
+
+
+
+    <script src="/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="/js/left-side-toggle.js"></script><script src="/js/libs/anime.min.js"></script><script src="/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

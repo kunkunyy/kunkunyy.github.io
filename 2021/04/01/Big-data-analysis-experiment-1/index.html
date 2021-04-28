@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="诺风吟/姚永坤">
+    
+    <title>
+        
+            大数据分析实验（一） |
+        
+        猫猫头-kunkun
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/blog.png">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.png","favicon":"/images/blog.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"欢迎进入猫猫头的代码世界."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.1"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="姚永坤的小窝" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                猫猫头-kunkun
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">大数据分析实验（一）</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">诺风吟/姚永坤</span>
+                        
+                            <span class="author-label">Lv3</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-04-01 21:18:27
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/experiment/">experiment</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/big-data-analysis-experiment/">big data analysis experiment</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/experiment/">experiment</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>2k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>7 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="Python-快速开发"><a href="#Python-快速开发" class="headerlink" title="Python 快速开发"></a>Python 快速开发</h1><h2 id="实验目的和要求"><a href="#实验目的和要求" class="headerlink" title="实验目的和要求"></a>实验目的和要求</h2><ul>
+<li>熟悉 Python 开发环境；</li>
+<li>掌握项目和文件的建立；</li>
+<li>掌握 Python 的基本语法；</li>
+</ul>
+<h2 id="实验内容和分析"><a href="#实验内容和分析" class="headerlink" title="实验内容和分析"></a>实验内容和分析</h2><h3 id="题目一：自定义函数，设置固定次数的登陆"><a href="#题目一：自定义函数，设置固定次数的登陆" class="headerlink" title="题目一：自定义函数，设置固定次数的登陆"></a>题目一：自定义函数，设置固定次数的登陆</h3><h4 id="题目内容"><a href="#题目内容" class="headerlink" title="题目内容"></a>题目内容</h4><ul>
+<li>由键盘输入密码；</li>
+<li>若密码正确则屏幕显示：“Login success!”</li>
+<li>若密码错误则显示：“Wrong password or invalid input”，并显示剩余输入机会次数；</li>
+<li>共 3 次机会，用完则屏幕显示：“Your account has been suspended”，并退出程序。</li>
+</ul>
+<h4 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h4><p>① 首先创建一个文件模拟数据库用于存储用户的账户和密码<br>② 通过读取用户的输入来和文件中的账户密码进行比较<br>③ 如果存在则显示登陆成功，否则显示登陆失败<br>④ 定义一个变量用于存储用户失败次数，当失败次数大于3后，显示账户已被锁定然后结束程序。</p>
+<h4 id="实验设计"><a href="#实验设计" class="headerlink" title="实验设计"></a>实验设计</h4><p>① 定义一个函数其参数为用户输入的用户名和密码，该函数将数据库文件打开然后按照存储形式进行比较，如果存在就返回True否则返回False<br>② 主函数定义变量frequency用于标记用户登陆失败次数<br>③ 利用while语句实现失败重新登陆这一过程；当匹配成功跳出循环，当超过三次也跳出循环结束程序。</p>
+<h4 id="考察知识"><a href="#考察知识" class="headerlink" title="考察知识"></a>考察知识</h4><ul>
+<li>函数定义</li>
+<li>文件操作</li>
+<li>while语句</li>
+</ul>
+<h4 id="实验代码"><a href="#实验代码" class="headerlink" title="实验代码"></a>实验代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#定义账号密码文件</span></span><br><span class="line"><span class="comment">#读取文件，验证用户输入的账号密码是否在文件内</span></span><br><span class="line"><span class="comment">#存在返回true，不存在返回false</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Login_authentication</span>(<span class="params">user, pwd</span>):</span></span><br><span class="line">    f = <span class="built_in">open</span>(<span class="string">&quot;information.txt&quot;</span>, mode=<span class="string">&quot;r&quot;</span>, encoding=<span class="string">&quot;UTF-8&quot;</span>)</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">        <span class="comment">#按照你在文件中对字符串的存储方式来进行字符串比较</span></span><br><span class="line">        <span class="keyword">if</span> line.strip() == user + <span class="string">&quot;-&quot;</span> + pwd:</span><br><span class="line">            f.close()</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        f.close()</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"><span class="comment">#存储错误次数</span></span><br><span class="line">frequency = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> frequency &lt; <span class="number">3</span>:</span><br><span class="line">    <span class="comment">#读取用户输入调用验证函数</span></span><br><span class="line">    user_name = <span class="built_in">input</span>(<span class="string">&quot;Please enter user name：&quot;</span>)</span><br><span class="line">    user_password = <span class="built_in">input</span>(<span class="string">&quot;Please enter user password:&quot;</span>)</span><br><span class="line">    ret = Login_authentication(user_name,user_password)</span><br><span class="line">    <span class="keyword">if</span> ret:</span><br><span class="line">        print(<span class="string">&quot;Login success!&quot;</span>)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        frequency += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> frequency == <span class="number">3</span>:</span><br><span class="line">            print(<span class="string">&quot;Your account has been suspended&quot;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">&quot;Wrong password or invalid input,remaining times:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(<span class="number">3</span>-frequency))</span><br><span class="line">            print(end=<span class="string">&quot;\n&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h4><ul>
+<li>运行结果：<img lazyload src="/images/loading.svg" data-src="/2021/04/01/Big-data-analysis-experiment-1/topic1.png" class title="# 结果"></li>
+<li>数据库文件：<img lazyload src="/images/loading.svg" data-src="/2021/04/01/Big-data-analysis-experiment-1/infor.png" class title="# 数据库"></li>
+</ul>
+<h3 id="题目二：自定义函数-将敏感词过滤后的文本写入指定位置的-txt"><a href="#题目二：自定义函数-将敏感词过滤后的文本写入指定位置的-txt" class="headerlink" title="题目二：自定义函数, 将敏感词过滤后的文本写入指定位置的 txt"></a>题目二：自定义函数, 将敏感词过滤后的文本写入指定位置的 txt</h3><h4 id="题目内容-1"><a href="#题目内容-1" class="headerlink" title="题目内容"></a>题目内容</h4><ul>
+<li>自定义函数 texcreat(name,text),将 text 写入“name.txt”文件中</li>
+<li>自定义函数 Repalce,将某些敏感词(比如“暴力”)替换成“**”</li>
+<li>自定义函数将敏感词过滤后的文本写入指定 txt 文档中。</li>
+</ul>
+<h4 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h4><p>① 创建一个文件用于存储定义敏感词；<br>② 将用户输入的一句话作为参数传到敏感词过滤函数当中；<br>③ 遍历该函数通过敏感词读取函数返回的由敏感词组成的列表比较该句话中是否存在敏感词，如果存在则将对应敏感词的字符长度存储下来然后用*来替代；<br>④ 最后再将过滤完成的句子存放到以用户输入的文件名而创建的文件当中。</p>
+<h4 id="实验设计-1"><a href="#实验设计-1" class="headerlink" title="实验设计"></a>实验设计</h4><p>① 创建一个存放敏感词的文件sensitive_word，输入一些敏感词存入到里面；<br>② 定义一个函数read_sensitive_word函数用于读取文件中的敏感词然后将其存放在列表中，将存储敏感词的列表当作值进行返回；<br>③ 创建一个函数texcreat用于接收用户输入的文件名然后创建这个文件，并将过滤敏感词后的句子存到该文件中；<br>④ 定义一个函数Replace用于过滤敏感词；<br>⑤ 主函数通过接受用户输入，先后调用过滤函数、读取敏感词函数、创建文件函数，然后结束程序。</p>
+<h4 id="考察知识-1"><a href="#考察知识-1" class="headerlink" title="考察知识"></a>考察知识</h4><ul>
+<li>函数</li>
+<li>文件操作</li>
+<li>字符串操作</li>
+</ul>
+<h4 id="实验代码-1"><a href="#实验代码-1" class="headerlink" title="实验代码"></a>实验代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#读取敏感词语文件</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_sensitive_word</span>():</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;sensitive_word.txt&#x27;</span>,<span class="string">&#x27;r&#x27;</span>,encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> file_to_read:</span><br><span class="line">        lines = <span class="built_in">list</span>()</span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> file_to_read.readlines():</span><br><span class="line">            <span class="keyword">if</span> line <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                <span class="comment">#去除字符串前后的空格，然后将字符串写入列表中</span></span><br><span class="line">                lines.append(line.strip(<span class="string">&#x27;\n&#x27;</span>))</span><br><span class="line">    <span class="keyword">return</span> lines</span><br><span class="line"><span class="comment">#创建文件，将过滤后的内容写入</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">texcreat</span>(<span class="params">name,text</span>):</span></span><br><span class="line">    file = <span class="built_in">open</span>(name+<span class="string">&#x27;.txt&#x27;</span>,<span class="string">&#x27;w&#x27;</span>,encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">    file.write(text)</span><br><span class="line">    file.close()</span><br><span class="line"><span class="comment">#过滤敏感词</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Replace</span>(<span class="params">word</span>):</span></span><br><span class="line">    sensitive_word = read_sensitive_word()</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> sensitive_word:</span><br><span class="line">        <span class="keyword">if</span> line <span class="keyword">in</span> word:</span><br><span class="line">            <span class="comment">#获取对应敏感词长度</span></span><br><span class="line">            word_length = <span class="built_in">len</span>(line)</span><br><span class="line">            <span class="comment">#将敏感词进行替换</span></span><br><span class="line">            word = word.replace(line, <span class="string">&#x27;*&#x27;</span> * word_length)</span><br><span class="line">    <span class="keyword">return</span> word</span><br><span class="line">name = <span class="built_in">input</span>(<span class="string">&quot;请输入文件名：&quot;</span>)</span><br><span class="line">sentence = <span class="built_in">input</span>(<span class="string">&quot;请输入你想说的话：&quot;</span>)</span><br><span class="line">texcreat(name,Replace(sentence))</span><br></pre></td></tr></table></figure>
+
+<h4 id="实验结果-1"><a href="#实验结果-1" class="headerlink" title="实验结果"></a>实验结果</h4><ul>
+<li>运行结果：<img lazyload src="/images/loading.svg" data-src="/2021/04/01/Big-data-analysis-experiment-1/topic2.png" class title="# 结果"></li>
+<li>敏感词文件：<img lazyload src="/images/loading.svg" data-src="/2021/04/01/Big-data-analysis-experiment-1/sensitive.png" class title="# 敏感词"></li>
+</ul>
+<h3 id="题目三：电子抽奖器模拟"><a href="#题目三：电子抽奖器模拟" class="headerlink" title="题目三：电子抽奖器模拟"></a>题目三：电子抽奖器模拟</h3><h4 id="题目内容-2"><a href="#题目内容-2" class="headerlink" title="题目内容"></a>题目内容</h4><p>&emsp;&emsp;商店街上新开了一家超市，经营各种生活用品、食品、电器等。经营者是一对年轻夫妇， 为了纪念开业，他们举行了为期一个周的抽奖活动，并到处广告宣传，说这次抽奖平均 100 人就能有 1 人获得一等奖。首次宣传，促销期间门庭若市。 但最近商业街一些老店主跑来告状，说那家店在抽奖促销期间每天客流明显超过 100 人，然而一周过去了，抽中开业纪念大奖的只有 5 个人。请你模拟一下电子抽奖器，分析一下一周 5 个人中奖是否正常？</p>
+<h4 id="解题思路-2"><a href="#解题思路-2" class="headerlink" title="解题思路"></a>解题思路</h4><p>① 利用random函数来随机生成数用于模拟中奖情况；<br>② 循环多次来代替随机抽样，最后以数值型呈现出最终概率。</p>
+<h4 id="实验设计-2"><a href="#实验设计-2" class="headerlink" title="实验设计"></a>实验设计</h4><p>① 定义一个“抽奖函数”利用random库中的randint方法在0-9之间随机生成一个数，当数小于1时为真，大于1时为假，用于实现中奖概率为1%的条件；<br>② 在主函数中利用for循环循环多次实现模拟情况然后每次循环都调用“抽奖函数”，以其返回值作为判断依据然后统计最终的中奖次数。</p>
+<h4 id="考察知识-2"><a href="#考察知识-2" class="headerlink" title="考察知识"></a>考察知识</h4><ul>
+<li>函数</li>
+<li>random库</li>
+</ul>
+<h4 id="实验代码-2"><a href="#实验代码-2" class="headerlink" title="实验代码"></a>实验代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="comment"># 判断中奖函数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">lottery</span>():</span></span><br><span class="line">    flag = random.randint(<span class="number">0</span>, <span class="number">9</span>)</span><br><span class="line">    <span class="keyword">if</span> flag &lt; <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># 中奖次数</span></span><br><span class="line">    a = <span class="number">0</span></span><br><span class="line">    <span class="comment"># 没有中奖次数</span></span><br><span class="line">    b = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1000000</span>):</span><br><span class="line">        <span class="keyword">if</span> (lottery()):</span><br><span class="line">            a += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            b += <span class="number">1</span></span><br><span class="line">print(<span class="string">&#x27;共计中奖：&#x27;</span>, a, <span class="string">&#x27;，未中奖：&#x27;</span>, b)</span><br></pre></td></tr></table></figure>
+
+<h4 id="实验结果-2"><a href="#实验结果-2" class="headerlink" title="实验结果"></a>实验结果</h4><ul>
+<li>运行结果：<img lazyload src="/images/loading.svg" data-src="/2021/04/01/Big-data-analysis-experiment-1/topic3.png" class title="# 结果"></li>
+</ul>
+<h3 id="题目四：小说《Walden》单词词频统计"><a href="#题目四：小说《Walden》单词词频统计" class="headerlink" title="题目四：小说《Walden》单词词频统计"></a>题目四：小说《Walden》单词词频统计</h3><h4 id="题目内容-3"><a href="#题目内容-3" class="headerlink" title="题目内容"></a>题目内容</h4><p>&emsp;&emsp;Walden 中文译名《瓦尔登湖》，是美国作家梭罗独居瓦尔登湖畔的记录，描绘了他两年多时间里的所见、所闻和所思。该书崇尚简朴生活，热爱大自然的风光，内容丰厚，意义深远，语言生动。请用 Python 统计小说 Walden 中各单词出现的频次，并按频次由高到低排序。</p>
+<h4 id="解题思路-3"><a href="#解题思路-3" class="headerlink" title="解题思路"></a>解题思路</h4><p>① 读取文件；<br>② 为了避免因为大小写情况导致统计出错，先将所有大写字母转为小写字母；<br>③ 截取字符串，然后将单词和出现次数以键值对的形式存储在字典中然后输出。</p>
+<h4 id="考察知识-3"><a href="#考察知识-3" class="headerlink" title="考察知识"></a>考察知识</h4><ul>
+<li>字符串</li>
+<li>文件操作</li>
+<li>字典</li>
+</ul>
+<h4 id="实验代码-3"><a href="#实验代码-3" class="headerlink" title="实验代码"></a>实验代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="comment">#读取文件</span></span><br><span class="line">file = <span class="built_in">open</span>(<span class="string">&#x27;Walden.txt&#x27;</span>,<span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">text = file.read()</span><br><span class="line">file.close()</span><br><span class="line"><span class="comment">#将所有英文字母变成小写</span></span><br><span class="line">text = text.lower()</span><br><span class="line"><span class="comment">#使用正则表达式用空格替换标点符号</span></span><br><span class="line">text = re.sub(<span class="string">&#x27;[,.?:;&quot;\&#x27;]&#x27;</span>,<span class="string">&#x27;&#x27;</span>,text)</span><br><span class="line"><span class="comment">#以空格为分隔符截取字符串</span></span><br><span class="line">words = text.split(<span class="string">&quot; &quot;</span>)</span><br><span class="line"><span class="comment">#创建统计单词的字典</span></span><br><span class="line">word_sq = &#123;&#125;</span><br><span class="line"><span class="comment">#统计单词出现个数存入字典中</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> words:</span><br><span class="line">    <span class="keyword">if</span> i <span class="keyword">not</span> <span class="keyword">in</span> word_sq.keys():</span><br><span class="line">        word_sq[i] = <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        word_sq[i] += <span class="number">1</span></span><br><span class="line"><span class="comment">#按照字典的值进行排序</span></span><br><span class="line">res = <span class="built_in">sorted</span>(word_sq.items(),key=<span class="keyword">lambda</span> x:x[<span class="number">1</span>], reverse=<span class="literal">True</span>)</span><br><span class="line">print(<span class="string">&quot;单词 出现次数&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> res:</span><br><span class="line">    print(i[<span class="number">0</span>],i[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+
+<h4 id="实验结果-3"><a href="#实验结果-3" class="headerlink" title="实验结果"></a>实验结果</h4><ul>
+<li>运行结果：<img lazyload src="/images/loading.svg" data-src="/2021/04/01/Big-data-analysis-experiment-1/topic4.png" class title="# 结果"></li>
+</ul>
+
+        </div>
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2021/04/03/python-study-notes-5/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Python学习笔记（五）</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/03/27/python-study-notes-4/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Python学习笔记（四）</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div id="gitalk-container"></div>
+    <script data-pjax
+            src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+    <script data-pjax>
+
+        function loadGitalk() {
+            let __gitalk__pathname = decodeURI(location.pathname);
+            const __gitalk__pathnameLength = __gitalk__pathname.length;
+            const __gitalk__pathnameMaxLength = 50;
+            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
+                __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
+            }
+
+            try {
+                Gitalk && new Gitalk({
+                    clientID: 'adbde3411133d5bcc532',
+                    clientSecret: 'e52fef77f830f9199ad13341637244bfcfd05ef5',
+                    repo: 'comment-respository',
+                    owner: 'kunkunyy',
+                    admin: ['kunkunyy'],
+                    id: __gitalk__pathname,
+                    language: 'zh-CN'
+                }).render('gitalk-container');
+
+            } catch (e) {
+                window.Gitalk = null;
+            }
+        }
+
+        if ('true') {
+            const loadGitalkTimeout = setTimeout(() => {
+                loadGitalk();
+                clearTimeout(loadGitalkTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadGitalk);
+        }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>&nbsp;-&nbsp;
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">诺风吟/姚永坤</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.1</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%8F%91"><span class="nav-number">1.</span> <span class="nav-text">Python 快速开发</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84%E5%92%8C%E8%A6%81%E6%B1%82"><span class="nav-number">1.1.</span> <span class="nav-text">实验目的和要求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E5%86%85%E5%AE%B9%E5%92%8C%E5%88%86%E6%9E%90"><span class="nav-number">1.2.</span> <span class="nav-text">实验内容和分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E4%B8%80%EF%BC%9A%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0%EF%BC%8C%E8%AE%BE%E7%BD%AE%E5%9B%BA%E5%AE%9A%E6%AC%A1%E6%95%B0%E7%9A%84%E7%99%BB%E9%99%86"><span class="nav-number">1.2.1.</span> <span class="nav-text">题目一：自定义函数，设置固定次数的登陆</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E5%86%85%E5%AE%B9"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">题目内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E8%AE%BE%E8%AE%A1"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">实验设计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%80%83%E5%AF%9F%E7%9F%A5%E8%AF%86"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">考察知识</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E4%BB%A3%E7%A0%81"><span class="nav-number">1.2.1.5.</span> <span class="nav-text">实验代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="nav-number">1.2.1.6.</span> <span class="nav-text">实验结果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E4%BA%8C%EF%BC%9A%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0-%E5%B0%86%E6%95%8F%E6%84%9F%E8%AF%8D%E8%BF%87%E6%BB%A4%E5%90%8E%E7%9A%84%E6%96%87%E6%9C%AC%E5%86%99%E5%85%A5%E6%8C%87%E5%AE%9A%E4%BD%8D%E7%BD%AE%E7%9A%84-txt"><span class="nav-number">1.2.2.</span> <span class="nav-text">题目二：自定义函数, 将敏感词过滤后的文本写入指定位置的 txt</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E5%86%85%E5%AE%B9-1"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">题目内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF-1"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E8%AE%BE%E8%AE%A1-1"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">实验设计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%80%83%E5%AF%9F%E7%9F%A5%E8%AF%86-1"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">考察知识</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E4%BB%A3%E7%A0%81-1"><span class="nav-number">1.2.2.5.</span> <span class="nav-text">实验代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C-1"><span class="nav-number">1.2.2.6.</span> <span class="nav-text">实验结果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E4%B8%89%EF%BC%9A%E7%94%B5%E5%AD%90%E6%8A%BD%E5%A5%96%E5%99%A8%E6%A8%A1%E6%8B%9F"><span class="nav-number">1.2.3.</span> <span class="nav-text">题目三：电子抽奖器模拟</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E5%86%85%E5%AE%B9-2"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">题目内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF-2"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E8%AE%BE%E8%AE%A1-2"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">实验设计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%80%83%E5%AF%9F%E7%9F%A5%E8%AF%86-2"><span class="nav-number">1.2.3.4.</span> <span class="nav-text">考察知识</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E4%BB%A3%E7%A0%81-2"><span class="nav-number">1.2.3.5.</span> <span class="nav-text">实验代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C-2"><span class="nav-number">1.2.3.6.</span> <span class="nav-text">实验结果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E5%9B%9B%EF%BC%9A%E5%B0%8F%E8%AF%B4%E3%80%8AWalden%E3%80%8B%E5%8D%95%E8%AF%8D%E8%AF%8D%E9%A2%91%E7%BB%9F%E8%AE%A1"><span class="nav-number">1.2.4.</span> <span class="nav-text">题目四：小说《Walden》单词词频统计</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E5%86%85%E5%AE%B9-3"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">题目内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF-3"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%80%83%E5%AF%9F%E7%9F%A5%E8%AF%86-3"><span class="nav-number">1.2.4.3.</span> <span class="nav-text">考察知识</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E4%BB%A3%E7%A0%81-3"><span class="nav-number">1.2.4.4.</span> <span class="nav-text">实验代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C-3"><span class="nav-number">1.2.4.5.</span> <span class="nav-text">实验结果</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+    <script src="/js/local-search.js"></script>
+
+
+
+    <script src="/js/code-copy.js"></script>
+
+
+
+    <script src="/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="/js/left-side-toggle.js"></script><script src="/js/libs/anime.min.js"></script><script src="/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
