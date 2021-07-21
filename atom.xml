@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-07-20T02:03:34.476Z</updated>
+  <updated>2021-07-20T02:56:26.068Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,19 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>js-1</title>
+    <link href="http://example.com/2021/07/20/js-1/"/>
+    <id>http://example.com/2021/07/20/js-1/</id>
+    <published>2021-07-20T02:56:26.000Z</published>
+    <updated>2021-07-20T02:56:26.068Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>TCP和UDP</title>
@@ -521,32 +534,6 @@
       
       
     <summary type="html">&lt;h1 id=&quot;实验目的&quot;&gt;&lt;a href=&quot;#实验目的&quot; class=&quot;headerlink&quot; title=&quot;实验目的&quot;&gt;&lt;/a&gt;实验目的&lt;/h1&gt;&lt;p&gt;1、掌握程序的单分支结构&lt;br&gt;2、掌握程序的双分支结构&lt;br&gt;3、掌握程序的多分支结构&lt;br&gt;4、掌握 if 的嵌套&lt;/p</summary>
-      
-    
-    
-    
-    <category term="experiment" scheme="http://example.com/categories/experiment/"/>
-    
-    
-    <category term="experiment" scheme="http://example.com/tags/experiment/"/>
-    
-    <category term="python-experiment" scheme="http://example.com/tags/python-experiment/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python 实验二 字符串及基本数据类型操作</title>
-    <link href="http://example.com/2021/04/05/python-experiment-2/"/>
-    <id>http://example.com/2021/04/05/python-experiment-2/</id>
-    <published>2021-04-05T09:26:04.000Z</published>
-    <updated>2021-04-05T10:07:40.433Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h1><p>1．掌握字符串编码、索引方式<br>2．掌握字符串的操作<br>3．掌握字符串格式化<br>4．掌握基本数据类型的运算操作</p><h1 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h1><h2 id="练习一"><a href="#练习一" class="headerlink" title="练习一"></a>练习一</h2><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>完成以下代码练习，熟悉字符串的相关使用。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">略</span><br></pre></td></tr></table></figure><h2 id="练习二"><a href="#练习二" class="headerlink" title="练习二"></a>练习二</h2><h3 id="题目-1"><a href="#题目-1" class="headerlink" title="题目"></a>题目</h3><p>输出由任意字符串堆积的 10 行等腰三角形。其中，str.center()方法用于字符串两边填充：str.rjust(width[,fillchar])方法用于字符串右填充。</p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">width = <span class="number">2</span>*<span class="number">10</span>-<span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">11</span>):</span><br><span class="line">    <span class="built_in">str</span> = <span class="string">&#x27;*&#x27;</span>*(<span class="number">2</span>*i-<span class="number">1</span>)</span><br><span class="line">    print(<span class="built_in">str</span>.center(width,<span class="string">&#x27; &#x27;</span>))</span><br></pre></td></tr></table></figure><h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h3><p>￼<img lazyload src="/images/loading.svg" data-src="https://img-blog.csdnimg.cn/20210112003942446.png" alt="练习二"></p><h2 id="练习三"><a href="#练习三" class="headerlink" title="练习三"></a>练习三</h2><h3 id="题目-2"><a href="#题目-2" class="headerlink" title="题目"></a>题目</h3><p>能力值的计算：一年 365 天，以第 1 天的能力值为基数，记为 1.0，当每天好好学习时能力值相比前一天提高 1‰，当没有学习时由于遗忘等原因能力值相比前一天下降 1‰，完成下列能力值的计算：<br>(1) 每天努力和每天放任，一年下来的能力值分别多少？<br>(2) 一周 5 个工作日，如果每个工作日都好好学习，在周末放任一下，计算 1 年后的能力值。</p><h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#（1）</span></span><br><span class="line">dayfactor = <span class="number">0.0001</span></span><br><span class="line">dayup = <span class="built_in">pow</span>(<span class="number">1</span>+dayfactor,<span class="number">365</span>)</span><br><span class="line">daydown = <span class="built_in">pow</span>(<span class="number">1</span>-dayfactor,<span class="number">365</span>)</span><br><span class="line">print(<span class="string">&quot;每天努力：&#123;:.3f&#125;,每天放任：&#123;:.3f&#125;&quot;</span>.<span class="built_in">format</span>(dayup,daydown))</span><br><span class="line"></span><br><span class="line"><span class="comment">#（2）</span></span><br><span class="line">dayfactor = <span class="number">0.0001</span></span><br><span class="line">dayup = <span class="number">1.0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">365</span>):</span><br><span class="line">    <span class="keyword">if</span> i%<span class="number">7</span> <span class="keyword">in</span> [<span class="number">6</span>,<span class="number">0</span>]:</span><br><span class="line">        dayup = dayup*(<span class="number">1</span>-dayfactor)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        dayup = dayup*(<span class="number">1</span>+dayfactor)</span><br><span class="line">print(<span class="string">&quot;1年后的能力值&#123;:.2f&#125;&quot;</span>.<span class="built_in">format</span>(dayup))</span><br></pre></td></tr></table></figure><h2 id="练习四"><a href="#练习四" class="headerlink" title="练习四"></a>练习四</h2><h3 id="题目-3"><a href="#题目-3" class="headerlink" title="题目"></a>题目</h3><p>凯撒密码：设想在某些情况下给朋友传递字条信息，但又不希望传递中途被第三方看懂这些信息，因此需要对字条信息进行加密处理。凯撒密码采用了替换算法对信息中的每一个英文字符循环替换为该字符后面第三个字符，对应关系如下：<br>原文：A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br>密文：D E F G H I J K L M N O P Q R S T U V W X Y Z A B C<br>其它字符保持不变。<br>编程实现：程序接收用户输入待加密的信息，输出加密后的密文。</p><h4 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">enter_code = <span class="built_in">input</span>(<span class="string">&quot;请输入一段信息：&quot;</span>)</span><br><span class="line">encode = <span class="string">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</span></span><br><span class="line">output_code = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> c <span class="keyword">in</span> enter_code:</span><br><span class="line">    <span class="keyword">if</span> c <span class="keyword">in</span> enter_code:</span><br><span class="line">        index = encode.index(c)</span><br><span class="line">        index += <span class="number">3</span></span><br><span class="line">        index %= <span class="built_in">len</span>(encode)</span><br><span class="line">        output_code += encode[index]</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        output_code += c</span><br><span class="line">print(<span class="string">&quot;加密后的密文为：&quot;</span>,output_code)</span><br></pre></td></tr></table></figure><h2 id="练习五"><a href="#练习五" class="headerlink" title="练习五"></a>练习五</h2><h3 id="题目-4"><a href="#题目-4" class="headerlink" title="题目"></a>题目</h3><p>文本进度条：参考教材，使用字符串完成进度条的设计。要求：<br>(1) 显示当前进度的百分比；<br>(2) 动态刷新显示当前的进度。</p><h4 id="代码-3"><a href="#代码-3" class="headerlink" title="代码"></a>代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line">scale = <span class="number">50</span></span><br><span class="line">print(<span class="string">&quot;执行开始&quot;</span>.center(scale//<span class="number">2</span>,<span class="string">&#x27;-&#x27;</span>))</span><br><span class="line">t = time.clock()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(scale+<span class="number">1</span>):</span><br><span class="line">    a = <span class="string">&#x27;*&#x27;</span> * i</span><br><span class="line">    b = <span class="string">&#x27;.&#x27;</span> * (scale-i)</span><br><span class="line">    c = (i/scale) * <span class="number">100</span></span><br><span class="line">    t -= time.clock()</span><br><span class="line">    print(<span class="string">&quot;\r&#123;:^.3f&#125;%[&#123;&#125;-&gt;&#123;&#125;]&#123;:.2f&#125;s&quot;</span>.<span class="built_in">format</span>(c,a,b,-t),end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    time.sleep(<span class="number">0.05</span>)</span><br><span class="line">print(<span class="string">&quot;\n&quot;</span>+<span class="string">&quot;执行结束&quot;</span>.center(scale//<span class="number">2</span>,<span class="string">&#x27;-&#x27;</span>))</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;实验目的&quot;&gt;&lt;a href=&quot;#实验目的&quot; class=&quot;headerlink&quot; title=&quot;实验目的&quot;&gt;&lt;/a&gt;实验目的&lt;/h1&gt;&lt;p&gt;1．掌握字符串编码、索引方式&lt;br&gt;2．掌握字符串的操作&lt;br&gt;3．掌握字符串格式化&lt;br&gt;4．掌握基本数据类型的运算操作&lt;</summary>
       
     
     
