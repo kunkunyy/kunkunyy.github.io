@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="诺风吟/姚永坤">
+    
+    <title>
+        
+            JavaScript字符串操作方法 |
+        
+        猫猫头-kunkun
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/blog.png">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.png","favicon":"/images/blog.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"欢迎进入猫猫头的代码世界."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.1"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="姚永坤的小窝" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                猫猫头-kunkun
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">JavaScript字符串操作方法</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">诺风吟/姚永坤</span>
+                        
+                            <span class="author-label">Lv4</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-09-13 16:17:23
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        &gt; <a href="/categories/JS/">JS</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        &gt; <a href="/categories/%E5%AD%97%E7%AC%A6%E4%B8%B2/">字符串</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>2.2k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>9 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="字符串拼接方法"><a href="#字符串拼接方法" class="headerlink" title="字符串拼接方法"></a>字符串拼接方法</h1><ul>
+<li><strong>concat()用于将一个或多个字符串拼接成一个新字符串</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> stringValue = <span class="string">&quot;hello &quot;</span>; </span><br><span class="line"><span class="keyword">let</span> result = stringValue.concat(<span class="string">&quot;world&quot;</span>); </span><br><span class="line"><span class="built_in">console</span>.log(result); <span class="comment">// &quot;hello world&quot; </span></span><br><span class="line"><span class="built_in">console</span>.log(stringValue); <span class="comment">// &quot;hello&quot;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>可以接收任意多个参数</strong>，因此可以一次性拼接多个字符串；</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> stringValue = <span class="string">&quot;hello &quot;</span>; </span><br><span class="line"><span class="keyword">let</span> result = stringValue.concat(<span class="string">&quot;world&quot;</span>, <span class="string">&quot;!&quot;</span>); </span><br><span class="line"><span class="built_in">console</span>.log(result); <span class="comment">// &quot;hello world!&quot; </span></span><br><span class="line"><span class="built_in">console</span>.log(stringValue); <span class="comment">// &quot;hello&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="从字符串中提取子字符串的方法"><a href="#从字符串中提取子字符串的方法" class="headerlink" title="从字符串中提取子字符串的方法"></a>从字符串中提取子字符串的方法</h1><ul>
+<li><strong>slice()、substr()和 substring()；</strong></li>
+<li>这3个方法都返回调用它们的字符串的一个子字符串，而且都接收一或两个参数；</li>
+<li>不会修改调用它们的字符串，而只会返回提取到的原始新字符串值；</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">参数一</th>
+<th align="center">参数二</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">slice()</td>
+<td align="center">子字符串开始的位置</td>
+<td align="center">提取结束的位置</td>
+</tr>
+<tr>
+<td align="center">substr()</td>
+<td align="center">子字符串开始的位置</td>
+<td align="center">返回的子字符串数量</td>
+</tr>
+<tr>
+<td align="center">substring()</td>
+<td align="center">子字符串开始的位置</td>
+<td align="center">提取结束的位置</td>
+</tr>
+</tbody></table>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> stringValue = <span class="string">&quot;hello world&quot;</span>; </span><br><span class="line"><span class="built_in">console</span>.log(stringValue.slice(<span class="number">3</span>)); <span class="comment">// &quot;lo world&quot; </span></span><br><span class="line"><span class="built_in">console</span>.log(stringValue.substring(<span class="number">3</span>)); <span class="comment">// &quot;lo world&quot; </span></span><br><span class="line"><span class="built_in">console</span>.log(stringValue.substr(<span class="number">3</span>)); <span class="comment">// &quot;lo world&quot; </span></span><br><span class="line"><span class="built_in">console</span>.log(stringValue.slice(<span class="number">3</span>, <span class="number">7</span>)); <span class="comment">// &quot;lo w&quot; </span></span><br><span class="line"><span class="built_in">console</span>.log(stringValue.substring(<span class="number">3</span>,<span class="number">7</span>)); <span class="comment">// &quot;lo w&quot; </span></span><br><span class="line"><span class="built_in">console</span>.log(stringValue.substr(<span class="number">3</span>, <span class="number">7</span>)); <span class="comment">// &quot;lo worl&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>当某个参数是负值时：</strong><ul>
+<li>slice()方法<strong>将所有负值参数都当成字符串长度加上负参数值</strong>；</li>
+<li>substr()方法<strong>将第一个负参数值当成字符串长度加上该值，将第二个负参数值转换为 0</strong>；</li>
+<li>substring()方法会<strong>将所有负参数值都转换为 0</strong>;</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> stringValue = <span class="string">&quot;hello world&quot;</span>; </span><br><span class="line"><span class="built_in">console</span>.log(stringValue.slice(-<span class="number">3</span>)); <span class="comment">// &quot;rld&quot; </span></span><br><span class="line"><span class="built_in">console</span>.log(stringValue.substring(-<span class="number">3</span>)); <span class="comment">// &quot;hello world&quot; </span></span><br><span class="line"><span class="built_in">console</span>.log(stringValue.substr(-<span class="number">3</span>)); <span class="comment">// &quot;rld&quot; </span></span><br><span class="line"><span class="built_in">console</span>.log(stringValue.slice(<span class="number">3</span>, -<span class="number">4</span>)); <span class="comment">// &quot;lo w&quot; </span></span><br><span class="line"><span class="built_in">console</span>.log(stringValue.substring(<span class="number">3</span>, -<span class="number">4</span>)); <span class="comment">// &quot;hel&quot; </span></span><br><span class="line"><span class="built_in">console</span>.log(stringValue.substr(<span class="number">3</span>, -<span class="number">4</span>)); <span class="comment">// &quot;&quot; (empty string)</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="字符串位置方法"><a href="#字符串位置方法" class="headerlink" title="字符串位置方法"></a>字符串位置方法</h1><ul>
+<li>有两个方法用于在字符串中定位子字符串：<strong>indexOf()和 lastIndexOf()</strong></li>
+</ul>
+<img lazyload src="/images/loading.svg" data-src="/2021/09/13/js-13-1/p1.png" class title="# tu1">
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> stringValue = <span class="string">&quot;hello world&quot;</span>; </span><br><span class="line"><span class="built_in">console</span>.log(stringValue.indexOf(<span class="string">&quot;o&quot;</span>)); <span class="comment">// 4 </span></span><br><span class="line"><span class="built_in">console</span>.log(stringValue.lastIndexOf(<span class="string">&quot;o&quot;</span>)); <span class="comment">// 7</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>这两个方法都可以接收可选的第二个参数，表示开始搜索的位置；</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> stringValue = <span class="string">&quot;hello world&quot;</span>; </span><br><span class="line"><span class="built_in">console</span>.log(stringValue.indexOf(<span class="string">&quot;o&quot;</span>, <span class="number">6</span>)); <span class="comment">// 7 </span></span><br><span class="line"><span class="built_in">console</span>.log(stringValue.lastIndexOf(<span class="string">&quot;o&quot;</span>, <span class="number">6</span>)); <span class="comment">// 4</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="字符串包含方法"><a href="#字符串包含方法" class="headerlink" title="字符串包含方法"></a>字符串包含方法</h1><ul>
+<li>startsWith()、endsWith()和 includes()用于判断字符串中是否包含另一个字符串的方法</li>
+<li>startsWith()检查开始于索引 0 的匹配项</li>
+<li>endsWith()检查开始于索引(string.length - substring.length)的匹配项</li>
+<li>includes()检查整个字符串</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> message = <span class="string">&quot;foobarbaz&quot;</span>; </span><br><span class="line"><span class="built_in">console</span>.log(message.startsWith(<span class="string">&quot;foo&quot;</span>)); <span class="comment">// true </span></span><br><span class="line"><span class="built_in">console</span>.log(message.startsWith(<span class="string">&quot;bar&quot;</span>)); <span class="comment">// false </span></span><br><span class="line"><span class="built_in">console</span>.log(message.endsWith(<span class="string">&quot;baz&quot;</span>)); <span class="comment">// true </span></span><br><span class="line"><span class="built_in">console</span>.log(message.endsWith(<span class="string">&quot;bar&quot;</span>)); <span class="comment">// false </span></span><br><span class="line"><span class="built_in">console</span>.log(message.includes(<span class="string">&quot;bar&quot;</span>)); <span class="comment">// true </span></span><br><span class="line"><span class="built_in">console</span>.log(message.includes(<span class="string">&quot;qux&quot;</span>)); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>startsWith()和 includes()方法接收可选的第二个参数，表示开始搜索的位置；</li>
+<li>如果传入第二个参数，则意味着这两个方法会从指定位置向着字符串末尾搜索，忽略该位置之前的所有字符</li>
+<li>endsWith()方法接收可选的第二个参数，表示应该当作字符串末尾的位置。如果不提供这个参数，那么默认就是字符串长度。如果提供这个参数，那么就好像字符串只有那么多字符一样</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> message = <span class="string">&quot;foobarbaz&quot;</span>; </span><br><span class="line"><span class="built_in">console</span>.log(message.startsWith(<span class="string">&quot;foo&quot;</span>)); <span class="comment">// true </span></span><br><span class="line"><span class="built_in">console</span>.log(message.startsWith(<span class="string">&quot;foo&quot;</span>, <span class="number">1</span>)); <span class="comment">// false </span></span><br><span class="line"><span class="built_in">console</span>.log(message.includes(<span class="string">&quot;bar&quot;</span>)); <span class="comment">// true </span></span><br><span class="line"><span class="built_in">console</span>.log(message.includes(<span class="string">&quot;bar&quot;</span>, <span class="number">4</span>)); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(message.endsWith(<span class="string">&quot;bar&quot;</span>)); <span class="comment">// false </span></span><br><span class="line"><span class="built_in">console</span>.log(message.endsWith(<span class="string">&quot;bar&quot;</span>, <span class="number">6</span>)); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="trim-方法"><a href="#trim-方法" class="headerlink" title="trim()方法"></a>trim()方法</h1><ul>
+<li>这个方法会创建字符串的一个副本，删除前、后所有空格符，再返回结果；</li>
+<li>trimLeft()和 trimRight()方法分别用于从字符串开始和末尾清理空格符；</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> stringValue = <span class="string">&quot; hello world &quot;</span>; </span><br><span class="line"><span class="keyword">let</span> trimmedStringValue = stringValue.trim(); </span><br><span class="line"><span class="built_in">console</span>.log(stringValue); <span class="comment">// &quot; hello world &quot; </span></span><br><span class="line"><span class="built_in">console</span>.log(trimmedStringValue); <span class="comment">// &quot;hello world&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="repeat-方法"><a href="#repeat-方法" class="headerlink" title="repeat() 方法"></a>repeat() 方法</h1><ul>
+<li>这个方法接收一个整数参数，表示要将字符串复制多少次，然后返回拼接所有副本后的结果；</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> stringValue = <span class="string">&quot;na &quot;</span>; </span><br><span class="line"><span class="built_in">console</span>.log(stringValue.repeat(<span class="number">16</span>) + <span class="string">&quot;batman&quot;</span>); </span><br><span class="line"><span class="comment">// na na na na na na na na na na na na na na na na batman</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="padStart-和-padEnd-方法"><a href="#padStart-和-padEnd-方法" class="headerlink" title="padStart() 和 padEnd() 方法"></a>padStart() 和 padEnd() 方法</h1><ul>
+<li>padStart()和 padEnd()方法会复制字符串，如果小于指定长度，则在相应一边填充字符，直至满足长度条件；</li>
+<li>这两个方法的第一个参数是长度，第二个参数是可选的填充字符串，默认为空格（U+0020）；</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> stringValue = <span class="string">&quot;foo&quot;</span>; </span><br><span class="line"><span class="built_in">console</span>.log(stringValue.padStart(<span class="number">6</span>)); <span class="comment">// &quot; foo&quot; </span></span><br><span class="line"><span class="built_in">console</span>.log(stringValue.padStart(<span class="number">9</span>, <span class="string">&quot;.&quot;</span>)); <span class="comment">// &quot;......foo&quot; </span></span><br><span class="line"><span class="built_in">console</span>.log(stringValue.padEnd(<span class="number">6</span>)); <span class="comment">// &quot;foo &quot; </span></span><br><span class="line"><span class="built_in">console</span>.log(stringValue.padEnd(<span class="number">9</span>, <span class="string">&quot;.&quot;</span>)); <span class="comment">// &quot;foo......&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>可选的第二个参数并不限于一个字符；</li>
+<li>如果提供了多个字符的字符串，则会将其拼接并截断以匹配<br>指定长度；</li>
+<li>如果长度小于或等于字符串长度，则会返回原始字符串；</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> stringValue = <span class="string">&quot;foo&quot;</span>; </span><br><span class="line"><span class="built_in">console</span>.log(stringValue.padStart(<span class="number">8</span>, <span class="string">&quot;bar&quot;</span>)); <span class="comment">// &quot;barbafoo&quot; </span></span><br><span class="line"><span class="built_in">console</span>.log(stringValue.padStart(<span class="number">2</span>)); <span class="comment">// &quot;foo&quot; </span></span><br><span class="line"><span class="built_in">console</span>.log(stringValue.padEnd(<span class="number">8</span>, <span class="string">&quot;bar&quot;</span>)); <span class="comment">// &quot;foobarba&quot; </span></span><br><span class="line"><span class="built_in">console</span>.log(stringValue.padEnd(<span class="number">2</span>)); <span class="comment">// &quot;foo&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="字符串迭代与解构"><a href="#字符串迭代与解构" class="headerlink" title="字符串迭代与解构"></a>字符串迭代与解构</h1><ul>
+<li>字符串的原型上暴露了一个**@@iterator方法**，表示可以迭代字符串的每个字符；</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> message = <span class="string">&quot;abc&quot;</span>; </span><br><span class="line"><span class="keyword">let</span> stringIterator = message[<span class="built_in">Symbol</span>.iterator](); </span><br><span class="line"><span class="built_in">console</span>.log(stringIterator.next()); <span class="comment">// &#123;value: &quot;a&quot;, done: false&#125; </span></span><br><span class="line"><span class="built_in">console</span>.log(stringIterator.next()); <span class="comment">// &#123;value: &quot;b&quot;, done: false&#125; </span></span><br><span class="line"><span class="built_in">console</span>.log(stringIterator.next()); <span class="comment">// &#123;value: &quot;c&quot;, done: false&#125; </span></span><br><span class="line"><span class="built_in">console</span>.log(stringIterator.next()); <span class="comment">// &#123;value: undefined, done: true&#125;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在 for-of 循环中可以通过这个迭代器按序访问每个字符</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> c <span class="keyword">of</span> <span class="string">&quot;abcde&quot;</span>) &#123; </span><br><span class="line"> <span class="built_in">console</span>.log(c); </span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">// a </span></span><br><span class="line"><span class="comment">// b </span></span><br><span class="line"><span class="comment">// c </span></span><br><span class="line"><span class="comment">// d </span></span><br><span class="line"><span class="comment">// e</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="字符串大小写转换"><a href="#字符串大小写转换" class="headerlink" title="字符串大小写转换"></a>字符串大小写转换</h1><ul>
+<li>toLowerCase()、toLocaleLowerCase()、toUpperCase()和toLocaleUpperCase()</li>
+<li>toLowerCase()和toUpperCase()方法是原来就有的方法；</li>
+<li>toLocaleLowerCase()和 toLocaleUpperCase()方法旨在基于特定地区实现；</li>
+</ul>
+<h1 id="字符串模式匹配方法"><a href="#字符串模式匹配方法" class="headerlink" title="字符串模式匹配方法"></a>字符串模式匹配方法</h1><ul>
+<li><strong>match()方法，这个方法本质上跟 RegExp 对象的 exec()方法相同；</strong></li>
+<li>match()方法接收一个参数，可以是一个正则表达式字符串，也可以是一个 RegExp 对象；</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> text = <span class="string">&quot;cat, bat, sat, fat&quot;</span>; </span><br><span class="line"><span class="keyword">let</span> pattern = <span class="regexp">/.at/</span>; </span><br><span class="line"><span class="comment">// 等价于 pattern.exec(text) </span></span><br><span class="line"><span class="keyword">let</span> matches = text.match(pattern); </span><br><span class="line"><span class="built_in">console</span>.log(matches.index); <span class="comment">// 0 </span></span><br><span class="line"><span class="built_in">console</span>.log(matches[<span class="number">0</span>]); <span class="comment">// &quot;cat&quot; </span></span><br><span class="line"><span class="built_in">console</span>.log(pattern.lastIndex); <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>search()方法：唯一的参数与 match()方法一样：正则表达式字符串或 RegExp 对象；</strong></li>
+<li>这个方法返回模式第一个匹配的位置索引，如果没找到则返回-1。</li>
+<li>search()始终从字符串开头向后匹配模式</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> text = <span class="string">&quot;cat, bat, sat, fat&quot;</span>; </span><br><span class="line"><span class="keyword">let</span> pos = text.search(<span class="regexp">/at/</span>); </span><br><span class="line"><span class="built_in">console</span>.log(pos); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>replace()方法：接收两个参数，第一个参数可以是一个 RegExp 对象或一个字符串（这个字符串不会转换为正则表达式），第二个参数可以是一个字符串或一个函数</strong></li>
+<li>如果第一个参数是字符串，那么只会替换第一个子字符串。</li>
+<li>要想替换所有子字符串，第一个参数必须为正则表达式并且带全局标记</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> text = <span class="string">&quot;cat, bat, sat, fat&quot;</span>; </span><br><span class="line"><span class="keyword">let</span> result = text.replace(<span class="string">&quot;at&quot;</span>, <span class="string">&quot;ond&quot;</span>); </span><br><span class="line"><span class="built_in">console</span>.log(result); <span class="comment">// &quot;cond, bat, sat, fat&quot; </span></span><br><span class="line">result = text.replace(<span class="regexp">/at/g</span>, <span class="string">&quot;ond&quot;</span>); </span><br><span class="line"><span class="built_in">console</span>.log(result); <span class="comment">// &quot;cond, bond, sond, fond&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>replace()的第二个参数可以是一个函数。</li>
+<li>在只有一个匹配项时，这个函数会收到 3 个参数：与整个模式匹配的字符串、匹配项在字符串中的开始位置，以及整个字符串；</li>
+<li>在有多个捕获组的情况下，每个匹配捕获组的字符串也会作为参数传给这个函数，但最后两个参数还是与整个模式匹配的开始位置和原始字符串；</li>
+<li>这个函数应该返回一个字符串，表示应该把匹配项替换成什么；</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">htmlEscape</span>(<span class="params">text</span>) </span>&#123; </span><br><span class="line">    <span class="keyword">return</span> text.replace(<span class="regexp">/[&lt;&gt;&quot;&amp;]/g</span>, <span class="function"><span class="keyword">function</span>(<span class="params">match, pos, originalText</span>) </span>&#123; </span><br><span class="line">    <span class="keyword">switch</span>(match) &#123; </span><br><span class="line">        <span class="keyword">case</span> <span class="string">&quot;&lt;&quot;</span>: </span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&amp;lt;&quot;</span>; </span><br><span class="line">        <span class="keyword">case</span> <span class="string">&quot;&gt;&quot;</span>: </span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&amp;gt;&quot;</span>; </span><br><span class="line">        <span class="keyword">case</span> <span class="string">&quot;&amp;&quot;</span>: </span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&amp;amp;&quot;</span>; </span><br><span class="line">        <span class="keyword">case</span> <span class="string">&quot;\&quot;&quot;</span>: </span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&amp;quot;&quot;</span>; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125;); </span><br><span class="line">&#125; </span><br><span class="line"><span class="built_in">console</span>.log(htmlEscape(<span class="string">&quot;&lt;p class=\&quot;greeting\&quot;&gt;Hello world!&lt;/p&gt;&quot;</span>)); </span><br><span class="line"><span class="comment">// &quot;&amp;lt;p class=&amp;quot;greeting&amp;quot;&amp;gt;Hello world!&lt;/p&gt;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="localeCompare-方法"><a href="#localeCompare-方法" class="headerlink" title="localeCompare()方法"></a>localeCompare()方法</h1><ul>
+<li>这个方法比较两个字符串，返回如下 3 个值中的一个；<ul>
+<li>如果按照字母表顺序，字符串应该排在字符串参数前头，则返回负值。（通常是-1，具体还要看与实际值相关的实现。）</li>
+<li>如果字符串与字符串参数相等，则返回 0。</li>
+<li>如果按照字母表顺序，字符串应该排在字符串参数后头，则返回正值。（通常是 1，具体还要看与实际值相关的实现。）</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> stringValue = <span class="string">&quot;yellow&quot;</span>; </span><br><span class="line"><span class="built_in">console</span>.log(stringValue.localeCompare(<span class="string">&quot;brick&quot;</span>)); <span class="comment">// 1 </span></span><br><span class="line"><span class="built_in">console</span>.log(stringValue.localeCompare(<span class="string">&quot;yellow&quot;</span>)); <span class="comment">// 0 </span></span><br><span class="line"><span class="built_in">console</span>.log(stringValue.localeCompare(<span class="string">&quot;zoo&quot;</span>)); <span class="comment">// -1</span></span><br></pre></td></tr></table></figure>
+        </div>
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2021/09/15/js-14-1/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">JavaScript——Global对象</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/09/08/js-15-1/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">JavaScript集合引用类型——Array</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div id="gitalk-container"></div>
+    <script data-pjax
+            src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+    <script data-pjax>
+
+        function loadGitalk() {
+            let __gitalk__pathname = decodeURI(location.pathname);
+            const __gitalk__pathnameLength = __gitalk__pathname.length;
+            const __gitalk__pathnameMaxLength = 50;
+            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
+                __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
+            }
+
+            try {
+                Gitalk && new Gitalk({
+                    clientID: 'adbde3411133d5bcc532',
+                    clientSecret: 'e52fef77f830f9199ad13341637244bfcfd05ef5',
+                    repo: 'comment-respository',
+                    owner: 'kunkunyy',
+                    admin: ['kunkunyy'],
+                    id: __gitalk__pathname,
+                    language: 'zh-CN'
+                }).render('gitalk-container');
+
+            } catch (e) {
+                window.Gitalk = null;
+            }
+        }
+
+        if ('true') {
+            const loadGitalkTimeout = setTimeout(() => {
+                loadGitalk();
+                clearTimeout(loadGitalkTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadGitalk);
+        }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>&nbsp;-&nbsp;
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">诺风吟/姚永坤</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.1</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">字符串拼接方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E6%8F%90%E5%8F%96%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">从字符串中提取子字符串的方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%BD%8D%E7%BD%AE%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">字符串位置方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%85%E5%90%AB%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">字符串包含方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#trim-%E6%96%B9%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">trim()方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#repeat-%E6%96%B9%E6%B3%95"><span class="nav-number">6.</span> <span class="nav-text">repeat() 方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#padStart-%E5%92%8C-padEnd-%E6%96%B9%E6%B3%95"><span class="nav-number">7.</span> <span class="nav-text">padStart() 和 padEnd() 方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BF%AD%E4%BB%A3%E4%B8%8E%E8%A7%A3%E6%9E%84"><span class="nav-number">8.</span> <span class="nav-text">字符串迭代与解构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%A7%E5%B0%8F%E5%86%99%E8%BD%AC%E6%8D%A2"><span class="nav-number">9.</span> <span class="nav-text">字符串大小写转换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E6%96%B9%E6%B3%95"><span class="nav-number">10.</span> <span class="nav-text">字符串模式匹配方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#localeCompare-%E6%96%B9%E6%B3%95"><span class="nav-number">11.</span> <span class="nav-text">localeCompare()方法</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+    <script src="/js/local-search.js"></script>
+
+
+
+    <script src="/js/code-copy.js"></script>
+
+
+
+    <script src="/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="/js/left-side-toggle.js"></script><script src="/js/libs/anime.min.js"></script><script src="/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
