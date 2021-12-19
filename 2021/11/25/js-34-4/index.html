@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="诺风吟/姚永坤">
+    
+    <title>
+        
+            JavaScript学习笔记——DOM类型（Text类型） |
+        
+        猫猫头-kunkun
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/blog.png">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.png","favicon":"/images/blog.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"欢迎进入猫猫头的代码世界."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.1"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="姚永坤的小窝" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                猫猫头-kunkun
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">JavaScript学习笔记——DOM类型（Text类型）</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">诺风吟/姚永坤</span>
+                        
+                            <span class="author-label">Lv5</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-11-25 23:14:56
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        &gt; <a href="/categories/JS/">JS</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        &gt; <a href="/categories/DOM/">DOM</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.2k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>4 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="Text类型"><a href="#Text类型" class="headerlink" title="Text类型"></a>Text类型</h1><ul>
+<li>Text节点<strong>由Text类型表示，包含按字面解释的纯文本，也可能包含转义后的 HTML字符，但不含HTML代码</strong>。</li>
+<li>Text类型的节点具有以下特征：<ul>
+<li>nodeType等于3；</li>
+<li>nodeName值为”#text “；</li>
+<li>nodevalue值为节点中包含的文本；</li>
+<li>parentNode值为Element对象；</li>
+<li>不支持子节点。</li>
+</ul>
+</li>
+<li>Text节点中包含的文本可以<strong>通过nodevalue属性</strong>访问，也可以通过data属性访问，这两个属性包含相同的值。</li>
+<li>修改nodevalue或data的值，也会在另一个属性反映出来。文本节点暴露了以下操作文本的方法:<ul>
+<li>appendData(text)，向节点末尾添加文本text；</li>
+<li>deleteData(offset，count)，从位置offset开始删除count个字符；</li>
+<li>insertData(offset，text)，在位置offset插人text；</li>
+<li>replaceData(offset，count，text)，用text替换从位置offset到offset+count的文本；</li>
+<li>splitText ( offset)，在位置offset将当前文本节点拆分为两个文本节点;</li>
+<li>substringData(offset，count)，提取从位置offset到offset+count的文本。</li>
+</ul>
+</li>
+<li>通过length属性获取文本节点中包含的字符数量。这个值等于nodeValue.length和data.length。</li>
+<li>默认情况下，包含文本内容的每个元素最多只能有一个文本节点。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 没有内容，因此没有文本节点 --&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line"><span class="comment">&lt;!-- 有空格，因此有一个文本节点 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span> <span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line"><span class="comment">&lt;!-- 有内容，因此有一个文本节点 --&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>Hello World!<span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 下列代码可以用来访问这个文本节点，同时修改它：</span></span><br><span class="line"><span class="keyword">let</span> textNode = div.firstChild; <span class="comment">// 或 div.childNodes[0] </span></span><br><span class="line">div.firstChild.nodeValue = <span class="string">&quot;Some other message&quot;</span>; </span><br><span class="line"><span class="comment">// 输出为&quot;Some &amp;lt;strong&amp;gt;other&amp;lt;/strong&amp;gt; message&quot; </span></span><br></pre></td></tr></table></figure>
+
+<h2 id="1、创建文本节点"><a href="#1、创建文本节点" class="headerlink" title="1、创建文本节点"></a>1、创建文本节点</h2><ul>
+<li>document.createTextNode()可以用来创建新文本节点，它接收一个参数，即要插入节点的文本。</li>
+<li>跟设置已有文本节点的值一样，这些要插入的文本也会应用HTML或XML编码。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> textNode = <span class="built_in">document</span>.createTextNode(<span class="string">&quot;&lt;strong&gt;Hello&lt;/strong&gt; world!&quot;</span>);</span><br></pre></td></tr></table></figure></li>
+<li>创建新文本节点后，其ownerDocument 属性会被设置为document。但在把这个节点添加到文档树之前，我们不会在浏览器中看到它。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">以下代码创建了一个&lt;div&gt;元素并给它添加了一段文本消息：</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">let</span> element = <span class="built_in">document</span>.createElement(<span class="string">&quot;div&quot;</span>); </span><br><span class="line">element.className = <span class="string">&quot;message&quot;</span>; </span><br><span class="line"><span class="keyword">let</span> textNode = <span class="built_in">document</span>.createTextNode(<span class="string">&quot;Hello world!&quot;</span>); </span><br><span class="line">element.appendChild(textNode); </span><br><span class="line"><span class="built_in">document</span>.body.appendChild(element);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">这个例子首先创建了一个&lt;div&gt;元素并给它添加了值为&quot;message&quot;的class属性，然后又创建了一个文本节点并添加到该元素。最后一步是把这个元素添加到文档的主体上，这样元素及其包含的文本会出现在浏览器中。</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>一般来说一个元素只包含一个文本子节点。不过，也可以让元素包含多个文本子节点，如下面的例子所示：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> element = <span class="built_in">document</span>.createElement(<span class="string">&quot;div&quot;</span>); </span><br><span class="line">element.className = <span class="string">&quot;message&quot;</span>; </span><br><span class="line"><span class="keyword">let</span> textNode = <span class="built_in">document</span>.createTextNode(<span class="string">&quot;Hello world!&quot;</span>); </span><br><span class="line">element.appendChild(textNode); </span><br><span class="line"><span class="keyword">let</span> anotherTextNode = <span class="built_in">document</span>.createTextNode(<span class="string">&quot;Yippee!&quot;</span>); </span><br><span class="line">element.appendChild(anotherTextNode); </span><br><span class="line"><span class="built_in">document</span>.body.appendChild(element);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在将一个文本节点作为另一个文本节点的同胞插入后，两个文本节点的文本之间不会包含空格。</li>
+</ul>
+<h2 id="2、规范化文本节点"><a href="#2、规范化文本节点" class="headerlink" title="2、规范化文本节点"></a>2、规范化文本节点</h2><ul>
+<li>DOM文档中的同胞文本节点可能导致困惑，因为一个文本节点足以表示一个文本字符串。同样，DOM文档中也经常会出现两个相邻文本节点。</li>
+<li>normalize()方法可以合并相邻的文本节点。<ul>
+<li>该方法是在Node类型中定义的。</li>
+<li>在<strong>包含两个或多个相邻文本节点的父节点</strong>上调用normalize()时，<strong>所有同胞文本节点会被合并为一个文本节点</strong>，这个<strong>文本节点的nodevalue就等于之前所有同胞节点nodevalue拼接在一起得到的字符串</strong>。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> element = <span class="built_in">document</span>.createElement(<span class="string">&quot;div&quot;</span>); </span><br><span class="line">element.className = <span class="string">&quot;message&quot;</span>; </span><br><span class="line"><span class="keyword">let</span> textNode = <span class="built_in">document</span>.createTextNode(<span class="string">&quot;Hello world!&quot;</span>); </span><br><span class="line">element.appendChild(textNode); </span><br><span class="line"><span class="keyword">let</span> anotherTextNode = <span class="built_in">document</span>.createTextNode(<span class="string">&quot;Yippee!&quot;</span>); </span><br><span class="line">element.appendChild(anotherTextNode); </span><br><span class="line"><span class="built_in">document</span>.body.appendChild(element); </span><br><span class="line">alert(element.childNodes.length); <span class="comment">// 2 </span></span><br><span class="line">element.normalize(); </span><br><span class="line">alert(element.childNodes.length); <span class="comment">// 1 </span></span><br><span class="line">alert(element.firstChild.nodeValue); <span class="comment">// &quot;Hello world!Yippee!&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3、拆分文本节点"><a href="#3、拆分文本节点" class="headerlink" title="3、拆分文本节点"></a>3、拆分文本节点</h2><ul>
+<li>splitText()：方法可以在指定的偏移位置拆分nodevalue，将一个文本节点拆分成两个文本节点。<ul>
+<li>拆分之后，原来的文本节点包含<strong>开头到偏移位置前</strong>的文本，新文本节点包含<strong>剩下的文本</strong>。</li>
+<li>方法返回<strong>新的文本节点</strong>，具有与原来的文本节点相同的parentNode。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> element = <span class="built_in">document</span>.createElement(<span class="string">&quot;div&quot;</span>); </span><br><span class="line">element.className = <span class="string">&quot;message&quot;</span>; </span><br><span class="line"><span class="keyword">let</span> textNode = <span class="built_in">document</span>.createTextNode(<span class="string">&quot;Hello world!&quot;</span>); </span><br><span class="line">element.appendChild(textNode); </span><br><span class="line"><span class="built_in">document</span>.body.appendChild(element); </span><br><span class="line"><span class="keyword">let</span> newNode = element.firstChild.splitText(<span class="number">5</span>); </span><br><span class="line">alert(element.firstChild.nodeValue); <span class="comment">// &quot;Hello&quot; </span></span><br><span class="line">alert(newNode.nodeValue); <span class="comment">// &quot; world!&quot; </span></span><br><span class="line">alert(element.childNodes.length); <span class="comment">// 2 </span></span><br></pre></td></tr></table></figure>
+        </div>
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2021/11/27/js-34-5/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">JavaScript学习笔记——DOM类型（Comment类型）</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/11/24/js-34-3/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">JavaScript学习笔记——DOM类型（Element类型）</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div id="gitalk-container"></div>
+    <script data-pjax
+            src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+    <script data-pjax>
+
+        function loadGitalk() {
+            let __gitalk__pathname = decodeURI(location.pathname);
+            const __gitalk__pathnameLength = __gitalk__pathname.length;
+            const __gitalk__pathnameMaxLength = 50;
+            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
+                __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
+            }
+
+            try {
+                Gitalk && new Gitalk({
+                    clientID: 'adbde3411133d5bcc532',
+                    clientSecret: 'e52fef77f830f9199ad13341637244bfcfd05ef5',
+                    repo: 'comment-respository',
+                    owner: 'kunkunyy',
+                    admin: ['kunkunyy'],
+                    id: __gitalk__pathname,
+                    language: 'zh-CN'
+                }).render('gitalk-container');
+
+            } catch (e) {
+                window.Gitalk = null;
+            }
+        }
+
+        if ('true') {
+            const loadGitalkTimeout = setTimeout(() => {
+                loadGitalk();
+                clearTimeout(loadGitalkTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadGitalk);
+        }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>&nbsp;-&nbsp;
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">诺风吟/姚永坤</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.1</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Text%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">Text类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E5%88%9B%E5%BB%BA%E6%96%87%E6%9C%AC%E8%8A%82%E7%82%B9"><span class="nav-number">1.1.</span> <span class="nav-text">1、创建文本节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E8%A7%84%E8%8C%83%E5%8C%96%E6%96%87%E6%9C%AC%E8%8A%82%E7%82%B9"><span class="nav-number">1.2.</span> <span class="nav-text">2、规范化文本节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E6%8B%86%E5%88%86%E6%96%87%E6%9C%AC%E8%8A%82%E7%82%B9"><span class="nav-number">1.3.</span> <span class="nav-text">3、拆分文本节点</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+    <script src="/js/local-search.js"></script>
+
+
+
+    <script src="/js/code-copy.js"></script>
+
+
+
+    <script src="/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="/js/left-side-toggle.js"></script><script src="/js/libs/anime.min.js"></script><script src="/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

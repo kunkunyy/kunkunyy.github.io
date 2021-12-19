@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="诺风吟/姚永坤">
+    
+    <title>
+        
+            JavaScript学习笔记（三十八）DOM扩展（二） |
+        
+        猫猫头-kunkun
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/blog.png">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.png","favicon":"/images/blog.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"欢迎进入猫猫头的代码世界."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.1"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="姚永坤的小窝" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                猫猫头-kunkun
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">JavaScript学习笔记（三十八）DOM扩展（二）</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">诺风吟/姚永坤</span>
+                        
+                            <span class="author-label">Lv5</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-12-01 13:00:30
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        &gt; <a href="/categories/JS/">JS</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        &gt; <a href="/categories/DOM/">DOM</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>2.7k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>11 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="HTML5"><a href="#HTML5" class="headerlink" title="HTML5"></a>HTML5</h1><ul>
+<li>HTML5规范包含了与标记相关的大量 JavaSeript API定义。其中有的API与DOM重合，定义了浏览器应该提供的DOM扩展。</li>
+</ul>
+<h2 id="一、CSS类扩展"><a href="#一、CSS类扩展" class="headerlink" title="一、CSS类扩展"></a>一、CSS类扩展</h2><h3 id="1、getElementByClassName"><a href="#1、getElementByClassName" class="headerlink" title="1、getElementByClassName()"></a>1、getElementByClassName()</h3><ul>
+<li><p>该方法暴露在document对象和所有HTML元素上。</p>
+<ul>
+<li>方法接收一个参数：包含一个或多个类名的字符串；</li>
+<li>返回类名中包含相应类的元素的NodeList；</li>
+<li>如果提供了多个类名，则顺序无关紧要。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 取得所有类名中包含&quot;username&quot;和&quot;current&quot;元素</span></span><br><span class="line"><span class="comment">// 这两个类名的顺序无关紧要</span></span><br><span class="line"><span class="keyword">let</span> allCurrentUsernames = <span class="built_in">document</span>.getElementsByClassName(<span class="string">&quot;username current&quot;</span>); </span><br><span class="line"><span class="comment">// 取得 ID 为&quot;myDiv&quot;的元素子树中所有包含&quot;selected&quot;类的元素</span></span><br><span class="line"><span class="keyword">let</span> selected = <span class="built_in">document</span>.getElementById(<span class="string">&quot;myDiv&quot;</span>).getElementsByClassName(<span class="string">&quot;selected&quot;</span>); </span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>在 document上调用getElementsByClassName()返回文档中所有匹配的元素，而在特定元素上调用getElementsByClassName()则返回该元素后代中匹配的元素。</p>
+</li>
+</ul>
+<h3 id="2、classList属性"><a href="#2、classList属性" class="headerlink" title="2、classList属性"></a>2、classList属性</h3><ul>
+<li>classList属性是为了更加方便的对于类名进行增删改查操作。<ul>
+<li>classList是一个新的集合类型DOMTokenList的实例。</li>
+<li>除开length属性，item()和中括号取值等操作外，还增加了以下方法：<ul>
+<li>add(value)：向类名列表中添加指定的字符串值value。如果这个值已经存在,则什么也不做。</li>
+<li>contains(value)：返回布尔值,表示给定的value是否存在。</li>
+<li>remove(value)：从类名列表中删除指定的字符串值value。</li>
+<li>toggle(value)：如果类名列表中已经存在指定的value，则删除；如果不存在，则添加。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 删除&quot;disabled&quot;类</span></span><br><span class="line">div.classList.remove(<span class="string">&quot;disabled&quot;</span>); </span><br><span class="line"><span class="comment">// 添加&quot;current&quot;类</span></span><br><span class="line">div.classList.add(<span class="string">&quot;current&quot;</span>);</span><br><span class="line"><span class="comment">// 切换&quot;user&quot;类</span></span><br><span class="line">div.classList.toggle(<span class="string">&quot;user&quot;</span>); </span><br><span class="line"><span class="comment">// 检测类名 </span></span><br><span class="line"><span class="keyword">if</span> (div.classList.contains(<span class="string">&quot;bd&quot;</span>) &amp;&amp; !div.classList.contains(<span class="string">&quot;disabled&quot;</span>))&#123; </span><br><span class="line"> <span class="comment">// 执行操作</span></span><br><span class="line">) </span><br><span class="line"><span class="comment">// 迭代类名</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> <span class="class"><span class="keyword">class</span> <span class="title">of</span> <span class="title">div</span>.<span class="title">classList</span>)</span>&#123; </span><br><span class="line">    doStuff(<span class="class"><span class="keyword">class</span>)</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>添加了classList属性之后，除非是完全删除或完全重写元素的class属性，否则className属性就用不到了。</li>
+</ul>
+<h2 id="二、焦点管理"><a href="#二、焦点管理" class="headerlink" title="二、焦点管理"></a>二、焦点管理</h2><ul>
+<li>HTML5增加了辅助DOM焦点管理的功能。首先是document.activeElement，始终包含当前拥有焦点的 DOM元素。</li>
+<li>页面加载时，可以通过用户输人(按Tab键或代码中使用focus()方法）让某个元素自动获得焦点。</li>
+<li>默认情况下，document.activeElement在页面刚加载完之后会设置为document.body。而在页面完全加载之前，document.activeElement的值为null。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> button = <span class="built_in">document</span>.getElementById(<span class="string">&quot;myButton&quot;</span>); </span><br><span class="line">button.focus(); </span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>.activeElement === button); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>document.hasFocus()方法，该方法返回布尔值，表示文档是否拥有焦点。</li>
+<li>确定文档是否获得了焦点，就可以帮助确定用户是否在操作页面。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> button = <span class="built_in">document</span>.getElementById(<span class="string">&quot;myButton&quot;</span>); </span><br><span class="line">button.focus(); </span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>.hasFocus()); <span class="comment">// true </span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>这对于保证 Web应用程序的无障碍使用是非常重要的。无障碍Web应用程序的一个重要方面就是焦点管理，而能够确定哪个元素当前拥有焦点（相比于之前的猜测）是一个很大的进步。</li>
+</ul>
+<h2 id="三、HTMLDocument扩展"><a href="#三、HTMLDocument扩展" class="headerlink" title="三、HTMLDocument扩展"></a>三、HTMLDocument扩展</h2><h3 id="1、readyState属性"><a href="#1、readyState属性" class="headerlink" title="1、readyState属性"></a>1、readyState属性</h3><ul>
+<li>document.readyState属性有两个可能的值：<ul>
+<li>loading：表示文档正在加载；</li>
+<li>complete：表示文档加载完成。</li>
+</ul>
+</li>
+<li>实际开发中，最好是把 document.readstate当成一个指示器，以判断文档是否加载完毕。</li>
+<li>通常要依赖onload事件处理程序设置一个标记，表示文档加载完了。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">document</span>.readyState == <span class="string">&quot;complete&quot;</span>)&#123; </span><br><span class="line">    <span class="comment">// 执行操作</span></span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<h3 id="2、compatMode属性"><a href="#2、compatMode属性" class="headerlink" title="2、compatMode属性"></a>2、compatMode属性</h3><ul>
+<li>这个属性唯一的任务是指示浏览器当前处于什么渲染模式。</li>
+<li>标准模式下document.compatMode的值是“CSSlCompat”。</li>
+<li>混杂模式下document.compatMode的值是“BlackCompat”。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">document</span>.compatMode == <span class="string">&quot;CSS1Compat&quot;</span>)&#123; </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;Standards mode&quot;</span>); </span><br><span class="line">&#125; <span class="keyword">else</span> &#123; </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;Quirks mode&quot;</span>); </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<h3 id="3、head属性"><a href="#3、head属性" class="headerlink" title="3、head属性"></a>3、head属性</h3><ul>
+<li>document.head属性指向文档的<code>&lt;head&gt;</code>元素。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> head = <span class="built_in">document</span>.head;</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、字符集属性"><a href="#四、字符集属性" class="headerlink" title="四、字符集属性"></a>四、字符集属性</h2><ul>
+<li>characterSet属性表示文档实际使用的字符集，也可以用来指定新字符集。</li>
+<li>属性的默认值是“UTF-16”，可以通过<code>&lt;meta&gt;</code>元素或响应头以及新增的characterSeet属性来修改。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>.characterSet); <span class="comment">// &quot;UTF-16&quot; </span></span><br><span class="line"><span class="built_in">document</span>.characterSet = <span class="string">&quot;UTF-8&quot;</span>; </span><br></pre></td></tr></table></figure>
+
+<h2 id="五、自定义数据属性"><a href="#五、自定义数据属性" class="headerlink" title="五、自定义数据属性"></a>五、自定义数据属性</h2><ul>
+<li>HTML5允许给元素指定<strong>非标准的属性</strong>，但要使用前缀data-以便告诉浏览器，这些属性既不包含与渲染有关的信息，也不包含元素的语义信息。</li>
+<li>除了前缀，自定义属性对命名是没有限制的,data-后面跟什么都可以。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;myDiv&quot;</span> data-appId=<span class="string">&quot;12345&quot;</span> data-myname=<span class="string">&quot;Nicholas&quot;</span>&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>定义了自定义数据属性后，可以通过元素的dataset属性来访问。dataset属性是一个DOMStringMap的实例，包含一组键/值对映射。</li>
+<li>元素的每个data-name 属性在dataset 中都可以通过data-后面的字符串作为键来访问(例如，属性data-myname,data-myName可以通过myname访问，但要注意data-my-name、data-My-Name要通过myName 来访问)。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 本例中使用的方法仅用于示范</span></span><br><span class="line"><span class="keyword">let</span> div = <span class="built_in">document</span>.getElementById(<span class="string">&quot;myDiv&quot;</span>); </span><br><span class="line"><span class="comment">// 取得自定义数据属性的值</span></span><br><span class="line"><span class="keyword">let</span> appId = div.dataset.appId; </span><br><span class="line"><span class="keyword">let</span> myName = div.dataset.myname; </span><br><span class="line"><span class="comment">// 设置自定义数据属性的值</span></span><br><span class="line">div.dataset.appId = <span class="number">23456</span>; </span><br><span class="line">div.dataset.myname = <span class="string">&quot;Michael&quot;</span>; </span><br><span class="line"><span class="comment">// 有&quot;myname&quot;吗？</span></span><br><span class="line"><span class="keyword">if</span> (div.dataset.myname)&#123; </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`Hello, <span class="subst">$&#123;div.dataset.myname&#125;</span>`</span>); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="六、插入标记"><a href="#六、插入标记" class="headerlink" title="六、插入标记"></a>六、插入标记</h2><ul>
+<li>在所有现代浏览器中，通过innerHTML插入的<code>&lt;script&gt;</code>标签是不会执行的。</li>
+</ul>
+<h3 id="1、innerHTML属性"><a href="#1、innerHTML属性" class="headerlink" title="1、innerHTML属性"></a>1、innerHTML属性</h3><ul>
+<li><p>在读取innerHTML属性时，会返回<strong>元素所有后代的HTML字符串，包括元素、注释和文本节点</strong>。</p>
+</li>
+<li><p>在写入innerHTML时，则<strong>会根据提供的字符串值以新的DOM子树替代元素中原来包含的所有节点</strong>。</p>
+</li>
+<li><p>比如下面的 HTML 代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;content&quot;</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>This is a <span class="tag">&lt;<span class="name">strong</span>&gt;</span>paragraph<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> with a list following it.<span class="tag">&lt;/<span class="name">p</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span> </span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>Item 1<span class="tag">&lt;/<span class="name">li</span>&gt;</span> </span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>Item 2<span class="tag">&lt;/<span class="name">li</span>&gt;</span> </span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>Item 3<span class="tag">&lt;/<span class="name">li</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br></pre></td></tr></table></figure></li>
+<li><p>对于这里的<code>&lt;div&gt;</code>元素而言，其 innerHTML 属性会返回以下字符串：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;This is a &lt;strong&gt;paragraph&lt;<span class="regexp">/strong&gt; with a list following it.&lt;/</span>p&gt; </span><br><span class="line">&lt;ul&gt; </span><br><span class="line">    &lt;li&gt;Item <span class="number">1</span>&lt;/li&gt; </span><br><span class="line">    &lt;li&gt;Item <span class="number">2</span>&lt;/li&gt; </span><br><span class="line">    &lt;li&gt;Item <span class="number">3</span>&lt;/li&gt; </span><br><span class="line">&lt;/ul&gt; </span><br></pre></td></tr></table></figure></li>
+<li><p>实际返回的文本内容会因浏览器而不同：</p>
+<ul>
+<li>IE 和 Opera 会把所有元素标签转换为大写；</li>
+<li>Safari、Chrome和 Firefox 会按照文档源代码的格式返回，包含空格和缩进。</li>
+</ul>
+</li>
+<li><p>在写人模式下，赋给innerHTML属性的值会被解析为DOM子树，并替代元素之前的所有节点。如果赋值中不包含任何HTML标签，则直接生成一个文本节点。</p>
+<ul>
+<li>因为所赋的值默认为HTML，所以其中的所有标签都会以浏览器处理HTML的方式转换为元素(同样，转换结果也会因浏览器不同而不同)。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">div.innerHTML = <span class="string">&quot;Hello world!&quot;</span>; </span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>因为浏览器会解析设置的值，所以给innerHTML， 设置包含HTML的字符串时，结果会大不一样。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">div.innerHTML = <span class="string">&quot;Hello &amp; welcome, &lt;b&gt;\&quot;reader\&quot;!&lt;/b&gt;&quot;</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;content&quot;</span>&gt;</span>Hello <span class="symbol">&amp;amp;</span> welcome, <span class="tag">&lt;<span class="name">b</span>&gt;</span><span class="symbol">&amp;quot;</span>reader<span class="symbol">&amp;quot;</span>!<span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>设置innerHTML会导致浏览器将HTML字符串解析为相应的DOM树。这意味着设置innerHTML属性后马上再读出来会得到不同的字符串。这是因为返回的字符串是将原始字符串对应的 DOM子树序列化之后的结果。</p>
+</li>
+</ul>
+<h3 id="2、outerHTML属性"><a href="#2、outerHTML属性" class="headerlink" title="2、outerHTML属性"></a>2、outerHTML属性</h3><ul>
+<li>读取 outerHTML属性时，会返回调用它的元素（及所有后代元素)的 HTML字符串。</li>
+<li>在写入outerHTML属性时，调用它的元素会被传入的 HTML字符串经解释之后生成的 DOM子树取代。</li>
+<li>如果使用outerHTML设置HTML，比如：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">div.outerHTML = <span class="string">&quot;&lt;p&gt;This is a paragraph.&lt;/p&gt;&quot;</span>;</span><br></pre></td></tr></table></figure>
+会得到与执行以下脚本相同的结果：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> p = <span class="built_in">document</span>.createElement(<span class="string">&quot;p&quot;</span>); </span><br><span class="line">p.appendChild(<span class="built_in">document</span>.createTextNode(<span class="string">&quot;This is a paragraph.&quot;</span>)); </span><br><span class="line">div.parentNode.replaceChild(p, div);</span><br></pre></td></tr></table></figure>
+新的<code>&lt;p&gt;</code>元素会取代 DOM 树中原来的<code>&lt;div&gt;</code>元素。</li>
+</ul>
+<h3 id="3、insertAdjacentHTML-与insertAdjacentText"><a href="#3、insertAdjacentHTML-与insertAdjacentText" class="headerlink" title="3、insertAdjacentHTML()与insertAdjacentText()"></a>3、insertAdjacentHTML()与insertAdjacentText()</h3><ul>
+<li>这两个方法都接收两个参数：<ul>
+<li>要插入标记的位置；</li>
+<li>要插入的HTML或文本。</li>
+</ul>
+</li>
+<li>第一个参数必须是下列值中的一个：<ul>
+<li>beforebegin：插入当前元素前面，作为前一个同胞节点；</li>
+<li>afterbegin：插入当前元素内部，作为新的子节点或放在第一个子节点前面；</li>
+<li>beforeend：插入当前元素内部，作为新的子节点或放在最后一个子节点后面；</li>
+<li>afterend：插入当前元素后面，作为下一个同胞节点。</li>
+</ul>
+</li>
+<li>这几个值是不区分大小写的。第二个参数会作为HTML字符串解析(与innerHTML 和outerHTML相同)或者作为纯文本解析(与innerText和outerText相同)。 如果是HTML，则会在解析出错时抛出错误。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 作为前一个同胞节点插入</span></span><br><span class="line">element.insertAdjacentHTML(<span class="string">&quot;beforebegin&quot;</span>, <span class="string">&quot;&lt;p&gt;Hello world!&lt;/p&gt;&quot;</span>); </span><br><span class="line">element.insertAdjacentText(<span class="string">&quot;beforebegin&quot;</span>, <span class="string">&quot;Hello world!&quot;</span>); </span><br><span class="line"><span class="comment">// 作为第一个子节点插入</span></span><br><span class="line">element.insertAdjacentHTML(<span class="string">&quot;afterbegin&quot;</span>, <span class="string">&quot;&lt;p&gt;Hello world!&lt;/p&gt;&quot;</span>); </span><br><span class="line">element.insertAdjacentText(<span class="string">&quot;afterbegin&quot;</span>, <span class="string">&quot;Hello world!&quot;</span>); </span><br><span class="line"><span class="comment">// 作为最后一个子节点插入</span></span><br><span class="line">element.insertAdjacentHTML(<span class="string">&quot;beforeend&quot;</span>, <span class="string">&quot;&lt;p&gt;Hello world!&lt;/p&gt;&quot;</span>); </span><br><span class="line">element.insertAdjacentText(<span class="string">&quot;beforeend&quot;</span>, <span class="string">&quot;Hello world!&quot;</span>); </span><br><span class="line"><span class="comment">// 作为下一个同胞节点插入</span></span><br><span class="line">element.insertAdjacentHTML(<span class="string">&quot;afterend&quot;</span>, <span class="string">&quot;&lt;p&gt;Hello world!&lt;/p&gt;&quot;</span>); element. </span><br><span class="line">insertAdjacentText(<span class="string">&quot;afterend&quot;</span>, <span class="string">&quot;Hello world!&quot;</span>); </span><br></pre></td></tr></table></figure>
+
+<h3 id="4、内存与性能问题"><a href="#4、内存与性能问题" class="headerlink" title="4、内存与性能问题"></a>4、内存与性能问题</h3><ul>
+<li>使用以上方法替换子节点可能在浏览器(特别是IE)中导致内存问题。</li>
+</ul>
+<h2 id="七、scrollIntoView"><a href="#七、scrollIntoView" class="headerlink" title="七、scrollIntoView()"></a>七、scrollIntoView()</h2><ul>
+<li>DOM规范中没有涉及的一个问题是如何滚动页面中的某个区域。为填充这方面的缺失，不同浏览器实现了不同的控制滚动的方式。在所有这些专有方法中，HTML5选择了标准化scrollIntoView()。</li>
+<li>scrollIntoView()方法存在于所有HTML元素上，可以滚动浏览器窗口或容器元素以便包含元素进入视口。参数如下：<ul>
+<li>alignToTop是一个布尔值：<ul>
+<li>true：窗口滚动后元素的顶部与视口顶部对齐。</li>
+<li>false：窗口滚动后元素的底部与视口底部对齐。</li>
+</ul>
+</li>
+<li>scrollIntoViewOptions是一个选项对象：<ul>
+<li>behavior：定义过渡动画，可取的值为” smooth”和”auto”，默认为”auto”。</li>
+<li>block：定义垂直方向的对齐，可取的值为“start”、“center”、“end”和“nearest”，默认为“start”。</li>
+<li>inline：定义水平方向的对齐，可取的值为“start”、“center”、“end”和“nearest”，默认为“nearest”。</li>
+</ul>
+</li>
+<li>不传参数等同于alignToTop为true。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 确保元素可见</span></span><br><span class="line"><span class="built_in">document</span>.forms[<span class="number">0</span>].scrollIntoView(); </span><br><span class="line"><span class="comment">// 同上</span></span><br><span class="line"><span class="built_in">document</span>.forms[<span class="number">0</span>].scrollIntoView(<span class="literal">true</span>); </span><br><span class="line"><span class="built_in">document</span>.forms[<span class="number">0</span>].scrollIntoView(&#123;<span class="attr">block</span>: <span class="string">&#x27;start&#x27;</span>&#125;); </span><br><span class="line"><span class="comment">// 尝试将元素平滑地滚入视口</span></span><br><span class="line"><span class="built_in">document</span>.forms[<span class="number">0</span>].scrollIntoView(&#123;<span class="attr">behavior</span>: <span class="string">&#x27;smooth&#x27;</span>, <span class="attr">block</span>: <span class="string">&#x27;start&#x27;</span>&#125;);</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2021/12/02/js-39/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">JavaScript学习笔记（三十九）DOM扩展（二）</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/11/30/js-37/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">JavaScript学习笔记（三十七）DOM扩展（一）</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div id="gitalk-container"></div>
+    <script data-pjax
+            src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+    <script data-pjax>
+
+        function loadGitalk() {
+            let __gitalk__pathname = decodeURI(location.pathname);
+            const __gitalk__pathnameLength = __gitalk__pathname.length;
+            const __gitalk__pathnameMaxLength = 50;
+            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
+                __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
+            }
+
+            try {
+                Gitalk && new Gitalk({
+                    clientID: 'adbde3411133d5bcc532',
+                    clientSecret: 'e52fef77f830f9199ad13341637244bfcfd05ef5',
+                    repo: 'comment-respository',
+                    owner: 'kunkunyy',
+                    admin: ['kunkunyy'],
+                    id: __gitalk__pathname,
+                    language: 'zh-CN'
+                }).render('gitalk-container');
+
+            } catch (e) {
+                window.Gitalk = null;
+            }
+        }
+
+        if ('true') {
+            const loadGitalkTimeout = setTimeout(() => {
+                loadGitalk();
+                clearTimeout(loadGitalkTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadGitalk);
+        }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>&nbsp;-&nbsp;
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">诺风吟/姚永坤</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.1</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML5"><span class="nav-number">1.</span> <span class="nav-text">HTML5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81CSS%E7%B1%BB%E6%89%A9%E5%B1%95"><span class="nav-number">1.1.</span> <span class="nav-text">一、CSS类扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81getElementByClassName"><span class="nav-number">1.1.1.</span> <span class="nav-text">1、getElementByClassName()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81classList%E5%B1%9E%E6%80%A7"><span class="nav-number">1.1.2.</span> <span class="nav-text">2、classList属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%84%A6%E7%82%B9%E7%AE%A1%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">二、焦点管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81HTMLDocument%E6%89%A9%E5%B1%95"><span class="nav-number">1.3.</span> <span class="nav-text">三、HTMLDocument扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81readyState%E5%B1%9E%E6%80%A7"><span class="nav-number">1.3.1.</span> <span class="nav-text">1、readyState属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81compatMode%E5%B1%9E%E6%80%A7"><span class="nav-number">1.3.2.</span> <span class="nav-text">2、compatMode属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81head%E5%B1%9E%E6%80%A7"><span class="nav-number">1.3.3.</span> <span class="nav-text">3、head属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%AD%97%E7%AC%A6%E9%9B%86%E5%B1%9E%E6%80%A7"><span class="nav-number">1.4.</span> <span class="nav-text">四、字符集属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E5%B1%9E%E6%80%A7"><span class="nav-number">1.5.</span> <span class="nav-text">五、自定义数据属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E6%8F%92%E5%85%A5%E6%A0%87%E8%AE%B0"><span class="nav-number">1.6.</span> <span class="nav-text">六、插入标记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81innerHTML%E5%B1%9E%E6%80%A7"><span class="nav-number">1.6.1.</span> <span class="nav-text">1、innerHTML属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81outerHTML%E5%B1%9E%E6%80%A7"><span class="nav-number">1.6.2.</span> <span class="nav-text">2、outerHTML属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81insertAdjacentHTML-%E4%B8%8EinsertAdjacentText"><span class="nav-number">1.6.3.</span> <span class="nav-text">3、insertAdjacentHTML()与insertAdjacentText()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E5%86%85%E5%AD%98%E4%B8%8E%E6%80%A7%E8%83%BD%E9%97%AE%E9%A2%98"><span class="nav-number">1.6.4.</span> <span class="nav-text">4、内存与性能问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%E3%80%81scrollIntoView"><span class="nav-number">1.7.</span> <span class="nav-text">七、scrollIntoView()</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+    <script src="/js/local-search.js"></script>
+
+
+
+    <script src="/js/code-copy.js"></script>
+
+
+
+    <script src="/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="/js/left-side-toggle.js"></script><script src="/js/libs/anime.min.js"></script><script src="/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

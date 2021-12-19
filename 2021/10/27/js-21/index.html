@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="诺风吟/姚永坤">
+    
+    <title>
+        
+            JavaScript学习笔记（二十一）函数（一） |
+        
+        猫猫头-kunkun
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/blog.png">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.png","favicon":"/images/blog.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"欢迎进入猫猫头的代码世界."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.1"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="姚永坤的小窝" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                猫猫头-kunkun
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">JavaScript学习笔记（二十一）函数（一）</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">诺风吟/姚永坤</span>
+                        
+                            <span class="author-label">Lv5</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-10-27 15:26:49
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        &gt; <a href="/categories/JS/">JS</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        &gt; <a href="/categories/ES6/">ES6</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.2k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>5 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="函数名"><a href="#函数名" class="headerlink" title="函数名"></a>函数名</h1><ul>
+<li>函数名是指向函数的指针，它们跟其他包含对象指针的变量具有相同的行为。</li>
+<li>一个函数可以有多个名称。</li>
+<li>ES6所有函数对象都会暴露一个只读的name属性。<ul>
+<li>包含关于函数的信息；</li>
+<li>多数情况下，这个属性中保存的就是一个函数标识符，或者说是一个字符串化的变量名；</li>
+<li>函数没有名称会如实显示成空字符串；</li>
+<li>使用Function构造函数创建的，则会标识成“anonymous”。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;&#125; </span><br><span class="line"><span class="keyword">let</span> bar = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;; </span><br><span class="line"><span class="keyword">let</span> baz = <span class="function">() =&gt;</span> &#123;&#125;; </span><br><span class="line"><span class="built_in">console</span>.log(foo.name); <span class="comment">// foo </span></span><br><span class="line"><span class="built_in">console</span>.log(bar.name); <span class="comment">// bar </span></span><br><span class="line"><span class="built_in">console</span>.log(baz.name); <span class="comment">// baz </span></span><br><span class="line"><span class="built_in">console</span>.log((<span class="function">() =&gt;</span> &#123;&#125;).name); <span class="comment">//（空字符串）</span></span><br><span class="line"><span class="built_in">console</span>.log((<span class="keyword">new</span> <span class="built_in">Function</span>()).name); <span class="comment">// anonymous</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果函数是一个 获取函数、设置函数，或者使用bind()实例化，那么标识符前面会加上一个前缀。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;&#125; </span><br><span class="line"><span class="built_in">console</span>.log(foo.bind(<span class="literal">null</span>).name); <span class="comment">// bound foo </span></span><br><span class="line"><span class="keyword">let</span> dog = &#123; </span><br><span class="line">    years: <span class="number">1</span>, </span><br><span class="line">    <span class="keyword">get</span> <span class="title">age</span>() &#123; </span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.years; </span><br><span class="line">    &#125;, </span><br><span class="line">    <span class="keyword">set</span> <span class="title">age</span>(<span class="params">newAge</span>) &#123; </span><br><span class="line">        <span class="built_in">this</span>.years = newAge; </span><br><span class="line">    &#125; </span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">let</span> propertyDescriptor = <span class="built_in">Object</span>.getOwnPropertyDescriptor(dog, <span class="string">&#x27;age&#x27;</span>); </span><br><span class="line"><span class="built_in">console</span>.log(propertyDescriptor.get.name); <span class="comment">// get age </span></span><br><span class="line"><span class="built_in">console</span>.log(propertyDescriptor.set.name); <span class="comment">// set age</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h1><ul>
+<li><p>ECMAScript函数的参数在内部表现为一个数组。</p>
+</li>
+<li><p>函数被调用时总会接收一个数组，但函数并不关心这个数组中包含什么。</p>
+</li>
+<li><p>不存在验证命名参数的机制。</p>
+</li>
+<li><p><strong>arguments对象是一个类数组对象</strong>；</p>
+<ul>
+<li>可以使用中括号语法访问其中的元素。</li>
+</ul>
+</li>
+<li><p>通过<strong>arguments.length</strong>可以确定参数个数。</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">howManyArgs</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>.length); </span><br><span class="line">&#125; </span><br><span class="line">howManyArgs(<span class="string">&quot;string&quot;</span>, <span class="number">45</span>); <span class="comment">// 2 </span></span><br><span class="line">howManyArgs(); <span class="comment">// 0 </span></span><br><span class="line">howManyArgs(<span class="number">12</span>); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>arguments对象可以跟命名参数一起使用。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doAdd</span>(<span class="params">num1, num2</span>) </span>&#123; </span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">arguments</span>.length === <span class="number">1</span>) &#123; </span><br><span class="line">        <span class="built_in">console</span>.log(num1 + <span class="number">10</span>); </span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">arguments</span>.length === <span class="number">2</span>) &#123; </span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">0</span>] + num2); </span><br><span class="line">    &#125; </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<h1 id="箭头函数中的参数"><a href="#箭头函数中的参数" class="headerlink" title="箭头函数中的参数"></a>箭头函数中的参数</h1><ul>
+<li><strong>箭头函数的参数不能使用arguments关键字访问，只能通过定义的命名参数访问。</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">0</span>]); </span><br><span class="line">&#125; </span><br><span class="line">foo(<span class="number">5</span>); <span class="comment">// 5 </span></span><br><span class="line"><span class="keyword">let</span> bar = <span class="function">() =&gt;</span> &#123; </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">0</span>]); </span><br><span class="line">&#125;; </span><br><span class="line">bar(<span class="number">5</span>); <span class="comment">// ReferenceError: arguments is not defined</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>虽然箭头函数中没有arguments对象，但可以在包装函数中把它提供给箭头函数。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">    <span class="keyword">let</span> bar = <span class="function">() =&gt;</span> &#123; </span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">0</span>]); <span class="comment">// 5 </span></span><br><span class="line">    &#125;; </span><br><span class="line">    bar(); </span><br><span class="line">&#125; </span><br><span class="line">foo(<span class="number">5</span>); </span><br></pre></td></tr></table></figure>
+
+<h1 id="默认参数值"><a href="#默认参数值" class="headerlink" title="默认参数值"></a>默认参数值</h1><ul>
+<li>ES6中只要在函数定义中的参数后面用就可以为参数赋一个默认值。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeKing</span>(<span class="params">name = <span class="string">&#x27;Henry&#x27;</span></span>) </span>&#123; </span><br><span class="line">    <span class="keyword">return</span> <span class="string">`King <span class="subst">$&#123;name&#125;</span> VIII`</span>; </span><br><span class="line">&#125; </span><br><span class="line"><span class="built_in">console</span>.log(makeKing(<span class="string">&#x27;Louis&#x27;</span>)); <span class="comment">// &#x27;King Louis VIII&#x27; </span></span><br><span class="line"><span class="built_in">console</span>.log(makeKing()); <span class="comment">// &#x27;King Henry VIII&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>给参数传undefined相当于没有传值。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeKing</span>(<span class="params">name = <span class="string">&#x27;Henry&#x27;</span>, numerals = <span class="string">&#x27;VIII&#x27;</span></span>) </span>&#123; </span><br><span class="line">    <span class="keyword">return</span> <span class="string">`King <span class="subst">$&#123;name&#125;</span> <span class="subst">$&#123;numerals&#125;</span>`</span>; </span><br><span class="line">&#125; </span><br><span class="line"><span class="built_in">console</span>.log(makeKing()); <span class="comment">// &#x27;King Henry VIII&#x27; </span></span><br><span class="line"><span class="built_in">console</span>.log(makeKing(<span class="string">&#x27;Louis&#x27;</span>)); <span class="comment">// &#x27;King Louis VIII&#x27; </span></span><br><span class="line"><span class="built_in">console</span>.log(makeKing(<span class="literal">undefined</span>, <span class="string">&#x27;VI&#x27;</span>)); <span class="comment">// &#x27;King Henry VI&#x27; </span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在使用默认参数时，arguments 对象的值不反映参数的默认值，只反映传给函数的参数。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeKing</span>(<span class="params">name = <span class="string">&#x27;Henry&#x27;</span></span>) </span>&#123; </span><br><span class="line">    name = <span class="string">&#x27;Louis&#x27;</span>; </span><br><span class="line">    <span class="keyword">return</span> <span class="string">`King <span class="subst">$&#123;<span class="built_in">arguments</span>[<span class="number">0</span>]&#125;</span>`</span>; </span><br><span class="line">&#125; </span><br><span class="line"><span class="built_in">console</span>.log(makeKing()); <span class="comment">// &#x27;King undefined&#x27; </span></span><br><span class="line"><span class="built_in">console</span>.log(makeKing(<span class="string">&#x27;Louis&#x27;</span>)); <span class="comment">// &#x27;King Louis&#x27; </span></span><br></pre></td></tr></table></figure>
+
+<h1 id="默认参数作用域与暂时性死区"><a href="#默认参数作用域与暂时性死区" class="headerlink" title="默认参数作用域与暂时性死区"></a>默认参数作用域与暂时性死区</h1><ul>
+<li>因为在求值默认参数时可以定义对象，也可以动态调用函数，所以函数参数肯定是在<strong>某个作用域</strong>中求值的。</li>
+<li>给多个参数定义默认值实际上跟使用let关键字顺序声明变量一样。</li>
+<li>参数初始化顺序遵循“暂时性死区”规则，即<strong>前面定义的参数不能引用后面定义的</strong>。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 调用时不传第一个参数会报错</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeKing</span>(<span class="params">name = numerals, numerals = <span class="string">&#x27;VIII&#x27;</span></span>) </span>&#123; </span><br><span class="line">    <span class="keyword">return</span> <span class="string">`King <span class="subst">$&#123;name&#125;</span> <span class="subst">$&#123;numerals&#125;</span>`</span>; </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 调用时不传第二个参数会报错</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeKing</span>(<span class="params">name = <span class="string">&#x27;Henry&#x27;</span>, numerals = defaultNumeral</span>) </span>&#123; </span><br><span class="line"> <span class="keyword">let</span> defaultNumeral = <span class="string">&#x27;VIII&#x27;</span>; </span><br><span class="line"> <span class="keyword">return</span> <span class="string">`King <span class="subst">$&#123;name&#125;</span> <span class="subst">$&#123;numerals&#125;</span>`</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="参数扩展与收集"><a href="#参数扩展与收集" class="headerlink" title="参数扩展与收集"></a>参数扩展与收集</h1><h2 id="扩展参数"><a href="#扩展参数" class="headerlink" title="扩展参数"></a>扩展参数</h2><ul>
+<li>**…**等价于apply()方法</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getProduct</span>(<span class="params">a, b, c = <span class="number">1</span></span>) </span>&#123; </span><br><span class="line">    <span class="keyword">return</span> a * b * c; </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> getSum = <span class="function">(<span class="params">a, b, c = <span class="number">0</span></span>) =&gt;</span> &#123; </span><br><span class="line">    <span class="keyword">return</span> a + b + c; </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(getProduct(...[<span class="number">1</span>,<span class="number">2</span>])); <span class="comment">// 2 </span></span><br><span class="line"><span class="built_in">console</span>.log(getProduct(...[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])); <span class="comment">// 6 </span></span><br><span class="line"><span class="built_in">console</span>.log(getProduct(...[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])); <span class="comment">// 6 </span></span><br><span class="line"><span class="built_in">console</span>.log(getSum(...[<span class="number">0</span>,<span class="number">1</span>])); <span class="comment">// 1 </span></span><br><span class="line"><span class="built_in">console</span>.log(getSum(...[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>])); <span class="comment">// 3 </span></span><br><span class="line"><span class="built_in">console</span>.log(getSum(...[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])); <span class="comment">// 3 </span></span><br></pre></td></tr></table></figure>
+
+<h1 id="收集参数"><a href="#收集参数" class="headerlink" title="收集参数"></a>收集参数</h1><ul>
+<li>使用扩展操作符把不同长度的独立参数组合为一个数组。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getSum</span>(<span class="params">...values</span>) </span>&#123; </span><br><span class="line"> <span class="comment">// 顺序累加 values 中的所有值</span></span><br><span class="line"> <span class="comment">// 初始值的总和为 0 </span></span><br><span class="line">    <span class="keyword">return</span> values.reduce(<span class="function">(<span class="params">x, y</span>) =&gt;</span> x + y, <span class="number">0</span>); </span><br><span class="line">&#125; </span><br><span class="line"><span class="built_in">console</span>.log(getSum(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)); <span class="comment">// 6 </span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>收集参数的前面如果还有命名参数，则只会收集其余的参数;如果没有则会得到空数组。</li>
+<li>收集参数的结果可变，只能把它作为最后一个参数。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 不可以</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getProduct</span>(<span class="params">...values, lastValue</span>) </span>&#123;&#125; </span><br><span class="line"><span class="comment">// 可以</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ignoreFirst</span>(<span class="params">firstValue, ...values</span>) </span>&#123; </span><br><span class="line">    <span class="built_in">console</span>.log(values); </span><br><span class="line">&#125; </span><br><span class="line">ignoreFirst(); <span class="comment">// [] </span></span><br><span class="line">ignoreFirst(<span class="number">1</span>); <span class="comment">// [] </span></span><br><span class="line">ignoreFirst(<span class="number">1</span>,<span class="number">2</span>); <span class="comment">// [2] </span></span><br><span class="line">ignoreFirst(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>); <span class="comment">// [2, 3] </span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用收集参数并不影响arguments对象。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getSum</span>(<span class="params">...values</span>) </span>&#123; </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>.length); <span class="comment">// 3 </span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>); <span class="comment">// [1, 2, 3] </span></span><br><span class="line">    <span class="built_in">console</span>.log(values); <span class="comment">// [1, 2, 3] </span></span><br><span class="line">&#125; </span><br><span class="line"><span class="built_in">console</span>.log(getSum(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>));</span><br></pre></td></tr></table></figure>
+        </div>
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2021/10/29/js-22/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">JavaScript学习笔记（二十二）函数（二）</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/10/27/js-20/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">JavaScript学习笔记（二十）箭头函数</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div id="gitalk-container"></div>
+    <script data-pjax
+            src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+    <script data-pjax>
+
+        function loadGitalk() {
+            let __gitalk__pathname = decodeURI(location.pathname);
+            const __gitalk__pathnameLength = __gitalk__pathname.length;
+            const __gitalk__pathnameMaxLength = 50;
+            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
+                __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
+            }
+
+            try {
+                Gitalk && new Gitalk({
+                    clientID: 'adbde3411133d5bcc532',
+                    clientSecret: 'e52fef77f830f9199ad13341637244bfcfd05ef5',
+                    repo: 'comment-respository',
+                    owner: 'kunkunyy',
+                    admin: ['kunkunyy'],
+                    id: __gitalk__pathname,
+                    language: 'zh-CN'
+                }).render('gitalk-container');
+
+            } catch (e) {
+                window.Gitalk = null;
+            }
+        }
+
+        if ('true') {
+            const loadGitalkTimeout = setTimeout(() => {
+                loadGitalk();
+                clearTimeout(loadGitalkTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadGitalk);
+        }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>&nbsp;-&nbsp;
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">诺风吟/姚永坤</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.1</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%90%8D"><span class="nav-number">1.</span> <span class="nav-text">函数名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">函数参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E4%B8%AD%E7%9A%84%E5%8F%82%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">箭头函数中的参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0%E5%80%BC"><span class="nav-number">4.</span> <span class="nav-text">默认参数值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8E%E6%9A%82%E6%97%B6%E6%80%A7%E6%AD%BB%E5%8C%BA"><span class="nav-number">5.</span> <span class="nav-text">默认参数作用域与暂时性死区</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E6%89%A9%E5%B1%95%E4%B8%8E%E6%94%B6%E9%9B%86"><span class="nav-number">6.</span> <span class="nav-text">参数扩展与收集</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%E5%8F%82%E6%95%B0"><span class="nav-number">6.1.</span> <span class="nav-text">扩展参数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%94%B6%E9%9B%86%E5%8F%82%E6%95%B0"><span class="nav-number">7.</span> <span class="nav-text">收集参数</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+    <script src="/js/local-search.js"></script>
+
+
+
+    <script src="/js/code-copy.js"></script>
+
+
+
+    <script src="/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="/js/left-side-toggle.js"></script><script src="/js/libs/anime.min.js"></script><script src="/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

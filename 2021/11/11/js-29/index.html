@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="诺风吟/姚永坤">
+    
+    <title>
+        
+            JavaScript学习笔记（二十九）期约（三） |
+        
+        猫猫头-kunkun
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/blog.png">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.png","favicon":"/images/blog.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"欢迎进入猫猫头的代码世界."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.1"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="姚永坤的小窝" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                猫猫头-kunkun
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">JavaScript学习笔记（二十九）期约（三）</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">诺风吟/姚永坤</span>
+                        
+                            <span class="author-label">Lv5</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-11-11 15:42:14
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        &gt; <a href="/categories/JS/">JS</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        &gt; <a href="/categories/ES6/">ES6</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        &gt; <a href="/categories/Promise/">Promise</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.9k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>8 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="期约连锁与期约合成"><a href="#期约连锁与期约合成" class="headerlink" title="期约连锁与期约合成"></a>期约连锁与期约合成</h1><ul>
+<li><strong>期约连锁与期约合成</strong>主要用于将多个期约组合在一起进而构成强大的代码逻辑。</li>
+<li>前者是一个期约接一个期约地拼接，后者则是将多个期约组合为一个期约。</li>
+</ul>
+<h2 id="期约连锁"><a href="#期约连锁" class="headerlink" title="期约连锁"></a>期约连锁</h2><ul>
+<li>简单理解，期约连锁是由期约的连缀方法构成的。</li>
+<li>期约连锁的原理是：<strong>每个期约实例的方法都会返回一个新的期约对象，而这个新期约又有自己的实例方法</strong>。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123; </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;first&#x27;</span>); </span><br><span class="line">    resolve(); </span><br><span class="line">&#125;); </span><br><span class="line">p.then(<span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;second&#x27;</span>)) </span><br><span class="line"> .then(<span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;third&#x27;</span>)) </span><br><span class="line"> .then(<span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;fourth&#x27;</span>)); </span><br><span class="line"><span class="comment">// first </span></span><br><span class="line"><span class="comment">// second </span></span><br><span class="line"><span class="comment">// third </span></span><br><span class="line"><span class="comment">// fourth</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>以上实例代码实现了一连串同步任务，实际上使用4个同步函数也可以达到这样的效果，所以说这种方式执行的任务没有那么有用。</li>
+<li>要真正的执行异步任务，可以改写这个例子，让每个执行器都返回一个期约实例，实现串行化异步任务。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> p1 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123; </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;p1 executor&#x27;</span>); </span><br><span class="line">    <span class="built_in">setTimeout</span>(resolve, <span class="number">1000</span>); </span><br><span class="line">&#125;); </span><br><span class="line">p1.then(<span class="function">() =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123; </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;p2 executor&#x27;</span>); </span><br><span class="line">    <span class="built_in">setTimeout</span>(resolve, <span class="number">1000</span>); </span><br><span class="line"> &#125;)) </span><br><span class="line"> .then(<span class="function">() =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123; </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;p3 executor&#x27;</span>); </span><br><span class="line">    <span class="built_in">setTimeout</span>(resolve, <span class="number">1000</span>); </span><br><span class="line"> &#125;)) </span><br><span class="line"> .then(<span class="function">() =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123; </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;p4 executor&#x27;</span>); </span><br><span class="line">    <span class="built_in">setTimeout</span>(resolve, <span class="number">1000</span>); </span><br><span class="line"> &#125;)); </span><br><span class="line"><span class="comment">// p1 executor（1 秒后）</span></span><br><span class="line"><span class="comment">// p2 executor（2 秒后）</span></span><br><span class="line"><span class="comment">// p3 executor（3 秒后）</span></span><br><span class="line"><span class="comment">// p4 executor（4 秒后）</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>将生成期约的代码提取到一个工厂函数中：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//工厂函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">delayedResolve</span>(<span class="params">str</span>) </span>&#123; </span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123; </span><br><span class="line">        <span class="built_in">console</span>.log(str); </span><br><span class="line">        <span class="built_in">setTimeout</span>(resolve, <span class="number">1000</span>); </span><br><span class="line">    &#125;); </span><br><span class="line">&#125; </span><br><span class="line">delayedResolve(<span class="string">&#x27;p1 executor&#x27;</span>) </span><br><span class="line">    .then(<span class="function">() =&gt;</span> delayedResolve(<span class="string">&#x27;p2 executor&#x27;</span>)) </span><br><span class="line">    .then(<span class="function">() =&gt;</span> delayedResolve(<span class="string">&#x27;p3 executor&#x27;</span>)) </span><br><span class="line">    .then(<span class="function">() =&gt;</span> delayedResolve(<span class="string">&#x27;p4 executor&#x27;</span>)) </span><br><span class="line"><span class="comment">// p1 executor（1 秒后）</span></span><br><span class="line"><span class="comment">// p2 executor（2 秒后）</span></span><br><span class="line"><span class="comment">// p3 executor（3 秒后）</span></span><br><span class="line"><span class="comment">// p4 executor（4 秒后）</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>假如不使用期约：就会出现回调地狱问题。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">delayedExecute</span>(<span class="params">str, callback = <span class="literal">null</span></span>) </span>&#123; </span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123; </span><br><span class="line">        <span class="built_in">console</span>.log(str); </span><br><span class="line">        callback &amp;&amp; callback(); </span><br><span class="line">    &#125;, <span class="number">1000</span>) </span><br><span class="line">&#125; </span><br><span class="line">delayedExecute(<span class="string">&#x27;p1 callback&#x27;</span>, <span class="function">() =&gt;</span> &#123; </span><br><span class="line">    delayedExecute(<span class="string">&#x27;p2 callback&#x27;</span>, <span class="function">() =&gt;</span> &#123; </span><br><span class="line">        delayedExecute(<span class="string">&#x27;p3 callback&#x27;</span>, <span class="function">() =&gt;</span> &#123; </span><br><span class="line">            delayedExecute(<span class="string">&#x27;p4 callback&#x27;</span>); </span><br><span class="line">        &#125;); </span><br><span class="line">    &#125;); </span><br><span class="line">&#125;); </span><br><span class="line"><span class="comment">// p1 callback（1 秒后）</span></span><br><span class="line"><span class="comment">// p2 callback（2 秒后）</span></span><br><span class="line"><span class="comment">// p3 callback（3 秒后）</span></span><br><span class="line"><span class="comment">// p4 callback（4 秒后）</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="期约图"><a href="#期约图" class="headerlink" title="期约图"></a>期约图</h2><ul>
+<li><p>期约连锁可以构建<strong>有向非循环图</strong>的结构，这是由于一个期约可以有任意多个处理程序。</p>
+</li>
+<li><p>每一个期约都是图中的一个节点，使用实例方法添加的处理程序则是有向顶点。</p>
+</li>
+<li><p>图的方向就是期约的解决或拒绝顺序。</p>
+</li>
+<li><p>我们以二叉树为例：</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//      A </span></span><br><span class="line"><span class="comment">//    /   \ </span></span><br><span class="line"><span class="comment">//   B     C </span></span><br><span class="line"><span class="comment">//  / \   / \ </span></span><br><span class="line"><span class="comment">// D   E F   G </span></span><br><span class="line"><span class="keyword">let</span> A = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123; </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;A&#x27;</span>); </span><br><span class="line">    resolve(); </span><br><span class="line">&#125;); </span><br><span class="line"><span class="keyword">let</span> B = A.then(<span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;B&#x27;</span>)); </span><br><span class="line"><span class="keyword">let</span> C = A.then(<span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;C&#x27;</span>)); </span><br><span class="line">B.then(<span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;D&#x27;</span>)); </span><br><span class="line">B.then(<span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;E&#x27;</span>)); </span><br><span class="line">C.then(<span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;F&#x27;</span>)); </span><br><span class="line">C.then(<span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;G&#x27;</span>)); </span><br><span class="line"><span class="comment">// A </span></span><br><span class="line"><span class="comment">// B </span></span><br><span class="line"><span class="comment">// C </span></span><br><span class="line"><span class="comment">// D </span></span><br><span class="line"><span class="comment">// E </span></span><br><span class="line"><span class="comment">// F </span></span><br><span class="line"><span class="comment">// G</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>以上代码实现了对二叉树的层序遍历。</li>
+<li>期约的处理程序是按照它们添加的顺序执行的。由于期约的处理程序是先添加到消息队列，然后才逐个执行，因此构成了层序遍历。</li>
+</ul>
+<h2 id="Promise-all"><a href="#Promise-all" class="headerlink" title="Promise.all()"></a>Promise.all()</h2><ul>
+<li>Promise.all()静态方法创建的期约会在一组期约全部解决之后再解决。</li>
+<li>这个静态方法接收一个可迭代对象，返回一个新期约。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> p1 = <span class="built_in">Promise</span>.all([ </span><br><span class="line">    <span class="built_in">Promise</span>.resolve(), </span><br><span class="line">    <span class="built_in">Promise</span>.resolve() </span><br><span class="line">]); </span><br><span class="line"><span class="comment">// 可迭代对象中的元素会通过 Promise.resolve()转换为期约</span></span><br><span class="line"><span class="keyword">let</span> p2 = <span class="built_in">Promise</span>.all([<span class="number">3</span>, <span class="number">4</span>]); </span><br><span class="line"><span class="comment">// 空的可迭代对象等价于 Promise.resolve() </span></span><br><span class="line"><span class="keyword">let</span> p3 = <span class="built_in">Promise</span>.all([]); </span><br><span class="line"><span class="comment">// 无效的语法</span></span><br><span class="line"><span class="keyword">let</span> p4 = <span class="built_in">Promise</span>.all(); </span><br><span class="line"><span class="comment">// TypeError: cannot read Symbol.iterator of undefined </span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>合成的期约只会在每个包含的期约都解决之后才解决。</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> p = <span class="built_in">Promise</span>.all([ </span><br><span class="line">    <span class="built_in">Promise</span>.resolve(), </span><br><span class="line">    <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> <span class="built_in">setTimeout</span>(resolve, <span class="number">1000</span>)) </span><br><span class="line">]); </span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="built_in">console</span>.log, <span class="number">0</span>, p); <span class="comment">// Promise &lt;pending&gt; </span></span><br><span class="line">p.then(<span class="function">() =&gt;</span> <span class="built_in">setTimeout</span>(<span class="built_in">console</span>.log, <span class="number">0</span>, <span class="string">&#x27;all() resolved!&#x27;</span>)); </span><br><span class="line"><span class="comment">// all() resolved!（大约 1 秒后）</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果至少有一个包含的期约待定，则合成的期约也会待定。如果有一个包含的期约拒绝，则合成的期约也会拒绝。</li>
+<li>如果所有期约都成功解决，则合成期约的解决值就是所有包含期约解决值的数组,按照迭代器顺序。</li>
+<li>如果有期约拒绝，则第一个拒绝的期约会将自己的理由作为合成期约的拒绝理由。之后再拒绝的期约不会影响最终期约的拒绝理由。不过，这并不影响所有包含期约正常的拒绝操作。合成的期约会静默处理所有包含期约的拒绝操作。</li>
+</ul>
+<h2 id="Promise-race"><a href="#Promise-race" class="headerlink" title="Promise.race()"></a>Promise.race()</h2><ul>
+<li>Promise.race()静态方法返回一个<strong>包装期约</strong>，是一组集合中最先解决或拒绝的期约的镜像。</li>
+<li>这个方法接收一个可迭代对象，返回一个新期约。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> p1 = <span class="built_in">Promise</span>.race([ </span><br><span class="line">    <span class="built_in">Promise</span>.resolve(), </span><br><span class="line">    <span class="built_in">Promise</span>.resolve() </span><br><span class="line">]); </span><br><span class="line"><span class="comment">// 可迭代对象中的元素会通过 Promise.resolve()转换为期约</span></span><br><span class="line"><span class="keyword">let</span> p2 = <span class="built_in">Promise</span>.race([<span class="number">3</span>, <span class="number">4</span>]); </span><br><span class="line"><span class="comment">// 空的可迭代对象等价于 new Promise(() =&gt; &#123;&#125;) </span></span><br><span class="line"><span class="keyword">let</span> p3 = <span class="built_in">Promise</span>.race([]); </span><br><span class="line"><span class="comment">// 无效的语法</span></span><br><span class="line"><span class="keyword">let</span> p4 = <span class="built_in">Promise</span>.race(); </span><br><span class="line"><span class="comment">// TypeError: cannot read Symbol.iterator of undefined </span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Promise.race()不会对解决或拒绝的期约区别对待。无论是解决还是拒绝，只要是第一个落定的期约，Promise.race()就会包装其解决值或拒绝理由并返回新期约。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 解决先发生，超时后的拒绝被忽略</span></span><br><span class="line"><span class="keyword">let</span> p1 = <span class="built_in">Promise</span>.race([ </span><br><span class="line"> <span class="built_in">Promise</span>.resolve(<span class="number">3</span>), </span><br><span class="line"> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> <span class="built_in">setTimeout</span>(reject, <span class="number">1000</span>)) </span><br><span class="line">]); </span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="built_in">console</span>.log, <span class="number">0</span>, p1); <span class="comment">// Promise &lt;resolved&gt;: 3 </span></span><br><span class="line"><span class="comment">// 拒绝先发生，超时后的解决被忽略</span></span><br><span class="line"><span class="keyword">let</span> p2 = <span class="built_in">Promise</span>.race([ </span><br><span class="line">    <span class="built_in">Promise</span>.reject(<span class="number">4</span>), </span><br><span class="line">    <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> <span class="built_in">setTimeout</span>(resolve, <span class="number">1000</span>)) </span><br><span class="line">]); </span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="built_in">console</span>.log, <span class="number">0</span>, p2); <span class="comment">// Promise &lt;rejected&gt;: 4 </span></span><br><span class="line"><span class="comment">// 迭代顺序决定了落定顺序</span></span><br><span class="line"><span class="keyword">let</span> p3 = <span class="built_in">Promise</span>.race([ </span><br><span class="line">    <span class="built_in">Promise</span>.resolve(<span class="number">5</span>), </span><br><span class="line">    <span class="built_in">Promise</span>.resolve(<span class="number">6</span>), </span><br><span class="line">    <span class="built_in">Promise</span>.resolve(<span class="number">7</span>) </span><br><span class="line">]); </span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="built_in">console</span>.log, <span class="number">0</span>, p3); <span class="comment">// Promise &lt;resolved&gt;: 5</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="串行期约合成"><a href="#串行期约合成" class="headerlink" title="串行期约合成"></a>串行期约合成</h2><ul>
+<li>这里其实利用了期约的另一个主要特性：异步产生值并将其转给处理程序。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addTwo</span>(<span class="params">x</span>) </span>&#123;<span class="keyword">return</span> x + <span class="number">2</span>;&#125; </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addThree</span>(<span class="params">x</span>) </span>&#123;<span class="keyword">return</span> x + <span class="number">3</span>;&#125; </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addFive</span>(<span class="params">x</span>) </span>&#123;<span class="keyword">return</span> x + <span class="number">5</span>;&#125; </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addTen</span>(<span class="params">x</span>) </span>&#123; </span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.resolve(x) </span><br><span class="line">        .then(addTwo) </span><br><span class="line">        .then(addThree) </span><br><span class="line">        .then(addFive); </span><br><span class="line">&#125; </span><br><span class="line">addTen(<span class="number">8</span>).then(<span class="built_in">console</span>.log); <span class="comment">// 18</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用Array.prototype.reduce()改写简洁形式：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addTwo</span>(<span class="params">x</span>) </span>&#123;<span class="keyword">return</span> x + <span class="number">2</span>;&#125; </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addThree</span>(<span class="params">x</span>) </span>&#123;<span class="keyword">return</span> x + <span class="number">3</span>;&#125; </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addFive</span>(<span class="params">x</span>) </span>&#123;<span class="keyword">return</span> x + <span class="number">5</span>;&#125; </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addTen</span>(<span class="params">x</span>) </span>&#123; </span><br><span class="line">    <span class="keyword">return</span> [addTwo, addThree, addFive] .reduce(<span class="function">(<span class="params">promise, fn</span>) =&gt;</span> promise.then(fn), <span class="built_in">Promise</span>.resolve(x)); </span><br><span class="line">&#125; </span><br><span class="line">addTen(<span class="number">8</span>).then(<span class="built_in">console</span>.log); <span class="comment">// 18 </span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>这种模式可以提炼出一个通用函数：<strong>可以把任意多个函数作为处理程序合成一个连续传值的期约连锁。</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addTwo</span>(<span class="params">x</span>) </span>&#123;<span class="keyword">return</span> x + <span class="number">2</span>;&#125; </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addThree</span>(<span class="params">x</span>) </span>&#123;<span class="keyword">return</span> x + <span class="number">3</span>;&#125; </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addFive</span>(<span class="params">x</span>) </span>&#123;<span class="keyword">return</span> x + <span class="number">5</span>;&#125; </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">compose</span>(<span class="params">...fns</span>) </span>&#123; </span><br><span class="line">    <span class="keyword">return</span> <span class="function">(<span class="params">x</span>) =&gt;</span> fns.reduce(<span class="function">(<span class="params">promise, fn</span>) =&gt;</span> promise.then(fn), <span class="built_in">Promise</span>.resolve(x)) </span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">let</span> addTen = compose(addTwo, addThree, addFive);</span><br><span class="line">addTen(<span class="number">8</span>).then(<span class="built_in">console</span>.log); <span class="comment">// 18 </span></span><br></pre></td></tr></table></figure>
+
+<h1 id="期约扩展"><a href="#期约扩展" class="headerlink" title="期约扩展"></a>期约扩展</h1><h2 id="期约取消"><a href="#期约取消" class="headerlink" title="期约取消"></a>期约取消</h2><p>期约取消可以理解为，存在以下情况时的操作：<br>    * 期约正在处理过程中，程序不需要其结果，需要将期约取消。</p>
+<p>使用Kevin Smith提到的“取消令牌”。</p>
+<ul>
+<li>生成的令牌实例提供了一个接口，利用这个接口可以取消期约；</li>
+<li>同时提供一个期约实例用来触发取消后的操作并求值取消状态。</li>
+</ul>
+<h2 id="期约进度通知"><a href="#期约进度通知" class="headerlink" title="期约进度通知"></a>期约进度通知</h2><ul>
+<li>可以理解为监控期约的执行进度。</li>
+<li>使用扩展Promise类，为它添加notify()方法。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TrackablePromise</span> <span class="keyword">extends</span> <span class="title">Promise</span> </span>&#123; </span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params">executor</span>)</span> &#123; </span><br><span class="line">        <span class="keyword">const</span> notifyHandlers = []; </span><br><span class="line">            <span class="built_in">super</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123; </span><br><span class="line">            <span class="keyword">return</span> executor(resolve, reject, <span class="function">(<span class="params">status</span>) =&gt;</span> &#123; </span><br><span class="line">                notifyHandlers.map(<span class="function">(<span class="params">handler</span>) =&gt;</span> handler(status)); </span><br><span class="line">            &#125;); </span><br><span class="line">        &#125;); </span><br><span class="line">        <span class="built_in">this</span>.notifyHandlers = notifyHandlers; </span><br><span class="line">    &#125; </span><br><span class="line">    <span class="function"><span class="title">notify</span>(<span class="params">notifyHandler</span>)</span> &#123; </span><br><span class="line">        <span class="built_in">this</span>.notifyHandlers.push(notifyHandler); </span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>; </span><br><span class="line">    &#125; </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+        </div>
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2021/11/14/js-30/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">JavaScript学习笔记（三十）异步函数（一）</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/11/08/js-28/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">JavaScript学习笔记（二十八）期约（二）</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div id="gitalk-container"></div>
+    <script data-pjax
+            src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+    <script data-pjax>
+
+        function loadGitalk() {
+            let __gitalk__pathname = decodeURI(location.pathname);
+            const __gitalk__pathnameLength = __gitalk__pathname.length;
+            const __gitalk__pathnameMaxLength = 50;
+            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
+                __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
+            }
+
+            try {
+                Gitalk && new Gitalk({
+                    clientID: 'adbde3411133d5bcc532',
+                    clientSecret: 'e52fef77f830f9199ad13341637244bfcfd05ef5',
+                    repo: 'comment-respository',
+                    owner: 'kunkunyy',
+                    admin: ['kunkunyy'],
+                    id: __gitalk__pathname,
+                    language: 'zh-CN'
+                }).render('gitalk-container');
+
+            } catch (e) {
+                window.Gitalk = null;
+            }
+        }
+
+        if ('true') {
+            const loadGitalkTimeout = setTimeout(() => {
+                loadGitalk();
+                clearTimeout(loadGitalkTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadGitalk);
+        }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>&nbsp;-&nbsp;
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">诺风吟/姚永坤</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.1</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%9F%E7%BA%A6%E8%BF%9E%E9%94%81%E4%B8%8E%E6%9C%9F%E7%BA%A6%E5%90%88%E6%88%90"><span class="nav-number">1.</span> <span class="nav-text">期约连锁与期约合成</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%9F%E7%BA%A6%E8%BF%9E%E9%94%81"><span class="nav-number">1.1.</span> <span class="nav-text">期约连锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%9F%E7%BA%A6%E5%9B%BE"><span class="nav-number">1.2.</span> <span class="nav-text">期约图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise-all"><span class="nav-number">1.3.</span> <span class="nav-text">Promise.all()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise-race"><span class="nav-number">1.4.</span> <span class="nav-text">Promise.race()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%B2%E8%A1%8C%E6%9C%9F%E7%BA%A6%E5%90%88%E6%88%90"><span class="nav-number">1.5.</span> <span class="nav-text">串行期约合成</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%9F%E7%BA%A6%E6%89%A9%E5%B1%95"><span class="nav-number">2.</span> <span class="nav-text">期约扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%9F%E7%BA%A6%E5%8F%96%E6%B6%88"><span class="nav-number">2.1.</span> <span class="nav-text">期约取消</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%9F%E7%BA%A6%E8%BF%9B%E5%BA%A6%E9%80%9A%E7%9F%A5"><span class="nav-number">2.2.</span> <span class="nav-text">期约进度通知</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+    <script src="/js/local-search.js"></script>
+
+
+
+    <script src="/js/code-copy.js"></script>
+
+
+
+    <script src="/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="/js/left-side-toggle.js"></script><script src="/js/libs/anime.min.js"></script><script src="/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

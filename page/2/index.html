@@ -166,31 +166,27 @@
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/09/08/js-15-1/">
-                        JavaScript集合引用类型——Array
+                    <a href="/2021/11/28/js-35/">
+                        JavaScript学习笔记（三十五）DOM（二）
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        创建数组① 使用 Array 构造函数
-在使用 Array 构造函数时，也可以省略 new 操作符；
-
-1let colors = new Array();
-
-
-如果知道数组中元素的数量，那么可以给构造函数传入一个数值，然后 length 属性就会被...
+                        DOM编程动态脚本
+&lt;script&gt;元素用于向网页中插人JavaScript代码,可以是src属性包含的外部文件，也可以是作为该元素内容的源代码。
+有两种方式通过&lt;script&gt;动态为网页添加脚本:引人外部文件和直接插人源代码...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Sep 08 2021 17:12:06 GMT+0800">2021-09-08</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sun Nov 28 2021 15:42:24 GMT+0800">2021-11-28</span></span>
         
         
     </div>
 
-    <a href="/2021/09/08/js-15-1/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/11/28/js-35/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -200,32 +196,28 @@
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/08/13/js-15/">
-                        JavaScript学习笔记（十五）集合引用类型
+                    <a href="/2021/11/28/js-34-7/">
+                        JavaScript学习笔记——DOM类型（DocumentFragment类型和Attr类型）
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        Object
-Object 的实例没有多少功能，但很适合存储和在应用程序间交换数据；
-创建 Object 的实例有两种方式：
-使用 new 操作符和 Object 构造函数；
-使用对象字面量（object literal）表示法；
-
-
-在对象字面量表...
+                        DocumentFragment类型
+在所有节点类型中，DocumentFragment类型是唯一一个在标记中没有对应表示的类型。
+DOM将文档片段定义为“轻量级”文档，能够包含和操作节点，却没有完整文档那样额外的消耗。
+DocumentFragme...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri Aug 13 2021 15:04:36 GMT+0800">2021-08-13</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sun Nov 28 2021 14:59:46 GMT+0800">2021-11-28</span></span>
         
         
     </div>
 
-    <a href="/2021/08/13/js-15/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/11/28/js-34-7/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -235,31 +227,230 @@ Object 的实例没有多少功能，但很适合存储和在应用程序间交�
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/08/13/js-14/">
-                        JavaScript学习笔记（十四）单例内置对象
+                    <a href="/2021/11/27/js-34-6/">
+                        JavaScript学习笔记——DOM类型（CDATASection类型和DocumentType类型）
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        CDATASection类型
+CDATASection类型表示XML中特有的CDATA区块。
+
+CDATASection类型继承Text类型，因此拥有包括splitText ()在内的所有字符串操作方法。
+
+CDATASection类型的节点具有以下...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sat Nov 27 2021 16:10:32 GMT+0800">2021-11-27</span></span>
+        
+        
+    </div>
+
+    <a href="/2021/11/27/js-34-6/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2021/11/27/js-34-5/">
+                        JavaScript学习笔记——DOM类型（Comment类型）
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        Comment类型
+DOM中的注释通过Comment类型表示。
+Comment类型的节点具有以下特征:
+nodeType等于8；
+nodeName值为”#comment “；
+nodeValue值为注释的内容；
+parentNode值为Documen...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sat Nov 27 2021 15:53:13 GMT+0800">2021-11-27</span></span>
+        
+        
+    </div>
+
+    <a href="/2021/11/27/js-34-5/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2021/11/25/js-34-4/">
+                        JavaScript学习笔记——DOM类型（Text类型）
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        Text类型
+Text节点由Text类型表示，包含按字面解释的纯文本，也可能包含转义后的 HTML字符，但不含HTML代码。
+Text类型的节点具有以下特征：
+nodeType等于3；
+nodeName值为”#text “；
+nodevalue值为节...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Nov 25 2021 23:14:56 GMT+0800">2021-11-25</span></span>
+        
+        
+    </div>
+
+    <a href="/2021/11/25/js-34-4/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2021/11/24/js-34-3/">
+                        JavaScript学习笔记——DOM类型（Element类型）
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        Element类型
+Element表示XML或HTML元素，对外暴露出访问元素标签名、子节点和属性的能力。
+
+Element类型的节点具有以下特征：
+
+nodeType等于1；
+nodeName值为元素的标签名；
+nodevalue值为null；
+p...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Nov 24 2021 15:49:06 GMT+0800">2021-11-24</span></span>
+        
+        
+    </div>
+
+    <a href="/2021/11/24/js-34-3/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2021/11/24/js-34-2/">
+                        JavaScript学习笔记——DOM类型（Document类型）
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        Document类型
+Document类型是JavaScript中表示文档节点的类型。
+在浏览器中，文档对象 document是HTMLDocument 的实例(HTMLDocument继承Document )，表示整个HTML页面。
+documen...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Nov 24 2021 15:43:36 GMT+0800">2021-11-24</span></span>
+        
+        
+    </div>
+
+    <a href="/2021/11/24/js-34-2/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2021/11/24/js-34-1/">
+                        JavaScript学习笔记——DOM类型（Node类型）
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        Node类型
+DOMLevel 1描述了名为Node的接口，这个接口时所有DOM节点类型都必须实现的。
+每个节点都有nodeType 属性，表示该节点的类型。节点类型由定义在 Node类型上的12个数值常量表示:
+Node.ELEMENT_NODE（...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Nov 24 2021 15:37:57 GMT+0800">2021-11-24</span></span>
+        
+        
+    </div>
+
+    <a href="/2021/11/24/js-34-1/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2021/11/18/js-34/">
+                        JavaScript学习笔记（三十四）DOM（一）
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
                         
-定义：任何由 ECMAScript 实现提供、与宿主环境无关，并在 ECMAScript 程序开始执行时就存在的对象
-这就意味着，开发者不用显式地实例化内置对象，因为它们已经实例化好了；
+文档对象模型时HTML和XML文档的编程接口。
+DOM表示由多层节点构成的文档，通过它开发者可以添加、删除和修改页面的各个部分。
 
-GlobalGlobal对象
+节点层级
+任何HTML或XML都可以用DOM表示一个由节点构成的层级结构。
 
-MathMath对象
+12345678&lt;html&gt...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri Aug 13 2021 15:04:24 GMT+0800">2021-08-13</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Nov 18 2021 14:24:19 GMT+0800">2021-11-18</span></span>
         
         
     </div>
 
-    <a href="/2021/08/13/js-14/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/11/18/js-34/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -269,239 +460,28 @@ MathMath对象
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/08/13/js-13/">
-                        JavaScript学习笔记（十三）原始值包装类型
+                    <a href="/2021/11/17/js-33/">
+                        JavaScript学习笔记（三十三）BOM（二）
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        
-为了方便操作原始值，ECMAScript 提供了 3 种特殊的引用类型：Boolean、Number 和 String。
-每当用到౼个原始值的方法或属性时，后台都会创建一个相应原始包装类型的对象，从而暴露出操作原始值的各种方法。
-
-123456le...
+                        location对象
+location对象提供了当前窗口中加载文档的信息，以及通常的导航功能。
+它既是window的属性，也是document的属性。
+location对象不仅保存着当前加载文档的信息，也保存着把URL解析为离散片段后能够通过属性访问...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri Aug 13 2021 15:04:14 GMT+0800">2021-08-13</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Nov 17 2021 15:12:24 GMT+0800">2021-11-17</span></span>
         
         
     </div>
 
-    <a href="/2021/08/13/js-13/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/08/13/js-12/">
-                        JavaScript学习笔记（十二）RegExp
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        基础知识创建语法
-正则表达式的 pattern（模式）可以是任何简单或复杂的正则表达式，包括字符类、限定符、分组、向前查找和反向引用；
-每个正则表达式可以ࣛ带零个或多个 flags（标记），用于控制正则表达式的行为。
-
-1let expression...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri Aug 13 2021 15:04:00 GMT+0800">2021-08-13</span></span>
-        
-        
-    </div>
-
-    <a href="/2021/08/13/js-12/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/08/13/js-11/">
-                        JavaScript学习笔记（十一）Date
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        基本内容
-ECMAScript 的 Date 类型参考了 Java 早期版本中的 java.util.Date。
-Date 类型将日期保存为自协调世界时（UTC，Universal Time Coordinated）时间 1970 年 1 月 1 日...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri Aug 13 2021 15:03:12 GMT+0800">2021-08-13</span></span>
-        
-        
-    </div>
-
-    <a href="/2021/08/13/js-11/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/07/21/js-5-5/">
-                        JavaScript学习笔记-数据类型（Object）
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        定义
-ES中对象是一组数据和功能的集合
-对象被认为是౼个特定引用类型的实例
-
-创建和使用
-对象通过new操作符跟对象类型的名称来创建
-如果没有参数，可以省略括号
-
-属性和方法
-
-
-属性和方法
-作用
-
-
-
-constructor
-用于创建当前对象的函数...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Jul 21 2021 20:01:59 GMT+0800">2021-07-21</span></span>
-        
-        
-    </div>
-
-    <a href="/2021/07/21/js-5-5/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/07/21/js-5-4/">
-                        JavaScript学习笔记-数据类型（Symbol）
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        基本用法
-Symbol为原始类型，可以使用typeof操作符进行检测
-
-12let mes = Symbol();console.log(typeof mes)//Symbol
-
-
-Symbol(name)
-name作为对符号的描述
-与符号定义或标识...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Jul 21 2021 20:01:47 GMT+0800">2021-07-21</span></span>
-        
-        
-    </div>
-
-    <a href="/2021/07/21/js-5-4/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/07/21/js-5-3/">
-                        JavaScript学习笔记-数据类型（String）
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        概述定义零或多个16位Unicode字符序列。
-创建方式
-单引号、双引号、反引号标示。
-以某种引号作为字符串开头，必须仍然以该种引号作为字符串结尾。
-
-123let message = &#x27;Hello World&#x27;let messa...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Jul 21 2021 20:01:10 GMT+0800">2021-07-21</span></span>
-        
-        
-    </div>
-
-    <a href="/2021/07/21/js-5-3/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/07/21/js-5-2/">
-                        JavaScript学习笔记-数据类型（Number）
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        Number类型概述
-Number 类型使用 IEEE 754 格式表示整数和浮点值
-
-不同数值类型有不同的数值字面量格式
-
-八进制字面量：
-1234567/*1、第一个数字必须是0，然后对应八进制数字2、字面量中数字超出范围就会忽略第一个0，然后当...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Jul 21 2021 20:00:54 GMT+0800">2021-07-21</span></span>
-        
-        
-    </div>
-
-    <a href="/2021/07/21/js-5-2/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/11/17/js-33/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>

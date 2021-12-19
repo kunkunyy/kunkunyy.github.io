@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="诺风吟/姚永坤">
+    
+    <title>
+        
+            JavaScript学习笔记（三十七）DOM扩展（一） |
+        
+        猫猫头-kunkun
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/blog.png">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.png","favicon":"/images/blog.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"欢迎进入猫猫头的代码世界."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.1"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="姚永坤的小窝" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                猫猫头-kunkun
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">JavaScript学习笔记（三十七）DOM扩展（一）</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">诺风吟/姚永坤</span>
+                        
+                            <span class="author-label">Lv5</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-11-30 23:29:32
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        &gt; <a href="/categories/JS/">JS</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        &gt; <a href="/categories/DOM/">DOM</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        &gt; <a href="/categories/Selectors-API/">Selectors API</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.1k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>4 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="Selectors-API"><a href="#Selectors-API" class="headerlink" title="Selectors API"></a>Selectors API</h1><ul>
+<li>Selectors API(参见W3C网站上的Selectors APl Level 1)是W3C推荐标准，规定了浏览器原生支持的CSS查询API。</li>
+<li><strong>支持这一特性的所有JavaScript库都会实现一个基本的CSS解析器，然后使用已有的DOM方法搜索文档并匹配目标节点。</strong></li>
+<li>Selectors APILevel1的核心是两个方法：<strong>queryselector()和 querySelectorAll()<strong>。在兼容浏览器中，</strong>Document类型和Element类型的实例上都会暴露这两个方法</strong>。</li>
+<li>Selectors API Level 2规范在Element类型上新增了更多方法，比如 matches ()、find()和findAll()。不过，目前还没有浏览器实现或宣称实现find()和findAll()。</li>
+</ul>
+<h2 id="querySelector"><a href="#querySelector" class="headerlink" title="querySelector()"></a>querySelector()</h2><ul>
+<li>方法接收CSS选择符参数，返回匹配该模式的第一个后代元素，如果没有匹配项则返回null。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 取得&lt;body&gt;元素</span></span><br><span class="line"><span class="keyword">let</span> body = <span class="built_in">document</span>.querySelector(<span class="string">&quot;body&quot;</span>); </span><br><span class="line"><span class="comment">// 取得 ID 为&quot;myDiv&quot;的元素</span></span><br><span class="line"><span class="keyword">let</span> myDiv = <span class="built_in">document</span>.querySelector(<span class="string">&quot;#myDiv&quot;</span>);</span><br><span class="line"><span class="comment">// 取得类名为&quot;selected&quot;的第一个元素</span></span><br><span class="line"><span class="keyword">let</span> selected = <span class="built_in">document</span>.querySelector(<span class="string">&quot;.selected&quot;</span>); </span><br><span class="line"><span class="comment">// 取得类名为&quot;button&quot;的图片</span></span><br><span class="line"><span class="keyword">let</span> img = <span class="built_in">document</span>.body.querySelector(<span class="string">&quot;img.button&quot;</span>); </span><br></pre></td></tr></table></figure>
+<ul>
+<li>在Document上使用querySelector()方法时，会从文档元素开始搜索;在Element 上使用querySelector()方法时，则只会从当前元素的后代中查询。</li>
+<li>如果选择符有语法错误或碰到不支持的选择符，则querySelector( )方法会抛出错误。</li>
+</ul>
+<h2 id="querySelectorAll"><a href="#querySelectorAll" class="headerlink" title="querySelectorAll()"></a>querySelectorAll()</h2><ul>
+<li>querySelectorAll()方法跟querySelector()一样，也接收一个用于查询的参数，但它会返回所有匹配的节点，而不止一个。这个方法返回的是一个NodeList的静态实例。</li>
+<li>querySelectorAll()返回的 NodeList 实例一个属性和方法都不缺，但它是一个<strong>静态的“快照”，而非“实时”的查询</strong>。这样的底层实现避免了使用NodeList对象可能造成的性能问题。<ul>
+<li>返回的NodeList对象可以通过for-of循环、item()方法或中括号语法取得个别元素。</li>
+<li><strong>如果没有匹配项，则返回空的NodeList实例</strong>。</li>
+</ul>
+</li>
+<li>querySelectorAll()也可以在Document、DocumentFragment和Element类型上使用。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 取得 ID 为&quot;myDiv&quot;的&lt;div&gt;元素中的所有&lt;em&gt;元素</span></span><br><span class="line"><span class="keyword">let</span> ems = <span class="built_in">document</span>.getElementById(<span class="string">&quot;myDiv&quot;</span>).querySelectorAll(<span class="string">&quot;em&quot;</span>); </span><br><span class="line"><span class="comment">// 取得所有类名中包含&quot;selected&quot;的元素</span></span><br><span class="line"><span class="keyword">let</span> selecteds = <span class="built_in">document</span>.querySelectorAll(<span class="string">&quot;.selected&quot;</span>); </span><br><span class="line"><span class="comment">// 取得所有是&lt;p&gt;元素子元素的&lt;strong&gt;元素</span></span><br><span class="line"><span class="keyword">let</span> strongs = <span class="built_in">document</span>.querySelectorAll(<span class="string">&quot;p strong&quot;</span>);</span><br><span class="line"><span class="comment">//=======================</span></span><br><span class="line"><span class="keyword">let</span> strongElements = <span class="built_in">document</span>.querySelectorAll(<span class="string">&quot;p strong&quot;</span>); </span><br><span class="line"><span class="comment">// 以下 3 个循环的效果一样</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> strong <span class="keyword">of</span> strongElements) &#123; </span><br><span class="line">    strong.className = <span class="string">&quot;important&quot;</span>; </span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; strongElements.length; ++i) &#123; </span><br><span class="line">    strongElements.item(i).className = <span class="string">&quot;important&quot;</span>; </span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; strongElements.length; ++i) &#123; </span><br><span class="line">    strongElements[i].className = <span class="string">&quot;important&quot;</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="matches"><a href="#matches" class="headerlink" title="matches()"></a>matches()</h2><ul>
+<li>matches()方法(在规范草案中称为matchesSelector())接收一个CSS选择符参数，如果元素匹配则该选择符返回true，否则返回false。</li>
+<li>使用这个方法可以方便地检测某个元素会不会被querySelector()或 querySelectorAll()方法返回。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">document</span>.body.matches(<span class="string">&quot;body.page1&quot;</span>))&#123; </span><br><span class="line">    <span class="comment">// true </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="元素遍历"><a href="#元素遍历" class="headerlink" title="元素遍历"></a>元素遍历</h1><ul>
+<li><p>IE9之前的版本不会把元素间的空格当成空白节点，而其他浏览器则会。这样就导致了childNodes和firstchild等属性上的差异。为了弥补这个差异，同时不影响DOM规范，W3C通过新的ElementTraversal规范定义了一组新属性。</p>
+</li>
+<li><p>Element Traversal API 为 DOM 元素添加了 5 个属性：</p>
+<ul>
+<li>childElementCount：返回子元素数量(不包含文本节点和注释)；</li>
+<li>firstElementChild：指向第一个Element类型的子元素(Element版firstChild)；</li>
+<li>lastElementChild：指向最后一个 Element类型的子元素(Element版lastchild)；</li>
+<li>previousElementSibling：指向前一个Element类型的同胞元素（Element版previoussibling)；</li>
+<li>nextElementsibling：指向后一个Element类型的同胞元素(Element 版nextsibling )。</li>
+</ul>
+</li>
+<li><p>以下是跨浏览器方式遍历特定元素的所有子元素的写法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> parentElement = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;parent&#x27;</span>); </span><br><span class="line"><span class="keyword">let</span> currentChildNode = parentElement.firstChild; </span><br><span class="line"><span class="comment">// 没有子元素，firstChild 返回 null，跳过循环</span></span><br><span class="line"><span class="keyword">while</span> (currentChildNode) &#123; </span><br><span class="line">    <span class="keyword">if</span> (currentChildNode.nodeType === <span class="number">1</span>) &#123; </span><br><span class="line">    <span class="comment">// 如果有元素节点，则做相应处理</span></span><br><span class="line">        processChild(currentChildNode); </span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">if</span> (currentChildNode === parentElement.lastChild) &#123; </span><br><span class="line">        <span class="keyword">break</span>; </span><br><span class="line">    &#125; </span><br><span class="line">    currentChildNode = currentChildNode.nextSibling; </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure></li>
+<li><p>使用Element Traversal属性之后,以上代码可以简化如下:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> parentElement = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;parent&#x27;</span>); </span><br><span class="line"><span class="keyword">let</span> currentChildElement = parentElement.firstElementChild;</span><br><span class="line"><span class="comment">// 没有子元素，firstElementChild 返回 null，跳过循环</span></span><br><span class="line"><span class="keyword">while</span> (currentChildElement) &#123; </span><br><span class="line">    <span class="comment">// 这就是元素节点，做相应处理</span></span><br><span class="line">    processChild(currentChildElement); </span><br><span class="line">    <span class="keyword">if</span> (currentChildElement === parentElement.      lastElementChild) &#123; </span><br><span class="line">        <span class="keyword">break</span>; </span><br><span class="line">    &#125; </span><br><span class="line">    currentChildElement = currentChildElement.nextElementSibling; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+        </div>
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2021/12/01/js-38/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">JavaScript学习笔记（三十八）DOM扩展（二）</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/11/29/js-36/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">JavaScript学习笔记（三十六）DOM（三）</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div id="gitalk-container"></div>
+    <script data-pjax
+            src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+    <script data-pjax>
+
+        function loadGitalk() {
+            let __gitalk__pathname = decodeURI(location.pathname);
+            const __gitalk__pathnameLength = __gitalk__pathname.length;
+            const __gitalk__pathnameMaxLength = 50;
+            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
+                __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
+            }
+
+            try {
+                Gitalk && new Gitalk({
+                    clientID: 'adbde3411133d5bcc532',
+                    clientSecret: 'e52fef77f830f9199ad13341637244bfcfd05ef5',
+                    repo: 'comment-respository',
+                    owner: 'kunkunyy',
+                    admin: ['kunkunyy'],
+                    id: __gitalk__pathname,
+                    language: 'zh-CN'
+                }).render('gitalk-container');
+
+            } catch (e) {
+                window.Gitalk = null;
+            }
+        }
+
+        if ('true') {
+            const loadGitalkTimeout = setTimeout(() => {
+                loadGitalk();
+                clearTimeout(loadGitalkTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadGitalk);
+        }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>&nbsp;-&nbsp;
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">诺风吟/姚永坤</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.1</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Selectors-API"><span class="nav-number">1.</span> <span class="nav-text">Selectors API</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#querySelector"><span class="nav-number">1.1.</span> <span class="nav-text">querySelector()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#querySelectorAll"><span class="nav-number">1.2.</span> <span class="nav-text">querySelectorAll()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#matches"><span class="nav-number">1.3.</span> <span class="nav-text">matches()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%83%E7%B4%A0%E9%81%8D%E5%8E%86"><span class="nav-number">2.</span> <span class="nav-text">元素遍历</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+    <script src="/js/local-search.js"></script>
+
+
+
+    <script src="/js/code-copy.js"></script>
+
+
+
+    <script src="/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="/js/left-side-toggle.js"></script><script src="/js/libs/anime.min.js"></script><script src="/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

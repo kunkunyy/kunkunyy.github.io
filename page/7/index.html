@@ -166,29 +166,30 @@
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/03/15/python-study-note/">
-                        python学习笔记（一）
+                    <a href="/2021/07/21/js-5-3/">
+                        JavaScript学习笔记-数据类型（String）
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        本科学习python课程笔记，之前使用的有道云笔记记载，现在将它搬运到博客中。
-第一章是一些基本概念，所以从第二章开始记的。所以，一起加油咯！
+                        概述定义零或多个16位Unicode字符序列。
+创建方式
+单引号、双引号、反引号标示。
+以某种引号作为字符串开头，必须仍然以该种引号作为字符串结尾。
 
-第二章主要是turtle库的使用，然后简单介绍了python中的字符串的使用，第三章会详细讲字符串。
-字...
+123let message = &#x27;Hello World&#x27;let messa...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon Mar 15 2021 14:46:30 GMT+0800">2021-03-15</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Jul 21 2021 20:01:10 GMT+0800">2021-07-21</span></span>
         
         
     </div>
 
-    <a href="/2021/03/15/python-study-note/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/07/21/js-5-3/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -198,27 +199,31 @@
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/03/12/markdown-study-notes/">
-                        Markdown学习笔记
+                    <a href="/2021/07/21/js-5-2/">
+                        JavaScript学习笔记-数据类型（Number）
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                         之前只是用markdown写过博客并没有系统的去了markdown语法，现在将创建博客后的第一篇文章用来记录我学习markdown的经历以及对于知识点的理解。
-markdown官方介绍和个人理解菜鸟教程介绍
-Markdown 是一种轻量级标记语言，...
+                        Number类型概述
+Number 类型使用 IEEE 754 格式表示整数和浮点值
+
+不同数值类型有不同的数值字面量格式
+
+八进制字面量：
+1234567/*1、第一个数字必须是0，然后对应八进制数字2、字面量中数字超出范围就会忽略第一个0，然后当...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri Mar 12 2021 18:55:11 GMT+0800">2021-03-12</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Jul 21 2021 20:00:54 GMT+0800">2021-07-21</span></span>
         
         
     </div>
 
-    <a href="/2021/03/12/markdown-study-notes/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/07/21/js-5-2/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -228,25 +233,254 @@ Markdown 是一种轻量级标记语言，...
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/03/10/hello-world/">
-                        Hello World
+                    <a href="/2021/07/21/js-5-1/">
+                        JavaScript学习笔记-数据类型（Undefined、Null、Boolean）
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, yo...
+                        Undefined类型
+只含有underfined一个值
+
+变量定义但未初始化时自动赋予underfined
+
+变量定义但未初始化和未定义是不同的
+123let message;console.log(message);//underfinedcon...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Mar 10 2021 13:13:50 GMT+0800">2021-03-10</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Jul 21 2021 20:00:42 GMT+0800">2021-07-21</span></span>
         
         
     </div>
 
-    <a href="/2021/03/10/hello-world/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/07/21/js-5-1/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2021/07/21/js-10/">
+                        JavaScript学习笔记（十）垃圾回收
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        
+JavaScript 是使用垃圾回收的语言，也就是说执行环境负责在代码执行时管理内存；
+通过自动内存管理实现内存分配和闲置资源回收；
+基本思路：确定哪个变量不会再使用，然后释放它占用的内存
+这个过程是周期性的，即垃圾回收程序每隔一定时间，就会自动运...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Jul 21 2021 20:00:05 GMT+0800">2021-07-21</span></span>
+        
+        
+    </div>
+
+    <a href="/2021/07/21/js-10/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2021/07/21/js-9/">
+                        JavaScript学习笔记（九）执行上下文和作用域
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        
+每个上下文都有一个关联的变量对象（variable object），而这个上下文中定义的所有变量和函数都存在于这个对象上
+全局上下文是最外层的上下文；
+在浏览器中，全局上下文就是我们常说的 window 对象；
+上下文在其所有代码都执行完毕后会被销...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Jul 21 2021 18:43:30 GMT+0800">2021-07-21</span></span>
+        
+        
+    </div>
+
+    <a href="/2021/07/21/js-9/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2021/07/21/js-8/">
+                        JavaScript学习笔记（八）原始值与引用值
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        什么是原始值和引用值
+原始值（primitive value）就是最简单的数据
+原始值有六种：Undefined、Null、Boolean、Number、String 和 Symbol；
+保存原始值的变量是按值（by value）访问的，直接对存储在...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Jul 21 2021 18:42:57 GMT+0800">2021-07-21</span></span>
+        
+        
+    </div>
+
+    <a href="/2021/07/21/js-8/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2021/07/21/js-7/">
+                        JavaScript学习笔记（七）语句
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        if语句
+语法格式：
+if(condition) statement1 else statement21234567if(condition1)&#123;    statement1&#125; else if(condition2)&#123; ...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Jul 21 2021 18:42:10 GMT+0800">2021-07-21</span></span>
+        
+        
+    </div>
+
+    <a href="/2021/07/21/js-7/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2021/07/21/js-6/">
+                        JavaScript学习笔记（六）操作符
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        
+操作符包括：数学操作符、位操作符、关系操作符和相等操作符。
+操作符可用于各种值，包括字符串、数值、布尔值、甚至还有对象。
+在应用给对象时，操作符通常会调用 valueOf()和/或 toString()方法来取得可以计算的值。
+
+一元操作符定义
+只...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Jul 21 2021 17:17:36 GMT+0800">2021-07-21</span></span>
+        
+        
+    </div>
+
+    <a href="/2021/07/21/js-6/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2021/07/21/js-5/">
+                        JavaScript学习笔记（五）数据类型概述
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        数据类型
+ECMAScript有6种简单数据类型：Undefined、Null、Boolean、Number、String、Symbol。其中Symbol时ES6新增的数据类型
+Object为复杂数据类型
+
+typeof操作符
+typeof是一个操作...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Jul 21 2021 17:05:03 GMT+0800">2021-07-21</span></span>
+        
+        
+    </div>
+
+    <a href="/2021/07/21/js-5/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2021/07/21/js-4/">
+                        JavaScript学习笔记（四）变量声明关键字
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        var作用域
+使用var操作符定义的变量会成为包含它的函数的局部变量
+去掉var操作符，该操作符成为全局变量
+严格模式下，如果向这样给未声明的变量赋值，会导致抛出 ReferenceError。1234567891011function test()...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Jul 21 2021 10:40:51 GMT+0800">2021-07-21</span></span>
+        
+        
+    </div>
+
+    <a href="/2021/07/21/js-4/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -261,6 +495,10 @@ Markdown 是一种轻量级标记语言，...
         >上一页</a>
     
 
+    
+        <a class="next btn"
+           href="/page/8/"
+        >下一页</a>
     
 </div>
 
