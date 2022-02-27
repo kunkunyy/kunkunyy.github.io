@@ -166,26 +166,34 @@
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/10/17/js-tips-1/">
-                        Javascript——Object和Map比较分析
+                    <a href="/2021/12/12/js-43/">
+                        JavaScript学习笔记（四十三）事件（一）
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        内存占用
-Object 和 Map 的工程级实现在不同浏览器间存在明显差异，但存储单个键/值对所占用的内存数量都会随键的数量线性增加。批量添加或删除键/值对则取决于各浏览器对该类型内存分配的工程实现。不同浏览器的情况不同，但给定固定大小的内存，Map...
+                        事件流
+事件流描述了页面接收事件的顺序。
+
+1、事件冒泡
+IE事件流被称为事件冒泡。
+事件被定义为从最具体的元素(文档树中最深的节点)开始触发，然后向上传播至没有那么具体的元素（文档)。
+
+
+如下页面结构：
+当点击页面中的div元素后，click事件...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sun Oct 17 2021 14:18:22 GMT+0800">2021-10-17</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sun Dec 12 2021 13:39:28 GMT+0800">2021-12-12</span></span>
         
         
     </div>
 
-    <a href="/2021/10/17/js-tips-1/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/12/12/js-43/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -195,29 +203,27 @@ Object 和 Map 的工程级实现在不同浏览器间存在明显差异，但�
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/10/08/js-15-2/">
-                        JavaScript集合引用类型——Map
+                    <a href="/2021/12/09/js-42/">
+                        JavaScript学习笔记（四十二）DOM2和DOM3（三）
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        基本API
-使用 new 关键字和 Map 构造函数可以创建一个空映射；
-如果想在创建的同时初始化实例，可以给 Map 构造函数传入一个可迭代对象，需要包含键/值对数组：
-初始化之后，可以使用 set()方法再添加键/值对；
-可以使用 get()和 ...
+                        遍历
+DOM2 Traversal and Range模块定义了两个类型用于辅助顺序遍历DOM结构。这两个类型NodeIterator和Treewalker从某个起点开始执行对DOM结构的深度优先遍历。
+DOM遍历是**对DOM结构的深度优先遍历，至...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri Oct 08 2021 17:24:41 GMT+0800">2021-10-08</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Dec 09 2021 18:03:31 GMT+0800">2021-12-09</span></span>
         
         
     </div>
 
-    <a href="/2021/10/08/js-15-2/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/12/09/js-42/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -227,31 +233,61 @@ Object 和 Map 的工程级实现在不同浏览器间存在明显差异，但�
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/09/22/js-14-2/">
-                        JavaScript——Math对象
+                    <a href="/2021/12/06/js-41/">
+                        JavaScript学习笔记（四十一）DOM2和DOM3（二）
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        样式
+HTML样式有3种定义方法：外部样式表、文档样式表、元素特定样式。
+
+1、存取元素样式
+任何支持style属性的HTML元素在JavaScript中都会有一-个对应的style属性。
+style属性是cssstyleDeclaration类型的...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon Dec 06 2021 16:09:15 GMT+0800">2021-12-06</span></span>
+        
+        
+    </div>
+
+    <a href="/2021/12/06/js-41/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2021/12/03/js-40/">
+                        JavaScript学习笔记（四十）DOM2和DOM3（一）
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
                         
-Math 对象上提供的计算要比直接在JavaScript实现的快得多，因为Math对象上的计算使用了JavaScript引擎中更高效的实现和处理器指令
-
-Math对象属性
-
-min() 和 max()方法
-min()和 max()方法用于确定一组数...
+DOM1(DOMLevel1)主要定义了HTML和XML文档的底层结构。
+DOM2(DOMLevel2)和DOM3 ( DOM Level3 )在这些结构之上加入更多交互能力，提供了更高级的XML特性。
+DOM2和DOM3是按照模块化的思路来制定标...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Sep 22 2021 16:26:55 GMT+0800">2021-09-22</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri Dec 03 2021 18:45:34 GMT+0800">2021-12-03</span></span>
         
         
     </div>
 
-    <a href="/2021/09/22/js-14-2/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/12/03/js-40/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -261,32 +297,29 @@ min()和 max()方法用于确定一组数...
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/09/15/js-14-1/">
-                        JavaScript——Global对象
+                    <a href="/2021/12/02/js-39/">
+                        JavaScript学习笔记（三十九）DOM扩展（二）
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        特点
-代码不会显式地访问它；
-Global对象为一种兜底对象，它所针对的是不属于任何对象的属性和方法；
-在全局作用域中定义的变量和函数都会变成 Global 对象的属性；
+                        专有扩展1、children属性
+children属性是一个HTMLCollection，只包含元素的Element类型的子节点。
+如果元素的子节点类型全部是元素类型，那children和childNodes中包含的节点应该是一样的。
 
-方法URL编码方式
-
-12345let uri = &quot;http:/...
+12let ...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Sep 15 2021 21:42:02 GMT+0800">2021-09-15</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Dec 02 2021 16:10:00 GMT+0800">2021-12-02</span></span>
         
         
     </div>
 
-    <a href="/2021/09/15/js-14-1/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/12/02/js-39/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -296,28 +329,29 @@ Global对象为一种兜底对象，它所针对的是不属于任何对象的�
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/09/13/js-13-1/">
-                        JavaScript字符串操作方法
+                    <a href="/2021/12/01/js-38/">
+                        JavaScript学习笔记（三十八）DOM扩展（二）
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        字符串拼接方法
-concat()用于将一个或多个字符串拼接成一个新字符串
+                        HTML5
+HTML5规范包含了与标记相关的大量 JavaSeript API定义。其中有的API与DOM重合，定义了浏览器应该提供的DOM扩展。
 
-1234let stringValue = &quot;hello &quot;; let result = stringValue.concat(&quot;world&q...
+一、CSS类扩展1、getElementByClassName()
+该方法暴露在document对象...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon Sep 13 2021 16:17:23 GMT+0800">2021-09-13</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Dec 01 2021 13:00:30 GMT+0800">2021-12-01</span></span>
         
         
     </div>
 
-    <a href="/2021/09/13/js-13-1/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/12/01/js-38/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -327,31 +361,27 @@ concat()用于将一个或多个字符串拼接成一个新字符串
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/09/08/js-15-1/">
-                        JavaScript集合引用类型——Array
+                    <a href="/2021/11/30/js-37/">
+                        JavaScript学习笔记（三十七）DOM扩展（一）
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        创建数组① 使用 Array 构造函数
-在使用 Array 构造函数时，也可以省略 new 操作符；
-
-1let colors = new Array();
-
-
-如果知道数组中元素的数量，那么可以给构造函数传入一个数值，然后 length 属性就会被...
+                        Selectors API
+Selectors API(参见W3C网站上的Selectors APl Level 1)是W3C推荐标准，规定了浏览器原生支持的CSS查询API。
+支持这一特性的所有JavaScript库都会实现一个基本的CSS解析器，...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Sep 08 2021 17:12:06 GMT+0800">2021-09-08</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Nov 30 2021 23:29:32 GMT+0800">2021-11-30</span></span>
         
         
     </div>
 
-    <a href="/2021/09/08/js-15-1/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/11/30/js-37/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -361,32 +391,27 @@ concat()用于将一个或多个字符串拼接成一个新字符串
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/08/13/js-15/">
-                        JavaScript学习笔记（十五）集合引用类型
+                    <a href="/2021/11/29/js-36/">
+                        JavaScript学习笔记（三十六）DOM（三）
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        Object
-Object 的实例没有多少功能，但很适合存储和在应用程序间交换数据；
-创建 Object 的实例有两种方式：
-使用 new 操作符和 Object 构造函数；
-使用对象字面量（object literal）表示法；
-
-
-在对象字面量表...
+                        MutationObserver接口
+MutationObserver接口，可以在DOM被修改时异步执行回调。
+Mutati onObserver可以观察整个文档、DOM树的一部分， 或某个元素。此外还可以观察元素属性、子节点、文本，或者前ʻ者任意组...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri Aug 13 2021 15:04:36 GMT+0800">2021-08-13</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon Nov 29 2021 14:21:38 GMT+0800">2021-11-29</span></span>
         
         
     </div>
 
-    <a href="/2021/08/13/js-15/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/11/29/js-36/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -396,31 +421,27 @@ Object 的实例没有多少功能，但很适合存储和在应用程序间交�
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/08/13/js-14/">
-                        JavaScript学习笔记（十四）单例内置对象
+                    <a href="/2021/11/28/js-35/">
+                        JavaScript学习笔记（三十五）DOM（二）
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        
-定义：任何由 ECMAScript 实现提供、与宿主环境无关，并在 ECMAScript 程序开始执行时就存在的对象
-这就意味着，开发者不用显式地实例化内置对象，因为它们已经实例化好了；
-
-GlobalGlobal对象
-
-MathMath对象
+                        DOM编程动态脚本
+&lt;script&gt;元素用于向网页中插人JavaScript代码,可以是src属性包含的外部文件，也可以是作为该元素内容的源代码。
+有两种方式通过&lt;script&gt;动态为网页添加脚本:引人外部文件和直接插人源代码...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri Aug 13 2021 15:04:24 GMT+0800">2021-08-13</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sun Nov 28 2021 15:42:24 GMT+0800">2021-11-28</span></span>
         
         
     </div>
 
-    <a href="/2021/08/13/js-14/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/11/28/js-35/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -430,61 +451,28 @@ MathMath对象
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/08/13/js-13/">
-                        JavaScript学习笔记（十三）原始值包装类型
+                    <a href="/2021/11/28/js-34-7/">
+                        JavaScript学习笔记——DOM类型（DocumentFragment类型和Attr类型）
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        
-为了方便操作原始值，ECMAScript 提供了 3 种特殊的引用类型：Boolean、Number 和 String。
-每当用到౼个原始值的方法或属性时，后台都会创建一个相应原始包装类型的对象，从而暴露出操作原始值的各种方法。
-
-123456le...
+                        DocumentFragment类型
+在所有节点类型中，DocumentFragment类型是唯一一个在标记中没有对应表示的类型。
+DOM将文档片段定义为“轻量级”文档，能够包含和操作节点，却没有完整文档那样额外的消耗。
+DocumentFragme...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri Aug 13 2021 15:04:14 GMT+0800">2021-08-13</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sun Nov 28 2021 14:59:46 GMT+0800">2021-11-28</span></span>
         
         
     </div>
 
-    <a href="/2021/08/13/js-13/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/08/13/js-12/">
-                        JavaScript学习笔记（十二）RegExp
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        基础知识创建语法
-正则表达式的 pattern（模式）可以是任何简单或复杂的正则表达式，包括字符类、限定符、分组、向前查找和反向引用；
-每个正则表达式可以ࣛ带零个或多个 flags（标记），用于控制正则表达式的行为。
-
-1let expression...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri Aug 13 2021 15:04:00 GMT+0800">2021-08-13</span></span>
-        
-        
-    </div>
-
-    <a href="/2021/08/13/js-12/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/11/28/js-34-7/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>

@@ -166,27 +166,30 @@
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/08/13/js-11/">
-                        JavaScript学习笔记（十一）Date
+                    <a href="/2021/11/27/js-34-6/">
+                        JavaScript学习笔记——DOM类型（CDATASection类型和DocumentType类型）
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        基本内容
-ECMAScript 的 Date 类型参考了 Java 早期版本中的 java.util.Date。
-Date 类型将日期保存为自协调世界时（UTC，Universal Time Coordinated）时间 1970 年 1 月 1 日...
+                        CDATASection类型
+CDATASection类型表示XML中特有的CDATA区块。
+
+CDATASection类型继承Text类型，因此拥有包括splitText ()在内的所有字符串操作方法。
+
+CDATASection类型的节点具有以下...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri Aug 13 2021 15:03:12 GMT+0800">2021-08-13</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sat Nov 27 2021 16:10:32 GMT+0800">2021-11-27</span></span>
         
         
     </div>
 
-    <a href="/2021/08/13/js-11/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/11/27/js-34-6/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -196,42 +199,31 @@ Date 类型将日期保存为自协调世界时（UTC，Universal Time Coordinat
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/07/21/js-5-5/">
-                        JavaScript学习笔记-数据类型（Object）
+                    <a href="/2021/11/27/js-34-5/">
+                        JavaScript学习笔记——DOM类型（Comment类型）
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        定义
-ES中对象是一组数据和功能的集合
-对象被认为是౼个特定引用类型的实例
-
-创建和使用
-对象通过new操作符跟对象类型的名称来创建
-如果没有参数，可以省略括号
-
-属性和方法
-
-
-属性和方法
-作用
-
-
-
-constructor
-用于创建当前对象的函数...
+                        Comment类型
+DOM中的注释通过Comment类型表示。
+Comment类型的节点具有以下特征:
+nodeType等于8；
+nodeName值为”#comment “；
+nodeValue值为注释的内容；
+parentNode值为Documen...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Jul 21 2021 20:01:59 GMT+0800">2021-07-21</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sat Nov 27 2021 15:53:13 GMT+0800">2021-11-27</span></span>
         
         
     </div>
 
-    <a href="/2021/07/21/js-5-5/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/11/27/js-34-5/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -241,33 +233,30 @@ constructor
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/07/21/js-5-4/">
-                        JavaScript学习笔记-数据类型（Symbol）
+                    <a href="/2021/11/25/js-34-4/">
+                        JavaScript学习笔记——DOM类型（Text类型）
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        基本用法
-Symbol为原始类型，可以使用typeof操作符进行检测
-
-12let mes = Symbol();console.log(typeof mes)//Symbol
-
-
-Symbol(name)
-name作为对符号的描述
-与符号定义或标识...
+                        Text类型
+Text节点由Text类型表示，包含按字面解释的纯文本，也可能包含转义后的 HTML字符，但不含HTML代码。
+Text类型的节点具有以下特征：
+nodeType等于3；
+nodeName值为”#text “；
+nodevalue值为节...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Jul 21 2021 20:01:47 GMT+0800">2021-07-21</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Nov 25 2021 23:14:56 GMT+0800">2021-11-25</span></span>
         
         
     </div>
 
-    <a href="/2021/07/21/js-5-4/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/11/25/js-34-4/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -277,30 +266,33 @@ name作为对符号的描述
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/07/21/js-5-3/">
-                        JavaScript学习笔记-数据类型（String）
+                    <a href="/2021/11/24/js-34-3/">
+                        JavaScript学习笔记——DOM类型（Element类型）
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        概述定义零或多个16位Unicode字符序列。
-创建方式
-单引号、双引号、反引号标示。
-以某种引号作为字符串开头，必须仍然以该种引号作为字符串结尾。
+                        Element类型
+Element表示XML或HTML元素，对外暴露出访问元素标签名、子节点和属性的能力。
 
-123let message = &#x27;Hello World&#x27;let messa...
+Element类型的节点具有以下特征：
+
+nodeType等于1；
+nodeName值为元素的标签名；
+nodevalue值为null；
+p...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Jul 21 2021 20:01:10 GMT+0800">2021-07-21</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Nov 24 2021 15:49:06 GMT+0800">2021-11-24</span></span>
         
         
     </div>
 
-    <a href="/2021/07/21/js-5-3/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/11/24/js-34-3/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -310,31 +302,28 @@ name作为对符号的描述
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/07/21/js-5-2/">
-                        JavaScript学习笔记-数据类型（Number）
+                    <a href="/2021/11/24/js-34-2/">
+                        JavaScript学习笔记——DOM类型（Document类型）
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        Number类型概述
-Number 类型使用 IEEE 754 格式表示整数和浮点值
-
-不同数值类型有不同的数值字面量格式
-
-八进制字面量：
-1234567/*1、第一个数字必须是0，然后对应八进制数字2、字面量中数字超出范围就会忽略第一个0，然后当...
+                        Document类型
+Document类型是JavaScript中表示文档节点的类型。
+在浏览器中，文档对象 document是HTMLDocument 的实例(HTMLDocument继承Document )，表示整个HTML页面。
+documen...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Jul 21 2021 20:00:54 GMT+0800">2021-07-21</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Nov 24 2021 15:43:36 GMT+0800">2021-11-24</span></span>
         
         
     </div>
 
-    <a href="/2021/07/21/js-5-2/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/11/24/js-34-2/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -344,31 +333,28 @@ Number 类型使用 IEEE 754 格式表示整数和浮点值
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/07/21/js-5-1/">
-                        JavaScript学习笔记-数据类型（Undefined、Null、Boolean）
+                    <a href="/2021/11/24/js-34-1/">
+                        JavaScript学习笔记——DOM类型（Node类型）
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        Undefined类型
-只含有underfined一个值
-
-变量定义但未初始化时自动赋予underfined
-
-变量定义但未初始化和未定义是不同的
-123let message;console.log(message);//underfinedcon...
+                        Node类型
+DOMLevel 1描述了名为Node的接口，这个接口时所有DOM节点类型都必须实现的。
+每个节点都有nodeType 属性，表示该节点的类型。节点类型由定义在 Node类型上的12个数值常量表示:
+Node.ELEMENT_NODE（...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Jul 21 2021 20:00:42 GMT+0800">2021-07-21</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Nov 24 2021 15:37:57 GMT+0800">2021-11-24</span></span>
         
         
     </div>
 
-    <a href="/2021/07/21/js-5-1/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/11/24/js-34-1/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -378,29 +364,32 @@ Number 类型使用 IEEE 754 格式表示整数和浮点值
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/07/21/js-10/">
-                        JavaScript学习笔记（十）垃圾回收
+                    <a href="/2021/11/18/js-34/">
+                        JavaScript学习笔记（三十四）DOM（一）
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
                         
-JavaScript 是使用垃圾回收的语言，也就是说执行环境负责在代码执行时管理内存；
-通过自动内存管理实现内存分配和闲置资源回收；
-基本思路：确定哪个变量不会再使用，然后释放它占用的内存
-这个过程是周期性的，即垃圾回收程序每隔一定时间，就会自动运...
+文档对象模型时HTML和XML文档的编程接口。
+DOM表示由多层节点构成的文档，通过它开发者可以添加、删除和修改页面的各个部分。
+
+节点层级
+任何HTML或XML都可以用DOM表示一个由节点构成的层级结构。
+
+12345678&lt;html&gt...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Jul 21 2021 20:00:05 GMT+0800">2021-07-21</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Nov 18 2021 14:24:19 GMT+0800">2021-11-18</span></span>
         
         
     </div>
 
-    <a href="/2021/07/21/js-10/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/11/18/js-34/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -410,29 +399,65 @@ JavaScript 是使用垃圾回收的语言，也就是说执行环境负责在代
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/07/21/js-9/">
-                        JavaScript学习笔记（九）执行上下文和作用域
+                    <a href="/2021/11/17/js-33/">
+                        JavaScript学习笔记（三十三）BOM（二）
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        location对象
+location对象提供了当前窗口中加载文档的信息，以及通常的导航功能。
+它既是window的属性，也是document的属性。
+location对象不仅保存着当前加载文档的信息，也保存着把URL解析为离散片段后能够通过属性访问...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Nov 17 2021 15:12:24 GMT+0800">2021-11-17</span></span>
+        
+        
+    </div>
+
+    <a href="/2021/11/17/js-33/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2021/11/15/js-32/">
+                        JavaScript学习笔记（三十二）BOM（一）
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
                         
-每个上下文都有一个关联的变量对象（variable object），而这个上下文中定义的所有变量和函数都存在于这个对象上
-全局上下文是最外层的上下文；
-在浏览器中，全局上下文就是我们常说的 window 对象；
-上下文在其所有代码都执行完毕后会被销...
+BOM的核心是window对象，表示浏览器的实例。
+window对象在浏览器中有两重身份：
+ECMAScript中的Global对象；
+浏览器窗口的JavaScript接口。
+
+
+
+Global作用域
+window对象被复用为ECMAScript的...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Jul 21 2021 18:43:30 GMT+0800">2021-07-21</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon Nov 15 2021 18:38:57 GMT+0800">2021-11-15</span></span>
         
         
     </div>
 
-    <a href="/2021/07/21/js-9/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/11/15/js-32/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -442,58 +467,25 @@ JavaScript 是使用垃圾回收的语言，也就是说执行环境负责在代
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/07/21/js-8/">
-                        JavaScript学习笔记（八）原始值与引用值
+                    <a href="/2021/11/15/js-31/">
+                        JavaScript学习笔记（三十一）异步函数（二）
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        什么是原始值和引用值
-原始值（primitive value）就是最简单的数据
-原始值有六种：Undefined、Null、Boolean、Number、String 和 Symbol；
-保存原始值的变量是按值（by value）访问的，直接对存储在...
+                        异步函数策略1、实现sleep()函数12345678910async function sleep(delay) &#123;     return new Promise((resolve) =&gt; setTimeout(resolve, d...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Jul 21 2021 18:42:57 GMT+0800">2021-07-21</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon Nov 15 2021 18:05:55 GMT+0800">2021-11-15</span></span>
         
         
     </div>
 
-    <a href="/2021/07/21/js-8/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/07/21/js-7/">
-                        JavaScript学习笔记（七）语句
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        if语句
-语法格式：
-if(condition) statement1 else statement21234567if(condition1)&#123;    statement1&#125; else if(condition2)&#123; ...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Jul 21 2021 18:42:10 GMT+0800">2021-07-21</span></span>
-        
-        
-    </div>
-
-    <a href="/2021/07/21/js-7/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/11/15/js-31/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>

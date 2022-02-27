@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="诺风吟/姚永坤">
+    
+    <title>
+        
+            数据结构-链表 |
+        
+        猫猫头-kunkun
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/blog.png">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.png","favicon":"/images/blog.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"欢迎进入猫猫头的代码世界."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.1"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="姚永坤的小窝" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                猫猫头-kunkun
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">数据结构-链表</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">诺风吟/姚永坤</span>
+                        
+                            <span class="author-label">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2022-02-14 13:45:12
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0/">数据结构笔记</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        &gt; <a href="/categories/%E9%93%BE%E8%A1%A8/">链表</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>502 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>1 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="一、链表基础"><a href="#一、链表基础" class="headerlink" title="一、链表基础"></a>一、链表基础</h1><ul>
+<li>链表是一种通过指针串联在一起的线性结构，每一个节点由两部分组成，一个是数据域一个是指针域（存放指向下一个节点的指针），最后一个节点的指针域指向null（空指针的意思）。</li>
+<li>链接的入口节点称为链表的头结点也就是head。</li>
+</ul>
+<h1 id="二、链表类型"><a href="#二、链表类型" class="headerlink" title="二、链表类型"></a>二、链表类型</h1><h2 id="1、单链表"><a href="#1、单链表" class="headerlink" title="1、单链表"></a>1、单链表</h2><img lazyload src="/images/loading.svg" data-src="/2022/02/14/DataStructure-LinkedLists/pic1.png" class title="# 单链表">
+
+<h2 id="2、双链表"><a href="#2、双链表" class="headerlink" title="2、双链表"></a>2、双链表</h2><ul>
+<li>每一个节点有两个指针域，一个指向下一个节点，一个指向上一个节点。</li>
+<li>双链表既可以向前查询也可以向后查询。</li>
+</ul>
+<img lazyload src="/images/loading.svg" data-src="/2022/02/14/DataStructure-LinkedLists/pic2.png" class title="# 双链表">
+
+<h2 id="3、循环链表"><a href="#3、循环链表" class="headerlink" title="3、循环链表"></a>3、循环链表</h2><ul>
+<li>循环链表，顾名思义，就是链表首尾相连。可以用来解决约瑟夫环问题。</li>
+</ul>
+<img lazyload src="/images/loading.svg" data-src="/2022/02/14/DataStructure-LinkedLists/pic3.png" class title="# 循环链表">
+
+<h1 id="三、链表的存储方式"><a href="#三、链表的存储方式" class="headerlink" title="三、链表的存储方式"></a>三、链表的存储方式</h1><ul>
+<li>链表中的节点在内存中<strong>不是连续分布的 ，而是散乱分布在内存中的某地址上</strong>，分配机制取决于操作系统的内存管理。</li>
+</ul>
+<h1 id="四、链表的操作"><a href="#四、链表的操作" class="headerlink" title="四、链表的操作"></a>四、链表的操作</h1><h2 id="1、删除节点"><a href="#1、删除节点" class="headerlink" title="1、删除节点"></a>1、删除节点</h2><ul>
+<li>删除D节点，如图所示：</li>
+</ul>
+<img lazyload src="/images/loading.svg" data-src="/2022/02/14/DataStructure-LinkedLists/pic4.png" class title="# 删除节点">
+
+<ul>
+<li>只要将C节点的next指针 指向E节点就可以了。</li>
+<li>在C++里最好是再手动释放这个D节点，释放这块内存。</li>
+<li>Java、Python 有自己的内存回收机制，就不用自己手动释放了。</li>
+</ul>
+<h2 id="2、添加节点"><a href="#2、添加节点" class="headerlink" title="2、添加节点"></a>2、添加节点</h2><img lazyload src="/images/loading.svg" data-src="/2022/02/14/DataStructure-LinkedLists/pic5.png" class title="# 添加节点">
+
+<h1 id="五、JS定义链表"><a href="#五、JS定义链表" class="headerlink" title="五、JS定义链表"></a>五、JS定义链表</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListNode</span> </span>&#123;</span><br><span class="line">    val;</span><br><span class="line">    next = <span class="literal">null</span>;</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params">value</span>)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.val = value;</span><br><span class="line">        <span class="built_in">this</span>.next = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="六、链表经典题目"><a href="#六、链表经典题目" class="headerlink" title="六、链表经典题目"></a>六、链表经典题目</h1><h2 id="虚拟头节点"><a href="#虚拟头节点" class="headerlink" title="虚拟头节点"></a>虚拟头节点</h2><ul>
+<li>链表的一大问题就是操作当前节点必须要找前一个节点才能操作。</li>
+<li>每次对应头结点的情况都要单独处理，所以使用虚拟头结点的技巧，就可以解决这个问题。</li>
+</ul>
+<a href="/2022/02/14/lc-203/" title="移除链表元素">移除链表元素</a>
+
+<h2 id="链表基本操作"><a href="#链表基本操作" class="headerlink" title="链表基本操作"></a>链表基本操作</h2><a href="/2022/02/14/lc-707/" title="设计链表">设计链表</a>
+
+<h2 id="反转链表"><a href="#反转链表" class="headerlink" title="反转链表"></a>反转链表</h2><ul>
+<li>两种反转的方式，迭代法和递归法。</li>
+</ul>
+<a href="/2022/02/15/lc-206/" title="反转链表">反转链表</a>
+
+<h2 id="删除倒数第N个节点"><a href="#删除倒数第N个节点" class="headerlink" title="删除倒数第N个节点"></a>删除倒数第N个节点</h2><a href="/2022/02/15/lc-19/" title="删除倒数第N个节点">删除倒数第N个节点</a>
+
+<h2 id="链表相交"><a href="#链表相交" class="headerlink" title="链表相交"></a>链表相交</h2><a href="/2022/02/16/lc-0207/" title="链表相交">链表相交</a>
+
+<h2 id="环形链表"><a href="#环形链表" class="headerlink" title="环形链表"></a>环形链表</h2><a href="/2022/02/16/lc-142/" title="链表相交">链表相交</a>
+        </div>
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/02/14/lc-203/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">203.移除链表元素</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/02/14/algo-3/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">算法学习笔记（三）KMP</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div id="gitalk-container"></div>
+    <script data-pjax
+            src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+    <script data-pjax>
+
+        function loadGitalk() {
+            let __gitalk__pathname = decodeURI(location.pathname);
+            const __gitalk__pathnameLength = __gitalk__pathname.length;
+            const __gitalk__pathnameMaxLength = 50;
+            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
+                __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
+            }
+
+            try {
+                Gitalk && new Gitalk({
+                    clientID: 'adbde3411133d5bcc532',
+                    clientSecret: 'e52fef77f830f9199ad13341637244bfcfd05ef5',
+                    repo: 'comment-respository',
+                    owner: 'kunkunyy',
+                    admin: ['kunkunyy'],
+                    id: __gitalk__pathname,
+                    language: 'zh-CN'
+                }).render('gitalk-container');
+
+            } catch (e) {
+                window.Gitalk = null;
+            }
+        }
+
+        if ('true') {
+            const loadGitalkTimeout = setTimeout(() => {
+                loadGitalk();
+                clearTimeout(loadGitalkTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadGitalk);
+        }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>&nbsp;-&nbsp;
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">诺风吟/姚永坤</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.1</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E9%93%BE%E8%A1%A8%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">一、链表基础</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E9%93%BE%E8%A1%A8%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">二、链表类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E5%8D%95%E9%93%BE%E8%A1%A8"><span class="nav-number">2.1.</span> <span class="nav-text">1、单链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E5%8F%8C%E9%93%BE%E8%A1%A8"><span class="nav-number">2.2.</span> <span class="nav-text">2、双链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E5%BE%AA%E7%8E%AF%E9%93%BE%E8%A1%A8"><span class="nav-number">2.3.</span> <span class="nav-text">3、循环链表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E9%93%BE%E8%A1%A8%E7%9A%84%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">三、链表的存储方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E9%93%BE%E8%A1%A8%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="nav-number">4.</span> <span class="nav-text">四、链表的操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9"><span class="nav-number">4.1.</span> <span class="nav-text">1、删除节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E6%B7%BB%E5%8A%A0%E8%8A%82%E7%82%B9"><span class="nav-number">4.2.</span> <span class="nav-text">2、添加节点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94%E3%80%81JS%E5%AE%9A%E4%B9%89%E9%93%BE%E8%A1%A8"><span class="nav-number">5.</span> <span class="nav-text">五、JS定义链表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E9%93%BE%E8%A1%A8%E7%BB%8F%E5%85%B8%E9%A2%98%E7%9B%AE"><span class="nav-number">6.</span> <span class="nav-text">六、链表经典题目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%A4%B4%E8%8A%82%E7%82%B9"><span class="nav-number">6.1.</span> <span class="nav-text">虚拟头节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%93%BE%E8%A1%A8%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-number">6.2.</span> <span class="nav-text">链表基本操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8"><span class="nav-number">6.3.</span> <span class="nav-text">反转链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9"><span class="nav-number">6.4.</span> <span class="nav-text">删除倒数第N个节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%93%BE%E8%A1%A8%E7%9B%B8%E4%BA%A4"><span class="nav-number">6.5.</span> <span class="nav-text">链表相交</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8"><span class="nav-number">6.6.</span> <span class="nav-text">环形链表</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+    <script src="/js/local-search.js"></script>
+
+
+
+    <script src="/js/code-copy.js"></script>
+
+
+
+    <script src="/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="/js/left-side-toggle.js"></script><script src="/js/libs/anime.min.js"></script><script src="/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

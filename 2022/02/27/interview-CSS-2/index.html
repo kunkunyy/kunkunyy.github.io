@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="诺风吟/姚永坤">
+    
+    <title>
+        
+            前端面试题-CSS篇（二） |
+        
+        猫猫头-kunkun
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/blog.png">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.png","favicon":"/images/blog.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"欢迎进入猫猫头的代码世界."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.1"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="姚永坤的小窝" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                猫猫头-kunkun
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">前端面试题-CSS篇（二）</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">诺风吟/姚永坤</span>
+                        
+                            <span class="author-label">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2022-02-27 14:28:50
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/CSS/">CSS</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        &gt; <a href="/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/">前端面试题</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.1k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>3 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="1、自适应布局"><a href="#1、自适应布局" class="headerlink" title="1、自适应布局"></a>1、自适应布局</h1><ul>
+<li>使用flex；</li>
+<li>左侧浮动或者绝对定位，右侧margin撑开使用div包含，靠-margin形成BFC；</li>
+</ul>
+<h1 id="2、display相关参数"><a href="#2、display相关参数" class="headerlink" title="2、display相关参数"></a>2、display相关参数</h1><ul>
+<li>block：块级元素；</li>
+<li>inline：等行元素；</li>
+<li>table：table类型</li>
+<li>flex：弹性布局，子元素的float、clear和vertical-align属性将失效</li>
+<li>inline-block：行内块元素</li>
+</ul>
+<h1 id="3、display-none-和-visibility-hidden-的区别"><a href="#3、display-none-和-visibility-hidden-的区别" class="headerlink" title="3、display:none 和 visibility:hidden 的区别"></a>3、display:none 和 visibility:hidden 的区别</h1><ul>
+<li>display:none 隐藏对应的元素，<strong>在文档布局中不再给它分配空间</strong>，它各边的元素会合拢，就当他从来不存在。</li>
+<li>visibility:hidden 隐藏对应的元素，但是<strong>在文档布局中仍保留原来的空间</strong>。</li>
+</ul>
+<h1 id="4、position的absolute-与fixed共同点与不同点"><a href="#4、position的absolute-与fixed共同点与不同点" class="headerlink" title="4、position的absolute 与fixed共同点与不同点"></a>4、position的absolute 与fixed共同点与不同点</h1><ul>
+<li>共同点：<ul>
+<li>改变行内元素的呈现方式，display被置为block；</li>
+<li>让元素脱离普通流，不占据空间；</li>
+<li>默认会覆盖到非定位元素上不同点；</li>
+</ul>
+</li>
+<li>不同点：<ul>
+<li>absolute的“根元素”是可以设置的，而 fixed 的“根元素”固定为浏览器窗口。</li>
+</ul>
+</li>
+</ul>
+<h1 id="5、position的值分别是相对于谁进行定位的"><a href="#5、position的值分别是相对于谁进行定位的" class="headerlink" title="5、position的值分别是相对于谁进行定位的"></a>5、position的值分别是相对于谁进行定位的</h1><ul>
+<li>absolute：相对于static定位以外的第一个祖先元素。</li>
+<li>fixed：相对于浏览器窗口进行定位。</li>
+<li>relative：相对于其在普通流中的位置进行定位</li>
+<li>static，默认值，没有定位，元素出现在正常的流中。</li>
+<li>inherit：从父元素继承position。</li>
+</ul>
+<h1 id="6、为什么要初始化CSS"><a href="#6、为什么要初始化CSS" class="headerlink" title="6、为什么要初始化CSS"></a>6、为什么要初始化CSS</h1><ul>
+<li>因为浏览器的兼容问题，不同浏览器对有些标签的默认值是不同的，如果没对CSS初始化往往会出现浏览器之间的页面显示差异。</li>
+</ul>
+<h1 id="7、canvas在标签山设置宽高和在style中设置宽高有什么区别"><a href="#7、canvas在标签山设置宽高和在style中设置宽高有什么区别" class="headerlink" title="7、canvas在标签山设置宽高和在style中设置宽高有什么区别"></a>7、canvas在标签山设置宽高和在style中设置宽高有什么区别</h1><ul>
+<li>标签的width和height是画布实际宽度和高度；</li>
+<li>style的是canvas在浏览器中被渲染的高度和宽度。</li>
+</ul>
+<h1 id="8、CSS预处理器"><a href="#8、CSS预处理器" class="headerlink" title="8、CSS预处理器"></a>8、CSS预处理器</h1><ul>
+<li>Sass，Less，Postcss</li>
+<li>原理：将类CSS语言通过Webpack编译转成浏览器可读的真正CSS。</li>
+</ul>
+<h1 id="9、哪些属性可以继承"><a href="#9、哪些属性可以继承" class="headerlink" title="9、哪些属性可以继承"></a>9、哪些属性可以继承</h1><ul>
+<li>可继承：font-size, font-family, color等</li>
+<li>不可继承border, padding, margin, width, height</li>
+</ul>
+<h1 id="10、-before-和-after-中双冒号和单冒号有什么区别"><a href="#10、-before-和-after-中双冒号和单冒号有什么区别" class="headerlink" title="10、::before 和 :after 中双冒号和单冒号有什么区别"></a>10、::before 和 :after 中双冒号和单冒号有什么区别</h1><ul>
+<li>单冒号用于CSS3伪类，双冒号用于CSS3伪元素。</li>
+<li>CSS 伪类用于向某些选择器添加特殊的效果。</li>
+<li>CSS 伪元素用于将特殊的效果添加到某些选择器。</li>
+</ul>
+<h1 id="11、什么是响应式设计？其基本原理是什么？"><a href="#11、什么是响应式设计？其基本原理是什么？" class="headerlink" title="11、什么是响应式设计？其基本原理是什么？"></a>11、什么是响应式设计？其基本原理是什么？</h1><ul>
+<li>响应式网站设计(Responsive Web design)是一个网站能够兼容多个终端，而不是为每一个终端做一个特定的版本。</li>
+<li>基本原理是通过媒体查询检测不同的设备屏幕尺寸做处理。</li>
+<li>页面头部必须有meta声明的viewport。</li>
+</ul>
+<h1 id="12、浏览器是怎样解析CSS选择器的？"><a href="#12、浏览器是怎样解析CSS选择器的？" class="headerlink" title="12、浏览器是怎样解析CSS选择器的？"></a>12、浏览器是怎样解析CSS选择器的？</h1><ul>
+<li>CSS选择器的解析是从右向左解析的。若从左向右的匹配，发现不符合规则,需要进行回溯，会损失很多性能。</li>
+<li>若从右向左匹配，先找到所有的最右节点，对于每一个节点，向上寻找其父节点直到找到根元素或满足条件的匹配规则，则结束这个分支的遍历。</li>
+<li>在CSS解析完毕后，需要将解析的结果与DOM Tree 的内容一起进行分析建立一棵Render Tree，最终用来进行绘图。</li>
+</ul>
+<h1 id="13、CSS优化、提高性能的方法有哪些？"><a href="#13、CSS优化、提高性能的方法有哪些？" class="headerlink" title="13、CSS优化、提高性能的方法有哪些？"></a>13、CSS优化、提高性能的方法有哪些？</h1><ul>
+<li>避免过度约束</li>
+<li>避免后代选择符避免链式选择符使用紧凑的语法</li>
+<li>避免不必要的命名空间</li>
+<li>避免不必要的重复</li>
+<li>最好使用表示语义的名字。一个好的类名应该是描述他是什么而不是像什么</li>
+<li>避免! important，可以选择其他选择器</li>
+<li>尽可能的精简规则，你可以合并不同类里的重复规则</li>
+</ul>
+<h1 id="14-position跟display、overflow、float这些特性相互叠加后会怎么样"><a href="#14-position跟display、overflow、float这些特性相互叠加后会怎么样" class="headerlink" title="14.position跟display、overflow、float这些特性相互叠加后会怎么样?"></a>14.position跟display、overflow、float这些特性相互叠加后会怎么样?</h1><ul>
+<li>display属性规定元素应该生成的框的类型;</li>
+<li>position 属性规定元素的定位类型;</li>
+<li>float属性是一种布局方式，定义元素在哪个方向浮动。</li>
+<li>类似于优先级机制: <ul>
+<li>position: absolute/fixed优先级最高,有他们在时, float不起作用, display值需要调整。</li>
+<li>float或者absolute定位的元素，只能是块元素或表格。</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/02/27/interview-JS-1/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">前端面试题-JS篇（一）</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/02/27/lc-150/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">150. 逆波兰表达式求值</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div id="gitalk-container"></div>
+    <script data-pjax
+            src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+    <script data-pjax>
+
+        function loadGitalk() {
+            let __gitalk__pathname = decodeURI(location.pathname);
+            const __gitalk__pathnameLength = __gitalk__pathname.length;
+            const __gitalk__pathnameMaxLength = 50;
+            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
+                __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
+            }
+
+            try {
+                Gitalk && new Gitalk({
+                    clientID: 'adbde3411133d5bcc532',
+                    clientSecret: 'e52fef77f830f9199ad13341637244bfcfd05ef5',
+                    repo: 'comment-respository',
+                    owner: 'kunkunyy',
+                    admin: ['kunkunyy'],
+                    id: __gitalk__pathname,
+                    language: 'zh-CN'
+                }).render('gitalk-container');
+
+            } catch (e) {
+                window.Gitalk = null;
+            }
+        }
+
+        if ('true') {
+            const loadGitalkTimeout = setTimeout(() => {
+                loadGitalk();
+                clearTimeout(loadGitalkTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadGitalk);
+        }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>&nbsp;-&nbsp;
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">诺风吟/姚永坤</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.1</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1%E3%80%81%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80"><span class="nav-number">1.</span> <span class="nav-text">1、自适应布局</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2%E3%80%81display%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">2、display相关参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3%E3%80%81display-none-%E5%92%8C-visibility-hidden-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">3.</span> <span class="nav-text">3、display:none 和 visibility:hidden 的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4%E3%80%81position%E7%9A%84absolute-%E4%B8%8Efixed%E5%85%B1%E5%90%8C%E7%82%B9%E4%B8%8E%E4%B8%8D%E5%90%8C%E7%82%B9"><span class="nav-number">4.</span> <span class="nav-text">4、position的absolute 与fixed共同点与不同点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5%E3%80%81position%E7%9A%84%E5%80%BC%E5%88%86%E5%88%AB%E6%98%AF%E7%9B%B8%E5%AF%B9%E4%BA%8E%E8%B0%81%E8%BF%9B%E8%A1%8C%E5%AE%9A%E4%BD%8D%E7%9A%84"><span class="nav-number">5.</span> <span class="nav-text">5、position的值分别是相对于谁进行定位的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%88%9D%E5%A7%8B%E5%8C%96CSS"><span class="nav-number">6.</span> <span class="nav-text">6、为什么要初始化CSS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7%E3%80%81canvas%E5%9C%A8%E6%A0%87%E7%AD%BE%E5%B1%B1%E8%AE%BE%E7%BD%AE%E5%AE%BD%E9%AB%98%E5%92%8C%E5%9C%A8style%E4%B8%AD%E8%AE%BE%E7%BD%AE%E5%AE%BD%E9%AB%98%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="nav-number">7.</span> <span class="nav-text">7、canvas在标签山设置宽高和在style中设置宽高有什么区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8%E3%80%81CSS%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8"><span class="nav-number">8.</span> <span class="nav-text">8、CSS预处理器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9%E3%80%81%E5%93%AA%E4%BA%9B%E5%B1%9E%E6%80%A7%E5%8F%AF%E4%BB%A5%E7%BB%A7%E6%89%BF"><span class="nav-number">9.</span> <span class="nav-text">9、哪些属性可以继承</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10%E3%80%81-before-%E5%92%8C-after-%E4%B8%AD%E5%8F%8C%E5%86%92%E5%8F%B7%E5%92%8C%E5%8D%95%E5%86%92%E5%8F%B7%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="nav-number">10.</span> <span class="nav-text">10、::before 和 :after 中双冒号和单冒号有什么区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#11%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E5%93%8D%E5%BA%94%E5%BC%8F%E8%AE%BE%E8%AE%A1%EF%BC%9F%E5%85%B6%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">11.</span> <span class="nav-text">11、什么是响应式设计？其基本原理是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#12%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E6%98%AF%E6%80%8E%E6%A0%B7%E8%A7%A3%E6%9E%90CSS%E9%80%89%E6%8B%A9%E5%99%A8%E7%9A%84%EF%BC%9F"><span class="nav-number">12.</span> <span class="nav-text">12、浏览器是怎样解析CSS选择器的？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#13%E3%80%81CSS%E4%BC%98%E5%8C%96%E3%80%81%E6%8F%90%E9%AB%98%E6%80%A7%E8%83%BD%E7%9A%84%E6%96%B9%E6%B3%95%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="nav-number">13.</span> <span class="nav-text">13、CSS优化、提高性能的方法有哪些？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#14-position%E8%B7%9Fdisplay%E3%80%81overflow%E3%80%81float%E8%BF%99%E4%BA%9B%E7%89%B9%E6%80%A7%E7%9B%B8%E4%BA%92%E5%8F%A0%E5%8A%A0%E5%90%8E%E4%BC%9A%E6%80%8E%E4%B9%88%E6%A0%B7"><span class="nav-number">14.</span> <span class="nav-text">14.position跟display、overflow、float这些特性相互叠加后会怎么样?</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/header-shrink.js"></script><script src="/js/back2top.js"></script><script src="/js/dark-light-toggle.js"></script>
+
+
+    <script src="/js/local-search.js"></script>
+
+
+
+    <script src="/js/code-copy.js"></script>
+
+
+
+    <script src="/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="/js/left-side-toggle.js"></script><script src="/js/libs/anime.min.js"></script><script src="/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

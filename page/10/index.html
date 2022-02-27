@@ -166,31 +166,31 @@
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/07/21/js-6/">
-                        JavaScript学习笔记（六）操作符
+                    <a href="/2021/11/14/js-30/">
+                        JavaScript学习笔记（三十）异步函数（一）
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
                         
-操作符包括：数学操作符、位操作符、关系操作符和相等操作符。
-操作符可用于各种值，包括字符串、数值、布尔值、甚至还有对象。
-在应用给对象时，操作符通常会调用 valueOf()和/或 toString()方法来取得可以计算的值。
+异步函数,也称为“async/await”(语法关键字)。
+ES8的async/await旨在解决利用异步结构组织代码的问题。
 
-一元操作符定义
-只...
+异步函数1、async
+async关键字用于声明异步函数。这个关键字可以用在函数声明、函数表达式、箭头函数和方法上。
+...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Jul 21 2021 17:17:36 GMT+0800">2021-07-21</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sun Nov 14 2021 11:14:29 GMT+0800">2021-11-14</span></span>
         
         
     </div>
 
-    <a href="/2021/07/21/js-6/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/11/14/js-30/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -200,30 +200,31 @@
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/07/21/js-5/">
-                        JavaScript学习笔记（五）数据类型概述
+                    <a href="/2021/11/11/js-29/">
+                        JavaScript学习笔记（二十九）期约（三）
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        数据类型
-ECMAScript有6种简单数据类型：Undefined、Null、Boolean、Number、String、Symbol。其中Symbol时ES6新增的数据类型
-Object为复杂数据类型
+                        期约连锁与期约合成
+期约连锁与期约合成主要用于将多个期约组合在一起进而构成强大的代码逻辑。
+前者是一个期约接一个期约地拼接，后者则是将多个期约组合为一个期约。
 
-typeof操作符
-typeof是一个操作...
+期约连锁
+简单理解，期约连锁是由期约的连缀方法构成的。
+期约连锁的原理是：每个期约实例的...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Jul 21 2021 17:05:03 GMT+0800">2021-07-21</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Nov 11 2021 15:42:14 GMT+0800">2021-11-11</span></span>
         
         
     </div>
 
-    <a href="/2021/07/21/js-5/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/11/11/js-29/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -233,28 +234,30 @@ typeof是一个操作...
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/07/21/js-4/">
-                        JavaScript学习笔记（四）变量声明关键字
+                    <a href="/2021/11/08/js-28/">
+                        JavaScript学习笔记（二十八）期约（二）
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        var作用域
-使用var操作符定义的变量会成为包含它的函数的局部变量
-去掉var操作符，该操作符成为全局变量
-严格模式下，如果向这样给未声明的变量赋值，会导致抛出 ReferenceError。1234567891011function test()...
+                        期约的实例方法
+期约实例的方法是连接外部同步代码与内部异步代码之间的桥梁。
+这些方法可以访问异步操作返回的数据，处理期约成功和失败的结果，连续对期约求值,或者添加只有期约进入终止状态时才会执行的代码。
+
+1、实现Thenable接口
+then()方法...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Jul 21 2021 10:40:51 GMT+0800">2021-07-21</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon Nov 08 2021 16:31:09 GMT+0800">2021-11-08</span></span>
         
         
     </div>
 
-    <a href="/2021/07/21/js-4/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/11/08/js-28/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -264,32 +267,30 @@ typeof是一个操作...
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/07/21/js-3/">
-                        JavaScript学习笔记（三）JS语法基础
+                    <a href="/2021/11/04/js-27/">
+                        JavaScript学习笔记（二十七）期约（一）
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        标识符定义&emsp;&emsp;变量、函数、属性或函数参数的名称。
-规则命名规则
-第一个字符必须是一个字母、下划线或美元符号
-剩下字符可以是字母、下划线、美元符号或数字
+                        
+JavaScript时单线程事件循环模型，同步操作与异步操作时代码依赖的核心机制。
 
-其它
-使用小驼峰命名方式（首字母小写，后面每个单词首字母大写）
-关键字、保留...
+同步与异步
+同步行为对应内存中顺序执行的处理器指令。
+每条指令都会严格按照它们出现的顺序来执行，而每条指令执行后也能立即获得存储在系统本地(如寄存器或系统内存)的...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Jul 21 2021 09:25:52 GMT+0800">2021-07-21</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Nov 04 2021 17:06:48 GMT+0800">2021-11-04</span></span>
         
         
     </div>
 
-    <a href="/2021/07/21/js-3/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/11/04/js-27/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -299,43 +300,28 @@ typeof是一个操作...
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/07/20/js-2/">
-                        JavaScript学习笔记（二）HTML中的JavaScript
+                    <a href="/2021/11/04/js-26/">
+                        JavaScript学习笔记（二十六）函数（六）
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        &lt;script&gt;元素&lt;script&gt;元素拥有的属性
+                        立即调用的函数表达式
+立即调用的匿名函数又被称作立即调用的函数表达式。
 
-
-属性
-状态
-作用
-备注
-
-
-
-async
-可选
-立即开始下载脚本，但不能阻止其他页面动作
-只对外部脚本文件有效
-
-
-charset
-可选
-使用 src 属性指定的代码字符...
+12345678910(function() &#123;  // 块级作用域 &#125;)(); //======================(function () ...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jul 20 2021 12:01:34 GMT+0800">2021-07-20</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Nov 04 2021 14:37:01 GMT+0800">2021-11-04</span></span>
         
         
     </div>
 
-    <a href="/2021/07/20/js-2/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/11/04/js-26/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -345,32 +331,27 @@ charset
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/07/20/js-1/">
-                        JavaScript学习笔记（一）JS概述
+                    <a href="/2021/11/04/js-25/">
+                        JavaScript学习笔记（二十五）函数（五）闭包
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        JavaScript实现完整的 JavaScript 实现包含以下几个部分：
-
-核心（ECMAScript）
-文档对象模型（DOM）
-浏览器对象模型（BOM）
-
-ECMAScript
-Web 浏览器只是 ECMAScript 实现可能存在的一种宿主环...
+                        
+闭包指的是那些引用了另一个函数作用域中变量的函数。
+在调用一个函数时，会为这个函数调用创建一个执行上下文，并创建一个作用域链。然后用arguments和其他命名参数来初始化这个函数的活动对象。外部函数的活动对象是内部函数作用域链上的第二个对像。这个...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jul 20 2021 10:56:26 GMT+0800">2021-07-20</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Nov 04 2021 10:43:39 GMT+0800">2021-11-04</span></span>
         
         
     </div>
 
-    <a href="/2021/07/20/js-1/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/11/04/js-25/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -380,30 +361,33 @@ Web 浏览器只是 ECMAScript 实现可能存在的一种宿主环...
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/07/20/tcp-ip/">
-                        TCP和UDP
+                    <a href="/2021/11/04/js-24/">
+                        JavaScript学习笔记（二十四）函数（四）尾调用优化
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        TCP 三次握手
+                        
+外部函数的返回值是一个内部函数的返回值。
 
-
-C 发起请求连接 S 确认，也发起连接 C 确认① 第一次握手：S确认可以接收C发送的报文段② 第二次握手：C确认S收到了自己发送的报文段，然后确认接受到了S发送的报文段③ 第三次握手：S确认C接受到了自己发送的报文段
-
-TCP...
+尾调用优化的条件
+尾调用优化的条件就是确定外部栈帧真的没有必要存在了。
+代码在严格模式下执行；
+外部函数的返回值是对尾调用函数的调用；
+尾调用函数返回后不需要执行额外的逻辑；
+尾调用函数不是引用外部函数作...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jul 20 2021 09:46:29 GMT+0800">2021-07-20</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Nov 04 2021 10:31:15 GMT+0800">2021-11-04</span></span>
         
         
     </div>
 
-    <a href="/2021/07/20/tcp-ip/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/11/04/js-24/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -413,34 +397,25 @@ TCP...
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/05/28/Html-study-1/">
-                        HTML语义化
+                    <a href="/2021/11/01/lc-575/">
+                        575. 分糖果
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        定义
-HTML语义化就是根据具体内容，选择合适的标签进行代码的编写。便于开发者阅读和写出更优雅的代码，同时让搜索引擎的爬虫能更好的识别。
-
-简单来讲就是：用正确的标签做正确的事
-
-
-举例说明比如说：
-
-段落用&lt;p&gt;标签
-标题用h1~h6标...
+                        题目给定一个偶数长度的数组，其中不同的数字代表着不同种类的糖果，每一个数字代表一个糖果。你需要把这些糖果平均分给一个弟弟和一个妹妹。返回妹妹可以获得的最大糖果的种类数。链接：https://leetcode-cn.com/problems/distr...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri May 28 2021 22:06:37 GMT+0800">2021-05-28</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon Nov 01 2021 17:12:21 GMT+0800">2021-11-01</span></span>
         
         
     </div>
 
-    <a href="/2021/05/28/Html-study-1/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/11/01/lc-575/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -450,30 +425,28 @@ HTML语义化就是根据具体内容，选择合适的标签进行代码的编�
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/04/28/Front-end-basic-learning-1/">
-                        Http和Https
+                    <a href="/2021/10/31/js-skill-1/">
+                        JavaScript——判断字符串中是否包含某个字符/字符串
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        Http和Https基本概念
-Http
-超文本传输协议，是互联网上应用最为广泛的一种网络协议
-是一个客户端和服务器端请求和应答的标准，即TCP
-用于从 WWW 服务器传输超文本到本地浏览器的传输协议，它可以使浏览器更加高效，使网络传输减少
-HTTP ...
+                        方法一：indexOf()
+返回某个指定的字符串值在字符串中首次出现的位置；如果不存在，则返回-1；
+
+1234567let str = &#x27;Hello World!&#x27;;if(str.indexOf(&quot;World&quot...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Apr 28 2021 18:51:30 GMT+0800">2021-04-28</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sun Oct 31 2021 17:23:09 GMT+0800">2021-10-31</span></span>
         
         
     </div>
 
-    <a href="/2021/04/28/Front-end-basic-learning-1/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/10/31/js-skill-1/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -483,33 +456,27 @@ HTTP ...
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/04/28/Database-experiment-4/">
-                        数据库实验五、六
+                    <a href="/2021/10/31/lc-500/">
+                        500.键盘行
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        实验类型验证型实验
-实验目的
-了解数据库恢复技术的原理
-了解oracle各类故障的数据恢复方法
-了解oracle的物理备份
-掌握oracle数据库逻辑备份方法
-掌握oracle数据库恢复的方法
-学会使用exp备份数据库、使用imp恢复数据库
-了解fl...
+                        题目给你一个字符串数组 words ，只返回可以使用在 美式键盘 同一行的字母打印出来的单词。键盘如下图所示。
+美式键盘中：
+第一行由字符 “qwertyuiop” 组成。第二行由字符 “asdfghjkl” 组成。第三行由字符 “zxcvbnm” ...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Apr 28 2021 11:10:44 GMT+0800">2021-04-28</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sun Oct 31 2021 16:49:46 GMT+0800">2021-10-31</span></span>
         
         
     </div>
 
-    <a href="/2021/04/28/Database-experiment-4/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/10/31/lc-500/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
