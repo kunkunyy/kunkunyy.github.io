@@ -166,27 +166,28 @@
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2022/01/03/css-2/">
-                        CSS学习笔记（二）背景与边框（二）
+                    <a href="/2022/02/05/vue-5/">
+                        Vue 学习笔记（五）事件处理
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        五、条纹背景难题
-不论是在网页设计中，还是在其他传统媒介中（比如杂志和墙纸等），各种尺寸、颜色、角度的条纹图案在视觉设计中无处不在。
-要想在网页中实现条纹图案，其过程还远远不够理想。通常，我们的方法是创建一个单独的位图文件，然后每次需要做些调整时，都...
+                        事件处理监听事件
+可以用 v-on 指令监听 DOM 事件，并在触发时运行一些 JavaScript 代码。
+
+1234&lt;div id=&quot;example-1&quot;&gt;    &lt;button v-on:click=&qu...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon Jan 03 2022 00:37:52 GMT+0800">2022-01-03</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sat Feb 05 2022 21:36:25 GMT+0800">2022-02-05</span></span>
         
         
     </div>
 
-    <a href="/2022/01/03/css-2/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2022/02/05/vue-5/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -196,25 +197,28 @@
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/12/30/css-1/">
-                        CSS学习笔记（一）背景与边框（一）
+                    <a href="/2022/02/05/vue-6/">
+                        Vue 学习笔记（六）表单输入绑定
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        123456789101112131415161718192021222324&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;    &lt;meta charset=...
+                        表单输入绑定基础用法
+可以用 v-model 指令在表单 &lt;input&gt;、&lt;textarea&gt; 及 &lt;select&gt; 元素上创建双向数据绑定。
+v-model 本质上不过是语法糖。
+它负责监听用户的输入事件以更新数...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Dec 30 2021 16:41:09 GMT+0800">2021-12-30</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sat Feb 05 2022 21:36:25 GMT+0800">2022-02-05</span></span>
         
         
     </div>
 
-    <a href="/2021/12/30/css-1/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2022/02/05/vue-6/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -224,30 +228,32 @@
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/12/30/js-51/">
-                        JavaScript学习笔记（四十八）网络请求与远程资源（四）
+                    <a href="/2022/02/04/vue-4/">
+                        Vue 学习笔记（四）列表渲染
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        Web Socket
-Web Socket (套接字)的目标是通过一个长时连接实现与服务器全双工、双向的通信。
+                        列表渲染用v-for把一个数组对应为一组元素
+可以用v-for指令基于一个数组来渲染一个列表。
+v-for指令需要使用 item in items 形式的特殊语法；
+items是源数据数组，item是被迭代数组的别名。
 
-1、API
-要创建一个新的WebSocket，就要实例化一个WebSocket对象并传人提供连接的URL。
-必须给WebSocket构造...
+
+
+12345&lt;ul ...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Dec 30 2021 00:06:09 GMT+0800">2021-12-30</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri Feb 04 2022 23:14:59 GMT+0800">2022-02-04</span></span>
         
         
     </div>
 
-    <a href="/2021/12/30/js-51/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2022/02/04/vue-4/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -257,32 +263,33 @@ Web Socket (套接字)的目标是通过一个长时连接实现与服务器全�
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/12/25/js-50/">
-                        JavaScript学习笔记（四十八）网络请求与远程资源（三）
+                    <a href="/2022/02/04/vue-3/">
+                        Vue 学习笔记（三）条件渲染
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        五、Fetch API
-Fetch API则必须是异步
+                        条件渲染语句
+v-if、v-else-if、v-else、v-show、v-for。
 
-1、基本用法
-fetch()方法是暴露在全局作用域中的，包括主页面执行线程、模块和工作线程。
+一、条件判断语句
+v-if、v-else-if、v-else。
 
-1）分派请求
-fetch()只有一个必需的参数input。多数情况下，这个参数是要获取资源的UR...
+v-if
+v-if指令用于条件性地渲染一块内容。
+这块内容只有当指令的表达式返回true值的时候...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sat Dec 25 2021 20:05:11 GMT+0800">2021-12-25</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri Feb 04 2022 18:46:54 GMT+0800">2022-02-04</span></span>
         
         
     </div>
 
-    <a href="/2021/12/25/js-50/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2022/02/04/vue-3/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -292,28 +299,34 @@ fetch()只有一个必需的参数input。多数情况下，这个参数是要�
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/12/24/js-49/">
-                        JavaScript学习笔记（四十八）网络请求与远程资源（二）
+                    <a href="/2022/02/03/vue-2/">
+                        Vue 学习笔记（二）Vue生命周期
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        三、跨源资源共享
-跨源资源共享(CORS, Cross-Origin Resource Sharing)定义了浏览器与服务器如何实现跨源通信。
+                        基本内容和图解
+VUE生命周期共分为八个阶段：
 
-CORS背后的基本思路就是使用自定义的HTTP头部允许浏览器和服务器相互了解，以确实请求或响应应该成功还...
+创建前/后、载入前/后、更新前/后、销毁前/后。
+
+
+创建前/后 :
+
+在beforeCreate阶段，vue实例的挂载元素el和数据对象data都为undefined，还未初始化。
+在created...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri Dec 24 2021 14:24:34 GMT+0800">2021-12-24</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Feb 03 2022 19:36:30 GMT+0800">2022-02-03</span></span>
         
         
     </div>
 
-    <a href="/2021/12/24/js-49/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2022/02/03/vue-2/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -323,32 +336,34 @@ CORS背后的基本思路就是使用自定义的HTTP头部允许浏览器和服
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/12/22/js-48/">
-                        JavaScript学习笔记（四十八）网络请求与远程资源（一）
+                    <a href="/2022/02/03/vue-1/">
+                        Vue 学习笔记（一）MVVM模式
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        一、XMLHttpRequest对象1、使用XHR
-open()方法
-接收3个参数：请求类型、请求URL、表示请求是否异步的布尔值。
-调用open不会实际发送请求，只是为发送请求做好准备。
+                        一、什么是MVVM
+MVVM是一种架构设计模式，是一种简化用户界面的事件驱动编程方式。
+MVVM源自于MVC模式。
+MVVM的核心是ViewModel层：
+该层向上与视图层进行双向数据绑定；
+向下与Model层通过接口请求进行数据交互。
 
 
-send()方法用于发送定义好的请求
-方法接收一个参数：...
+
+二、M...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Dec 22 2021 15:24:56 GMT+0800">2021-12-22</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Feb 03 2022 17:04:13 GMT+0800">2022-02-03</span></span>
         
         
     </div>
 
-    <a href="/2021/12/22/js-48/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2022/02/03/vue-1/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -358,28 +373,32 @@ send()方法用于发送定义好的请求
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/12/22/js-47/">
-                        JavaScript学习笔记（四十七）JSON
+                    <a href="/2022/02/03/css-13/">
+                        CSS学习笔记（十三）结构与布局
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        一、语法
-JSON语法支持表示3种类型的值：
-简单值：字符串、数值、布尔值和null可以在JSON中出现，就像在JavaScript中一样。特殊值undefined不可以。
-对象：第一种复杂数据类型，对象表示有序键/值对。每个值可以是简单值，也可以是...
+                        自适应内部元素
+关键字：min-content
+将解析为这个容器内部最大的不可断行元素的宽度
+
+
+把 figure 设置为恰当的宽度，并让它水平居中。
+
+1234figure &#123;    width: min-content;    marg...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Dec 22 2021 13:15:11 GMT+0800">2021-12-22</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Feb 03 2022 00:34:01 GMT+0800">2022-02-03</span></span>
         
         
     </div>
 
-    <a href="/2021/12/22/js-47/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2022/02/03/css-13/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -389,33 +408,31 @@ JSON语法支持表示3种类型的值：
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/12/20/js-46/">
-                        JavaScript学习笔记（四十六）动画与Canvas图形（二）
+                    <a href="/2022/01/28/css-12/">
+                        CSS学习笔记（十二）用户体验（一）
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        WebGL1、WebGL上下文
-在完全支持的浏览器中：
-**WebGL 2.0上下文的名字叫” webgl2”**；
-**WebGL 1.0上下文的名字叫” webgl1”**。
+                        二十九、选用合适的鼠标光标
+鼠标指针的用途不仅在于显示鼠标在屏幕上的位置，还可以告诉用户当前可以执行什么动作。
 
+1、提示禁用状态
+提示某个控件因为某些原因而变得无法交互（即控件已被禁用），用这个光标就再合适不过。
 
-检测浏览器是否支持WebGL：
-
-12345678let draw...
+123:disabled, [d...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon Dec 20 2021 15:44:37 GMT+0800">2021-12-20</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri Jan 28 2022 18:51:01 GMT+0800">2022-01-28</span></span>
         
         
     </div>
 
-    <a href="/2021/12/20/js-46/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2022/01/28/css-12/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -425,33 +442,31 @@ JSON语法支持表示3种类型的值：
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/12/14/js-45/">
-                        JavaScript学习笔记（四十五）动画与Canvas图形（一）
+                    <a href="/2022/01/24/css-11/">
+                        CSS学习笔记（十一）字体排印（二）
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        使用requestAnimationFrame1、早期定时动画
-早期使用setInterval()控制动画的执行。
-存在的问题：
-无法准确知晓循环之间的延时。
-不能保证时间精度。
+                        二十三、调整tab的宽度问题提出
+由于tab导致文本间间隙过大进而影响视觉效果。
 
-
-
-12345678(function() &#123;     f...
+解决方案
+tab-size属性：
+接受一个数字（表示字符数）或者一个长度值。
+通常希望把它设置为 4（表示 4 个字符的宽度）或2。123pre &#123;    ...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Dec 14 2021 17:02:37 GMT+0800">2021-12-14</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon Jan 24 2022 17:20:30 GMT+0800">2022-01-24</span></span>
         
         
     </div>
 
-    <a href="/2021/12/14/js-45/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2022/01/24/css-11/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -461,29 +476,34 @@ JSON语法支持表示3种类型的值：
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/12/12/js-44/">
-                        JavaScript学习笔记（四十四）事件（二）
+                    <a href="/2022/01/15/css-10/">
+                        CSS学习笔记（十）字体排印（一）
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        事件类型1、用户界面事件1）load事件
-在window对象上，load事件会在整个页面（包括所有外部资源如图片、JavaScript文件和CSS文件)加载完成后触发。
-可以通过两种方式指定load事件处理程序：
-JavaScript方式；
-向&lt...
+                        二十、连字符断行
+在对文本进行两端对齐处理时，需要调整单词的间距，此时会出现“单词孤岛”现象。这个结果不仅看起来很糟糕，而且损伤了可读性。
+
+123a &#123;    text-align: justify;&#125;
+
+
+
+
+解决方案：
+hy...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sun Dec 12 2021 22:59:09 GMT+0800">2021-12-12</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sat Jan 15 2022 21:31:28 GMT+0800">2022-01-15</span></span>
         
         
     </div>
 
-    <a href="/2021/12/12/js-44/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2022/01/15/css-10/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>

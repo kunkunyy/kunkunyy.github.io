@@ -216,12 +216,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>45 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>488 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>1 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>2 分钟</span>
         </span>
     
     
@@ -237,16 +237,66 @@
         
 
         <div class="article-content markdown-body">
-            <h1 id="1、闭包"><a href="#1、闭包" class="headerlink" title="1、闭包"></a>1、闭包</h1><ul>
-<li>能够读取其他函数内部变量的函数或者子函数在外调用，子函数所在的父函数的作用域不会被释放。</li>
+            <h1 id="1、浏览器本地存储是怎样的？"><a href="#1、浏览器本地存储是怎样的？" class="headerlink" title="1、浏览器本地存储是怎样的？"></a>1、浏览器本地存储是怎样的？</h1><ul>
+<li>Cookie存储：明文，大小限制 4k 等。</li>
+<li>localStorage：持久化存储方式之一，不用在两端之间传输，且限制大小为10M</li>
+<li>sessionStorage，会话级存储方式，浏览器关闭立即数据丢失</li>
+<li>indexDb，浏览器端的数据库</li>
 </ul>
+<h1 id="2、AJAX的优缺点"><a href="#2、AJAX的优缺点" class="headerlink" title="2、AJAX的优缺点"></a>2、AJAX的优缺点</h1><ul>
+<li>优点：<ul>
+<li>可以无刷新页面与服务端进行通信</li>
+<li>允许你根据用户事件来更新部分页面内容</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>没有浏览历史，不能回退</li>
+<li>存在跨域问题（同源）</li>
+<li>SEO不友好（爬虫获取不到信息）</li>
+</ul>
+</li>
+</ul>
+<h1 id="3、防抖和节流"><a href="#3、防抖和节流" class="headerlink" title="3、防抖和节流"></a>3、防抖和节流</h1><ul>
+<li>防抖：用户触发事件过于频繁，只需要最后一次事件的结果。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> el = <span class="built_in">document</span>.querySelector(<span class="string">&quot;input&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> t = <span class="literal">null</span>;</span><br><span class="line">el.oninput = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(t !== <span class="literal">null</span>)&#123;</span><br><span class="line">        <span class="built_in">clearTimeout</span>(t);</span><br><span class="line">    &#125;</span><br><span class="line">    t = <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.value);</span><br><span class="line">    &#125;,<span class="number">500</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//=======封装========</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">antiShaking</span>(<span class="params">fn,delay</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> t = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(t !== <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="built_in">clearTimeout</span>(t);</span><br><span class="line">        &#125;</span><br><span class="line">        t = <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">            fn.call(<span class="built_in">this</span>);</span><br><span class="line">        &#125;,delay);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<ul>
+<li>节流：控制高频事件的执行次数。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> flag = <span class="literal">true</span>;</span><br><span class="line"><span class="built_in">window</span>.onscroll = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(flag)&#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">&quot;Hello world&quot;</span>);</span><br><span class="line">            flag = <span class="literal">true</span>;</span><br><span class="line">        &#125;,<span class="number">500</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//=======封装========</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">fn,delay</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> flag = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(flag)&#123;</span><br><span class="line">            <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">                fn.call(<span class="built_in">this</span>);</span><br><span class="line">                flag = <span class="literal">true</span></span><br><span class="line">            &#125;,delay)</span><br><span class="line">        &#125;</span><br><span class="line">        flag = <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="4、call、apply、bind"><a href="#4、call、apply、bind" class="headerlink" title="4、call、apply、bind"></a>4、call、apply、bind</h1><ul>
+<li>这三个方法均为函数对象上的方法。</li>
+<li>三个方法均用于改变函数中this指向。</li>
+<li>区别：<ul>
+<li>call vs apply ： 传参形式不一样；</li>
+<li>call vs bind ： call改变this指向后会立即调用，bind不会。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> dog = &#123;</span><br><span class="line">    food : <span class="string">&quot;骨头&quot;</span>,</span><br><span class="line">    name : <span class="string">&quot;汪汪&quot;</span>,</span><br><span class="line">    <span class="function"><span class="title">eat</span>(<span class="params">food1,food2</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&quot;我爱吃&quot;</span> + food1 + food2);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="title">sayName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&quot;我是&quot;</span> + <span class="built_in">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> cat = &#123;</span><br><span class="line">    name: <span class="string">&quot;喵喵&quot;</span>,</span><br><span class="line">    food: <span class="string">&quot;鱼&quot;</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dog.say(cat);<span class="comment">//我是喵喵</span></span><br><span class="line">dog.eat.call(cat,<span class="string">&quot;鱼&quot;</span>,<span class="string">&quot;猫粮&quot;</span>);<span class="comment">//我爱吃鱼猫粮</span></span><br><span class="line">dog.eat.apply(cat,[<span class="string">&quot;鱼&quot;</span>,<span class="string">&quot;猫粮&quot;</span>]);<span class="comment">//我爱吃鱼猫粮</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> fn = dog.eat.bind(cat,<span class="string">&quot;鱼&quot;</span>,<span class="string">&quot;猫粮&quot;</span>);</span><br><span class="line">fn();<span class="comment">//我爱吃鱼猫粮</span></span><br></pre></td></tr></table></figure>
         </div>
 
         
 
         
             <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/02/28/lc-347/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">347.前 K 个高频元素</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
                 
                 
                     <div class="article-next">
@@ -448,7 +498,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1%E3%80%81%E9%97%AD%E5%8C%85"><span class="nav-number">1.</span> <span class="nav-text">1、闭包</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8%E6%98%AF%E6%80%8E%E6%A0%B7%E7%9A%84%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">1、浏览器本地存储是怎样的？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2%E3%80%81AJAX%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-number">2.</span> <span class="nav-text">2、AJAX的优缺点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3%E3%80%81%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81"><span class="nav-number">3.</span> <span class="nav-text">3、防抖和节流</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4%E3%80%81call%E3%80%81apply%E3%80%81bind"><span class="nav-number">4.</span> <span class="nav-text">4、call、apply、bind</span></a></li></ol>
     </div>
 </div>
         </aside>

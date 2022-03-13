@@ -166,28 +166,28 @@
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/10/20/lc-453/">
-                        453.最小操作次数使数组元素相等
+                    <a href="/2021/11/04/js-26/">
+                        JavaScript学习笔记（二十六）函数（六）
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        题目给你一个长度为 n 的整数数组，每次操作将会使 n - 1 个元素增加 1 。返回让数组所有元素相等的最小操作次数。
-错误解题历程错误一思路
-根据题目要求找出数组中的最大值，遍历数组中每一个元素如果比最大值小那么就将该值加一，否则不变；
-当首次遇...
+                        立即调用的函数表达式
+立即调用的匿名函数又被称作立即调用的函数表达式。
+
+12345678910(function() &#123;  // 块级作用域 &#125;)(); //======================(function () ...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Oct 20 2021 22:02:36 GMT+0800">2021-10-20</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Nov 04 2021 14:37:01 GMT+0800">2021-11-04</span></span>
         
         
     </div>
 
-    <a href="/2021/10/20/lc-453/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/11/04/js-26/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -197,125 +197,27 @@
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/10/20/js-16/">
-                        JavaScript学习笔记（十六）迭代器与生成器
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        迭代与迭代器定义
-官方定义的迭代意思是：按照顺序反复多次执行一段程序,通常会有明确的终止条件。
-实际上计数循环就是最简单的迭代。
-循环是迭代机制的基础，这是因为它可以指定迭代的次数，以及每次迭代要执行什么操作。每次循环都会在下一次迭代开始之前完成，而...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Oct 20 2021 13:08:52 GMT+0800">2021-10-20</span></span>
-        
-        
-    </div>
-
-    <a href="/2021/10/20/js-16/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/10/18/js-15-5/">
-                        JavaScript集合引用类型——WeakSet
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        基本API
-使用new关键字实例化一个空的WeakSet:
-弱集合中的值只能是object或者继承自object的类型，尝试使用非对象设置值会抛出TypeError。
-如果想在初始化时填充弱集合，则构造函数可以接收-一个可迭代对象，其中需要包含有效的...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon Oct 18 2021 14:21:19 GMT+0800">2021-10-18</span></span>
-        
-        
-    </div>
-
-    <a href="/2021/10/18/js-15-5/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/10/18/js-15-4/">
-                        JavaScript集合引用类型——Set
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        基本API
-创建的同时初始化实例：
-
-123456789101112// 使用数组初始化集合 const s1 = new Set([&quot;val1&quot;, &quot;val2&quot;, &quot;val3&quot;]); al...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon Oct 18 2021 13:56:01 GMT+0800">2021-10-18</span></span>
-        
-        
-    </div>
-
-    <a href="/2021/10/18/js-15-4/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/10/17/js-15-3/">
-                        JavaScript集合引用类型——WeakMap
+                    <a href="/2021/11/04/js-25/">
+                        JavaScript学习笔记（二十五）函数（五）闭包
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
                         
-WeakMap是Map 的“兄弟”类型,其API也是Map的子集。
-WeakMap中的”weak”(弱).描述的是JavaScript垃圾回收程序对待“弱映射”中键的方式。
-
-基本API
-可以使用 new 关键字实例化一个空的 WeakMap：
-
-...
+闭包指的是那些引用了另一个函数作用域中变量的函数。
+在调用一个函数时，会为这个函数调用创建一个执行上下文，并创建一个作用域链。然后用arguments和其他命名参数来初始化这个函数的活动对象。外部函数的活动对象是内部函数作用域链上的第二个对像。这个...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sun Oct 17 2021 18:42:00 GMT+0800">2021-10-17</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Nov 04 2021 10:43:39 GMT+0800">2021-11-04</span></span>
         
         
     </div>
 
-    <a href="/2021/10/17/js-15-3/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/11/04/js-25/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -325,92 +227,33 @@ WeakMap中的”weak”(弱).描述的是JavaScript垃圾回收程序对待“�
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/10/17/js-tips-1/">
-                        Javascript——Object和Map比较分析
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        内存占用
-Object 和 Map 的工程级实现在不同浏览器间存在明显差异，但存储单个键/值对所占用的内存数量都会随键的数量线性增加。批量添加或删除键/值对则取决于各浏览器对该类型内存分配的工程实现。不同浏览器的情况不同，但给定固定大小的内存，Map...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sun Oct 17 2021 14:18:22 GMT+0800">2021-10-17</span></span>
-        
-        
-    </div>
-
-    <a href="/2021/10/17/js-tips-1/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/10/08/js-15-2/">
-                        JavaScript集合引用类型——Map
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        基本API
-使用 new 关键字和 Map 构造函数可以创建一个空映射；
-如果想在创建的同时初始化实例，可以给 Map 构造函数传入一个可迭代对象，需要包含键/值对数组：
-初始化之后，可以使用 set()方法再添加键/值对；
-可以使用 get()和 ...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri Oct 08 2021 17:24:41 GMT+0800">2021-10-08</span></span>
-        
-        
-    </div>
-
-    <a href="/2021/10/08/js-15-2/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/09/22/js-14-2/">
-                        JavaScript——Math对象
+                    <a href="/2021/11/04/js-24/">
+                        JavaScript学习笔记（二十四）函数（四）尾调用优化
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
                         
-Math 对象上提供的计算要比直接在JavaScript实现的快得多，因为Math对象上的计算使用了JavaScript引擎中更高效的实现和处理器指令
+外部函数的返回值是一个内部函数的返回值。
 
-Math对象属性
-
-min() 和 max()方法
-min()和 max()方法用于确定一组数...
+尾调用优化的条件
+尾调用优化的条件就是确定外部栈帧真的没有必要存在了。
+代码在严格模式下执行；
+外部函数的返回值是对尾调用函数的调用；
+尾调用函数返回后不需要执行额外的逻辑；
+尾调用函数不是引用外部函数作...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Sep 22 2021 16:26:55 GMT+0800">2021-09-22</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Nov 04 2021 10:31:15 GMT+0800">2021-11-04</span></span>
         
         
     </div>
 
-    <a href="/2021/09/22/js-14-2/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/11/04/js-24/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -420,32 +263,25 @@ min()和 max()方法用于确定一组数...
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/09/15/js-14-1/">
-                        JavaScript——Global对象
+                    <a href="/2021/11/01/lc-575/">
+                        575. 分糖果
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        特点
-代码不会显式地访问它；
-Global对象为一种兜底对象，它所针对的是不属于任何对象的属性和方法；
-在全局作用域中定义的变量和函数都会变成 Global 对象的属性；
-
-方法URL编码方式
-
-12345let uri = &quot;http:/...
+                        题目给定一个偶数长度的数组，其中不同的数字代表着不同种类的糖果，每一个数字代表一个糖果。你需要把这些糖果平均分给一个弟弟和一个妹妹。返回妹妹可以获得的最大糖果的种类数。链接：https://leetcode-cn.com/problems/distr...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Sep 15 2021 21:42:02 GMT+0800">2021-09-15</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon Nov 01 2021 17:12:21 GMT+0800">2021-11-01</span></span>
         
         
     </div>
 
-    <a href="/2021/09/15/js-14-1/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/11/01/lc-575/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -455,28 +291,186 @@ Global对象为一种兜底对象，它所针对的是不属于任何对象的�
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/09/13/js-13-1/">
-                        JavaScript字符串操作方法
+                    <a href="/2021/10/31/js-skill-1/">
+                        JavaScript——判断字符串中是否包含某个字符/字符串
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        字符串拼接方法
-concat()用于将一个或多个字符串拼接成一个新字符串
+                        方法一：indexOf()
+返回某个指定的字符串值在字符串中首次出现的位置；如果不存在，则返回-1；
 
-1234let stringValue = &quot;hello &quot;; let result = stringValue.concat(&quot;world&q...
+1234567let str = &#x27;Hello World!&#x27;;if(str.indexOf(&quot;World&quot...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon Sep 13 2021 16:17:23 GMT+0800">2021-09-13</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sun Oct 31 2021 17:23:09 GMT+0800">2021-10-31</span></span>
         
         
     </div>
 
-    <a href="/2021/09/13/js-13-1/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/10/31/js-skill-1/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2021/10/31/lc-500/">
+                        500.键盘行
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        题目给你一个字符串数组 words ，只返回可以使用在 美式键盘 同一行的字母打印出来的单词。键盘如下图所示。
+美式键盘中：
+第一行由字符 “qwertyuiop” 组成。第二行由字符 “asdfghjkl” 组成。第三行由字符 “zxcvbnm” ...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sun Oct 31 2021 16:49:46 GMT+0800">2021-10-31</span></span>
+        
+        
+    </div>
+
+    <a href="/2021/10/31/lc-500/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2021/10/29/js-23/">
+                        JavaScript学习笔记（二十三）函数（三）
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        函数属性与方法
+每个函数都有两个属性：length和prototype。
+length 属性保存函数定义的命名参数的个数。
+
+123456789101112function sayName(name) &#123;     console.log(n...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri Oct 29 2021 17:44:02 GMT+0800">2021-10-29</span></span>
+        
+        
+    </div>
+
+    <a href="/2021/10/29/js-23/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2021/10/29/js-22/">
+                        JavaScript学习笔记（二十二）函数（二）
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        函数声明与函数表达式
+JavaScript引擎在任何代码执行之前，会先读取函数声明，并在执行上下文中生成函数定义。
+函数表达式必须等到代码执行到它那一行，才会在执行上下文中生成函数定义。
+函数声明提升：函数声明会在任何代码执行之前先被读取并添加到执行...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri Oct 29 2021 17:43:02 GMT+0800">2021-10-29</span></span>
+        
+        
+    </div>
+
+    <a href="/2021/10/29/js-22/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2021/10/27/js-21/">
+                        JavaScript学习笔记（二十一）函数（一）
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        函数名
+函数名是指向函数的指针，它们跟其他包含对象指针的变量具有相同的行为。
+一个函数可以有多个名称。
+ES6所有函数对象都会暴露一个只读的name属性。
+包含关于函数的信息；
+多数情况下，这个属性中保存的就是一个函数标识符，或者说是一个字符串化的变...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Oct 27 2021 15:26:49 GMT+0800">2021-10-27</span></span>
+        
+        
+    </div>
+
+    <a href="/2021/10/27/js-21/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2021/10/27/js-20/">
+                        JavaScript学习笔记（二十）箭头函数
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        
+很大程度上，箭头函数实例化的函数对象与正式的函数表达式创建的函数对象行为是相同的。
+箭头函数表达式更适用于那些本来需要匿名函数的地方，并且它不能用作构造函数。
+
+12345678let arrowSum = (a, b) =&gt; &#123; ...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Oct 27 2021 10:13:29 GMT+0800">2021-10-27</span></span>
+        
+        
+    </div>
+
+    <a href="/2021/10/27/js-20/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
