@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-03-13T16:29:51.925Z</updated>
+  <updated>2022-03-14T13:54:05.776Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,73 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>lc-101</title>
+    <link href="http://example.com/2022/03/14/lc-101/"/>
+    <id>http://example.com/2022/03/14/lc-101/</id>
+    <published>2022-03-14T13:54:05.000Z</published>
+    <updated>2022-03-14T13:54:05.776Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>226. 翻转二叉树</title>
+    <link href="http://example.com/2022/03/14/lc-226/"/>
+    <id>http://example.com/2022/03/14/lc-226/</id>
+    <published>2022-03-14T13:01:28.000Z</published>
+    <updated>2022-03-14T13:30:16.661Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a class="link" href="https://leetcode-cn.com/problems/invert-binary-tree/">点击前往<i class="fas fa-external-link-alt"></i></a></p><p>给你一棵二叉树的根节点 root ，翻转这棵二叉树，并返回其根节点。</p><p>示例 1：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root &#x3D; [4,2,7,1,3,6,9]</span><br><span class="line">输出：[4,7,2,9,6,3,1]</span><br></pre></td></tr></table></figure><p>示例 2：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root &#x3D; [2,1,3]</span><br><span class="line">输出：[2,3,1]</span><br></pre></td></tr></table></figure><p>示例 3：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root &#x3D; []</span><br><span class="line">输出：[]</span><br></pre></td></tr></table></figure><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><h2 id="深度优先递归"><a href="#深度优先递归" class="headerlink" title="深度优先递归"></a>深度优先递归</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * function TreeNode(val, left, right) &#123;</span></span><br><span class="line"><span class="comment"> *     this.val = (val===undefined ? 0 : val)</span></span><br><span class="line"><span class="comment"> *     this.left = (left===undefined ? null : left)</span></span><br><span class="line"><span class="comment"> *     this.right = (right===undefined ? null : right)</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;TreeNode&#125;</span> <span class="variable">root</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;TreeNode&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> invertTree = <span class="function"><span class="keyword">function</span>(<span class="params">root</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root === <span class="literal">null</span>) <span class="keyword">return</span> root;</span><br><span class="line">    [root.left,root.right] = [root.right,root.left];</span><br><span class="line">    invertTree(root.left);</span><br><span class="line">    invertTree(root.right);</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="广度优先"><a href="#广度优先" class="headerlink" title="广度优先"></a>广度优先</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * function TreeNode(val, left, right) &#123;</span></span><br><span class="line"><span class="comment"> *     this.val = (val===undefined ? 0 : val)</span></span><br><span class="line"><span class="comment"> *     this.left = (left===undefined ? null : left)</span></span><br><span class="line"><span class="comment"> *     this.right = (right===undefined ? null : right)</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;TreeNode&#125;</span> <span class="variable">root</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;TreeNode&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> invertTree = <span class="function"><span class="keyword">function</span>(<span class="params">root</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> queue =[];</span><br><span class="line">    <span class="keyword">if</span>(root === <span class="literal">null</span>) <span class="keyword">return</span> root;</span><br><span class="line">    queue.push(root);</span><br><span class="line">    <span class="keyword">while</span>(queue.length !== <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">let</span> len = queue.length;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;len;i++)&#123;</span><br><span class="line">            <span class="keyword">let</span> node = queue.shift();</span><br><span class="line">            [node.left,node.right] = [node.right,node.left];</span><br><span class="line">            node.left &amp;&amp; queue.push(node.left);</span><br><span class="line">            node.right &amp;&amp; queue.push(node.right);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h1&gt;&lt;p&gt;&lt;a class=&quot;link&quot; href=&quot;https://leetcode-cn.com/problems/invert-binary-t</summary>
+      
+    
+    
+    
+    <category term="JS" scheme="http://example.com/categories/JS/"/>
+    
+    <category term="前端刷题" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF%E5%88%B7%E9%A2%98/"/>
+    
+    <category term="二叉树" scheme="http://example.com/categories/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    
+    
+    <category term="LeetCode刷题" scheme="http://example.com/tags/LeetCode%E5%88%B7%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端面试题-CSS篇（三）</title>
+    <link href="http://example.com/2022/03/14/interview-CSS-3/"/>
+    <id>http://example.com/2022/03/14/interview-CSS-3/</id>
+    <published>2022-03-14T07:08:15.000Z</published>
+    <updated>2022-03-14T07:47:12.560Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一、左侧固定，右侧自适应"><a href="#一、左侧固定，右侧自适应" class="headerlink" title="一、左侧固定，右侧自适应"></a>一、左侧固定，右侧自适应</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;contioner&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;left&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;main&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><h2 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h2><ul><li>flex-basis 用于设置子项的占用空间。如果设置了值，则子项占用的空间为设置的值；如果没设置或者为 auto，那子项的空间为width/height 的值。</li><li>flex-grow 用来“瓜分”父项的“剩余空间”。未设置默认为0</li><li>flex-shrink用来“吸收”超出的空间。未设置默认为1。</li></ul><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.contioner</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.left</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">flex-shrink</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.main</span>&#123;</span><br><span class="line">    <span class="attribute">flex-grow</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="grid布局"><a href="#grid布局" class="headerlink" title="grid布局"></a>grid布局</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.contioner</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    grid-template-<span class="attribute">columns</span>: <span class="number">200px</span> <span class="number">1</span>fr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="二、css画一个三角形"><a href="#二、css画一个三角形" class="headerlink" title="二、css画一个三角形"></a>二、css画一个三角形</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;triangle&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.triangle</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">100px</span> solid transparent;</span><br><span class="line">    <span class="comment">/*可以选择三角形朝向*/</span></span><br><span class="line">    <span class="attribute">border-left</span>: <span class="number">100px</span> solid <span class="built_in">rgb</span>(<span class="number">66</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="三、左右固定中间自适应"><a href="#三、左右固定中间自适应" class="headerlink" title="三、左右固定中间自适应"></a>三、左右固定中间自适应</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;contioner&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;left&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;main&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;right&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.contioner</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.left</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">flex-shrink</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.right</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">flex-shrink</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.main</span>&#123;</span><br><span class="line">    <span class="attribute">flex-grow</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;一、左侧固定，右侧自适应&quot;&gt;&lt;a href=&quot;#一、左侧固定，右侧自适应&quot; class=&quot;headerlink&quot; title=&quot;一、左侧固定，右侧自适应&quot;&gt;&lt;/a&gt;一、左侧固定，右侧自适应&lt;/h1&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;t</summary>
+      
+    
+    
+    
+    <category term="CSS" scheme="http://example.com/categories/CSS/"/>
+    
+    <category term="前端面试题" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+    <category term="JS学习" scheme="http://example.com/tags/JS%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>104. 二叉树的最大深度</title>
@@ -467,90 +534,6 @@
     
     
     <category term="JS学习" scheme="http://example.com/tags/JS%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>前端面试题-CSS篇（二）</title>
-    <link href="http://example.com/2022/02/27/interview-CSS-2/"/>
-    <id>http://example.com/2022/02/27/interview-CSS-2/</id>
-    <published>2022-02-27T06:28:50.000Z</published>
-    <updated>2022-02-27T07:56:32.056Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="1、自适应布局"><a href="#1、自适应布局" class="headerlink" title="1、自适应布局"></a>1、自适应布局</h1><ul><li>使用flex；</li><li>左侧浮动或者绝对定位，右侧margin撑开使用div包含，靠-margin形成BFC；</li></ul><h1 id="2、display相关参数"><a href="#2、display相关参数" class="headerlink" title="2、display相关参数"></a>2、display相关参数</h1><ul><li>block：块级元素；</li><li>inline：等行元素；</li><li>table：table类型</li><li>flex：弹性布局，子元素的float、clear和vertical-align属性将失效</li><li>inline-block：行内块元素</li></ul><h1 id="3、display-none-和-visibility-hidden-的区别"><a href="#3、display-none-和-visibility-hidden-的区别" class="headerlink" title="3、display:none 和 visibility:hidden 的区别"></a>3、display:none 和 visibility:hidden 的区别</h1><ul><li>display:none 隐藏对应的元素，<strong>在文档布局中不再给它分配空间</strong>，它各边的元素会合拢，就当他从来不存在。</li><li>visibility:hidden 隐藏对应的元素，但是<strong>在文档布局中仍保留原来的空间</strong>。</li></ul><h1 id="4、position的absolute-与fixed共同点与不同点"><a href="#4、position的absolute-与fixed共同点与不同点" class="headerlink" title="4、position的absolute 与fixed共同点与不同点"></a>4、position的absolute 与fixed共同点与不同点</h1><ul><li>共同点：<ul><li>改变行内元素的呈现方式，display被置为block；</li><li>让元素脱离普通流，不占据空间；</li><li>默认会覆盖到非定位元素上不同点；</li></ul></li><li>不同点：<ul><li>absolute的“根元素”是可以设置的，而 fixed 的“根元素”固定为浏览器窗口。</li></ul></li></ul><h1 id="5、position的值分别是相对于谁进行定位的"><a href="#5、position的值分别是相对于谁进行定位的" class="headerlink" title="5、position的值分别是相对于谁进行定位的"></a>5、position的值分别是相对于谁进行定位的</h1><ul><li>absolute：相对于static定位以外的第一个祖先元素。</li><li>fixed：相对于浏览器窗口进行定位。</li><li>relative：相对于其在普通流中的位置进行定位</li><li>static，默认值，没有定位，元素出现在正常的流中。</li><li>inherit：从父元素继承position。</li></ul><h1 id="6、为什么要初始化CSS"><a href="#6、为什么要初始化CSS" class="headerlink" title="6、为什么要初始化CSS"></a>6、为什么要初始化CSS</h1><ul><li>因为浏览器的兼容问题，不同浏览器对有些标签的默认值是不同的，如果没对CSS初始化往往会出现浏览器之间的页面显示差异。</li></ul><h1 id="7、canvas在标签山设置宽高和在style中设置宽高有什么区别"><a href="#7、canvas在标签山设置宽高和在style中设置宽高有什么区别" class="headerlink" title="7、canvas在标签山设置宽高和在style中设置宽高有什么区别"></a>7、canvas在标签山设置宽高和在style中设置宽高有什么区别</h1><ul><li>标签的width和height是画布实际宽度和高度；</li><li>style的是canvas在浏览器中被渲染的高度和宽度。</li></ul><h1 id="8、CSS预处理器"><a href="#8、CSS预处理器" class="headerlink" title="8、CSS预处理器"></a>8、CSS预处理器</h1><ul><li>Sass，Less，Postcss</li><li>原理：将类CSS语言通过Webpack编译转成浏览器可读的真正CSS。</li></ul><h1 id="9、哪些属性可以继承"><a href="#9、哪些属性可以继承" class="headerlink" title="9、哪些属性可以继承"></a>9、哪些属性可以继承</h1><ul><li>可继承：font-size, font-family, color等</li><li>不可继承border, padding, margin, width, height</li></ul><h1 id="10、-before-和-after-中双冒号和单冒号有什么区别"><a href="#10、-before-和-after-中双冒号和单冒号有什么区别" class="headerlink" title="10、::before 和 :after 中双冒号和单冒号有什么区别"></a>10、::before 和 :after 中双冒号和单冒号有什么区别</h1><ul><li>单冒号用于CSS3伪类，双冒号用于CSS3伪元素。</li><li>CSS 伪类用于向某些选择器添加特殊的效果。</li><li>CSS 伪元素用于将特殊的效果添加到某些选择器。</li></ul><h1 id="11、什么是响应式设计？其基本原理是什么？"><a href="#11、什么是响应式设计？其基本原理是什么？" class="headerlink" title="11、什么是响应式设计？其基本原理是什么？"></a>11、什么是响应式设计？其基本原理是什么？</h1><ul><li>响应式网站设计(Responsive Web design)是一个网站能够兼容多个终端，而不是为每一个终端做一个特定的版本。</li><li>基本原理是通过媒体查询检测不同的设备屏幕尺寸做处理。</li><li>页面头部必须有meta声明的viewport。</li></ul><h1 id="12、浏览器是怎样解析CSS选择器的？"><a href="#12、浏览器是怎样解析CSS选择器的？" class="headerlink" title="12、浏览器是怎样解析CSS选择器的？"></a>12、浏览器是怎样解析CSS选择器的？</h1><ul><li>CSS选择器的解析是从右向左解析的。若从左向右的匹配，发现不符合规则,需要进行回溯，会损失很多性能。</li><li>若从右向左匹配，先找到所有的最右节点，对于每一个节点，向上寻找其父节点直到找到根元素或满足条件的匹配规则，则结束这个分支的遍历。</li><li>在CSS解析完毕后，需要将解析的结果与DOM Tree 的内容一起进行分析建立一棵Render Tree，最终用来进行绘图。</li></ul><h1 id="13、CSS优化、提高性能的方法有哪些？"><a href="#13、CSS优化、提高性能的方法有哪些？" class="headerlink" title="13、CSS优化、提高性能的方法有哪些？"></a>13、CSS优化、提高性能的方法有哪些？</h1><ul><li>避免过度约束</li><li>避免后代选择符避免链式选择符使用紧凑的语法</li><li>避免不必要的命名空间</li><li>避免不必要的重复</li><li>最好使用表示语义的名字。一个好的类名应该是描述他是什么而不是像什么</li><li>避免! important，可以选择其他选择器</li><li>尽可能的精简规则，你可以合并不同类里的重复规则</li></ul><h1 id="14-position跟display、overflow、float这些特性相互叠加后会怎么样"><a href="#14-position跟display、overflow、float这些特性相互叠加后会怎么样" class="headerlink" title="14.position跟display、overflow、float这些特性相互叠加后会怎么样?"></a>14.position跟display、overflow、float这些特性相互叠加后会怎么样?</h1><ul><li>display属性规定元素应该生成的框的类型;</li><li>position 属性规定元素的定位类型;</li><li>float属性是一种布局方式，定义元素在哪个方向浮动。</li><li>类似于优先级机制: <ul><li>position: absolute/fixed优先级最高,有他们在时, float不起作用, display值需要调整。</li><li>float或者absolute定位的元素，只能是块元素或表格。</li></ul></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;1、自适应布局&quot;&gt;&lt;a href=&quot;#1、自适应布局&quot; class=&quot;headerlink&quot; title=&quot;1、自适应布局&quot;&gt;&lt;/a&gt;1、自适应布局&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;使用flex；&lt;/li&gt;
-&lt;li&gt;左侧浮动或者绝对定位，右侧margin撑开使用div包</summary>
-      
-    
-    
-    
-    <category term="CSS" scheme="http://example.com/categories/CSS/"/>
-    
-    <category term="前端面试题" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-    
-    <category term="JS学习" scheme="http://example.com/tags/JS%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>150. 逆波兰表达式求值</title>
-    <link href="http://example.com/2022/02/27/lc-150/"/>
-    <id>http://example.com/2022/02/27/lc-150/</id>
-    <published>2022-02-26T18:00:36.000Z</published>
-    <updated>2022-02-27T05:27:58.319Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a class="link" href="https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/">点击前往<i class="fas fa-external-link-alt"></i></a></p><p>根据 逆波兰表示法，求表达式的值。</p><p>有效的算符包括 +、-、*、/ 。每个运算对象可以是整数，也可以是另一个逆波兰表达式。</p><p>注意 两个整数之间的除法只保留整数部分。</p><p>可以保证给定的逆波兰表达式总是有效的。换句话说，表达式总会得出有效数值且不存在除数为 0 的情况。</p><p>示例 1：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：tokens &#x3D; [&quot;2&quot;,&quot;1&quot;,&quot;+&quot;,&quot;3&quot;,&quot;*&quot;]</span><br><span class="line">输出：9</span><br><span class="line">解释：该算式转化为常见的中缀算术表达式为：((2 + 1) * 3) &#x3D; 9</span><br></pre></td></tr></table></figure><p>示例 2：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：tokens &#x3D; [&quot;4&quot;,&quot;13&quot;,&quot;5&quot;,&quot;&#x2F;&quot;,&quot;+&quot;]</span><br><span class="line">输出：6</span><br><span class="line">解释：该算式转化为常见的中缀算术表达式为：(4 + (13 &#x2F; 5)) &#x3D; 6</span><br></pre></td></tr></table></figure><p>示例 3：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">输入：tokens &#x3D; [&quot;10&quot;,&quot;6&quot;,&quot;9&quot;,&quot;3&quot;,&quot;+&quot;,&quot;-11&quot;,&quot;*&quot;,&quot;&#x2F;&quot;,&quot;*&quot;,&quot;17&quot;,&quot;+&quot;,&quot;5&quot;,&quot;+&quot;]</span><br><span class="line">输出：22</span><br><span class="line">解释：该算式转化为常见的中缀算术表达式为：</span><br><span class="line">  ((10 * (6 &#x2F; ((9 + 3) * -11))) + 17) + 5</span><br><span class="line">&#x3D; ((10 * (6 &#x2F; (12 * -11))) + 17) + 5</span><br><span class="line">&#x3D; ((10 * (6 &#x2F; -132)) + 17) + 5</span><br><span class="line">&#x3D; ((10 * 0) + 17) + 5</span><br><span class="line">&#x3D; (0 + 17) + 5</span><br><span class="line">&#x3D; 17 + 5</span><br><span class="line">&#x3D; 22</span><br></pre></td></tr></table></figure><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><ul><li>利用栈的思想，先进后出。</li><li>使用map来进行存储计算符对应的计算操作。</li><li>当遇到计算符的时候，将栈顶前两个元素出栈，然后映射到对应方法上，再将计算的结果存入栈中。</li><li>循环以上操作直至遍历完整个数组。</li></ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string[]&#125;</span> <span class="variable">tokens</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> evalRPN = <span class="function"><span class="keyword">function</span>(<span class="params">tokens</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result =<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> tmp = [];</span><br><span class="line">    <span class="keyword">const</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>([</span><br><span class="line">        [<span class="string">&quot;+&quot;</span>,<span class="function">(<span class="params">a,b</span>)=&gt;</span> a * <span class="number">1</span> + b * <span class="number">1</span>],</span><br><span class="line">        [<span class="string">&quot;-&quot;</span>,<span class="function">(<span class="params">a,b</span>)=&gt;</span> b - a],</span><br><span class="line">        [<span class="string">&quot;*&quot;</span>,<span class="function">(<span class="params">a,b</span>)=&gt;</span> b * a],</span><br><span class="line">        [<span class="string">&quot;/&quot;</span>,<span class="function">(<span class="params">a,b</span>)=&gt;</span> (b / a) | <span class="number">0</span>]</span><br><span class="line">    ])</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">const</span> i <span class="keyword">of</span> tokens)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!map.has(i))&#123;</span><br><span class="line">            tmp.push(i);</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        &#125;</span><br><span class="line">        tmp.push(map.get(i)(tmp.pop(),tmp.pop()))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> tmp.pop();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h1&gt;&lt;p&gt;&lt;a class=&quot;link&quot; href=&quot;https://leetcode-cn.com/problems/evaluate-revers</summary>
-      
-    
-    
-    
-    <category term="JS" scheme="http://example.com/categories/JS/"/>
-    
-    <category term="前端刷题" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="栈和队列" scheme="http://example.com/categories/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/"/>
-    
-    
-    <category term="LeetCode刷题" scheme="http://example.com/tags/LeetCode%E5%88%B7%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>1047. 删除字符串中的所有相邻重复项</title>
-    <link href="http://example.com/2022/02/26/lc-1047/"/>
-    <id>http://example.com/2022/02/26/lc-1047/</id>
-    <published>2022-02-26T13:28:54.000Z</published>
-    <updated>2022-02-26T14:31:56.351Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a class="link" href="https://leetcode-cn.com/problems/remove-all-adjacent-duplicates-in-string">点击前往<i class="fas fa-external-link-alt"></i></a></p><p>给出由小写字母组成的字符串 S，重复项删除操作会选择两个相邻且相同的字母，并删除它们。</p><p>在 S 上反复执行重复项删除操作，直到无法继续删除。</p><p>在完成所有重复项删除操作后返回最终的字符串。答案保证唯一。</p><p>示例 1：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：&quot;abbaca&quot;</span><br><span class="line">输出：&quot;ca&quot;</span><br><span class="line">解释：</span><br><span class="line">例如，在 &quot;abbaca&quot; 中，我们可以删除 &quot;bb&quot; 由于两字母相邻且相同，这是此时唯一可以执行删除操作的重复项。之后我们得到字符串 &quot;aaca&quot;，其中又只有 &quot;aa&quot; 可以执行重复项删除操作，所以最后的字符串为 &quot;ca&quot;。</span><br></pre></td></tr></table></figure><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><ul><li>利用栈的思想，判断相邻的两个字符是否相同，如果相同则将栈顶元素出栈，否则该字符入栈。</li></ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">s</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> removeDuplicates = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> stack = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">of</span> s)&#123;</span><br><span class="line">        <span class="keyword">if</span>(stack.length === <span class="number">0</span>) stack.push(i);</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(stack[stack.length-<span class="number">1</span>]===i)</span><br><span class="line">                stack.pop(stack[stack.length-<span class="number">1</span>]);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                stack.push(i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> stack.join(<span class="string">&quot;&quot;</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h1&gt;&lt;p&gt;&lt;a class=&quot;link&quot; href=&quot;https://leetcode-cn.com/problems/remove-all-adja</summary>
-      
-    
-    
-    
-    <category term="JS" scheme="http://example.com/categories/JS/"/>
-    
-    <category term="前端刷题" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF%E5%88%B7%E9%A2%98/"/>
-    
-    <category term="栈和队列" scheme="http://example.com/categories/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/"/>
-    
-    
-    <category term="LeetCode刷题" scheme="http://example.com/tags/LeetCode%E5%88%B7%E9%A2%98/"/>
     
   </entry>
   

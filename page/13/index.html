@@ -166,6 +166,102 @@
                 
 
                 <h3 class="home-article-title">
+                    <a href="/2021/10/29/js-22/">
+                        JavaScript学习笔记（二十二）函数（二）
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        函数声明与函数表达式
+JavaScript引擎在任何代码执行之前，会先读取函数声明，并在执行上下文中生成函数定义。
+函数表达式必须等到代码执行到它那一行，才会在执行上下文中生成函数定义。
+函数声明提升：函数声明会在任何代码执行之前先被读取并添加到执行...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri Oct 29 2021 17:43:02 GMT+0800">2021-10-29</span></span>
+        
+        
+    </div>
+
+    <a href="/2021/10/29/js-22/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2021/10/27/js-21/">
+                        JavaScript学习笔记（二十一）函数（一）
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        函数名
+函数名是指向函数的指针，它们跟其他包含对象指针的变量具有相同的行为。
+一个函数可以有多个名称。
+ES6所有函数对象都会暴露一个只读的name属性。
+包含关于函数的信息；
+多数情况下，这个属性中保存的就是一个函数标识符，或者说是一个字符串化的变...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Oct 27 2021 15:26:49 GMT+0800">2021-10-27</span></span>
+        
+        
+    </div>
+
+    <a href="/2021/10/27/js-21/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2021/10/27/js-20/">
+                        JavaScript学习笔记（二十）箭头函数
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        
+很大程度上，箭头函数实例化的函数对象与正式的函数表达式创建的函数对象行为是相同的。
+箭头函数表达式更适用于那些本来需要匿名函数的地方，并且它不能用作构造函数。
+
+12345678let arrowSum = (a, b) =&gt; &#123; ...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Oct 27 2021 10:13:29 GMT+0800">2021-10-27</span></span>
+        
+        
+    </div>
+
+    <a href="/2021/10/27/js-20/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
                     <a href="/2021/10/27/js-19/">
                         JavaScript学习笔记（十九）代理捕获器与反射方法
                     </a>
@@ -378,99 +474,6 @@ get()捕获器会在获取属性值的操作中被调用。
     </div>
 
     <a href="/2021/10/20/lc-453/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/10/20/js-16/">
-                        JavaScript学习笔记（十六）迭代器与生成器
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        迭代与迭代器定义
-官方定义的迭代意思是：按照顺序反复多次执行一段程序,通常会有明确的终止条件。
-实际上计数循环就是最简单的迭代。
-循环是迭代机制的基础，这是因为它可以指定迭代的次数，以及每次迭代要执行什么操作。每次循环都会在下一次迭代开始之前完成，而...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Oct 20 2021 13:08:52 GMT+0800">2021-10-20</span></span>
-        
-        
-    </div>
-
-    <a href="/2021/10/20/js-16/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/10/18/js-15-5/">
-                        JavaScript集合引用类型——WeakSet
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        基本API
-使用new关键字实例化一个空的WeakSet:
-弱集合中的值只能是object或者继承自object的类型，尝试使用非对象设置值会抛出TypeError。
-如果想在初始化时填充弱集合，则构造函数可以接收-一个可迭代对象，其中需要包含有效的...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon Oct 18 2021 14:21:19 GMT+0800">2021-10-18</span></span>
-        
-        
-    </div>
-
-    <a href="/2021/10/18/js-15-5/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/10/18/js-15-4/">
-                        JavaScript集合引用类型——Set
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        基本API
-创建的同时初始化实例：
-
-123456789101112// 使用数组初始化集合 const s1 = new Set([&quot;val1&quot;, &quot;val2&quot;, &quot;val3&quot;]); al...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon Oct 18 2021 13:56:01 GMT+0800">2021-10-18</span></span>
-        
-        
-    </div>
-
-    <a href="/2021/10/18/js-15-4/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>

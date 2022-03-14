@@ -166,6 +166,106 @@
                 
 
                 <h3 class="home-article-title">
+                    <a href="/2021/11/11/js-29/">
+                        JavaScript学习笔记（二十九）期约（三）
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        期约连锁与期约合成
+期约连锁与期约合成主要用于将多个期约组合在一起进而构成强大的代码逻辑。
+前者是一个期约接一个期约地拼接，后者则是将多个期约组合为一个期约。
+
+期约连锁
+简单理解，期约连锁是由期约的连缀方法构成的。
+期约连锁的原理是：每个期约实例的...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Nov 11 2021 15:42:14 GMT+0800">2021-11-11</span></span>
+        
+        
+    </div>
+
+    <a href="/2021/11/11/js-29/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2021/11/08/js-28/">
+                        JavaScript学习笔记（二十八）期约（二）
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        期约的实例方法
+期约实例的方法是连接外部同步代码与内部异步代码之间的桥梁。
+这些方法可以访问异步操作返回的数据，处理期约成功和失败的结果，连续对期约求值,或者添加只有期约进入终止状态时才会执行的代码。
+
+1、实现Thenable接口
+then()方法...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon Nov 08 2021 16:31:09 GMT+0800">2021-11-08</span></span>
+        
+        
+    </div>
+
+    <a href="/2021/11/08/js-28/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2021/11/04/js-27/">
+                        JavaScript学习笔记（二十七）期约（一）
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        
+JavaScript时单线程事件循环模型，同步操作与异步操作时代码依赖的核心机制。
+
+同步与异步
+同步行为对应内存中顺序执行的处理器指令。
+每条指令都会严格按照它们出现的顺序来执行，而每条指令执行后也能立即获得存储在系统本地(如寄存器或系统内存)的...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Nov 04 2021 17:06:48 GMT+0800">2021-11-04</span></span>
+        
+        
+    </div>
+
+    <a href="/2021/11/04/js-27/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
                     <a href="/2021/11/04/js-26/">
                         JavaScript学习笔记（二十六）函数（六）
                     </a>
@@ -375,102 +475,6 @@ length 属性保存函数定义的命名参数的个数。
     </div>
 
     <a href="/2021/10/29/js-23/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/10/29/js-22/">
-                        JavaScript学习笔记（二十二）函数（二）
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        函数声明与函数表达式
-JavaScript引擎在任何代码执行之前，会先读取函数声明，并在执行上下文中生成函数定义。
-函数表达式必须等到代码执行到它那一行，才会在执行上下文中生成函数定义。
-函数声明提升：函数声明会在任何代码执行之前先被读取并添加到执行...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri Oct 29 2021 17:43:02 GMT+0800">2021-10-29</span></span>
-        
-        
-    </div>
-
-    <a href="/2021/10/29/js-22/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/10/27/js-21/">
-                        JavaScript学习笔记（二十一）函数（一）
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        函数名
-函数名是指向函数的指针，它们跟其他包含对象指针的变量具有相同的行为。
-一个函数可以有多个名称。
-ES6所有函数对象都会暴露一个只读的name属性。
-包含关于函数的信息；
-多数情况下，这个属性中保存的就是一个函数标识符，或者说是一个字符串化的变...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Oct 27 2021 15:26:49 GMT+0800">2021-10-27</span></span>
-        
-        
-    </div>
-
-    <a href="/2021/10/27/js-21/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/10/27/js-20/">
-                        JavaScript学习笔记（二十）箭头函数
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        
-很大程度上，箭头函数实例化的函数对象与正式的函数表达式创建的函数对象行为是相同的。
-箭头函数表达式更适用于那些本来需要匿名函数的地方，并且它不能用作构造函数。
-
-12345678let arrowSum = (a, b) =&gt; &#123; ...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Oct 27 2021 10:13:29 GMT+0800">2021-10-27</span></span>
-        
-        
-    </div>
-
-    <a href="/2021/10/27/js-20/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
