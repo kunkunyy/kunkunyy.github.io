@@ -51,7 +51,69 @@ ReactDOM.render(<MyComponent />,document.getElementById('test'))
 
 # 组件实例三大属性
 
+* 函数式组件没有 state、refs 属性，它可以通过函数传参的方式来间接性获取props中的数据。
+
 ## state
 
 * state是组件对象最重要的属性, 值是对象(可以包含多个key-value的组合)。
-* 组件被称为"状态机", 通过更新组件的state来更新对应的页面显示
+* 组件被称为"状态机", 通过更新组件的state来更新对应的页面显示。
+
+* 组件中render方法中的this为组件实例对象
+* 组件自定义的方法中this为undefined，如何解决？
+    * 强制绑定this: 通过函数对象的bind()
+    * 箭头函数
+* 状态数据，不能直接修改或更新，需要使用setState
+
+## props
+
+* 每个组件对象都会有props(properties的简写)属性
+* 组件标签的所有属性都保存在props中
+* 作用：
+    * 通过标签属性从组件外向组件内传递变化的数据
+    * 注意: 组件内部不能修改props数据
+
+### 编码操作
+
+* 读取props中某个属性值。
+
+```js
+this.props.name
+```
+
+* 对props中的属性值进行类型限制和必要性限制
+    * 使用prop-types库进限制
+
+```js
+Person.propTypes = {
+  name: PropTypes.string.isRequired,
+  age: PropTypes.number. 
+}
+```
+
+* 扩展属性: 将对象的所有属性通过props传递
+
+```js
+<Person {...person}/>
+```
+
+* 默认属性值
+
+```js
+Person.defaultProps = {
+  age: 18,
+  sex:'男'
+}
+```
+
+* 组件类的构造函数
+    * 使用props必须在super中传入
+
+```js
+constructor(props){
+  super(props)
+  console.log(props)//打印所有属性
+}
+```
+
+## refs与事件处理
+
