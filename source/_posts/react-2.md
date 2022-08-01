@@ -1,5 +1,5 @@
 ---
-title: React学习笔记（二）面向组件编程
+title: React学习笔记（二）面向组件编程1
 date: 2022-05-22 10:34:33
 tags:
 - React学习
@@ -116,4 +116,109 @@ constructor(props){
 ```
 
 ## refs与事件处理
+
+* refs用于访问真实 DOM 节点。
+* 函数式组件使用useRef创建ref对象，类式组件使用React.createRef()创建ref对象。
+* Refs 是 React 提供的用来保存 object 引用的一个解决方案，在函数式组件使用 useRef 创建一个 ref 对象，ref 对象存在一个可直接修改的 current 属性，内容都是存在 current 上。
+
+### 使用场景
+
+* Refs 使用场景主要分为两个方向：
+    * 实现 DOM 访问与操控，
+    * 在两次render之间传递数据内容。
+
+### 使用步骤
+
+1. 创建ref对象
+2. 赋值和使用
+3. 访问ref内容
+
+```tsx
+import React, { useRef, useState } from "react";
+
+export default function CompA() {
+  // 第一步：使用useRef 创建 ref 对象
+  const ref = useRef();
+  const [isSending, setIsSending] = useState(false);
+
+  function send() {
+    // ...
+    window.alert("消息已发送！");
+    setIsSending(false);
+  }
+
+  function undo() {
+    // 第三步： 访问存在 ref 上的 timeout ID， 进行定时取消
+    clearTimeout(ref.current);
+  }
+
+  function handleClickSendBtn() {
+    setIsSending(true);
+    // 第二步： 赋值，将 timeout ID 存在 ref 上
+    ref.current = setTimeout(send, 3000);
+  }
+
+  function handleClickCancelBtn() {
+    undo();
+    setIsSending(false);
+  }
+
+  return (
+    <>
+      <button onClick={handleClickSendBtn} disabled={isSending}>
+        {isSending ? "发送中..." : "发送"}
+      </button>
+      {isSending && <button onClick={handleClickCancelBtn}>取消发送</button>}
+    </>
+  );
+}
+```
+
+### 核心要点
+
+1. 避免重复创建 ref 内容
+    * 使用useRef创建ref对象时可以初始化内容，同时会保存**一次**初始值，并带到下一次render中。
+    * 因此在 useRef 在创建ref的时候传递重复的内容是不生效的。
+2. ref.current 存储的内容修改是突变
+    * ref存储的实际就是一个引用，因此是可突变的。
+    * ref 可直接修改 current 属性上的内容，并且修改后可以立即取到值。
+3. ref 作为数据存储时内容的变化不会引起 re-render
+    * React 组件的 re-render 的触发一般是【state、props、context】中的出现变化引起的。
+    * 修改 Ref 的内容不会引起组件的 re-render 因此不能用 ref 去干预 React 生成jsx。
+4. ref 的读写只能在 useEffect 或者回调函数中进行
+5. 跨组件传递ref 获取dom时需要借助 forwardRef 包裹组件
+```tsx
+import React, { useEffect, useRef, useState, forwardRef } from "react";
+
+export function ParentComp() {
+  const childInputRef = useRef(null);
+
+  function handleClick() {
+    childInputRef.current?.focus();
+  }
+
+  return (
+    <>
+      <button onClick={handleClick}>编辑</button>
+      <ChildComp ref={childInputRef} />
+    </>
+  );
+}
+
+// 使用forwordRef 包裹组件，接受 ref 并转发绑定到对应dom上
+const ChildComp = forwardRef((props, ref) => {
+  return (
+    <div>
+      <input {...props} ref={ref} />
+    </div>
+  );
+});
+```
+6. ref 绑定的dom在离屏或者未挂载时ref.current 值会被修改为null
+
+### 事件处理
+
+* React将方法是小写的都重写了一遍。
+    * 即：onClick、onBlur。
+* 通过event.target得到发生事件的DOM元素对象。
 
