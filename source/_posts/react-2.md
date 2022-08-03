@@ -187,6 +187,7 @@ export default function CompA() {
     * 修改 Ref 的内容不会引起组件的 re-render 因此不能用 ref 去干预 React 生成jsx。
 4. ref 的读写只能在 useEffect 或者回调函数中进行
 5. 跨组件传递ref 获取dom时需要借助 forwardRef 包裹组件
+6. 不要过度使用ref，当发生事件的元素正好是你要操作的元素此时可以省略ref，使用“event.target”
 ```tsx
 import React, { useEffect, useRef, useState, forwardRef } from "react";
 
@@ -220,5 +221,7 @@ const ChildComp = forwardRef((props, ref) => {
 
 * React将方法是小写的都重写了一遍。
     * 即：onClick、onBlur。
+* 为了更好的兼容性：React使用的是自定义(合成)事件, 而不是使用的原生DOM事件。
+* 为了更高的效率：2)React中的事件是通过事件委托方式处理的(委托给组件最外层的元素)。
 * 通过event.target得到发生事件的DOM元素对象。
 
