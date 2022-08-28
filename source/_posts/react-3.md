@@ -37,6 +37,7 @@ categories:
 ### render()
 
 * render() 方法是类组件中唯一必须的方法，其余生命周期不是必须要写。
+* 调用时机：初始化渲染和状态发生更新
 * 如果 shouldComponentUpdate() 方法返回 false ，render() 不会被调用。
 
 ### componentDidMount()
@@ -51,7 +52,7 @@ categories:
 
 * 在组件准备更新之前调用，可以控制组件是否进行更新，返回 true 时组件更新，返回 false 组件不更新。
 * 包含两个参数，第一个是即将更新的 props 值，第二个是即将更新后的 state 值，可以根据更新前后的 props 或 state 进行判断，决定是否更新，进行性能优化
-* 不要 shouldComponentUpdate 中调用 setState()，否则会导致**无限循环调用更新、渲染，直至浏览器内存崩溃**。
+* 不要在 shouldComponentUpdate 中调用 setState()，否则会导致**无限循环调用更新、渲染，直至浏览器内存崩溃**。
 
 ### componentDidUpdate(prevProps, prevState, snapshot)
 
