@@ -11,7 +11,7 @@
 # ---------------------------------------------------------------------------------------
 base_info:
   # Your blog website title
-  title: 姚永坤的博客
+  title: 坤坤的百宝箱
 
   # Your blog website author name
   author: 姚永坤
@@ -71,7 +71,6 @@ menu:
   Archives: /archives
   Tags: /tags
   Categories: /categories
-  Links: /links
   About: /about
   Changelog: /changelog
   # ......
