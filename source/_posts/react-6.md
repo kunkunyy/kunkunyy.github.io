@@ -120,7 +120,7 @@ export default function Demo(){
 * 在函数式组件中使用 useContext 来获取值。
 
 ```jsx
-const AppContext = createContext();
+export const AppContext = createContext();
 
 export default function Father(){
   return(
@@ -157,32 +157,34 @@ export default function App(){
   )
 }
 ```
+
+* `forwardRef` 函数接收一个名为 `render` 的函数，返回值是 `react` 组件
 * 父子组件：
 
 ```jsx
-const Demo = forwardRef((inputRef)=>{
-  const onClick = ()=>{
-    inputRef.current.focus();
-  }
-  return (
-    <div>
-      <input type= "text" ref={ inputRef }/>
-      <button onClick = {onClick}>聚焦</button>
-    </div>
-  )
-})
+import React from "react";
 
-export default function App(){
-  const inputRef = useRef();
-  const onClick = ()=>{
-    inputRef.current.focus();
-  }
+const App = (props) => {
+  const btnRef = React.createRef();			// 1
+  React.useEffect(() => {
+    console.log(btnRef);					// 5
+  }, [btnRef]);
   return (
-    <div>
-      <button onClick = {onClick}>父组件控制聚焦</button>
-    </div>
-  )
+    <Button ref={btnRef}>一个按钮</Button>	// 2
+  );
 }
+
+const Button = React.forwardRef((props, ref) => {	// 3
+  return (
+    <button
+      ref={ref}								// 4
+    >
+      {props.children}
+    </button>
+  );
+});
+
+export default App;
 ```
 
 # useMemo() 和 useCallback()
