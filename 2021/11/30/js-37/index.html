@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="姚永坤">
+    
+    <title>
+        
+            JavaScript学习笔记（三十七）DOM扩展（一） |
+        
+        坤坤的百宝箱
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/head.3yoe3br9tws0.png">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/brands.min.css">
+    
+        
+            
+        
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true,"layout":"left"},"style":{"primary_color":"#0066cc","logo":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/op.3zg25jxprna0.png","favicon":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/head.3yoe3br9tws0.png","avatar":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/logo.6qi88yzn2jg0.jpg","shadow":true,"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"黑夜降临之处，便是黎明之始。|| Where blackness falls, begins dawn.","hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":true,"use":"giscus","valine":{"appid":"Peml0rEJ7HZNQA1gZrKxXgPr-gzGzoHsz","appkey":"vVJRDKBsUlnpc3zr69GFbCTI","placeholder":"快来评论吧！！！"},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2},"giscus":{"repo":"kunkunyy/discussion","repo_id":"R_kgDOKOnLlw","category":"Announcements","category_id":"DIC_kwDOKOnLl84CZCrc","reactions_enabled":true}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"wordcount":true,"min2read":true},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":true},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"version":"3.7.3"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="姚永坤的小窝" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container border-box">
+
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/op.3zg25jxprna0.png">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               坤坤的百宝箱
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/changelog"
+                            >
+                                更新日志
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/changelog">更新日志</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+
+                
+
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+
+        <div class="article-content-container border-box">
+
+            <div class="article-title">
+                <span class="title-hover-animation">JavaScript学习笔记（三十七）DOM扩展（一）</span>
+            </div>
+
+            
+                <div class="article-header border-box">
+                    
+                        <div class="avatar-box border-box">
+                            <img src="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/logo.6qi88yzn2jg0.jpg">
+                        </div>
+                    
+                    <div class="info-box">
+                        <div class="author">
+                            <span class="name">姚永坤</span>
+                            
+                                <span class="author-label">Lv6</span>
+                            
+                        </div>
+                        <div class="meta-info border-box">
+                            
+
+<div class="article-meta-info-container border-box post">
+    <div class="article-meta-info border-box">
+        
+
+
+        
+            <span class="meta-info-item article-create-date">
+                <i class="icon fa-solid fa-calendar-check"></i>&nbsp;
+                <span class="pc">2021-11-30 23:29:32</span>
+                <span class="mobile">2021-11-30 23:29</span>
+            </span>
+
+            <span class="meta-info-item article-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="pc">2023-11-06 11:29:16</span>
+            </span>
+        
+
+        
+            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul>
+                    
+                            <li class="category-item">
+                                
+                                <a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a>
+                            </li>
+                        
+                    
+                            <li class="category-item">
+                                
+                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
+                                
+                                <a href="/categories/JS/">JS</a>
+                            </li>
+                        
+                    
+                            <li class="category-item">
+                                
+                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
+                                
+                                <a href="/categories/DOM/">DOM</a>
+                            </li>
+                        
+                    
+                            <li class="category-item">
+                                
+                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
+                                
+                                <a href="/categories/Selectors-API/">Selectors API</a>
+                            </li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="article-tag meta-info-item border-box">
+                <i class="icon fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item article-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>1.1k 字</span>
+            </span>
+        
+        
+            <span class="meta-info-item article-min2read">
+                <i class="icon fas fa-clock"></i>&nbsp;<span>4 分钟</span>
+            </span>
+        
+        
+            <span class="meta-info-item article-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <h1 id="Selectors-API"><a href="#Selectors-API" class="headerlink" title="Selectors API"></a>Selectors API</h1><ul>
+<li>Selectors API(参见W3C网站上的Selectors APl Level 1)是W3C推荐标准，规定了浏览器原生支持的CSS查询API。</li>
+<li><strong>支持这一特性的所有JavaScript库都会实现一个基本的CSS解析器，然后使用已有的DOM方法搜索文档并匹配目标节点。</strong></li>
+<li>Selectors APILevel1的核心是两个方法：<strong>queryselector()和 querySelectorAll()<strong>。在兼容浏览器中，</strong>Document类型和Element类型的实例上都会暴露这两个方法</strong>。</li>
+<li>Selectors API Level 2规范在Element类型上新增了更多方法，比如 matches ()、find()和findAll()。不过，目前还没有浏览器实现或宣称实现find()和findAll()。</li>
+</ul>
+<h2 id="querySelector"><a href="#querySelector" class="headerlink" title="querySelector()"></a>querySelector()</h2><ul>
+<li>方法接收CSS选择符参数，返回匹配该模式的第一个后代元素，如果没有匹配项则返回null。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 取得&lt;body&gt;元素</span></span><br><span class="line"><span class="keyword">let</span> body = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;body&quot;</span>); </span><br><span class="line"><span class="comment">// 取得 ID 为&quot;myDiv&quot;的元素</span></span><br><span class="line"><span class="keyword">let</span> myDiv = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;#myDiv&quot;</span>);</span><br><span class="line"><span class="comment">// 取得类名为&quot;selected&quot;的第一个元素</span></span><br><span class="line"><span class="keyword">let</span> selected = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;.selected&quot;</span>); </span><br><span class="line"><span class="comment">// 取得类名为&quot;button&quot;的图片</span></span><br><span class="line"><span class="keyword">let</span> img = <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;img.button&quot;</span>); </span><br></pre></td></tr></table></figure>
+<ul>
+<li>在Document上使用querySelector()方法时，会从文档元素开始搜索;在Element 上使用querySelector()方法时，则只会从当前元素的后代中查询。</li>
+<li>如果选择符有语法错误或碰到不支持的选择符，则querySelector( )方法会抛出错误。</li>
+</ul>
+<h2 id="querySelectorAll"><a href="#querySelectorAll" class="headerlink" title="querySelectorAll()"></a>querySelectorAll()</h2><ul>
+<li>querySelectorAll()方法跟querySelector()一样，也接收一个用于查询的参数，但它会返回所有匹配的节点，而不止一个。这个方法返回的是一个NodeList的静态实例。</li>
+<li>querySelectorAll()返回的 NodeList 实例一个属性和方法都不缺，但它是一个<strong>静态的“快照”，而非“实时”的查询</strong>。这样的底层实现避免了使用NodeList对象可能造成的性能问题。<ul>
+<li>返回的NodeList对象可以通过for-of循环、item()方法或中括号语法取得个别元素。</li>
+<li><strong>如果没有匹配项，则返回空的NodeList实例</strong>。</li>
+</ul>
+</li>
+<li>querySelectorAll()也可以在Document、DocumentFragment和Element类型上使用。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 取得 ID 为&quot;myDiv&quot;的&lt;div&gt;元素中的所有&lt;em&gt;元素</span></span><br><span class="line"><span class="keyword">let</span> ems = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;myDiv&quot;</span>).<span class="title function_">querySelectorAll</span>(<span class="string">&quot;em&quot;</span>); </span><br><span class="line"><span class="comment">// 取得所有类名中包含&quot;selected&quot;的元素</span></span><br><span class="line"><span class="keyword">let</span> selecteds = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&quot;.selected&quot;</span>); </span><br><span class="line"><span class="comment">// 取得所有是&lt;p&gt;元素子元素的&lt;strong&gt;元素</span></span><br><span class="line"><span class="keyword">let</span> strongs = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&quot;p strong&quot;</span>);</span><br><span class="line"><span class="comment">//=======================</span></span><br><span class="line"><span class="keyword">let</span> strongElements = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&quot;p strong&quot;</span>); </span><br><span class="line"><span class="comment">// 以下 3 个循环的效果一样</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> strong <span class="keyword">of</span> strongElements) &#123; </span><br><span class="line">    strong.<span class="property">className</span> = <span class="string">&quot;important&quot;</span>; </span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; strongElements.<span class="property">length</span>; ++i) &#123; </span><br><span class="line">    strongElements.<span class="title function_">item</span>(i).<span class="property">className</span> = <span class="string">&quot;important&quot;</span>; </span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; strongElements.<span class="property">length</span>; ++i) &#123; </span><br><span class="line">    strongElements[i].<span class="property">className</span> = <span class="string">&quot;important&quot;</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="matches"><a href="#matches" class="headerlink" title="matches()"></a>matches()</h2><ul>
+<li>matches()方法(在规范草案中称为matchesSelector())接收一个CSS选择符参数，如果元素匹配则该选择符返回true，否则返回false。</li>
+<li>使用这个方法可以方便地检测某个元素会不会被querySelector()或 querySelectorAll()方法返回。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">matches</span>(<span class="string">&quot;body.page1&quot;</span>))&#123; </span><br><span class="line">    <span class="comment">// true </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="元素遍历"><a href="#元素遍历" class="headerlink" title="元素遍历"></a>元素遍历</h1><ul>
+<li><p>IE9之前的版本不会把元素间的空格当成空白节点，而其他浏览器则会。这样就导致了childNodes和firstchild等属性上的差异。为了弥补这个差异，同时不影响DOM规范，W3C通过新的ElementTraversal规范定义了一组新属性。</p>
+</li>
+<li><p>Element Traversal API 为 DOM 元素添加了 5 个属性：</p>
+<ul>
+<li>childElementCount：返回子元素数量(不包含文本节点和注释)；</li>
+<li>firstElementChild：指向第一个Element类型的子元素(Element版firstChild)；</li>
+<li>lastElementChild：指向最后一个 Element类型的子元素(Element版lastchild)；</li>
+<li>previousElementSibling：指向前一个Element类型的同胞元素（Element版previoussibling)；</li>
+<li>nextElementsibling：指向后一个Element类型的同胞元素(Element 版nextsibling )。</li>
+</ul>
+</li>
+<li><p>以下是跨浏览器方式遍历特定元素的所有子元素的写法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> parentElement = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;parent&#x27;</span>); </span><br><span class="line"><span class="keyword">let</span> currentChildNode = parentElement.<span class="property">firstChild</span>; </span><br><span class="line"><span class="comment">// 没有子元素，firstChild 返回 null，跳过循环</span></span><br><span class="line"><span class="keyword">while</span> (currentChildNode) &#123; </span><br><span class="line">    <span class="keyword">if</span> (currentChildNode.<span class="property">nodeType</span> === <span class="number">1</span>) &#123; </span><br><span class="line">    <span class="comment">// 如果有元素节点，则做相应处理</span></span><br><span class="line">        <span class="title function_">processChild</span>(currentChildNode); </span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">if</span> (currentChildNode === parentElement.<span class="property">lastChild</span>) &#123; </span><br><span class="line">        <span class="keyword">break</span>; </span><br><span class="line">    &#125; </span><br><span class="line">    currentChildNode = currentChildNode.<span class="property">nextSibling</span>; </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure></li>
+<li><p>使用Element Traversal属性之后,以上代码可以简化如下:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> parentElement = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;parent&#x27;</span>); </span><br><span class="line"><span class="keyword">let</span> currentChildElement = parentElement.<span class="property">firstElementChild</span>;</span><br><span class="line"><span class="comment">// 没有子元素，firstElementChild 返回 null，跳过循环</span></span><br><span class="line"><span class="keyword">while</span> (currentChildElement) &#123; </span><br><span class="line">    <span class="comment">// 这就是元素节点，做相应处理</span></span><br><span class="line">    <span class="title function_">processChild</span>(currentChildElement); </span><br><span class="line">    <span class="keyword">if</span> (currentChildElement === parentElement.      lastElementChild) &#123; </span><br><span class="line">        <span class="keyword">break</span>; </span><br><span class="line">    &#125; </span><br><span class="line">    currentChildElement = currentChildElement.<span class="property">nextElementSibling</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">JavaScript学习笔记（三十七）DOM扩展（一）</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">姚永坤</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2021-11-30 23:29:32</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">2021/11/30/js-37/</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/JS%E5%AD%A6%E4%B9%A0/"><i class="icon fas fa-hashtag"></i>JS学习</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/2021/12/01/js-38/"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item text-ellipsis">JavaScript学习笔记（三十八）DOM扩展（二）</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/2021/11/29/js-36/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item text-ellipsis">JavaScript学习笔记（三十六）DOM（三）</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+                
+
+
+    <div class="comments-container">
+        <div id="comments-anchor"></div>
+        <div class="comment-area-title">
+            <i class="fas fa-comments"></i>&nbsp;评论
+        </div>
+        
+            
+
+    <div class="giscus-comments-container">
+        <div class="giscus" id="giscus"></div>
+        <script data-pjax>
+
+          if (!window?.__getGiscusTheme) {
+            window.__getGiscusTheme = () => {
+              return document.body.classList.contains("dark-mode") ? "dark_dimmed" : "light_tritanopia";
+            };
+          }
+
+          if (!window?.__changeGiscusTheme) {
+            window.__changeGiscusTheme = () => {
+              const iframe = document.querySelector("iframe.giscus-frame");
+              iframe && iframe.contentWindow.postMessage({
+                giscus: {
+                  setConfig: {
+                    theme: __getGiscusTheme()
+                  }
+                }
+              }, "https://giscus.app");
+            };
+          }
+
+          if (!window?.__loadGiscus) {
+            window.__loadGiscus = () => {
+              const script = document.createElement("script");
+              script.async = true;
+              script.src = "https://giscus.app/client.js";
+              script.setAttribute("data-repo", 'kunkunyy/discussion');
+              script.setAttribute("data-repo-id", 'R_kgDOKOnLlw');
+              script.setAttribute("data-category", 'Announcements');
+              script.setAttribute("data-category-id", 'DIC_kwDOKOnLl84CZCrc');
+              script.setAttribute("data-reactions-enabled", '1');
+              script.setAttribute("data-lang", 'zh-CN');
+              script.setAttribute("data-mapping", "pathname");
+              script.setAttribute("data-strict", "0");
+              script.setAttribute("data-emit-metadata", "0");
+              script.setAttribute("data-input-position", "top");
+              script.setAttribute("crossorigin", "anonymous");
+              script.setAttribute("loading", "lazy");
+              script.setAttribute("data-theme", __getGiscusTheme());
+              document.querySelector(".giscus-comments-container").appendChild(script);
+
+              const toggleThemeBtn = document.querySelector(".tool-dark-light-toggle");
+              toggleThemeBtn && toggleThemeBtn.addEventListener("click", () => {
+                __changeGiscusTheme();
+              });
+            }
+          }
+
+          if ('true' === "true") {
+            setTimeout(() => {
+              __loadGiscus();
+            }, 1000);
+          } else {
+            window.addEventListener("DOMContentLoaded", () => {
+              setTimeout(() => {
+                __loadGiscus();
+              }, 1000);
+            });
+          }
+        </script>
+    </div>
+
+
+        
+    </div>
+
+
+
+
+
+            
+        </div>
+
+        
+            <div class="pc-post-toc left-toc">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Selectors-API"><span class="nav-text">Selectors API</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#querySelector"><span class="nav-text">querySelector()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#querySelectorAll"><span class="nav-text">querySelectorAll()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#matches"><span class="nav-text">matches()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%83%E7%B4%A0%E9%81%8D%E5%8E%86"><span class="nav-text">元素遍历</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="border-box website-info-box default">
+        
+            <div class="copyright-info info-item default">
+                &copy;&nbsp;<span>2021</span>&nbsp;-&nbsp;2023
+                
+                    &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">姚永坤</a>
+                
+            </div>
+
+            <div class="theme-info info-item default">
+                由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.7.3</a>
+            </div>
+
+            
+
+            
+        
+
+        <div class="count-item info-item default">
+            
+                <span class="count-box border-box word">
+                    <span class="item-type border-box">全站总字数</span>
+                    <span class="item-value border-box word">198.2k</span>
+                </span>
+            
+
+            
+                <span class="count-box border-box uv">
+                    <span class="item-type border-box">访问人数</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-box border-box pv">
+                    <span class="item-type border-box">总访问量</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools left-toc">
+            <div class="post-tools-container border-box">
+    <ul class="tools-list border-box">
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+            <li class="tools-item go-to-comments-tablet flex-center">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Selectors-API"><span class="nav-text">Selectors API</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#querySelector"><span class="nav-text">querySelector()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#querySelectorAll"><span class="nav-text">querySelectorAll()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#matches"><span class="nav-text">matches()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%83%E7%B4%A0%E9%81%8D%E5%8E%86"><span class="nav-text">元素遍历</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/code-block.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/post-helper.js"></script>
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/libs/anime.min.js"></script>
+        
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/toc.js"></script>
+        
+    
+    
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+
+    
+        
+    
+
+</body>
+</html>

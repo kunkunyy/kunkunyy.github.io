@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="姚永坤">
+    
+    <title>
+        
+            Python 实验十一 Tkinter的使用（2） |
+        
+        坤坤的百宝箱
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/head.3yoe3br9tws0.png">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/brands.min.css">
+    
+        
+            
+        
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true,"layout":"left"},"style":{"primary_color":"#0066cc","logo":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/op.3zg25jxprna0.png","favicon":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/head.3yoe3br9tws0.png","avatar":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/logo.6qi88yzn2jg0.jpg","shadow":true,"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"黑夜降临之处，便是黎明之始。|| Where blackness falls, begins dawn.","hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":true,"use":"giscus","valine":{"appid":"Peml0rEJ7HZNQA1gZrKxXgPr-gzGzoHsz","appkey":"vVJRDKBsUlnpc3zr69GFbCTI","placeholder":"快来评论吧！！！"},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2},"giscus":{"repo":"kunkunyy/discussion","repo_id":"R_kgDOKOnLlw","category":"Announcements","category_id":"DIC_kwDOKOnLl84CZCrc","reactions_enabled":true}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"wordcount":true,"min2read":true},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":true},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"version":"3.7.3"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="姚永坤的小窝" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container border-box">
+
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/op.3zg25jxprna0.png">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               坤坤的百宝箱
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/changelog"
+                            >
+                                更新日志
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/changelog">更新日志</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+
+                
+
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+
+        <div class="article-content-container border-box">
+
+            <div class="article-title">
+                <span class="title-hover-animation">Python 实验十一 Tkinter的使用（2）</span>
+            </div>
+
+            
+                <div class="article-header border-box">
+                    
+                        <div class="avatar-box border-box">
+                            <img src="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/logo.6qi88yzn2jg0.jpg">
+                        </div>
+                    
+                    <div class="info-box">
+                        <div class="author">
+                            <span class="name">姚永坤</span>
+                            
+                                <span class="author-label">Lv6</span>
+                            
+                        </div>
+                        <div class="meta-info border-box">
+                            
+
+<div class="article-meta-info-container border-box post">
+    <div class="article-meta-info border-box">
+        
+
+
+        
+            <span class="meta-info-item article-create-date">
+                <i class="icon fa-solid fa-calendar-check"></i>&nbsp;
+                <span class="pc">2021-04-05 17:53:43</span>
+                <span class="mobile">2021-04-05 17:53</span>
+            </span>
+
+            <span class="meta-info-item article-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="pc">2023-11-06 11:29:16</span>
+            </span>
+        
+
+        
+            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul>
+                    
+                            <li class="category-item">
+                                
+                                <a href="/categories/experiment/">experiment</a>
+                            </li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="article-tag meta-info-item border-box">
+                <i class="icon fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/experiment/">experiment</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/python-experiment/">python-experiment</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item article-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>1.1k 字</span>
+            </span>
+        
+        
+            <span class="meta-info-item article-min2read">
+                <i class="icon fas fa-clock"></i>&nbsp;<span>6 分钟</span>
+            </span>
+        
+        
+            <span class="meta-info-item article-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <h1 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h1><p>掌握界面程序的设计</p>
+<h1 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h1><h2 id="练习一"><a href="#练习一" class="headerlink" title="练习一"></a>练习一</h2><h3 id="题目：用户登陆界面程序"><a href="#题目：用户登陆界面程序" class="headerlink" title="题目：用户登陆界面程序"></a>题目：用户登陆界面程序</h3><p>编写一个用户登录界面，用户可以登录账户信息，如果账户已经存在，可以直接登录，登录名或者登录密码输入错误会提示，如果账户不存在，提示用户注册，点击注册进去注册页面，输入注册信息，确定后便可以返回登录界面进行登录。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"><span class="keyword">import</span> tkinter <span class="keyword">as</span> tk</span><br><span class="line"><span class="keyword">import</span> tkinter.messagebox</span><br><span class="line"></span><br><span class="line">window = tk.Tk()</span><br><span class="line"></span><br><span class="line">window.title(<span class="string">&#x27;登 录&#x27;</span>)</span><br><span class="line"></span><br><span class="line">window.geometry(<span class="string">&#x27;500x400&#x27;</span>)</span><br><span class="line"></span><br><span class="line">l1 = tk.Label(window,text=<span class="string">&#x27;用户名：&#x27;</span>,font= <span class="number">12</span>).place(x=<span class="number">100</span>,y=<span class="number">82</span>)</span><br><span class="line">l2 = tk.Label(window,text=<span class="string">&#x27;密  码：&#x27;</span>,font= <span class="number">12</span>).place(x=<span class="number">100</span>,y=<span class="number">152</span>)</span><br><span class="line"></span><br><span class="line">var_user_name = tk.StringVar()</span><br><span class="line">entry_user_name = tk.Entry(window,textvariable=var_user_name,font= <span class="number">18</span>,width=<span class="number">30</span>,bd =<span class="number">5</span>)</span><br><span class="line">entry_user_name.place(x=<span class="number">180</span>,y=<span class="number">80</span>)</span><br><span class="line"></span><br><span class="line">var_user_password = tk.StringVar()</span><br><span class="line">entry_user_password = tk.Entry(window,textvariable=var_user_password,show=<span class="string">&#x27;*&#x27;</span>,font= <span class="number">18</span>,width=<span class="number">30</span>,bd =<span class="number">5</span>)</span><br><span class="line">entry_user_password.place(x=<span class="number">180</span>,y=<span class="number">150</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">user_login_in</span>():</span><br><span class="line">    user_name = var_user_name.get()</span><br><span class="line">    user_password = var_user_password.get()</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;user_info.pickle&#x27;</span>,<span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> user_file:</span><br><span class="line">            user_info = pickle.load(user_file)</span><br><span class="line">    <span class="keyword">except</span> FileNotFoundError:</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;user_info.pickle&#x27;</span>,<span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> user_file:</span><br><span class="line">            user_info = &#123;<span class="string">&#x27;admin&#x27;</span>:<span class="string">&#x27;admin&#x27;</span>&#125;</span><br><span class="line">            pickle.dump(user_info,user_file)</span><br><span class="line">    <span class="keyword">if</span> user_name ==<span class="string">&#x27; &#x27;</span> <span class="keyword">or</span> user_password == <span class="string">&#x27; &#x27;</span>:</span><br><span class="line">        tk.messagebox.showerror(message=<span class="string">&#x27;用户名或密码不能为空！&#x27;</span>)</span><br><span class="line">    <span class="keyword">elif</span> user_name <span class="keyword">in</span> user_info:</span><br><span class="line">        <span class="keyword">if</span> user_password == user_info[user_name]:</span><br><span class="line">            tk.messagebox.showinfo(title=<span class="string">&#x27;welcome&#x27;</span>,message=<span class="string">&#x27;欢迎您：&#x27;</span>+user_name)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            tk.messagebox.showerror(message=<span class="string">&#x27;密码错误！&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        is_signup = tk.messagebox.askyesno(<span class="string">&#x27;欢迎&#x27;</span>,<span class="string">&#x27;您还没有注册，是否现在注册&#x27;</span>)</span><br><span class="line">        <span class="keyword">if</span> is_signup:</span><br><span class="line">            user_sign_up()</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">user_sign_up</span>():</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">registration</span>():</span><br><span class="line">        input_name = new_name.get()</span><br><span class="line">        input_password = new_password.get()</span><br><span class="line">        input_password_confirm =new_password_confirm.get()</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;user_info.pickle&#x27;</span>,<span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> user_file:</span><br><span class="line">                exist_user_info = pickle.load((user_file))</span><br><span class="line">        <span class="keyword">except</span> FileNotFoundError:</span><br><span class="line">            exist_user_info = &#123;&#125;</span><br><span class="line">        <span class="keyword">if</span> input_name <span class="keyword">in</span> exist_user_info:</span><br><span class="line">            tk.messagebox.showerror(<span class="string">&#x27;错误&#x27;</span>,<span class="string">&#x27;用户名已存在！&#x27;</span>)</span><br><span class="line">        <span class="keyword">elif</span> input_password ==<span class="string">&#x27;&#x27;</span> <span class="keyword">or</span> input_name ==<span class="string">&#x27;&#x27;</span>:</span><br><span class="line">            tk.messagebox.showerror(<span class="string">&#x27;错误&#x27;</span>,<span class="string">&#x27;用户名或密码不能为空！&#x27;</span>)</span><br><span class="line">        <span class="keyword">elif</span> input_password != input_password_confirm:</span><br><span class="line">            tk.messagebox.showerror(<span class="string">&#x27;错误&#x27;</span>,<span class="string">&#x27;密码前后不一致！&#x27;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            exist_user_info[input_name] = input_password</span><br><span class="line">            <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;user_info.pickle&#x27;</span>,<span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> user_file:</span><br><span class="line">                pickle.dump(exist_user_info,user_file)</span><br><span class="line">            tk.messagebox.showinfo(<span class="string">&#x27;欢迎&#x27;</span>,<span class="string">&#x27;注册成功！&#x27;</span>)</span><br><span class="line">            window_sign_up.destroy()</span><br><span class="line">    window_sign_up = tk.Toplevel(window)</span><br><span class="line">    window_sign_up.geometry(<span class="string">&#x27;350x200&#x27;</span>)</span><br><span class="line">    window_sign_up.title(<span class="string">&#x27;注册&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    new_name = tk.StringVar()</span><br><span class="line">    tk.Label(window_sign_up,text=<span class="string">&#x27;用户名：&#x27;</span>).place(x=<span class="number">10</span>,y=<span class="number">10</span>)</span><br><span class="line">    tk.Entry(window_sign_up,textvariable=new_name).place(x=<span class="number">150</span>,y=<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    new_password = tk.StringVar()</span><br><span class="line">    tk.Label(window_sign_up,text=<span class="string">&#x27;请输入密码：&#x27;</span>).place(x=<span class="number">10</span>,y=<span class="number">50</span>)</span><br><span class="line">    tk.Entry(window_sign_up,textvariable=new_password,show=<span class="string">&#x27;*&#x27;</span>).place(x=<span class="number">150</span>,y=<span class="number">50</span>)</span><br><span class="line"></span><br><span class="line">    new_password_confirm = tk.StringVar()</span><br><span class="line">    tk.Label(window_sign_up,text=<span class="string">&#x27;请再次确认密码：&#x27;</span>).place(x=<span class="number">10</span>,y=<span class="number">90</span>)</span><br><span class="line">    tk.Entry(window_sign_up,textvariable=new_password_confirm,show=<span class="string">&#x27;*&#x27;</span>).place(x=<span class="number">150</span>,y=<span class="number">90</span>)</span><br><span class="line"></span><br><span class="line">    bt_confirm_sign_up = tk.Button(window_sign_up,text=<span class="string">&#x27;确认注册&#x27;</span>,command=registration)</span><br><span class="line">    bt_confirm_sign_up.place(x=<span class="number">150</span>,y=<span class="number">130</span>)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">user_sign_out</span>():</span><br><span class="line">    window.destroy()</span><br><span class="line">bt_login = tk.Button(window,text=<span class="string">&#x27;登    录&#x27;</span>,width=<span class="number">30</span>,font= <span class="number">18</span>,bg=<span class="string">&#x27;DarkTurquoise&#x27;</span>,activebackground=<span class="string">&#x27;Turquoise&#x27;</span>,command=user_login_in)</span><br><span class="line">bt_login.place(x=<span class="number">150</span>,y=<span class="number">210</span>)</span><br><span class="line"></span><br><span class="line">bt_register = tk.Button(window,text=<span class="string">&#x27;注册&#x27;</span>,width=<span class="number">25</span>,command= user_sign_up)</span><br><span class="line">bt_register.place(x=<span class="number">150</span>,y=<span class="number">270</span>)</span><br><span class="line"></span><br><span class="line">bt_exit = tk.Button(window,text=<span class="string">&#x27;退出&#x27;</span>,width=<span class="number">5</span>,command = user_sign_out)</span><br><span class="line">bt_exit.place(x=<span class="number">350</span>,y=<span class="number">270</span>)</span><br><span class="line">window.mainloop()</span><br></pre></td></tr></table></figure>
+<h2 id="练习二"><a href="#练习二" class="headerlink" title="练习二"></a>练习二</h2><h3 id="题目：tkinter-版猜数游戏"><a href="#题目：tkinter-版猜数游戏" class="headerlink" title="题目：tkinter 版猜数游戏"></a>题目：tkinter 版猜数游戏</h3><p>使用 Python 标准库 tkinter 编写 GUI 版本的猜数游戏。 每次猜数之前要启动游戏并设置猜数范围和最大猜测次数等参数， 退出游戏时显示战绩（共玩几次， 猜对几次） 信息。</p>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tkinter <span class="keyword">as</span> tk</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">number = random.randint(<span class="number">0</span>,<span class="number">1024</span>)</span><br><span class="line">running = <span class="literal">True</span></span><br><span class="line">num = <span class="number">0</span></span><br><span class="line">num_max = <span class="number">1024</span></span><br><span class="line">num_min = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">eBtnClose</span>(<span class="params">event</span>):</span><br><span class="line">    root.destory()</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">eBtnGuess</span>(<span class="params">evnet</span>):</span><br><span class="line">    <span class="keyword">global</span> num_max</span><br><span class="line">    <span class="keyword">global</span> num_min</span><br><span class="line">    <span class="keyword">global</span> num</span><br><span class="line">    <span class="keyword">global</span> running</span><br><span class="line">    <span class="keyword">if</span> running:</span><br><span class="line">        val_a = <span class="built_in">int</span>(entry_a.get())</span><br><span class="line">        <span class="keyword">if</span> val_a ==number:</span><br><span class="line">            labelqval(<span class="string">&quot;恭喜你答对啦！&quot;</span>)</span><br><span class="line">            num +=<span class="number">1</span></span><br><span class="line">            running =<span class="literal">False</span></span><br><span class="line">            numGuess()</span><br><span class="line">        <span class="keyword">elif</span> val_a &lt;number:</span><br><span class="line">            <span class="keyword">if</span> val_a &gt;num_min:</span><br><span class="line">                num_min = val_a</span><br><span class="line">                num +=<span class="number">1</span></span><br><span class="line">                label_tip_min.config(label_tip_min,text=num_min)</span><br><span class="line">            labelqval(<span class="string">&quot;小了哦&quot;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span> val_a &lt; num_max:</span><br><span class="line">                num_max = val_a</span><br><span class="line">                num +=<span class="number">1</span></span><br><span class="line">                label_tip_max.config(label_tip_max,text=num_max)</span><br><span class="line">            labelqval(<span class="string">&quot;大了哦&quot;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        labelqval(<span class="string">&#x27;你已经答对了&#x27;</span>)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">numGuess</span>():</span><br><span class="line">    <span class="keyword">if</span> num ==<span class="number">1</span>:</span><br><span class="line">        labelqval(<span class="string">&#x27;居然一次就答对了&#x27;</span>)</span><br><span class="line">    <span class="keyword">elif</span> num&lt;<span class="number">10</span>:</span><br><span class="line">        labelqval(<span class="string">&#x27;十次以内就答对了，继续加油！尝试次数为：&#x27;</span>+<span class="built_in">str</span>(num))</span><br><span class="line">    <span class="keyword">elif</span> num&lt;<span class="number">50</span>:</span><br><span class="line">        labelqval(<span class="string">&#x27;很不错！尝试次数为：&#x27;</span>+<span class="built_in">str</span>(num))</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">labelqval</span>(<span class="params">vText</span>):</span><br><span class="line">    label_val_q.config(label_val_q,text=vText)</span><br><span class="line"></span><br><span class="line">root = tk.Tk(className=<span class="string">&quot;猜数游戏&quot;</span>)</span><br><span class="line">root.geometry(<span class="string">&quot;400x50&quot;</span>)</span><br><span class="line">line_a_tip = tk.Frame(root)</span><br><span class="line">label_tip_max = tk.Label(line_a_tip,text=num_max)</span><br><span class="line">label_tip_min = tk.Label(line_a_tip,text=num_min)</span><br><span class="line">label_tip_max.pack(side=<span class="string">&quot;top&quot;</span>,fill=<span class="string">&quot;x&quot;</span>)</span><br><span class="line">label_tip_min.pack(side=<span class="string">&quot;bottom&quot;</span>,fill=<span class="string">&quot;x&quot;</span>)</span><br><span class="line">line_a_tip.pack(side=<span class="string">&quot;left&quot;</span>,fill=<span class="string">&quot;y&quot;</span>)</span><br><span class="line">line_question = tk.Frame(root)</span><br><span class="line">label_val_q = tk.Label(line_question,width=<span class="string">&quot;80&quot;</span>)</span><br><span class="line">label_val_q.pack(side=<span class="string">&quot;left&quot;</span>)</span><br><span class="line">line_question.pack(side=<span class="string">&quot;top&quot;</span>,fill=<span class="string">&quot;x&quot;</span>)</span><br><span class="line">line_input = tk.Frame(root)</span><br><span class="line">entry_a =tk.Entry(line_input,width=<span class="string">&quot;40&quot;</span>)</span><br><span class="line">btnGuess = tk.Button(line_input,text = <span class="string">&quot;猜&quot;</span>)</span><br><span class="line">entry_a.pack(side=<span class="string">&quot;left&quot;</span>)</span><br><span class="line">entry_a.bind(<span class="string">&#x27;&lt;Return&gt;&#x27;</span>,eBtnGuess)</span><br><span class="line">btnGuess.bind((<span class="string">&#x27;&lt;Button-1&gt;&#x27;</span>),eBtnGuess)</span><br><span class="line">btnGuess.pack(side=<span class="string">&quot;left&quot;</span>)</span><br><span class="line">line_input.pack(side=<span class="string">&quot;top&quot;</span>,fill=<span class="string">&quot;x&quot;</span>)</span><br><span class="line">line_btn = tk.Frame(root)</span><br><span class="line">btnClose = tk.Button(line_btn,text=<span class="string">&quot;关闭&quot;</span>)</span><br><span class="line">btnClose.bind(<span class="string">&#x27;&lt;Button-1&gt;&#x27;</span>,eBtnClose)</span><br><span class="line">btnClose.pack(side=<span class="string">&quot;left&quot;</span>)</span><br><span class="line">line_btn.pack(side=<span class="string">&quot;top&quot;</span>)</span><br><span class="line">labelqval(<span class="string">&quot;请输入0到1024之间任意整数：&quot;</span>)</span><br><span class="line">entry_a.focus_set()</span><br><span class="line">root.mainloop()</span><br></pre></td></tr></table></figure>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">Python 实验十一 Tkinter的使用（2）</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">姚永坤</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2021-04-05 17:53:43</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">2021/04/05/python-experiment-11/</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/experiment/"><i class="icon fas fa-hashtag"></i>experiment</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/python-experiment/"><i class="icon fas fa-hashtag"></i>python-experiment</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/2021/04/05/python-experiment-12/"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item text-ellipsis">Python 实验十二 数据分析与可视化（1）</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/2021/04/05/python-experiment-10/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item text-ellipsis">Python 实验十 Tkinter的使用（1）</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+                
+
+
+    <div class="comments-container">
+        <div id="comments-anchor"></div>
+        <div class="comment-area-title">
+            <i class="fas fa-comments"></i>&nbsp;评论
+        </div>
+        
+            
+
+    <div class="giscus-comments-container">
+        <div class="giscus" id="giscus"></div>
+        <script data-pjax>
+
+          if (!window?.__getGiscusTheme) {
+            window.__getGiscusTheme = () => {
+              return document.body.classList.contains("dark-mode") ? "dark_dimmed" : "light_tritanopia";
+            };
+          }
+
+          if (!window?.__changeGiscusTheme) {
+            window.__changeGiscusTheme = () => {
+              const iframe = document.querySelector("iframe.giscus-frame");
+              iframe && iframe.contentWindow.postMessage({
+                giscus: {
+                  setConfig: {
+                    theme: __getGiscusTheme()
+                  }
+                }
+              }, "https://giscus.app");
+            };
+          }
+
+          if (!window?.__loadGiscus) {
+            window.__loadGiscus = () => {
+              const script = document.createElement("script");
+              script.async = true;
+              script.src = "https://giscus.app/client.js";
+              script.setAttribute("data-repo", 'kunkunyy/discussion');
+              script.setAttribute("data-repo-id", 'R_kgDOKOnLlw');
+              script.setAttribute("data-category", 'Announcements');
+              script.setAttribute("data-category-id", 'DIC_kwDOKOnLl84CZCrc');
+              script.setAttribute("data-reactions-enabled", '1');
+              script.setAttribute("data-lang", 'zh-CN');
+              script.setAttribute("data-mapping", "pathname");
+              script.setAttribute("data-strict", "0");
+              script.setAttribute("data-emit-metadata", "0");
+              script.setAttribute("data-input-position", "top");
+              script.setAttribute("crossorigin", "anonymous");
+              script.setAttribute("loading", "lazy");
+              script.setAttribute("data-theme", __getGiscusTheme());
+              document.querySelector(".giscus-comments-container").appendChild(script);
+
+              const toggleThemeBtn = document.querySelector(".tool-dark-light-toggle");
+              toggleThemeBtn && toggleThemeBtn.addEventListener("click", () => {
+                __changeGiscusTheme();
+              });
+            }
+          }
+
+          if ('true' === "true") {
+            setTimeout(() => {
+              __loadGiscus();
+            }, 1000);
+          } else {
+            window.addEventListener("DOMContentLoaded", () => {
+              setTimeout(() => {
+                __loadGiscus();
+              }, 1000);
+            });
+          }
+        </script>
+    </div>
+
+
+        
+    </div>
+
+
+
+
+
+            
+        </div>
+
+        
+            <div class="pc-post-toc left-toc">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84"><span class="nav-text">实验目的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E5%86%85%E5%AE%B9"><span class="nav-text">实验内容</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%83%E4%B9%A0%E4%B8%80"><span class="nav-text">练习一</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E7%94%A8%E6%88%B7%E7%99%BB%E9%99%86%E7%95%8C%E9%9D%A2%E7%A8%8B%E5%BA%8F"><span class="nav-text">题目：用户登陆界面程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%83%E4%B9%A0%E4%BA%8C"><span class="nav-text">练习二</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9Atkinter-%E7%89%88%E7%8C%9C%E6%95%B0%E6%B8%B8%E6%88%8F"><span class="nav-text">题目：tkinter 版猜数游戏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-1"><span class="nav-text">代码</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="border-box website-info-box default">
+        
+            <div class="copyright-info info-item default">
+                &copy;&nbsp;<span>2021</span>&nbsp;-&nbsp;2023
+                
+                    &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">姚永坤</a>
+                
+            </div>
+
+            <div class="theme-info info-item default">
+                由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.7.3</a>
+            </div>
+
+            
+
+            
+        
+
+        <div class="count-item info-item default">
+            
+                <span class="count-box border-box word">
+                    <span class="item-type border-box">全站总字数</span>
+                    <span class="item-value border-box word">198.2k</span>
+                </span>
+            
+
+            
+                <span class="count-box border-box uv">
+                    <span class="item-type border-box">访问人数</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-box border-box pv">
+                    <span class="item-type border-box">总访问量</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools left-toc">
+            <div class="post-tools-container border-box">
+    <ul class="tools-list border-box">
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+            <li class="tools-item go-to-comments-tablet flex-center">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84"><span class="nav-text">实验目的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E5%86%85%E5%AE%B9"><span class="nav-text">实验内容</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%83%E4%B9%A0%E4%B8%80"><span class="nav-text">练习一</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E7%94%A8%E6%88%B7%E7%99%BB%E9%99%86%E7%95%8C%E9%9D%A2%E7%A8%8B%E5%BA%8F"><span class="nav-text">题目：用户登陆界面程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%83%E4%B9%A0%E4%BA%8C"><span class="nav-text">练习二</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9Atkinter-%E7%89%88%E7%8C%9C%E6%95%B0%E6%B8%B8%E6%88%8F"><span class="nav-text">题目：tkinter 版猜数游戏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-1"><span class="nav-text">代码</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/code-block.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/post-helper.js"></script>
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/libs/anime.min.js"></script>
+        
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/toc.js"></script>
+        
+    
+    
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+
+    
+        
+    
+
+</body>
+</html>

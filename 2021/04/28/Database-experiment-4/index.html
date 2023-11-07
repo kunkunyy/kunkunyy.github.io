@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="姚永坤">
+    
+    <title>
+        
+            数据库实验五、六 |
+        
+        坤坤的百宝箱
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/head.3yoe3br9tws0.png">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/brands.min.css">
+    
+        
+            
+        
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true,"layout":"left"},"style":{"primary_color":"#0066cc","logo":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/op.3zg25jxprna0.png","favicon":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/head.3yoe3br9tws0.png","avatar":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/logo.6qi88yzn2jg0.jpg","shadow":true,"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"黑夜降临之处，便是黎明之始。|| Where blackness falls, begins dawn.","hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":true,"use":"giscus","valine":{"appid":"Peml0rEJ7HZNQA1gZrKxXgPr-gzGzoHsz","appkey":"vVJRDKBsUlnpc3zr69GFbCTI","placeholder":"快来评论吧！！！"},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2},"giscus":{"repo":"kunkunyy/discussion","repo_id":"R_kgDOKOnLlw","category":"Announcements","category_id":"DIC_kwDOKOnLl84CZCrc","reactions_enabled":true}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"wordcount":true,"min2read":true},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":true},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"version":"3.7.3"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="姚永坤的小窝" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container border-box">
+
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/op.3zg25jxprna0.png">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               坤坤的百宝箱
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/changelog"
+                            >
+                                更新日志
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/changelog">更新日志</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+
+                
+
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+
+        <div class="article-content-container border-box">
+
+            <div class="article-title">
+                <span class="title-hover-animation">数据库实验五、六</span>
+            </div>
+
+            
+                <div class="article-header border-box">
+                    
+                        <div class="avatar-box border-box">
+                            <img src="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/logo.6qi88yzn2jg0.jpg">
+                        </div>
+                    
+                    <div class="info-box">
+                        <div class="author">
+                            <span class="name">姚永坤</span>
+                            
+                                <span class="author-label">Lv6</span>
+                            
+                        </div>
+                        <div class="meta-info border-box">
+                            
+
+<div class="article-meta-info-container border-box post">
+    <div class="article-meta-info border-box">
+        
+
+
+        
+            <span class="meta-info-item article-create-date">
+                <i class="icon fa-solid fa-calendar-check"></i>&nbsp;
+                <span class="pc">2021-04-28 11:10:44</span>
+                <span class="mobile">2021-04-28 11:10</span>
+            </span>
+
+            <span class="meta-info-item article-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="pc">2023-11-06 11:29:16</span>
+            </span>
+        
+
+        
+            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul>
+                    
+                            <li class="category-item">
+                                
+                                <a href="/categories/experiment/">experiment</a>
+                            </li>
+                        
+                    
+                            <li class="category-item">
+                                
+                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
+                                
+                                <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%9E%E9%AA%8C/">数据库实验</a>
+                            </li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="article-tag meta-info-item border-box">
+                <i class="icon fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/experiment/">experiment</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Database-experiment/">Database-experiment</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item article-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>2.7k 字</span>
+            </span>
+        
+        
+            <span class="meta-info-item article-min2read">
+                <i class="icon fas fa-clock"></i>&nbsp;<span>10 分钟</span>
+            </span>
+        
+        
+            <span class="meta-info-item article-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <h1 id="实验类型"><a href="#实验类型" class="headerlink" title="实验类型"></a>实验类型</h1><p>验证型实验</p>
+<h1 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h1><ul>
+<li>了解数据库恢复技术的原理</li>
+<li>了解oracle各类故障的数据恢复方法</li>
+<li>了解oracle的物理备份</li>
+<li>掌握oracle数据库逻辑备份方法</li>
+<li>掌握oracle数据库恢复的方法</li>
+<li>学会使用exp备份数据库、使用imp恢复数据库</li>
+<li>了解flashback 的使用</li>
+<li>学会使用PLSQL/developer工具完成导入导出</li>
+<li>理解数据库的安全性保护</li>
+<li>掌握ORACLE中有关用户创建的方法</li>
+<li>理解数据库存取控制机制</li>
+<li>熟练掌握PL-SQL的数据控制语言，能通过自主存取控制进行权限管理</li>
+<li>熟悉用户资源文件的使用</li>
+<li>熟悉ORACLE中角色管理</li>
+<li>熟悉视图机制在自主存取控制上的应用</li>
+</ul>
+<h1 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h1><ol>
+<li>查看归档模式</li>
+<li>使用exp导出数据库</li>
+<li>使用imp导入数据库</li>
+<li>使用flashback 闪回表</li>
+<li>使用PLSQL/developer工具完成导出</li>
+<li>使用PLSQL/developer工具完成导入</li>
+</ol>
+<h1 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h1><h2 id="实验五"><a href="#实验五" class="headerlink" title="实验五"></a>实验五</h2><ol>
+<li>查看系统归档模式。（在SQLPLUS中）<br>SQL&gt; archive log list。<br>对各参数值进行解释。</li>
+<li>热备份和冷备份，分别使用什么归档模式？</li>
+<li>如何对WINDOWS平台服务器中的ORCL数据库进行冷备份？说明方法。</li>
+<li>客户端可以使用RMAN进行热备份吗？</li>
+<li>逻辑备份<br>（1）导出自己表空间中的“预约”表<br>在运行中输入：exp 用户名/密码@orcl<br>按照提示进行导出<br>（2）删除自己表空间中的“预约”表<br>（3）进行导入数据库操作<br>在运行中输入：IMP 用户名/密码@orcl<br>按照提示进行导入<br>（4）查询导入的“预约”表中的信息。<br>（5）导出数据库（以全库方式导出）。</li>
+</ol>
+<ul>
+<li>必须是DBA才能执行完整数据库或表空间导出操作。</li>
+</ul>
+<ol start="6">
+<li>使用Flashback<br>（1）设置行可移动<br>SQL&gt;ALTER TABLE 读者 ENABLE   ROW  MOVEMENT<br>（2）在读者表中添加多条记录（或者删除没有借书的读者记录）。<br>（3）闪回到改变前（TO_ TIMESTAMP函数完成对非时间戳类型数据的转换）<br>SQL&gt;FLASHBACK TABLE   读者 TO TIMESTAMP   TO_ TIMESTAMP(….)</li>
+<li>使用PLSQL/developer 来完成SQL导出<br>（1）打开PLSQL/developer，选择菜单“工具“导出表<br>（2）点击你要导出的表，然后选择标签SQL 插入<br>（3）选中复选框创建表，浏览或者输入输出文件，然后点击导出<br>（4）在你输入的目录下找到你的导出文件（SQL 文件）<br>（5）依次导出你账户下所有用户自定义表。<br>（6）删除自己表空间中的“预约”表<br>（7）通过“工具“导入表，利用SQL插入导入数据库预约表。<br>（8）查询导入的预约表，检查导出是否正确。</li>
+<li>使用PLSQL/developer 来完成PLSQL/developer方式导出<br>（1）打开PLSQL/developer，选择菜单“工具“导出表<br>（2）点击你要导出的表，然后选择标签PLSQL/developer<br>（3）浏览或者输入输出文件，然后点击导出。<br>（4）在你输入的目录下找到你的导出文件。<br>（5）依次导出你账户下所有用户自定义表。<br>（6）删除自己表空间中的“预约”表<br>（7）通过“工具“导出表，PLSQL/developer方式导入数据库预约表。<br>（8）查询导入的预约表，检查导出是否正确。</li>
+</ol>
+<h2 id="实验六"><a href="#实验六" class="headerlink" title="实验六"></a>实验六</h2><ol>
+<li>同学之间相互授权访问对方“读者”表并能进行查询。</li>
+<li>以SYS登录数据库 为你的账号增加系统角色DBA.</li>
+<li>重新以自己的账号登录，创建一个数据库用户：账号_USER1（注：账号即学生登录数据库账号：S2009XXXX）该用户拥有所有CONNECT, RESOURCE，DBA系统角色权限。然后以该用户登录，查看该用户的所有系统权限。</li>
+<li>建立角色：账号_OPER,该角色拥有调用存储过程借书、还书、预约的权限，以及查询读者，书目，图书，借阅以及预约表的权限。<br>（注：执行存储过程的授权语句<br>Grant execute on procedure_name  to user/role）</li>
+<li>创建一个数据库用户：账号_USER2（注：账号即：S2009XXXX）<br>为该用户授权角色：账户_OPER。以该用户登录，完成借书功能。</li>
+<li>建立视图VIEW_READER, 该视图包含书目（ISBN, 书名，作者，出版单位，图书分类名称）（注：所有属性来自关系书目和图书分类）</li>
+<li>创建一个数据库用户：账号_USER3（注：账号即：S2009XXXX）<br>该用户具有对视图VIEW_READER查询的权限。创建一个概要文件，如果 账号_USER3连续3次登录失败，则锁定该账户，10天后该账户自动解锁。以该用户登录进行权限测试。</li>
+</ol>
+<h1 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h1><ol>
+<li>查看系统归档模式。（在SQLPLUS中）SQL&gt; archive log list。对各参数值进行解释。<br>使用SYS登录，由于是超级管理员所以要使用： “口令+ as sysdba”登录</li>
+</ol>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic1.png" class title="# tu">
+
+<p>输入archive log list</p>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic2.png" class title="# tu">
+
+<ol start="2">
+<li>热备份和冷备份，分别使用什么归档模式？<br>热备份针对归档模式的数据库，在数据库仍旧处于工作状态时进行备份。而冷备份是指在数据库关闭后，进行备份，适用于所有模式的数据库，热备份的优点在于当备份时，数据库仍旧可以被使用并且可以将数据库恢复到任意一个时间点。冷备份的优点在于他的备份和回复操作相当简单，并且由于冷备份的数据可以工作在非归档模式下，数据库性能会比归档模式稍好。</li>
+<li>如何对WINDOWS平台服务器中的ORCL数据库进行冷备份？说明方法。</li>
+</ol>
+<p>1)正常关闭数据库<br>2)备份所有重要的文件到备份目录（数据文件、控制文件、重做日志文件等）<br>3)完成备份后启动数据库<br>4. 客户端可以使用RMAN进行热备份吗？ 可以<br>5. 逻辑备份<br>（1）导出自己表空间中的“预约”表在运行中输入：exp 用户名/密码@orcl 按照提示进行导出</p>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic3.png" class title="# tu">
+
+<p>（2）删除自己表空间中的“预约”表</p>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic4.png" class title="# tu">
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic5.png" class title="# tu">
+
+<p>（3）进行导入数据库操作在运行中输入：IMP 用户名/密码@orcl，按照提示进行导入</p>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic6.png" class title="# tu">
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic7.png" class title="# tu">
+
+<p>（4）查询导入的“预约”表中的信息。</p>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic8.png" class title="# tu">
+
+<p>（5）导出数据库（以全库方式导出）。<br>exp S5120188039/yyk1776572104@orcl FULL=Y</p>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic9.png" class title="# tu">
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic10.png" class title="# tu">
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic11.png" class title="# tu">
+
+<p>6、使用Flashback<br>（1）设置行可移动<br>SQL&gt;ALTER TABLE 读者 ENABLE ROW MOVEMENT</p>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic12.png" class title="# tu">
+
+<p>（2）在读者表中添加多条记录（或者删除没有借书的读者记录）。<br>插入数据：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> 读者 <span class="keyword">VALUES</span>(<span class="string">&#x27;20181452&#x27;</span>,<span class="string">&#x27;胡晋源&#x27;</span>,<span class="string">&#x27;四川绵阳西科大计算机学院&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="keyword">null</span>,<span class="keyword">null</span>,<span class="keyword">null</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> 读者 <span class="keyword">VALUES</span>(<span class="string">&#x27;20186666&#x27;</span>,<span class="string">&#x27;吕硕&#x27;</span>,<span class="string">&#x27;四川绵阳西科大计算机学院&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="keyword">null</span>,<span class="keyword">null</span>,<span class="keyword">null</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> 读者 <span class="keyword">VALUES</span>(<span class="string">&#x27;20188039&#x27;</span>,<span class="string">&#x27;姚永坤&#x27;</span>,<span class="string">&#x27;四川绵阳西科大计算机学院&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="keyword">null</span>,<span class="keyword">null</span>,<span class="keyword">null</span>); </span><br></pre></td></tr></table></figure>
+
+<p>（3）闪回到改变前（TO_ TIMESTAMP函数完成对非时间戳类型数据的转换）<br>SQL&gt;FLASHBACK TABLE 读者 TO TIMESTAMP TO_ TIMESTAMP(….)<br>代码：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FLASHBACK <span class="keyword">TABLE</span> 读者 <span class="keyword">TO</span> <span class="type">TIMESTAMP</span> TO_TIMESTAMP(<span class="string">&#x27;2020/11/15 16:30:00&#x27;</span>,<span class="string">&#x27;YYYY/MM/DD HH24:MI:SS&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>7、使用PLSQL/developer 来完成SQL导出<br>（1）打开PLSQL/developer，选择菜单“工具”导出表</p>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic13.png" class title="# tu">
+
+<p>（2）点击你要导出的表，然后选择标签SQL插入</p>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic14.png" class title="# tu">
+
+<p>（3）选中复选框创建表，浏览或者输入输出文件，然后点击导出</p>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic15.png" class title="# tu">
+
+<p>（4）在你输入的目录下找到你的导出文件（SQL 文件）<br>（5）依次导出你账户下所有用户自定义表。</p>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic16.png" class title="# tu">
+
+<p>（6）删除自己表空间中的“预约”表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> 预约;</span><br></pre></td></tr></table></figure>
+
+<p>（7）通过“工具“导入表，利用SQL插入导入数据库预约表。</p>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic17.png" class title="# tu">
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic18.png" class title="# tu">
+
+<p>（8）查询导入的预约表，检查导出是否正确。</p>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic19.png" class title="# tu">
+
+<p>8、使用PLSQL/developer 来完成PLSQL/developer方式导出<br>（1）打开PLSQL/developer，选择菜单“工具“导出表<br>（2）点击你要导出的表，然后选择标签PLSQL/developer</p>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic20.png" class title="# tu">
+
+<p>（3）浏览或者输入输出文件，然后点击导出。</p>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic21.png" class title="# tu">
+
+<p>（4）在你输入的目录下找到你的导出文件。<br>（5）依次导出你账户下所有用户自定义表。</p>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic22.png" class title="# tu">
+
+<p>（6）删除自己表空间中的“预约”表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> 预约;</span><br></pre></td></tr></table></figure>
+
+<p>（7）通过“工具“导出表，PLSQL/developer方式导入数据库预约表。</p>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic23.png" class title="# tu">
+
+<p>（8）查询导入的预约表，检查导出是否正确</p>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic24.png" class title="# tu">
+
+<h2 id="实验六-1"><a href="#实验六-1" class="headerlink" title="实验六"></a>实验六</h2><p>1、同学之间相互授权访问对方“读者”表并能进行查询。<br>2、以SYS登录数据库 为你的账号增加系统角色DBA.</p>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic25.png" class title="# tu">
+
+<p>使用 “GRANT DBA TO + 用户名”给自己的账号增加系统角色DBA：</p>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic26.png" class title="# tu">
+
+<p>3、 重新以自己的账号登录，创建一个数据库用户：账号_USER1（注：账号即学生登录数据库账号：S2009XXXX）该用户拥有所有CONNECT, RESOURCE，DBA系统角色权限。然后以该用户登录，查看该用户的所有系统权限。<br>（1）登录</p>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic27.png" class title="# tu">
+
+<p>（2）使用CREATE USER 用户+_USER1 IDENTIFIED BY ORCL;创建用户</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> S5120188039_USER1 IDENTIFIED <span class="keyword">BY</span> ORCL;</span><br></pre></td></tr></table></figure>
+
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic28.png" class title="# tu">
+
+<p>（3）使用GRANT CONNECT TO S5120188039_USER1;</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> RESOURCE <span class="keyword">TO</span> S5120188039_USER1;</span><br><span class="line"><span class="keyword">GRANT</span> DBA <span class="keyword">TO</span> S5120188039_USER1;</span><br></pre></td></tr></table></figure>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic29.png" class title="# tu">
+
+<p>4、 建立角色：账号_OPER,该角色拥有调用存储过程借书、还书、预约的权限，以及查询读者，书目，图书，借阅以及预约表的权限。<br>（注：执行存储过程的授权语句Grant execute on procedure_name  to user/role）<br>（1）创建角色</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> ROLE S5120188039_OPER;</span><br></pre></td></tr></table></figure>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic30.png" class title="# tu">
+<p>（2）授权</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">EXECUTE</span> <span class="keyword">ON</span> PROCESSED_借书 <span class="keyword">TO</span> S5120188039_OPER;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">EXECUTE</span> <span class="keyword">ON</span> PROCESSED_还书 <span class="keyword">TO</span> S5120188039_OPER;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">EXECUTE</span> <span class="keyword">ON</span> PROCEDURE_预约 <span class="keyword">TO</span> S5120188039_OPER;</span><br></pre></td></tr></table></figure>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic31.png" class title="# tu">
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">SELECT</span> <span class="keyword">ON</span> 读者 <span class="keyword">TO</span> S5120188039_OPER;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">SELECT</span> <span class="keyword">ON</span> 书目 <span class="keyword">TO</span> S5120188039_OPER;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">SELECT</span> <span class="keyword">ON</span> 图书 <span class="keyword">TO</span> S5120188039_OPER;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">SELECT</span> <span class="keyword">ON</span> 借阅 <span class="keyword">TO</span> S5120188039_OPER;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">SELECT</span> <span class="keyword">ON</span> 预约 <span class="keyword">TO</span> S5120188039_OPER;</span><br></pre></td></tr></table></figure>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic32.png" class title="# tu">
+
+<p>5、创建一个数据库用户：账号_USER2（注：账号即：S2009XXXX）为该用户授权角色：账户_OPER。以该用户登录，完成借书功能。<br>（1）使用CREATE USER 用户+_USER1 IDENTIFIED BY ORCL;创建用户</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> S5120188039_USER2 IDENTIFIED <span class="keyword">BY</span> ORCL;</span><br></pre></td></tr></table></figure>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic33.png" class title="# tu">
+<p>（2）授权</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> S5120188039_OPER <span class="keyword">TO</span> S5120188039_USER2;</span><br></pre></td></tr></table></figure>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic34.png" class title="# tu">
+<p>（3）重新登录并且实现借书过程</p>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic35.png" class title="# tu">
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CALL</span> S5120188039.PROCESSED_借书(<span class="number">20051001</span>,<span class="number">1005050</span>);</span><br></pre></td></tr></table></figure>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic36.png" class title="# tu">
+<p>（4）查询结果</p>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic37.png" class title="# tu">
+
+<p>7、 创建一个数据库用户：账号_USER3（注：账号即：S2009XXXX）<br>该用户具有对视图VIEW_READER查询的权限。创建一个概要文件，如果 账号_USER3连续3次登录失败，则锁定该账户，10天后该账户自动解锁。以该用户登录进行权限测试。<br>（1）创建数据库用户</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> S5120188039_USER3 IDENTIFIED <span class="keyword">BY</span> ORCL;</span><br></pre></td></tr></table></figure>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic38.png" class title="# tu">
+<p>（2）授权</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">CONNECT</span> <span class="keyword">TO</span> S5120188039_USER3;</span><br></pre></td></tr></table></figure>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic39.png" class title="# tu">
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">SELECT</span> <span class="keyword">ON</span> VIEW_READER <span class="keyword">TO</span> S5120188039_USER3;</span><br></pre></td></tr></table></figure>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic40.png" class title="# tu">
+<p>（3）创建概要文件</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> PROFILE LOCK_USER LIMIT</span><br><span class="line">FAILED_LOGIN_ATTEMPTS <span class="number">3</span></span><br><span class="line">PASSWORD_LOCK_TIME <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic41.png" class title="# tu">
+<p>（4）分配概要文件</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> S5120188039_USER3 PROFILE LOCK_USER;</span><br></pre></td></tr></table></figure>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic42.png" class title="# tu">
+<p>（5）测试输入错误，锁定用户</p>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic43.png" class title="# tu">
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic44.png" class title="# tu">
+<p>（6）账户锁定进行解锁</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> S5120188039_USER3 ACCOUNT UNLOCK;</span><br></pre></td></tr></table></figure>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic45.png" class title="# tu">
+<p>（7）再次测试</p>
+<img lazyload alt="image" data-src="/2021/04/28/Database-experiment-4/pic46.png" class title="# tu">
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">数据库实验五、六</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">姚永坤</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2021-04-28 11:10:44</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">2021/04/28/Database-experiment-4/</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/experiment/"><i class="icon fas fa-hashtag"></i>experiment</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/Database-experiment/"><i class="icon fas fa-hashtag"></i>Database-experiment</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/2021/04/28/Front-end-basic-learning-1/"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item text-ellipsis">Http和Https</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/2021/04/28/Database-experiment-3/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item text-ellipsis">数据库实验三、四</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+                
+
+
+    <div class="comments-container">
+        <div id="comments-anchor"></div>
+        <div class="comment-area-title">
+            <i class="fas fa-comments"></i>&nbsp;评论
+        </div>
+        
+            
+
+    <div class="giscus-comments-container">
+        <div class="giscus" id="giscus"></div>
+        <script data-pjax>
+
+          if (!window?.__getGiscusTheme) {
+            window.__getGiscusTheme = () => {
+              return document.body.classList.contains("dark-mode") ? "dark_dimmed" : "light_tritanopia";
+            };
+          }
+
+          if (!window?.__changeGiscusTheme) {
+            window.__changeGiscusTheme = () => {
+              const iframe = document.querySelector("iframe.giscus-frame");
+              iframe && iframe.contentWindow.postMessage({
+                giscus: {
+                  setConfig: {
+                    theme: __getGiscusTheme()
+                  }
+                }
+              }, "https://giscus.app");
+            };
+          }
+
+          if (!window?.__loadGiscus) {
+            window.__loadGiscus = () => {
+              const script = document.createElement("script");
+              script.async = true;
+              script.src = "https://giscus.app/client.js";
+              script.setAttribute("data-repo", 'kunkunyy/discussion');
+              script.setAttribute("data-repo-id", 'R_kgDOKOnLlw');
+              script.setAttribute("data-category", 'Announcements');
+              script.setAttribute("data-category-id", 'DIC_kwDOKOnLl84CZCrc');
+              script.setAttribute("data-reactions-enabled", '1');
+              script.setAttribute("data-lang", 'zh-CN');
+              script.setAttribute("data-mapping", "pathname");
+              script.setAttribute("data-strict", "0");
+              script.setAttribute("data-emit-metadata", "0");
+              script.setAttribute("data-input-position", "top");
+              script.setAttribute("crossorigin", "anonymous");
+              script.setAttribute("loading", "lazy");
+              script.setAttribute("data-theme", __getGiscusTheme());
+              document.querySelector(".giscus-comments-container").appendChild(script);
+
+              const toggleThemeBtn = document.querySelector(".tool-dark-light-toggle");
+              toggleThemeBtn && toggleThemeBtn.addEventListener("click", () => {
+                __changeGiscusTheme();
+              });
+            }
+          }
+
+          if ('true' === "true") {
+            setTimeout(() => {
+              __loadGiscus();
+            }, 1000);
+          } else {
+            window.addEventListener("DOMContentLoaded", () => {
+              setTimeout(() => {
+                __loadGiscus();
+              }, 1000);
+            });
+          }
+        </script>
+    </div>
+
+
+        
+    </div>
+
+
+
+
+
+            
+        </div>
+
+        
+            <div class="pc-post-toc left-toc">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%B1%BB%E5%9E%8B"><span class="nav-text">实验类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84"><span class="nav-text">实验目的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E5%86%85%E5%AE%B9"><span class="nav-text">实验内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4"><span class="nav-text">实验步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E4%BA%94"><span class="nav-text">实验五</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E5%85%AD"><span class="nav-text">实验六</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="nav-text">实验结果</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E5%85%AD-1"><span class="nav-text">实验六</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="border-box website-info-box default">
+        
+            <div class="copyright-info info-item default">
+                &copy;&nbsp;<span>2021</span>&nbsp;-&nbsp;2023
+                
+                    &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">姚永坤</a>
+                
+            </div>
+
+            <div class="theme-info info-item default">
+                由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.7.3</a>
+            </div>
+
+            
+
+            
+        
+
+        <div class="count-item info-item default">
+            
+                <span class="count-box border-box word">
+                    <span class="item-type border-box">全站总字数</span>
+                    <span class="item-value border-box word">198.2k</span>
+                </span>
+            
+
+            
+                <span class="count-box border-box uv">
+                    <span class="item-type border-box">访问人数</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-box border-box pv">
+                    <span class="item-type border-box">总访问量</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools left-toc">
+            <div class="post-tools-container border-box">
+    <ul class="tools-list border-box">
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+            <li class="tools-item go-to-comments-tablet flex-center">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%B1%BB%E5%9E%8B"><span class="nav-text">实验类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84"><span class="nav-text">实验目的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E5%86%85%E5%AE%B9"><span class="nav-text">实验内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4"><span class="nav-text">实验步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E4%BA%94"><span class="nav-text">实验五</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E5%85%AD"><span class="nav-text">实验六</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="nav-text">实验结果</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E5%85%AD-1"><span class="nav-text">实验六</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/code-block.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/post-helper.js"></script>
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/libs/anime.min.js"></script>
+        
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/toc.js"></script>
+        
+    
+    
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+
+    
+        
+    
+
+</body>
+</html>

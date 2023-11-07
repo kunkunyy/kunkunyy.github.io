@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="姚永坤">
+    
+    <title>
+        
+            JavaScript学习笔记（十七）对象 |
+        
+        坤坤的百宝箱
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/head.3yoe3br9tws0.png">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/brands.min.css">
+    
+        
+            
+        
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true,"layout":"left"},"style":{"primary_color":"#0066cc","logo":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/op.3zg25jxprna0.png","favicon":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/head.3yoe3br9tws0.png","avatar":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/logo.6qi88yzn2jg0.jpg","shadow":true,"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"黑夜降临之处，便是黎明之始。|| Where blackness falls, begins dawn.","hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":true,"use":"giscus","valine":{"appid":"Peml0rEJ7HZNQA1gZrKxXgPr-gzGzoHsz","appkey":"vVJRDKBsUlnpc3zr69GFbCTI","placeholder":"快来评论吧！！！"},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2},"giscus":{"repo":"kunkunyy/discussion","repo_id":"R_kgDOKOnLlw","category":"Announcements","category_id":"DIC_kwDOKOnLl84CZCrc","reactions_enabled":true}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"wordcount":true,"min2read":true},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":true},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"version":"3.7.3"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="姚永坤的小窝" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container border-box">
+
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/op.3zg25jxprna0.png">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               坤坤的百宝箱
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/changelog"
+                            >
+                                更新日志
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/changelog">更新日志</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+
+                
+
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+
+        <div class="article-content-container border-box">
+
+            <div class="article-title">
+                <span class="title-hover-animation">JavaScript学习笔记（十七）对象</span>
+            </div>
+
+            
+                <div class="article-header border-box">
+                    
+                        <div class="avatar-box border-box">
+                            <img src="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/logo.6qi88yzn2jg0.jpg">
+                        </div>
+                    
+                    <div class="info-box">
+                        <div class="author">
+                            <span class="name">姚永坤</span>
+                            
+                                <span class="author-label">Lv6</span>
+                            
+                        </div>
+                        <div class="meta-info border-box">
+                            
+
+<div class="article-meta-info-container border-box post">
+    <div class="article-meta-info border-box">
+        
+
+
+        
+            <span class="meta-info-item article-create-date">
+                <i class="icon fa-solid fa-calendar-check"></i>&nbsp;
+                <span class="pc">2021-10-21 10:14:54</span>
+                <span class="mobile">2021-10-21 10:14</span>
+            </span>
+
+            <span class="meta-info-item article-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="pc">2023-11-06 11:29:16</span>
+            </span>
+        
+
+        
+            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul>
+                    
+                            <li class="category-item">
+                                
+                                <a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a>
+                            </li>
+                        
+                    
+                            <li class="category-item">
+                                
+                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
+                                
+                                <a href="/categories/JS/">JS</a>
+                            </li>
+                        
+                    
+                            <li class="category-item">
+                                
+                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
+                                
+                                <a href="/categories/%E5%AF%B9%E8%B1%A1/">对象</a>
+                            </li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="article-tag meta-info-item border-box">
+                <i class="icon fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item article-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>1.7k 字</span>
+            </span>
+        
+        
+            <span class="meta-info-item article-min2read">
+                <i class="icon fas fa-clock"></i>&nbsp;<span>7 分钟</span>
+            </span>
+        
+        
+            <span class="meta-info-item article-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <h1 id="理解对象"><a href="#理解对象" class="headerlink" title="理解对象"></a>理解对象</h1><ul>
+<li>创建自定义对象的通常方式是创建object的一个新实例，然后再给它添加属性和方法。</li>
+<li>也可以使用对象字面量进行创建。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> person = <span class="keyword">new</span> <span class="title class_">Object</span>(); </span><br><span class="line">person.<span class="property">name</span> = <span class="string">&quot;Nicholas&quot;</span>; </span><br><span class="line">person.<span class="property">age</span> = <span class="number">29</span>; </span><br><span class="line">person.<span class="property">job</span> = <span class="string">&quot;Software Engineer&quot;</span>; </span><br><span class="line">person.<span class="property">sayName</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123; </span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>); </span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//===========等价于============</span></span><br><span class="line"><span class="keyword">let</span> person = &#123; </span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;Nicholas&quot;</span>, </span><br><span class="line">    <span class="attr">age</span>: <span class="number">29</span>, </span><br><span class="line">    <span class="attr">job</span>: <span class="string">&quot;Software Engineer&quot;</span>, </span><br><span class="line">    <span class="title function_">sayName</span>(<span class="params"></span>) &#123; </span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>); </span><br><span class="line">    &#125; </span><br><span class="line">&#125;; </span><br></pre></td></tr></table></figure>
+
+<h2 id="属性类型"><a href="#属性类型" class="headerlink" title="属性类型"></a>属性类型</h2><ul>
+<li>属性分两种:<strong>数据属性和访回器属性</strong>。</li>
+</ul>
+<h3 id="数据属性"><a href="#数据属性" class="headerlink" title="数据属性"></a>数据属性</h3><ul>
+<li>数据属性包含一个保存数据值的位置。</li>
+<li>值会从这个位置读取，也会写入到这个位置。</li>
+<li>数据属性有4个特性描述它们的行为。</li>
+</ul>
+<img lazyload alt="image" data-src="/2021/10/21/js-17/pic1.png" class title="# tu1">
+
+<ul>
+<li><strong>要修改属性的默认特性，就必须使用Object.defineProperty ()方法</strong>。</li>
+<li>这个方法接收3个参数:要给其添加属性的对象、属性的名称和一个描述符对象。最后一个参数，即描述符对象上的属性可以包含: configurable、enumerable、writable和 value,跟相关特性的名称一一对应。根据要修改的特性，可以设置其中一个或多个值。</li>
+<li>在调用Object.defineProperty()时, configurable,enumerable和writable的值如果不指定，则都默认为 false</li>
+<li>在严格模式下，尝试修改只读属性的值会抛出错误。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> person = &#123;&#125;; </span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(person, <span class="string">&quot;name&quot;</span>, &#123; </span><br><span class="line">    <span class="attr">writable</span>: <span class="literal">false</span>, </span><br><span class="line">    <span class="attr">value</span>: <span class="string">&quot;Nicholas&quot;</span> </span><br><span class="line">&#125;); </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person.<span class="property">name</span>); <span class="comment">// &quot;Nicholas&quot; </span></span><br><span class="line">person.<span class="property">name</span> = <span class="string">&quot;Greg&quot;</span>; </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person.<span class="property">name</span>); <span class="comment">// &quot;Nicholas&quot; </span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>一个属性被定义为不可配置之后，就不能再变回可配置的了</strong>。再次调用object.defineProperty()并修改任何<strong>非 writable属性</strong>会导致错误。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> person = &#123;&#125;; </span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(person, <span class="string">&quot;name&quot;</span>, &#123; </span><br><span class="line">    <span class="attr">configurable</span>: <span class="literal">false</span>, </span><br><span class="line">    <span class="attr">value</span>: <span class="string">&quot;Nicholas&quot;</span> </span><br><span class="line">&#125;); </span><br><span class="line"><span class="comment">// 抛出错误</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(person, <span class="string">&quot;name&quot;</span>, &#123; </span><br><span class="line">    <span class="attr">configurable</span>: <span class="literal">true</span>, </span><br><span class="line">    <span class="attr">value</span>: <span class="string">&quot;Nicholas&quot;</span> </span><br><span class="line">&#125;); </span><br></pre></td></tr></table></figure>
+
+<h3 id="访问器属性"><a href="#访问器属性" class="headerlink" title="访问器属性"></a>访问器属性</h3><ul>
+<li><strong>访问器属性不包含数据值。</strong></li>
+<li>访问器属性有4个特性描述它们的行为。</li>
+<li>访问器属性是不能直接定义的，必须使用Object.defineProperty ()。</li>
+</ul>
+<img lazyload alt="image" data-src="/2021/10/21/js-17/pic2.png" class title="# tu1">
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个对象，包含伪私有成员 year_和公共成员 edition </span></span><br><span class="line"><span class="keyword">let</span> book = &#123; </span><br><span class="line">    <span class="attr">year_</span>: <span class="number">2017</span>, </span><br><span class="line">    <span class="attr">edition</span>: <span class="number">1</span> </span><br><span class="line">&#125;;</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(book, <span class="string">&quot;year&quot;</span>, &#123; </span><br><span class="line">    <span class="title function_">get</span>(<span class="params"></span>) &#123; </span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">year_</span>; </span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="title function_">set</span>(<span class="params">newValue</span>) &#123; </span><br><span class="line">        <span class="keyword">if</span> (newValue &gt; <span class="number">2017</span>) &#123; </span><br><span class="line">            <span class="variable language_">this</span>.<span class="property">year_</span> = newValue; </span><br><span class="line">            <span class="variable language_">this</span>.<span class="property">edition</span> += newValue - <span class="number">2017</span>; </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">book.<span class="property">year</span> = <span class="number">2018</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(book.<span class="property">edition</span>); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，对象book 有两个默认属性: year_和 editiono。<strong>year_中的下划线常用来表示该属性并不希望在对象方法的外部被访问</strong>。另一个属性year被定义为一个访问器属性，其中获取函数简单地返回year_的值，而设置函数会做一些计算以决定正确的版本( edition )。因此，把year属性修改为2018会导致year_变成2018,edition变成2。这是访问器属性的典型使用场景，即设置一个属性值会导致一些其他变化发生。</p>
+<h2 id="定义多个属性"><a href="#定义多个属性" class="headerlink" title="定义多个属性"></a>定义多个属性</h2><ul>
+<li>Object.defineProperties()方法可以通过多个描述符一次性定义多个属性。</li>
+<li>它接收两个参数:要为之添加或修改属性的对象和另一个描述符对象，其属性与要添加或修改的属性一一对应。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> book = &#123;&#125;; </span><br><span class="line"><span class="comment">//数据属性的configurable、enumerable和writable特性值都是false</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperties</span>(book, &#123; </span><br><span class="line">    <span class="attr">year_</span>: &#123; </span><br><span class="line">        <span class="attr">value</span>: <span class="number">2017</span> </span><br><span class="line">    &#125;, </span><br><span class="line">    <span class="attr">edition</span>: &#123; </span><br><span class="line">        <span class="attr">value</span>: <span class="number">1</span> </span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//访问器属性</span></span><br><span class="line">    <span class="attr">year</span>: &#123; </span><br><span class="line">        <span class="title function_">get</span>(<span class="params"></span>) &#123; </span><br><span class="line">            <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">year_</span>; </span><br><span class="line">        &#125;, </span><br><span class="line">        <span class="title function_">set</span>(<span class="params">newValue</span>) &#123; </span><br><span class="line">            <span class="keyword">if</span> (newValue &gt; <span class="number">2017</span>) &#123; </span><br><span class="line">                <span class="variable language_">this</span>.<span class="property">year_</span> = newValue; </span><br><span class="line">                <span class="variable language_">this</span>.<span class="property">edition</span> += newValue - <span class="number">2017</span>; </span><br><span class="line">            &#125; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="读取属性的特征"><a href="#读取属性的特征" class="headerlink" title="读取属性的特征"></a>读取属性的特征</h2><ul>
+<li>Object.getOwnPropertyDescriptor()方法可以取得指定属性的属性描述符。</li>
+<li>方法接收两个参数:属性所在的对象和要取得其描述符的属性名。</li>
+<li>返回值是一个对象，对于访问器属性包含configurable、enumerable、get和 set)属性，对于数据属性包含configurable、enumerable,writable和 value属性。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> book = &#123;&#125;; </span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperties</span>(book, &#123; </span><br><span class="line">    <span class="attr">year_</span>: &#123; </span><br><span class="line">        <span class="attr">value</span>: <span class="number">2017</span> </span><br><span class="line">    &#125;, </span><br><span class="line">    <span class="attr">edition</span>: &#123; </span><br><span class="line">        <span class="attr">value</span>: <span class="number">1</span> </span><br><span class="line">    &#125;, </span><br><span class="line">    <span class="attr">year</span>: &#123; </span><br><span class="line">        <span class="attr">get</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123; </span><br><span class="line">            <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">year_</span>; </span><br><span class="line">        &#125;, </span><br><span class="line">        <span class="attr">set</span>: <span class="keyword">function</span>(<span class="params">newValue</span>)&#123; </span><br><span class="line">            <span class="keyword">if</span> (newValue &gt; <span class="number">2017</span>) &#123; </span><br><span class="line">                <span class="variable language_">this</span>.<span class="property">year_</span> = newValue; </span><br><span class="line">                <span class="variable language_">this</span>.<span class="property">edition</span> += newValue - <span class="number">2017</span>; </span><br><span class="line">            &#125; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;); </span><br><span class="line"><span class="keyword">let</span> descriptor = <span class="title class_">Object</span>.<span class="title function_">getOwnPropertyDescriptor</span>(book, <span class="string">&quot;year_&quot;</span>); </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(descriptor.<span class="property">value</span>); <span class="comment">// 2017 </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(descriptor.<span class="property">configurable</span>); <span class="comment">// false </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> descriptor.<span class="property">get</span>); <span class="comment">// &quot;undefined&quot; </span></span><br><span class="line"><span class="keyword">let</span> descriptor = <span class="title class_">Object</span>.<span class="title function_">getOwnPropertyDescriptor</span>(book, <span class="string">&quot;year&quot;</span>); </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(descriptor.<span class="property">value</span>); <span class="comment">// undefined </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(descriptor.<span class="property">enumerable</span>); <span class="comment">// false </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> descriptor.<span class="property">get</span>); <span class="comment">// &quot;function&quot; </span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Object.getOwnPropertyDescriptors ()静态方法实际上会在每个自有属性上调用Object.getOwnPropertyDescriptor()并在一个新对象中返回它们。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> book = &#123;&#125;; </span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperties</span>(book, &#123; </span><br><span class="line">    <span class="attr">year_</span>: &#123; </span><br><span class="line">        <span class="attr">value</span>: <span class="number">2017</span> </span><br><span class="line">    &#125;, </span><br><span class="line">    <span class="attr">edition</span>: &#123; </span><br><span class="line">        <span class="attr">value</span>: <span class="number">1</span> </span><br><span class="line">    &#125;, </span><br><span class="line">    <span class="attr">year</span>: &#123; </span><br><span class="line">        <span class="attr">get</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123; </span><br><span class="line">            <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">year_</span>; </span><br><span class="line">        &#125;, </span><br><span class="line">        <span class="attr">set</span>: <span class="keyword">function</span>(<span class="params">newValue</span>)&#123; </span><br><span class="line">            <span class="keyword">if</span> (newValue &gt; <span class="number">2017</span>) &#123; </span><br><span class="line">                <span class="variable language_">this</span>.<span class="property">year_</span> = newValue; </span><br><span class="line">                <span class="variable language_">this</span>.<span class="property">edition</span> += newValue - <span class="number">2017</span>; </span><br><span class="line">            &#125; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;); </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Object</span>.<span class="title function_">getOwnPropertyDescriptors</span>(book)); </span><br><span class="line"><span class="comment">// &#123; </span></span><br><span class="line"><span class="comment">// edition: &#123; </span></span><br><span class="line"><span class="comment">//  configurable: false, </span></span><br><span class="line"><span class="comment">//  enumerable: false, </span></span><br><span class="line"><span class="comment">//  value: 1, </span></span><br><span class="line"><span class="comment">//  writable: false </span></span><br><span class="line"><span class="comment">// &#125;, </span></span><br><span class="line"><span class="comment">// year: &#123; </span></span><br><span class="line"><span class="comment">//  configurable: false, </span></span><br><span class="line"><span class="comment">//  enumerable: false, </span></span><br><span class="line"><span class="comment">//  get: f(), </span></span><br><span class="line"><span class="comment">//  set: f(newValue), </span></span><br><span class="line"><span class="comment">// &#125;, </span></span><br><span class="line"><span class="comment">// year_: &#123; </span></span><br><span class="line"><span class="comment">//  configurable: false, </span></span><br><span class="line"><span class="comment">//  enumerable: false, </span></span><br><span class="line"><span class="comment">//  value: 2017, </span></span><br><span class="line"><span class="comment">//  writable: false </span></span><br><span class="line"><span class="comment">// &#125; </span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="合并对象"><a href="#合并对象" class="headerlink" title="合并对象"></a>合并对象</h2><ul>
+<li>ECMAScript 6专门为合并对象提供了**Object.assign()**方法,这个方法接收一个目标对象和一个或多个源对象作为参数,然后将每个源对象中可枚举(Object.propertyIsEnumerable()返回true)和自有(Object.hasOwnProperty()返回true)属性复制到目标对象。</li>
+<li>以字符串和符号为键的属性会被复制。</li>
+<li>对每个符合条件的属性，这个方法会使用源对象上的[[Get]]取得属性的值，然后使用目标对象上的[ [Set]]设置属性的值。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> dest, src, result; </span><br><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> * 简单复制</span></span><br><span class="line"><span class="comment"> */</span> </span><br><span class="line">dest = &#123;&#125;; </span><br><span class="line">src = &#123; <span class="attr">id</span>: <span class="string">&#x27;src&#x27;</span> &#125;; </span><br><span class="line">result = <span class="title class_">Object</span>.<span class="title function_">assign</span>(dest, src); </span><br><span class="line"><span class="comment">// Object.assign 修改目标对象</span></span><br><span class="line"><span class="comment">// 也会返回修改后的目标对象</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(dest === result); <span class="comment">// true </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(dest !== src); <span class="comment">// true </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result); <span class="comment">// &#123; id: src &#125; </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(dest); <span class="comment">// &#123; id: src &#125; </span></span><br><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> * 多个源对象</span></span><br><span class="line"><span class="comment"> */</span> </span><br><span class="line">dest = &#123;&#125;; </span><br><span class="line">result = <span class="title class_">Object</span>.<span class="title function_">assign</span>(dest, &#123; <span class="attr">a</span>: <span class="string">&#x27;foo&#x27;</span> &#125;, &#123; <span class="attr">b</span>: <span class="string">&#x27;bar&#x27;</span> &#125;); </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result); <span class="comment">// &#123; a: foo, b: bar &#125; </span></span><br><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> * 获取函数与设置函数</span></span><br><span class="line"><span class="comment"> */</span> </span><br><span class="line">dest = &#123; </span><br><span class="line">    <span class="keyword">set</span> <span class="title function_">a</span>(<span class="params">val</span>) &#123; </span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`Invoked dest setter with param <span class="subst">$&#123;val&#125;</span>`</span>); </span><br><span class="line">    &#125; </span><br><span class="line">&#125;; </span><br><span class="line">src = &#123; </span><br><span class="line">    <span class="keyword">get</span> <span class="title function_">a</span>() &#123; </span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Invoked src getter&#x27;</span>); </span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;foo&#x27;</span>; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;; </span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">assign</span>(dest, src); </span><br><span class="line"><span class="comment">// 调用 src 的获取方法</span></span><br><span class="line"><span class="comment">// 调用 dest 的设置方法并传入参数&quot;foo&quot; </span></span><br><span class="line"><span class="comment">// 因为这里的设置函数不执行赋值操作</span></span><br><span class="line"><span class="comment">// 所以实际上并没有把值转移过来</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(dest); <span class="comment">// &#123; set a(val) &#123;...&#125; &#125; </span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Object.assign()实际上对每个源对象执行的是浅复制。</li>
+<li>如果多个源对象都有相同的属性，则使用最后一个复制的值。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> dest, src, result; </span><br><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> * 覆盖属性</span></span><br><span class="line"><span class="comment"> */</span> </span><br><span class="line">dest = &#123; <span class="attr">id</span>: <span class="string">&#x27;dest&#x27;</span> &#125;; </span><br><span class="line">result = <span class="title class_">Object</span>.<span class="title function_">assign</span>(dest, &#123; <span class="attr">id</span>: <span class="string">&#x27;src1&#x27;</span>, <span class="attr">a</span>: <span class="string">&#x27;foo&#x27;</span> &#125;, &#123; <span class="attr">id</span>: <span class="string">&#x27;src2&#x27;</span>, <span class="attr">b</span>: <span class="string">&#x27;bar&#x27;</span> &#125;); </span><br><span class="line"><span class="comment">// Object.assign 会覆盖重复的属性</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result); <span class="comment">// &#123; id: src2, a: foo, b: bar &#125; </span></span><br><span class="line"><span class="comment">// 可以通过目标对象上的设置函数观察到覆盖的过程：</span></span><br><span class="line">dest = &#123; </span><br><span class="line">    <span class="keyword">set</span> <span class="title function_">id</span>(<span class="params">x</span>) &#123; </span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(x); </span><br><span class="line">    &#125; </span><br><span class="line">&#125;; </span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">assign</span>(dest, &#123; <span class="attr">id</span>: <span class="string">&#x27;first&#x27;</span> &#125;, &#123; <span class="attr">id</span>: <span class="string">&#x27;second&#x27;</span> &#125;, &#123; <span class="attr">id</span>: <span class="string">&#x27;third&#x27;</span> &#125;); </span><br><span class="line"><span class="comment">// first </span></span><br><span class="line"><span class="comment">// second </span></span><br><span class="line"><span class="comment">// third </span></span><br><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> * 对象引用</span></span><br><span class="line"><span class="comment"> */</span> </span><br><span class="line">dest = &#123;&#125;; </span><br><span class="line">src = &#123; <span class="attr">a</span>: &#123;&#125; &#125;; </span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">assign</span>(dest, src); </span><br><span class="line"><span class="comment">// 浅复制意味着只会复制对象的引用</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(dest); <span class="comment">// &#123; a :&#123;&#125; &#125; </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(dest.<span class="property">a</span> === src.<span class="property">a</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果赋值期间出错，则操作会中止并退出，同时抛出错误。</li>
+</ul>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">JavaScript学习笔记（十七）对象</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">姚永坤</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2021-10-21 10:14:54</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">2021/10/21/js-17/</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/JS%E5%AD%A6%E4%B9%A0/"><i class="icon fas fa-hashtag"></i>JS学习</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/2021/10/22/lc-229/"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item text-ellipsis">229.求众数Ⅱ</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/2021/10/20/lc-453/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item text-ellipsis">453.最小操作次数使数组元素相等</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+                
+
+
+    <div class="comments-container">
+        <div id="comments-anchor"></div>
+        <div class="comment-area-title">
+            <i class="fas fa-comments"></i>&nbsp;评论
+        </div>
+        
+            
+
+    <div class="giscus-comments-container">
+        <div class="giscus" id="giscus"></div>
+        <script data-pjax>
+
+          if (!window?.__getGiscusTheme) {
+            window.__getGiscusTheme = () => {
+              return document.body.classList.contains("dark-mode") ? "dark_dimmed" : "light_tritanopia";
+            };
+          }
+
+          if (!window?.__changeGiscusTheme) {
+            window.__changeGiscusTheme = () => {
+              const iframe = document.querySelector("iframe.giscus-frame");
+              iframe && iframe.contentWindow.postMessage({
+                giscus: {
+                  setConfig: {
+                    theme: __getGiscusTheme()
+                  }
+                }
+              }, "https://giscus.app");
+            };
+          }
+
+          if (!window?.__loadGiscus) {
+            window.__loadGiscus = () => {
+              const script = document.createElement("script");
+              script.async = true;
+              script.src = "https://giscus.app/client.js";
+              script.setAttribute("data-repo", 'kunkunyy/discussion');
+              script.setAttribute("data-repo-id", 'R_kgDOKOnLlw');
+              script.setAttribute("data-category", 'Announcements');
+              script.setAttribute("data-category-id", 'DIC_kwDOKOnLl84CZCrc');
+              script.setAttribute("data-reactions-enabled", '1');
+              script.setAttribute("data-lang", 'zh-CN');
+              script.setAttribute("data-mapping", "pathname");
+              script.setAttribute("data-strict", "0");
+              script.setAttribute("data-emit-metadata", "0");
+              script.setAttribute("data-input-position", "top");
+              script.setAttribute("crossorigin", "anonymous");
+              script.setAttribute("loading", "lazy");
+              script.setAttribute("data-theme", __getGiscusTheme());
+              document.querySelector(".giscus-comments-container").appendChild(script);
+
+              const toggleThemeBtn = document.querySelector(".tool-dark-light-toggle");
+              toggleThemeBtn && toggleThemeBtn.addEventListener("click", () => {
+                __changeGiscusTheme();
+              });
+            }
+          }
+
+          if ('true' === "true") {
+            setTimeout(() => {
+              __loadGiscus();
+            }, 1000);
+          } else {
+            window.addEventListener("DOMContentLoaded", () => {
+              setTimeout(() => {
+                __loadGiscus();
+              }, 1000);
+            });
+          }
+        </script>
+    </div>
+
+
+        
+    </div>
+
+
+
+
+
+            
+        </div>
+
+        
+            <div class="pc-post-toc left-toc">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%90%86%E8%A7%A3%E5%AF%B9%E8%B1%A1"><span class="nav-text">理解对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E7%B1%BB%E5%9E%8B"><span class="nav-text">属性类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%B1%9E%E6%80%A7"><span class="nav-text">数据属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E5%99%A8%E5%B1%9E%E6%80%A7"><span class="nav-text">访问器属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%A4%9A%E4%B8%AA%E5%B1%9E%E6%80%A7"><span class="nav-text">定义多个属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BB%E5%8F%96%E5%B1%9E%E6%80%A7%E7%9A%84%E7%89%B9%E5%BE%81"><span class="nav-text">读取属性的特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%88%E5%B9%B6%E5%AF%B9%E8%B1%A1"><span class="nav-text">合并对象</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="border-box website-info-box default">
+        
+            <div class="copyright-info info-item default">
+                &copy;&nbsp;<span>2021</span>&nbsp;-&nbsp;2023
+                
+                    &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">姚永坤</a>
+                
+            </div>
+
+            <div class="theme-info info-item default">
+                由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.7.3</a>
+            </div>
+
+            
+
+            
+        
+
+        <div class="count-item info-item default">
+            
+                <span class="count-box border-box word">
+                    <span class="item-type border-box">全站总字数</span>
+                    <span class="item-value border-box word">198.2k</span>
+                </span>
+            
+
+            
+                <span class="count-box border-box uv">
+                    <span class="item-type border-box">访问人数</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-box border-box pv">
+                    <span class="item-type border-box">总访问量</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools left-toc">
+            <div class="post-tools-container border-box">
+    <ul class="tools-list border-box">
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+            <li class="tools-item go-to-comments-tablet flex-center">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%90%86%E8%A7%A3%E5%AF%B9%E8%B1%A1"><span class="nav-text">理解对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E7%B1%BB%E5%9E%8B"><span class="nav-text">属性类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%B1%9E%E6%80%A7"><span class="nav-text">数据属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E5%99%A8%E5%B1%9E%E6%80%A7"><span class="nav-text">访问器属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%A4%9A%E4%B8%AA%E5%B1%9E%E6%80%A7"><span class="nav-text">定义多个属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BB%E5%8F%96%E5%B1%9E%E6%80%A7%E7%9A%84%E7%89%B9%E5%BE%81"><span class="nav-text">读取属性的特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%88%E5%B9%B6%E5%AF%B9%E8%B1%A1"><span class="nav-text">合并对象</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/code-block.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/post-helper.js"></script>
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/libs/anime.min.js"></script>
+        
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/toc.js"></script>
+        
+    
+    
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+
+    
+        
+    
+
+</body>
+</html>

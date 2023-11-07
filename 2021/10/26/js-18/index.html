@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="姚永坤">
+    
+    <title>
+        
+            JavaScript学习笔记（十八）代理基础 |
+        
+        坤坤的百宝箱
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/head.3yoe3br9tws0.png">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/brands.min.css">
+    
+        
+            
+        
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true,"layout":"left"},"style":{"primary_color":"#0066cc","logo":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/op.3zg25jxprna0.png","favicon":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/head.3yoe3br9tws0.png","avatar":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/logo.6qi88yzn2jg0.jpg","shadow":true,"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"黑夜降临之处，便是黎明之始。|| Where blackness falls, begins dawn.","hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":true,"use":"giscus","valine":{"appid":"Peml0rEJ7HZNQA1gZrKxXgPr-gzGzoHsz","appkey":"vVJRDKBsUlnpc3zr69GFbCTI","placeholder":"快来评论吧！！！"},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2},"giscus":{"repo":"kunkunyy/discussion","repo_id":"R_kgDOKOnLlw","category":"Announcements","category_id":"DIC_kwDOKOnLl84CZCrc","reactions_enabled":true}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"wordcount":true,"min2read":true},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":true},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"version":"3.7.3"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="姚永坤的小窝" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container border-box">
+
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/op.3zg25jxprna0.png">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               坤坤的百宝箱
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/changelog"
+                            >
+                                更新日志
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/changelog">更新日志</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+
+                
+
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+
+        <div class="article-content-container border-box">
+
+            <div class="article-title">
+                <span class="title-hover-animation">JavaScript学习笔记（十八）代理基础</span>
+            </div>
+
+            
+                <div class="article-header border-box">
+                    
+                        <div class="avatar-box border-box">
+                            <img src="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/logo.6qi88yzn2jg0.jpg">
+                        </div>
+                    
+                    <div class="info-box">
+                        <div class="author">
+                            <span class="name">姚永坤</span>
+                            
+                                <span class="author-label">Lv6</span>
+                            
+                        </div>
+                        <div class="meta-info border-box">
+                            
+
+<div class="article-meta-info-container border-box post">
+    <div class="article-meta-info border-box">
+        
+
+
+        
+            <span class="meta-info-item article-create-date">
+                <i class="icon fa-solid fa-calendar-check"></i>&nbsp;
+                <span class="pc">2021-10-26 19:44:37</span>
+                <span class="mobile">2021-10-26 19:44</span>
+            </span>
+
+            <span class="meta-info-item article-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="pc">2023-11-06 11:29:16</span>
+            </span>
+        
+
+        
+            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul>
+                    
+                            <li class="category-item">
+                                
+                                <a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a>
+                            </li>
+                        
+                    
+                            <li class="category-item">
+                                
+                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
+                                
+                                <a href="/categories/JS/">JS</a>
+                            </li>
+                        
+                    
+                            <li class="category-item">
+                                
+                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
+                                
+                                <a href="/categories/ES6/">ES6</a>
+                            </li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="article-tag meta-info-item border-box">
+                <i class="icon fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item article-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>1.7k 字</span>
+            </span>
+        
+        
+            <span class="meta-info-item article-min2read">
+                <i class="icon fas fa-clock"></i>&nbsp;<span>7 分钟</span>
+            </span>
+        
+        
+            <span class="meta-info-item article-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <ul>
+<li>代理类似C++指针，因为它可以用作目标对象的替身，但又完全独立于目标对象；</li>
+<li>目标对象既可以直接被操作,也可以通过代理来操作。</li>
+<li><strong>默认情况下，在代理对象上执行的所有操作都会无障碍地传播到目标对象。</strong></li>
+<li>在任何可以使用目标对象的地方，都可以通过同样的方式来使用与之关联的代理对象</li>
+<li>直接操作会绕过代理施予的行为。</li>
+</ul>
+<h1 id="空代理"><a href="#空代理" class="headerlink" title="空代理"></a>空代理</h1><ul>
+<li><strong>除了作为一个抽象的目标对象，什么也不做</strong></li>
+<li>代理是使用<strong>Proxy</strong>构造函数创建的，构造函数接收两个参数:<strong>目标对象和处理程序对象</strong>。<ul>
+<li>缺少其中任何一个参数都会抛出TypeError；</li>
+<li>创建空代理，可以传一个简单的对象字面量作为处理程序对象。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = &#123; </span><br><span class="line"> <span class="attr">id</span>: <span class="string">&#x27;target&#x27;</span> </span><br><span class="line">&#125;; </span><br><span class="line"><span class="keyword">const</span> handler = &#123;&#125;; </span><br><span class="line"><span class="keyword">const</span> proxy = <span class="keyword">new</span> <span class="title class_">Proxy</span>(target, handler); </span><br><span class="line"><span class="comment">// id 属性会访问同一个值</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(target.<span class="property">id</span>); <span class="comment">// target </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(proxy.<span class="property">id</span>); <span class="comment">// target </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 给目标属性赋值会反映在两个对象上</span></span><br><span class="line"><span class="comment">// 因为两个对象访问的是同一个值</span></span><br><span class="line">target.<span class="property">id</span> = <span class="string">&#x27;foo&#x27;</span>; </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(target.<span class="property">id</span>); <span class="comment">// foo </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(proxy.<span class="property">id</span>); <span class="comment">// foo </span></span><br><span class="line"><span class="comment">// 给代理属性赋值会反映在两个对象上</span></span><br><span class="line"><span class="comment">// 因为这个赋值会转移到目标对象</span></span><br><span class="line">proxy.<span class="property">id</span> = <span class="string">&#x27;bar&#x27;</span>; </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(target.<span class="property">id</span>); <span class="comment">// bar </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(proxy.<span class="property">id</span>); <span class="comment">// bar </span></span><br><span class="line"><span class="comment">// hasOwnProperty()方法在两个地方</span></span><br><span class="line"><span class="comment">// 都会应用到目标对象</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(target.<span class="title function_">hasOwnProperty</span>(<span class="string">&#x27;id&#x27;</span>)); <span class="comment">// true </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(proxy.<span class="title function_">hasOwnProperty</span>(<span class="string">&#x27;id&#x27;</span>)); <span class="comment">// true </span></span><br><span class="line"><span class="comment">// Proxy.prototype 是 undefined </span></span><br><span class="line"><span class="comment">// 因此不能使用 instanceof 操作符</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(target <span class="keyword">instanceof</span> <span class="title class_">Proxy</span>); <span class="comment">// TypeError: Function has non-object prototype &#x27;undefined&#x27; in instanceof check </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(proxy <span class="keyword">instanceof</span> <span class="title class_">Proxy</span>); <span class="comment">// TypeError: Function has non-object prototype &#x27;undefined&#x27; in instanceof check</span></span><br><span class="line"><span class="comment">// 严格相等可以用来区分代理和目标</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(target === proxy); <span class="comment">// false </span></span><br></pre></td></tr></table></figure>
+
+<h1 id="定义捕获器"><a href="#定义捕获器" class="headerlink" title="定义捕获器"></a>定义捕获器</h1><ul>
+<li>捕获器就是<strong>在处理程序对象中定义的“基本操作的拦截器”</strong>。</li>
+<li>每个处理程序对象可以包含零个或多个捕获器，每个捕获器都对应一种基本操作，可以直接或间接在代理对象上调用。</li>
+<li>每次在代理对象上调用这些基本操作时，代理可以在这些操作传播到目标对象之前先调用捕获器函数,从而拦截并修改相应的行为。</li>
+<li>只有在代理对象上执行操作才会触发捕获器。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = &#123; </span><br><span class="line">    <span class="attr">foo</span>: <span class="string">&#x27;bar&#x27;</span> </span><br><span class="line">&#125;; </span><br><span class="line"><span class="keyword">const</span> handler = &#123; </span><br><span class="line">    <span class="comment">// 捕获器在处理程序对象中以方法名为键</span></span><br><span class="line">    <span class="title function_">get</span>(<span class="params"></span>) &#123; </span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;handler override&#x27;</span>; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;; </span><br><span class="line"><span class="keyword">const</span> proxy = <span class="keyword">new</span> <span class="title class_">Proxy</span>(target, handler); </span><br><span class="line"><span class="comment">//proxy[property] 、proxy.property或Object.create(proxy)[property]等操作都会触发基本的get()操作以获取属性。</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(target.<span class="property">foo</span>); <span class="comment">// bar </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(proxy.<span class="property">foo</span>); <span class="comment">// handler override </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(target[<span class="string">&#x27;foo&#x27;</span>]); <span class="comment">// bar </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(proxy[<span class="string">&#x27;foo&#x27;</span>]); <span class="comment">// handler override </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Object</span>.<span class="title function_">create</span>(target)[<span class="string">&#x27;foo&#x27;</span>]); <span class="comment">// bar </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Object</span>.<span class="title function_">create</span>(proxy)[<span class="string">&#x27;foo&#x27;</span>]); <span class="comment">// handler override</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="捕获器参数和反射API"><a href="#捕获器参数和反射API" class="headerlink" title="捕获器参数和反射API"></a>捕获器参数和反射API</h1><ul>
+<li>所有捕获器都可以访问相应的参数，基于这些参数可以重建被捕获方法的原始行为。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = &#123; </span><br><span class="line">    <span class="attr">foo</span>: <span class="string">&#x27;bar&#x27;</span> </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> handler = &#123;</span><br><span class="line">    <span class="title function_">get</span>(<span class="params">trapTarget, property, receiver</span>) &#123; </span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(trapTarget === target); </span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(property); </span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(receiver === proxy); </span><br><span class="line">    &#125; </span><br><span class="line">&#125;; </span><br><span class="line"><span class="keyword">const</span> proxy = <span class="keyword">new</span> <span class="title class_">Proxy</span>(target, handler); </span><br><span class="line">proxy.<span class="property">foo</span>; </span><br><span class="line"><span class="comment">// true </span></span><br><span class="line"><span class="comment">// foo </span></span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>所有捕获器都可以基于自己的参数重建原始操作。</li>
+<li><strong>通过调用全局Reflect对象上(封装了原始行为）的同名方法来轻松重建原始操作。</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = &#123; </span><br><span class="line">    <span class="attr">foo</span>: <span class="string">&#x27;bar&#x27;</span> </span><br><span class="line">&#125;; </span><br><span class="line"><span class="keyword">const</span> handler = &#123; </span><br><span class="line">    <span class="title function_">get</span>(<span class="params"></span>) &#123; </span><br><span class="line">        <span class="keyword">return</span> <span class="title class_">Reflect</span>.<span class="title function_">get</span>(...<span class="variable language_">arguments</span>); </span><br><span class="line">    &#125; </span><br><span class="line">&#125;; </span><br><span class="line"><span class="keyword">const</span> proxy = <span class="keyword">new</span> <span class="title class_">Proxy</span>(target, handler); </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(proxy.<span class="property">foo</span>); <span class="comment">// bar </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(target.<span class="property">foo</span>); <span class="comment">// bar </span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>事实上，如果真想创建一个可以捕获所有方法，然后将每个方法转发给对应反射API的突代理那么甚至不需要定义处理程序对象:</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = &#123; </span><br><span class="line">    <span class="attr">foo</span>: <span class="string">&#x27;bar&#x27;</span> </span><br><span class="line">&#125;; </span><br><span class="line"><span class="keyword">const</span> proxy = <span class="keyword">new</span> <span class="title class_">Proxy</span>(target, <span class="title class_">Reflect</span>); </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(proxy.<span class="property">foo</span>); <span class="comment">// bar </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(target.<span class="property">foo</span>); <span class="comment">// bar </span></span><br></pre></td></tr></table></figure>
+
+<h1 id="捕获器不变式"><a href="#捕获器不变式" class="headerlink" title="捕获器不变式"></a>捕获器不变式</h1><ul>
+<li>每个捕获的方法都知道目标对象上下文、捕获函数签名。</li>
+<li>捕获处理程序的行为必须遵循“捕获器不变式”。</li>
+<li><strong>捕获器不变式因方法不同而异，但通常都会防止捕获器定义出现过于反常的行为</strong></li>
+<li>如果目标对象有一个<strong>不可配置且不可写</strong>的数据属性，那么在捕获器返回一个与该属性不同的值时，会抛出TypeError:</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = &#123;&#125;; </span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(target, <span class="string">&#x27;foo&#x27;</span>, &#123; </span><br><span class="line">    <span class="attr">configurable</span>: <span class="literal">false</span>, </span><br><span class="line">    <span class="attr">writable</span>: <span class="literal">false</span>, </span><br><span class="line">    <span class="attr">value</span>: <span class="string">&#x27;bar&#x27;</span> </span><br><span class="line">&#125;); </span><br><span class="line"><span class="keyword">const</span> handler = &#123; </span><br><span class="line">    <span class="title function_">get</span>(<span class="params"></span>) &#123; </span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;qux&#x27;</span>; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;; </span><br><span class="line"><span class="keyword">const</span> proxy = <span class="keyword">new</span> <span class="title class_">Proxy</span>(target, handler); </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(proxy.<span class="property">foo</span>); </span><br><span class="line"><span class="comment">// TypeError </span></span><br></pre></td></tr></table></figure>
+
+<h1 id="可撤销代理"><a href="#可撤销代理" class="headerlink" title="可撤销代理"></a>可撤销代理</h1><ul>
+<li>使用new Proxy()创建的普通代理，这种联系会在代理对象的生命周期内一直持续存在。</li>
+<li>Proxy的revocable()方法，这个方法支持撇销代理对象与目标对象的关联。<ul>
+<li><strong>撤销代理的操作是不可逆的</strong>；</li>
+<li><strong>撤销函数(revoke())是幂等的</strong>，调用多少次的结果都一样；</li>
+<li>撤销代理之后再调用代理会抛出TypeError。</li>
+<li>撤销函数和代理对象是在实例化时同时生成的。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = &#123; </span><br><span class="line">    <span class="attr">foo</span>: <span class="string">&#x27;bar&#x27;</span> </span><br><span class="line">&#125;; </span><br><span class="line"><span class="keyword">const</span> handler = &#123; </span><br><span class="line">    <span class="title function_">get</span>(<span class="params"></span>) &#123; </span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;intercepted&#x27;</span>; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;; </span><br><span class="line"><span class="keyword">const</span> &#123; proxy, revoke &#125; = <span class="title class_">Proxy</span>.<span class="title function_">revocable</span>(target, handler); </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(proxy.<span class="property">foo</span>); <span class="comment">// intercepted </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(target.<span class="property">foo</span>); <span class="comment">// bar</span></span><br><span class="line"><span class="comment">//撤销代理</span></span><br><span class="line"><span class="title function_">revoke</span>(); </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(proxy.<span class="property">foo</span>); <span class="comment">// TypeError</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="实用反射API"><a href="#实用反射API" class="headerlink" title="实用反射API"></a>实用反射API</h1><h2 id="反射API与对象API"><a href="#反射API与对象API" class="headerlink" title="反射API与对象API"></a>反射API与对象API</h2><ul>
+<li>反射API并不限于捕获处理程序。</li>
+<li>大多数反射API方法在Object类型上有对应的方法。</li>
+<li>Object上的方法适用于通用程序，而反射方法适用于细粒度的对象控制与操作。</li>
+</ul>
+<h2 id="状态标记"><a href="#状态标记" class="headerlink" title="状态标记"></a>状态标记</h2><ul>
+<li>状态标记是指：<strong>反射方法返回的布尔值；表示意图执行的操作是否成功。</strong></li>
+</ul>
+<p>以下反射方法会提供状态标记：</p>
+<ul>
+<li>Reflect.defineProperty ()</li>
+<li>Reflect.preventExtensions ()</li>
+<li>Reflect.setPrototypeof ()</li>
+<li>Reflect.set ()</li>
+<li>Reflect.deleteProperty ()</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初始代码 </span></span><br><span class="line"><span class="keyword">const</span> o = &#123;&#125;; </span><br><span class="line"><span class="keyword">try</span> &#123; </span><br><span class="line">    <span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(o, <span class="string">&#x27;foo&#x27;</span>, <span class="string">&#x27;bar&#x27;</span>); </span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;success&#x27;</span>); </span><br><span class="line">&#125; <span class="keyword">catch</span>(e) &#123; </span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;failure&#x27;</span>); </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 重构后的代码</span></span><br><span class="line"><span class="keyword">const</span> o = &#123;&#125;; </span><br><span class="line"><span class="keyword">if</span>(<span class="title class_">Reflect</span>.<span class="title function_">defineProperty</span>(o, <span class="string">&#x27;foo&#x27;</span>, &#123;<span class="attr">value</span>: <span class="string">&#x27;bar&#x27;</span>&#125;)) &#123; </span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;success&#x27;</span>); </span><br><span class="line">&#125; <span class="keyword">else</span> &#123; </span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;failure&#x27;</span>); </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<h3 id="用一等函数代替操作符"><a href="#用一等函数代替操作符" class="headerlink" title="用一等函数代替操作符"></a>用一等函数代替操作符</h3><img lazyload alt="image" data-src="/2021/10/26/js-18/pic1.png" class title="# tu1">
+
+<h3 id="安全地应用函数"><a href="#安全地应用函数" class="headerlink" title="安全地应用函数"></a>安全地应用函数</h3><ul>
+<li>通过apply方法调用函数时,被调用的函数可能也定义了自己的apply属性，为绕过这个问题我们可以采取以下两种方法来避免：<ul>
+<li>Function.prototype.apply.call(myFunc, thisVal, argumentList);</li>
+<li>Reflect.apply(myFunc, thisVal, argumentsList); </li>
+</ul>
+</li>
+</ul>
+<h2 id="代理另一个代理"><a href="#代理另一个代理" class="headerlink" title="代理另一个代理"></a>代理另一个代理</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = &#123; </span><br><span class="line">    <span class="attr">foo</span>: <span class="string">&#x27;bar&#x27;</span> </span><br><span class="line">&#125;; </span><br><span class="line"><span class="keyword">const</span> firstProxy = <span class="keyword">new</span> <span class="title class_">Proxy</span>(target, &#123; </span><br><span class="line">    <span class="title function_">get</span>(<span class="params"></span>) &#123; </span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;first proxy&#x27;</span>); </span><br><span class="line">        <span class="keyword">return</span> <span class="title class_">Reflect</span>.<span class="title function_">get</span>(...<span class="variable language_">arguments</span>); </span><br><span class="line">    &#125; </span><br><span class="line">&#125;); </span><br><span class="line"><span class="keyword">const</span> secondProxy = <span class="keyword">new</span> <span class="title class_">Proxy</span>(firstProxy, &#123; </span><br><span class="line">    <span class="title function_">get</span>(<span class="params"></span>) &#123; </span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;second proxy&#x27;</span>); </span><br><span class="line">        <span class="keyword">return</span> <span class="title class_">Reflect</span>.<span class="title function_">get</span>(...<span class="variable language_">arguments</span>); </span><br><span class="line">    &#125; </span><br><span class="line">&#125;); </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(secondProxy.<span class="property">foo</span>); </span><br><span class="line"><span class="comment">// second proxy </span></span><br><span class="line"><span class="comment">// first proxy </span></span><br><span class="line"><span class="comment">// bar</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="代理存在的问题与不足"><a href="#代理存在的问题与不足" class="headerlink" title="代理存在的问题与不足"></a>代理存在的问题与不足</h2><ul>
+<li>代理中的this；</li>
+<li>代理与内部槽位；</li>
+</ul>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">JavaScript学习笔记（十八）代理基础</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">姚永坤</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2021-10-26 19:44:37</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">2021/10/26/js-18/</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/JS%E5%AD%A6%E4%B9%A0/"><i class="icon fas fa-hashtag"></i>JS学习</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/2021/10/27/js-19/"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item text-ellipsis">JavaScript学习笔记（十九）代理捕获器与反射方法</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/2021/10/26/algo-1/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item text-ellipsis">算法学习笔记（一）动态规划</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+                
+
+
+    <div class="comments-container">
+        <div id="comments-anchor"></div>
+        <div class="comment-area-title">
+            <i class="fas fa-comments"></i>&nbsp;评论
+        </div>
+        
+            
+
+    <div class="giscus-comments-container">
+        <div class="giscus" id="giscus"></div>
+        <script data-pjax>
+
+          if (!window?.__getGiscusTheme) {
+            window.__getGiscusTheme = () => {
+              return document.body.classList.contains("dark-mode") ? "dark_dimmed" : "light_tritanopia";
+            };
+          }
+
+          if (!window?.__changeGiscusTheme) {
+            window.__changeGiscusTheme = () => {
+              const iframe = document.querySelector("iframe.giscus-frame");
+              iframe && iframe.contentWindow.postMessage({
+                giscus: {
+                  setConfig: {
+                    theme: __getGiscusTheme()
+                  }
+                }
+              }, "https://giscus.app");
+            };
+          }
+
+          if (!window?.__loadGiscus) {
+            window.__loadGiscus = () => {
+              const script = document.createElement("script");
+              script.async = true;
+              script.src = "https://giscus.app/client.js";
+              script.setAttribute("data-repo", 'kunkunyy/discussion');
+              script.setAttribute("data-repo-id", 'R_kgDOKOnLlw');
+              script.setAttribute("data-category", 'Announcements');
+              script.setAttribute("data-category-id", 'DIC_kwDOKOnLl84CZCrc');
+              script.setAttribute("data-reactions-enabled", '1');
+              script.setAttribute("data-lang", 'zh-CN');
+              script.setAttribute("data-mapping", "pathname");
+              script.setAttribute("data-strict", "0");
+              script.setAttribute("data-emit-metadata", "0");
+              script.setAttribute("data-input-position", "top");
+              script.setAttribute("crossorigin", "anonymous");
+              script.setAttribute("loading", "lazy");
+              script.setAttribute("data-theme", __getGiscusTheme());
+              document.querySelector(".giscus-comments-container").appendChild(script);
+
+              const toggleThemeBtn = document.querySelector(".tool-dark-light-toggle");
+              toggleThemeBtn && toggleThemeBtn.addEventListener("click", () => {
+                __changeGiscusTheme();
+              });
+            }
+          }
+
+          if ('true' === "true") {
+            setTimeout(() => {
+              __loadGiscus();
+            }, 1000);
+          } else {
+            window.addEventListener("DOMContentLoaded", () => {
+              setTimeout(() => {
+                __loadGiscus();
+              }, 1000);
+            });
+          }
+        </script>
+    </div>
+
+
+        
+    </div>
+
+
+
+
+
+            
+        </div>
+
+        
+            <div class="pc-post-toc left-toc">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A9%BA%E4%BB%A3%E7%90%86"><span class="nav-text">空代理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E6%8D%95%E8%8E%B7%E5%99%A8"><span class="nav-text">定义捕获器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8D%95%E8%8E%B7%E5%99%A8%E5%8F%82%E6%95%B0%E5%92%8C%E5%8F%8D%E5%B0%84API"><span class="nav-text">捕获器参数和反射API</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8D%95%E8%8E%B7%E5%99%A8%E4%B8%8D%E5%8F%98%E5%BC%8F"><span class="nav-text">捕获器不变式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%AF%E6%92%A4%E9%94%80%E4%BB%A3%E7%90%86"><span class="nav-text">可撤销代理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%94%A8%E5%8F%8D%E5%B0%84API"><span class="nav-text">实用反射API</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8D%E5%B0%84API%E4%B8%8E%E5%AF%B9%E8%B1%A1API"><span class="nav-text">反射API与对象API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8A%B6%E6%80%81%E6%A0%87%E8%AE%B0"><span class="nav-text">状态标记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E4%B8%80%E7%AD%89%E5%87%BD%E6%95%B0%E4%BB%A3%E6%9B%BF%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-text">用一等函数代替操作符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E5%9C%B0%E5%BA%94%E7%94%A8%E5%87%BD%E6%95%B0"><span class="nav-text">安全地应用函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%90%86%E5%8F%A6%E4%B8%80%E4%B8%AA%E4%BB%A3%E7%90%86"><span class="nav-text">代理另一个代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%90%86%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E4%B8%8D%E8%B6%B3"><span class="nav-text">代理存在的问题与不足</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="border-box website-info-box default">
+        
+            <div class="copyright-info info-item default">
+                &copy;&nbsp;<span>2021</span>&nbsp;-&nbsp;2023
+                
+                    &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">姚永坤</a>
+                
+            </div>
+
+            <div class="theme-info info-item default">
+                由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.7.3</a>
+            </div>
+
+            
+
+            
+        
+
+        <div class="count-item info-item default">
+            
+                <span class="count-box border-box word">
+                    <span class="item-type border-box">全站总字数</span>
+                    <span class="item-value border-box word">198.2k</span>
+                </span>
+            
+
+            
+                <span class="count-box border-box uv">
+                    <span class="item-type border-box">访问人数</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-box border-box pv">
+                    <span class="item-type border-box">总访问量</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools left-toc">
+            <div class="post-tools-container border-box">
+    <ul class="tools-list border-box">
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+            <li class="tools-item go-to-comments-tablet flex-center">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A9%BA%E4%BB%A3%E7%90%86"><span class="nav-text">空代理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E6%8D%95%E8%8E%B7%E5%99%A8"><span class="nav-text">定义捕获器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8D%95%E8%8E%B7%E5%99%A8%E5%8F%82%E6%95%B0%E5%92%8C%E5%8F%8D%E5%B0%84API"><span class="nav-text">捕获器参数和反射API</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8D%95%E8%8E%B7%E5%99%A8%E4%B8%8D%E5%8F%98%E5%BC%8F"><span class="nav-text">捕获器不变式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%AF%E6%92%A4%E9%94%80%E4%BB%A3%E7%90%86"><span class="nav-text">可撤销代理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%94%A8%E5%8F%8D%E5%B0%84API"><span class="nav-text">实用反射API</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8D%E5%B0%84API%E4%B8%8E%E5%AF%B9%E8%B1%A1API"><span class="nav-text">反射API与对象API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8A%B6%E6%80%81%E6%A0%87%E8%AE%B0"><span class="nav-text">状态标记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E4%B8%80%E7%AD%89%E5%87%BD%E6%95%B0%E4%BB%A3%E6%9B%BF%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-text">用一等函数代替操作符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E5%9C%B0%E5%BA%94%E7%94%A8%E5%87%BD%E6%95%B0"><span class="nav-text">安全地应用函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%90%86%E5%8F%A6%E4%B8%80%E4%B8%AA%E4%BB%A3%E7%90%86"><span class="nav-text">代理另一个代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%90%86%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E4%B8%8D%E8%B6%B3"><span class="nav-text">代理存在的问题与不足</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/code-block.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/post-helper.js"></script>
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/libs/anime.min.js"></script>
+        
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/toc.js"></script>
+        
+    
+    
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+
+    
+        
+    
+
+</body>
+</html>

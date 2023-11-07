@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="姚永坤">
+    
+    <title>
+        
+            Python 实验十二 数据分析与可视化（1） |
+        
+        坤坤的百宝箱
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/head.3yoe3br9tws0.png">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/brands.min.css">
+    
+        
+            
+        
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true,"layout":"left"},"style":{"primary_color":"#0066cc","logo":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/op.3zg25jxprna0.png","favicon":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/head.3yoe3br9tws0.png","avatar":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/logo.6qi88yzn2jg0.jpg","shadow":true,"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"黑夜降临之处，便是黎明之始。|| Where blackness falls, begins dawn.","hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":true,"use":"giscus","valine":{"appid":"Peml0rEJ7HZNQA1gZrKxXgPr-gzGzoHsz","appkey":"vVJRDKBsUlnpc3zr69GFbCTI","placeholder":"快来评论吧！！！"},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2},"giscus":{"repo":"kunkunyy/discussion","repo_id":"R_kgDOKOnLlw","category":"Announcements","category_id":"DIC_kwDOKOnLl84CZCrc","reactions_enabled":true}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"wordcount":true,"min2read":true},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":true},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"version":"3.7.3"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="姚永坤的小窝" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container border-box">
+
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/op.3zg25jxprna0.png">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               坤坤的百宝箱
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/changelog"
+                            >
+                                更新日志
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/changelog">更新日志</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+
+                
+
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+
+        <div class="article-content-container border-box">
+
+            <div class="article-title">
+                <span class="title-hover-animation">Python 实验十二 数据分析与可视化（1）</span>
+            </div>
+
+            
+                <div class="article-header border-box">
+                    
+                        <div class="avatar-box border-box">
+                            <img src="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/logo.6qi88yzn2jg0.jpg">
+                        </div>
+                    
+                    <div class="info-box">
+                        <div class="author">
+                            <span class="name">姚永坤</span>
+                            
+                                <span class="author-label">Lv6</span>
+                            
+                        </div>
+                        <div class="meta-info border-box">
+                            
+
+<div class="article-meta-info-container border-box post">
+    <div class="article-meta-info border-box">
+        
+
+
+        
+            <span class="meta-info-item article-create-date">
+                <i class="icon fa-solid fa-calendar-check"></i>&nbsp;
+                <span class="pc">2021-04-05 17:57:29</span>
+                <span class="mobile">2021-04-05 17:57</span>
+            </span>
+
+            <span class="meta-info-item article-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="pc">2023-11-06 11:29:16</span>
+            </span>
+        
+
+        
+            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul>
+                    
+                            <li class="category-item">
+                                
+                                <a href="/categories/experiment/">experiment</a>
+                            </li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="article-tag meta-info-item border-box">
+                <i class="icon fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/experiment/">experiment</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/python-experiment/">python-experiment</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item article-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>759 字</span>
+            </span>
+        
+        
+            <span class="meta-info-item article-min2read">
+                <i class="icon fas fa-clock"></i>&nbsp;<span>3 分钟</span>
+            </span>
+        
+        
+            <span class="meta-info-item article-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <h1 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h1><p>1、 熟悉 numpy 库常用方法的使用<br>2、 熟悉 pandas 库的基本使用<br>3、 能够利用 matplotlib 库进行简单的图形绘制</p>
+<h1 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>根据某商品近 5 年的销售流水，做数据分析和可视化。模拟产生数据代码如下：<br>￼<img lazyload alt="image" data-src="https://img-blog.csdnimg.cn/20210112222109186.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk0Nzk0Mw==,size_16,color_FFFFFF,t_70"></p>
+<h3 id="（1）编写程序生成某商品-2014-01-01-到-2018-12-31-的销售流水，模拟数据文件名为-data-csv，数据格式如下：（说明：日期是连续的，销量是随机数，单价范围为-101，105-的随机值）"><a href="#（1）编写程序生成某商品-2014-01-01-到-2018-12-31-的销售流水，模拟数据文件名为-data-csv，数据格式如下：（说明：日期是连续的，销量是随机数，单价范围为-101，105-的随机值）" class="headerlink" title="（1）编写程序生成某商品(2014-01-01 到 2018-12-31)的销售流水，模拟数据文件名为 data.csv，数据格式如下：（说明：日期是连续的，销量是随机数，单价范围为[101，105]的随机值）"></a>（1）编写程序生成某商品(2014-01-01 到 2018-12-31)的销售流水，模拟数据文件名为 data.csv，数据格式如下：（说明：日期是连续的，销量是随机数，单价范围为[101，105]的随机值）</h3><p>￼<img lazyload alt="image" data-src="https://img-blog.csdnimg.cn/20210112222332749.png"></p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"></span><br><span class="line">fn = <span class="string">&#x27;data.csv&#x27;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(fn,<span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> fp:</span><br><span class="line">    wr = csv.writer(fp)</span><br><span class="line">    wr.writerow([<span class="string">&#x27;日期&#x27;</span>,<span class="string">&#x27;销量&#x27;</span>,<span class="string">&#x27;单价&#x27;</span>])</span><br><span class="line">    startDate = datetime.date(<span class="number">2014</span>,<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1825</span>):</span><br><span class="line">        amount = <span class="number">300</span>+i*<span class="number">5</span>+random.randrange(<span class="number">100</span>)</span><br><span class="line">        price = <span class="number">100</span>+random.randint(<span class="number">1</span>,<span class="number">5</span>)</span><br><span class="line">        wr.writerow([<span class="built_in">str</span>(startDate),amount,price])</span><br><span class="line">        startDate = startDate+datetime.timedelta(days=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="（2）使用-pandas-读取文件-data-csv-中的数据，创建-DataFrame-对象，并删除其中所有缺失值；"><a href="#（2）使用-pandas-读取文件-data-csv-中的数据，创建-DataFrame-对象，并删除其中所有缺失值；" class="headerlink" title="（2）使用 pandas 读取文件 data.csv 中的数据，创建 DataFrame 对象，并删除其中所有缺失值；"></a>（2）使用 pandas 读取文件 data.csv 中的数据，创建 DataFrame 对象，并删除其中所有缺失值；</h3><h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(pd.read_csv(<span class="string">&#x27;data.csv&#x27;</span>,encoding=<span class="string">&#x27;gbk&#x27;</span>))</span><br><span class="line"></span><br><span class="line">df.dropna()</span><br></pre></td></tr></table></figure>
+<h3 id="（3）使用-matplotlib-生成折线图，反映每月的销量情况，并把图形保存为本地文件-one-jpg；"><a href="#（3）使用-matplotlib-生成折线图，反映每月的销量情况，并把图形保存为本地文件-one-jpg；" class="headerlink" title="（3）使用 matplotlib 生成折线图，反映每月的销量情况，并把图形保存为本地文件 one.jpg；"></a>（3）使用 matplotlib 生成折线图，反映每月的销量情况，并把图形保存为本地文件 one.jpg；</h3><h4 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">plt.rcParams[<span class="string">&#x27;font.family&#x27;</span>] = <span class="string">&#x27;SimHei&#x27;</span></span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(pd.read_csv(<span class="string">&#x27;data.csv&#x27;</span>,encoding=<span class="string">&#x27;gbk&#x27;</span>))</span><br><span class="line">df.dropna()</span><br><span class="line">df[<span class="string">&#x27;日期&#x27;</span>] = df[<span class="string">&#x27;日期&#x27;</span>].apply(<span class="keyword">lambda</span> x: x[:<span class="number">7</span>])</span><br><span class="line"><span class="comment"># print(df[&#x27;日期&#x27;])</span></span><br><span class="line">data_quantity = df.iloc[:,<span class="number">0</span>:<span class="number">2</span>]</span><br><span class="line"><span class="comment"># print(data_quantity)</span></span><br><span class="line">group_month_quantity = data_quantity.groupby(<span class="string">&#x27;日期&#x27;</span>).<span class="built_in">sum</span>()</span><br><span class="line"><span class="comment"># print(group_month_quantity)</span></span><br><span class="line">group_month_quantity.plot()</span><br><span class="line">plt.savefig(<span class="string">&#x27;one.jpg&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<h4 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h4><p>￼<img lazyload alt="image" data-src="https://img-blog.csdnimg.cn/20210112223126235.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk0Nzk0Mw==,size_16,color_FFFFFF,t_70"></p>
+<h3 id="（4）按年进行统计，使用-matplotlib-绘制柱状图显示每年的营业额，并把图形保存为本地文件-two-jpg；"><a href="#（4）按年进行统计，使用-matplotlib-绘制柱状图显示每年的营业额，并把图形保存为本地文件-two-jpg；" class="headerlink" title="（4）按年进行统计，使用 matplotlib 绘制柱状图显示每年的营业额，并把图形保存为本地文件 two.jpg；"></a>（4）按年进行统计，使用 matplotlib 绘制柱状图显示每年的营业额，并把图形保存为本地文件 two.jpg；</h3><h4 id="代码-3"><a href="#代码-3" class="headerlink" title="代码"></a>代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">plt.rcParams[<span class="string">&#x27;font.family&#x27;</span>] = <span class="string">&#x27;SimHei&#x27;</span></span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(pd.read_csv(<span class="string">&#x27;data.csv&#x27;</span>,encoding=<span class="string">&#x27;gbk&#x27;</span>))</span><br><span class="line">df.dropna()</span><br><span class="line">df[<span class="string">&#x27;日期&#x27;</span>] = df[<span class="string">&#x27;日期&#x27;</span>].apply(<span class="keyword">lambda</span> x: x[:<span class="number">4</span>])</span><br><span class="line"><span class="comment"># print(df[&#x27;日期&#x27;])</span></span><br><span class="line">data_quantity = df.iloc[:,<span class="number">0</span>:<span class="number">2</span>]</span><br><span class="line">group_month_quantity = data_quantity.groupby(<span class="string">&#x27;日期&#x27;</span>).<span class="built_in">sum</span>()</span><br><span class="line"><span class="comment"># print(group_month_quantity)</span></span><br><span class="line">group_month_quantity.plot.bar()</span><br><span class="line">plt.savefig(<span class="string">&#x27;two.jpg&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<h4 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h4><p>￼<img lazyload alt="image" data-src="https://img-blog.csdnimg.cn/20210112223253561.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk0Nzk0Mw==,size_16,color_FFFFFF,t_70"></p>
+<h3 id="（5）按年进行统计，使用-matplotlib-绘制柱状图显示每年销售量最大的月份及销售额，并把图形保存为本地文件-three-jpg；"><a href="#（5）按年进行统计，使用-matplotlib-绘制柱状图显示每年销售量最大的月份及销售额，并把图形保存为本地文件-three-jpg；" class="headerlink" title="（5）按年进行统计，使用 matplotlib 绘制柱状图显示每年销售量最大的月份及销售额，并把图形保存为本地文件 three.jpg；"></a>（5）按年进行统计，使用 matplotlib 绘制柱状图显示每年销售量最大的月份及销售额，并把图形保存为本地文件 three.jpg；</h3><h4 id="代码-4"><a href="#代码-4" class="headerlink" title="代码"></a>代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">plt.rcParams[<span class="string">&#x27;font.family&#x27;</span>] = <span class="string">&#x27;SimHei&#x27;</span></span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(pd.read_csv(<span class="string">&#x27;data.csv&#x27;</span>,encoding=<span class="string">&#x27;gbk&#x27;</span>))</span><br><span class="line">df.dropna()</span><br><span class="line">df[<span class="string">&#x27;日期&#x27;</span>] = df[<span class="string">&#x27;日期&#x27;</span>].apply(<span class="keyword">lambda</span> x: x[:<span class="number">4</span>])</span><br><span class="line"><span class="comment"># print(df[&#x27;日期&#x27;])</span></span><br><span class="line">data_quantity = df.iloc[:,<span class="number">0</span>:<span class="number">2</span>]</span><br><span class="line"><span class="comment"># print(data_quantity)</span></span><br><span class="line">group_month_quantity = data_quantity.groupby(<span class="string">&#x27;日期&#x27;</span>).<span class="built_in">max</span>()</span><br><span class="line"><span class="comment"># print(group_month_quantity)</span></span><br><span class="line">group_month_quantity.plot.bar()</span><br><span class="line">plt.savefig(<span class="string">&#x27;three.jpg&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<h4 id="结果-2"><a href="#结果-2" class="headerlink" title="结果"></a>结果</h4><p>￼<img lazyload alt="image" data-src="https://img-blog.csdnimg.cn/20210112223346284.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk0Nzk0Mw==,size_16,color_FFFFFF,t_70"></p>
+<h3 id="（6）按年度统计该商品的营业额数据，使用-matplotlib-生成饼状图显示每年都的营业额分布情况，并把图形保存为本地文件-four-jpg。"><a href="#（6）按年度统计该商品的营业额数据，使用-matplotlib-生成饼状图显示每年都的营业额分布情况，并把图形保存为本地文件-four-jpg。" class="headerlink" title="（6）按年度统计该商品的营业额数据，使用 matplotlib 生成饼状图显示每年都的营业额分布情况，并把图形保存为本地文件 four.jpg。"></a>（6）按年度统计该商品的营业额数据，使用 matplotlib 生成饼状图显示每年都的营业额分布情况，并把图形保存为本地文件 four.jpg。</h3><h4 id="代码-5"><a href="#代码-5" class="headerlink" title="代码"></a>代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">plt.rcParams[<span class="string">&#x27;font.family&#x27;</span>] = <span class="string">&#x27;SimHei&#x27;</span></span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(pd.read_csv(<span class="string">&#x27;data.csv&#x27;</span>,encoding=<span class="string">&#x27;gbk&#x27;</span>))</span><br><span class="line">df.dropna()</span><br><span class="line">df[<span class="string">&#x27;日期&#x27;</span>] = df[<span class="string">&#x27;日期&#x27;</span>].apply(<span class="keyword">lambda</span> x: x[:<span class="number">4</span>])</span><br><span class="line"><span class="comment"># print(df[&#x27;日期&#x27;])</span></span><br><span class="line">data_quantity = df.iloc[:,<span class="number">0</span>:<span class="number">2</span>]</span><br><span class="line"><span class="comment"># print(data_quantity)</span></span><br><span class="line">group_month_quantity = data_quantity.groupby(<span class="string">&#x27;日期&#x27;</span>).<span class="built_in">sum</span>()</span><br><span class="line"><span class="comment"># print(group_month_quantity)</span></span><br><span class="line">group_month_quantity.plot.pie(subplots=<span class="literal">True</span>)</span><br><span class="line">plt.savefig(<span class="string">&#x27;four.jpg&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<h4 id="结果-3"><a href="#结果-3" class="headerlink" title="结果"></a>结果</h4><p>￼<img lazyload alt="image" data-src="https://img-blog.csdnimg.cn/20210112223440838.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk0Nzk0Mw==,size_16,color_FFFFFF,t_70"></p>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">Python 实验十二 数据分析与可视化（1）</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">姚永坤</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2021-04-05 17:57:29</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">2021/04/05/python-experiment-12/</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/experiment/"><i class="icon fas fa-hashtag"></i>experiment</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/python-experiment/"><i class="icon fas fa-hashtag"></i>python-experiment</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/2021/04/05/python-experiment-13/"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item text-ellipsis">Python 实验十三 数据分析与可视化（2）</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/2021/04/05/python-experiment-11/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item text-ellipsis">Python 实验十一 Tkinter的使用（2）</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+                
+
+
+    <div class="comments-container">
+        <div id="comments-anchor"></div>
+        <div class="comment-area-title">
+            <i class="fas fa-comments"></i>&nbsp;评论
+        </div>
+        
+            
+
+    <div class="giscus-comments-container">
+        <div class="giscus" id="giscus"></div>
+        <script data-pjax>
+
+          if (!window?.__getGiscusTheme) {
+            window.__getGiscusTheme = () => {
+              return document.body.classList.contains("dark-mode") ? "dark_dimmed" : "light_tritanopia";
+            };
+          }
+
+          if (!window?.__changeGiscusTheme) {
+            window.__changeGiscusTheme = () => {
+              const iframe = document.querySelector("iframe.giscus-frame");
+              iframe && iframe.contentWindow.postMessage({
+                giscus: {
+                  setConfig: {
+                    theme: __getGiscusTheme()
+                  }
+                }
+              }, "https://giscus.app");
+            };
+          }
+
+          if (!window?.__loadGiscus) {
+            window.__loadGiscus = () => {
+              const script = document.createElement("script");
+              script.async = true;
+              script.src = "https://giscus.app/client.js";
+              script.setAttribute("data-repo", 'kunkunyy/discussion');
+              script.setAttribute("data-repo-id", 'R_kgDOKOnLlw');
+              script.setAttribute("data-category", 'Announcements');
+              script.setAttribute("data-category-id", 'DIC_kwDOKOnLl84CZCrc');
+              script.setAttribute("data-reactions-enabled", '1');
+              script.setAttribute("data-lang", 'zh-CN');
+              script.setAttribute("data-mapping", "pathname");
+              script.setAttribute("data-strict", "0");
+              script.setAttribute("data-emit-metadata", "0");
+              script.setAttribute("data-input-position", "top");
+              script.setAttribute("crossorigin", "anonymous");
+              script.setAttribute("loading", "lazy");
+              script.setAttribute("data-theme", __getGiscusTheme());
+              document.querySelector(".giscus-comments-container").appendChild(script);
+
+              const toggleThemeBtn = document.querySelector(".tool-dark-light-toggle");
+              toggleThemeBtn && toggleThemeBtn.addEventListener("click", () => {
+                __changeGiscusTheme();
+              });
+            }
+          }
+
+          if ('true' === "true") {
+            setTimeout(() => {
+              __loadGiscus();
+            }, 1000);
+          } else {
+            window.addEventListener("DOMContentLoaded", () => {
+              setTimeout(() => {
+                __loadGiscus();
+              }, 1000);
+            });
+          }
+        </script>
+    </div>
+
+
+        
+    </div>
+
+
+
+
+
+            
+        </div>
+
+        
+            <div class="pc-post-toc left-toc">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84"><span class="nav-text">实验目的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E5%86%85%E5%AE%B9"><span class="nav-text">实验内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-text">题目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E7%BC%96%E5%86%99%E7%A8%8B%E5%BA%8F%E7%94%9F%E6%88%90%E6%9F%90%E5%95%86%E5%93%81-2014-01-01-%E5%88%B0-2018-12-31-%E7%9A%84%E9%94%80%E5%94%AE%E6%B5%81%E6%B0%B4%EF%BC%8C%E6%A8%A1%E6%8B%9F%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6%E5%90%8D%E4%B8%BA-data-csv%EF%BC%8C%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E5%A6%82%E4%B8%8B%EF%BC%9A%EF%BC%88%E8%AF%B4%E6%98%8E%EF%BC%9A%E6%97%A5%E6%9C%9F%E6%98%AF%E8%BF%9E%E7%BB%AD%E7%9A%84%EF%BC%8C%E9%94%80%E9%87%8F%E6%98%AF%E9%9A%8F%E6%9C%BA%E6%95%B0%EF%BC%8C%E5%8D%95%E4%BB%B7%E8%8C%83%E5%9B%B4%E4%B8%BA-101%EF%BC%8C105-%E7%9A%84%E9%9A%8F%E6%9C%BA%E5%80%BC%EF%BC%89"><span class="nav-text">（1）编写程序生成某商品(2014-01-01 到 2018-12-31)的销售流水，模拟数据文件名为 data.csv，数据格式如下：（说明：日期是连续的，销量是随机数，单价范围为[101，105]的随机值）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E4%BD%BF%E7%94%A8-pandas-%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6-data-csv-%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%EF%BC%8C%E5%88%9B%E5%BB%BA-DataFrame-%E5%AF%B9%E8%B1%A1%EF%BC%8C%E5%B9%B6%E5%88%A0%E9%99%A4%E5%85%B6%E4%B8%AD%E6%89%80%E6%9C%89%E7%BC%BA%E5%A4%B1%E5%80%BC%EF%BC%9B"><span class="nav-text">（2）使用 pandas 读取文件 data.csv 中的数据，创建 DataFrame 对象，并删除其中所有缺失值；</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-1"><span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E4%BD%BF%E7%94%A8-matplotlib-%E7%94%9F%E6%88%90%E6%8A%98%E7%BA%BF%E5%9B%BE%EF%BC%8C%E5%8F%8D%E6%98%A0%E6%AF%8F%E6%9C%88%E7%9A%84%E9%94%80%E9%87%8F%E6%83%85%E5%86%B5%EF%BC%8C%E5%B9%B6%E6%8A%8A%E5%9B%BE%E5%BD%A2%E4%BF%9D%E5%AD%98%E4%B8%BA%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6-one-jpg%EF%BC%9B"><span class="nav-text">（3）使用 matplotlib 生成折线图，反映每月的销量情况，并把图形保存为本地文件 one.jpg；</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-2"><span class="nav-text">代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C"><span class="nav-text">结果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%884%EF%BC%89%E6%8C%89%E5%B9%B4%E8%BF%9B%E8%A1%8C%E7%BB%9F%E8%AE%A1%EF%BC%8C%E4%BD%BF%E7%94%A8-matplotlib-%E7%BB%98%E5%88%B6%E6%9F%B1%E7%8A%B6%E5%9B%BE%E6%98%BE%E7%A4%BA%E6%AF%8F%E5%B9%B4%E7%9A%84%E8%90%A5%E4%B8%9A%E9%A2%9D%EF%BC%8C%E5%B9%B6%E6%8A%8A%E5%9B%BE%E5%BD%A2%E4%BF%9D%E5%AD%98%E4%B8%BA%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6-two-jpg%EF%BC%9B"><span class="nav-text">（4）按年进行统计，使用 matplotlib 绘制柱状图显示每年的营业额，并把图形保存为本地文件 two.jpg；</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-3"><span class="nav-text">代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C-1"><span class="nav-text">结果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%885%EF%BC%89%E6%8C%89%E5%B9%B4%E8%BF%9B%E8%A1%8C%E7%BB%9F%E8%AE%A1%EF%BC%8C%E4%BD%BF%E7%94%A8-matplotlib-%E7%BB%98%E5%88%B6%E6%9F%B1%E7%8A%B6%E5%9B%BE%E6%98%BE%E7%A4%BA%E6%AF%8F%E5%B9%B4%E9%94%80%E5%94%AE%E9%87%8F%E6%9C%80%E5%A4%A7%E7%9A%84%E6%9C%88%E4%BB%BD%E5%8F%8A%E9%94%80%E5%94%AE%E9%A2%9D%EF%BC%8C%E5%B9%B6%E6%8A%8A%E5%9B%BE%E5%BD%A2%E4%BF%9D%E5%AD%98%E4%B8%BA%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6-three-jpg%EF%BC%9B"><span class="nav-text">（5）按年进行统计，使用 matplotlib 绘制柱状图显示每年销售量最大的月份及销售额，并把图形保存为本地文件 three.jpg；</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-4"><span class="nav-text">代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C-2"><span class="nav-text">结果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%886%EF%BC%89%E6%8C%89%E5%B9%B4%E5%BA%A6%E7%BB%9F%E8%AE%A1%E8%AF%A5%E5%95%86%E5%93%81%E7%9A%84%E8%90%A5%E4%B8%9A%E9%A2%9D%E6%95%B0%E6%8D%AE%EF%BC%8C%E4%BD%BF%E7%94%A8-matplotlib-%E7%94%9F%E6%88%90%E9%A5%BC%E7%8A%B6%E5%9B%BE%E6%98%BE%E7%A4%BA%E6%AF%8F%E5%B9%B4%E9%83%BD%E7%9A%84%E8%90%A5%E4%B8%9A%E9%A2%9D%E5%88%86%E5%B8%83%E6%83%85%E5%86%B5%EF%BC%8C%E5%B9%B6%E6%8A%8A%E5%9B%BE%E5%BD%A2%E4%BF%9D%E5%AD%98%E4%B8%BA%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6-four-jpg%E3%80%82"><span class="nav-text">（6）按年度统计该商品的营业额数据，使用 matplotlib 生成饼状图显示每年都的营业额分布情况，并把图形保存为本地文件 four.jpg。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-5"><span class="nav-text">代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C-3"><span class="nav-text">结果</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="border-box website-info-box default">
+        
+            <div class="copyright-info info-item default">
+                &copy;&nbsp;<span>2021</span>&nbsp;-&nbsp;2023
+                
+                    &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">姚永坤</a>
+                
+            </div>
+
+            <div class="theme-info info-item default">
+                由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.7.3</a>
+            </div>
+
+            
+
+            
+        
+
+        <div class="count-item info-item default">
+            
+                <span class="count-box border-box word">
+                    <span class="item-type border-box">全站总字数</span>
+                    <span class="item-value border-box word">198.2k</span>
+                </span>
+            
+
+            
+                <span class="count-box border-box uv">
+                    <span class="item-type border-box">访问人数</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-box border-box pv">
+                    <span class="item-type border-box">总访问量</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools left-toc">
+            <div class="post-tools-container border-box">
+    <ul class="tools-list border-box">
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+            <li class="tools-item go-to-comments-tablet flex-center">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84"><span class="nav-text">实验目的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E5%86%85%E5%AE%B9"><span class="nav-text">实验内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-text">题目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E7%BC%96%E5%86%99%E7%A8%8B%E5%BA%8F%E7%94%9F%E6%88%90%E6%9F%90%E5%95%86%E5%93%81-2014-01-01-%E5%88%B0-2018-12-31-%E7%9A%84%E9%94%80%E5%94%AE%E6%B5%81%E6%B0%B4%EF%BC%8C%E6%A8%A1%E6%8B%9F%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6%E5%90%8D%E4%B8%BA-data-csv%EF%BC%8C%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E5%A6%82%E4%B8%8B%EF%BC%9A%EF%BC%88%E8%AF%B4%E6%98%8E%EF%BC%9A%E6%97%A5%E6%9C%9F%E6%98%AF%E8%BF%9E%E7%BB%AD%E7%9A%84%EF%BC%8C%E9%94%80%E9%87%8F%E6%98%AF%E9%9A%8F%E6%9C%BA%E6%95%B0%EF%BC%8C%E5%8D%95%E4%BB%B7%E8%8C%83%E5%9B%B4%E4%B8%BA-101%EF%BC%8C105-%E7%9A%84%E9%9A%8F%E6%9C%BA%E5%80%BC%EF%BC%89"><span class="nav-text">（1）编写程序生成某商品(2014-01-01 到 2018-12-31)的销售流水，模拟数据文件名为 data.csv，数据格式如下：（说明：日期是连续的，销量是随机数，单价范围为[101，105]的随机值）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E4%BD%BF%E7%94%A8-pandas-%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6-data-csv-%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%EF%BC%8C%E5%88%9B%E5%BB%BA-DataFrame-%E5%AF%B9%E8%B1%A1%EF%BC%8C%E5%B9%B6%E5%88%A0%E9%99%A4%E5%85%B6%E4%B8%AD%E6%89%80%E6%9C%89%E7%BC%BA%E5%A4%B1%E5%80%BC%EF%BC%9B"><span class="nav-text">（2）使用 pandas 读取文件 data.csv 中的数据，创建 DataFrame 对象，并删除其中所有缺失值；</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-1"><span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E4%BD%BF%E7%94%A8-matplotlib-%E7%94%9F%E6%88%90%E6%8A%98%E7%BA%BF%E5%9B%BE%EF%BC%8C%E5%8F%8D%E6%98%A0%E6%AF%8F%E6%9C%88%E7%9A%84%E9%94%80%E9%87%8F%E6%83%85%E5%86%B5%EF%BC%8C%E5%B9%B6%E6%8A%8A%E5%9B%BE%E5%BD%A2%E4%BF%9D%E5%AD%98%E4%B8%BA%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6-one-jpg%EF%BC%9B"><span class="nav-text">（3）使用 matplotlib 生成折线图，反映每月的销量情况，并把图形保存为本地文件 one.jpg；</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-2"><span class="nav-text">代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C"><span class="nav-text">结果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%884%EF%BC%89%E6%8C%89%E5%B9%B4%E8%BF%9B%E8%A1%8C%E7%BB%9F%E8%AE%A1%EF%BC%8C%E4%BD%BF%E7%94%A8-matplotlib-%E7%BB%98%E5%88%B6%E6%9F%B1%E7%8A%B6%E5%9B%BE%E6%98%BE%E7%A4%BA%E6%AF%8F%E5%B9%B4%E7%9A%84%E8%90%A5%E4%B8%9A%E9%A2%9D%EF%BC%8C%E5%B9%B6%E6%8A%8A%E5%9B%BE%E5%BD%A2%E4%BF%9D%E5%AD%98%E4%B8%BA%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6-two-jpg%EF%BC%9B"><span class="nav-text">（4）按年进行统计，使用 matplotlib 绘制柱状图显示每年的营业额，并把图形保存为本地文件 two.jpg；</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-3"><span class="nav-text">代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C-1"><span class="nav-text">结果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%885%EF%BC%89%E6%8C%89%E5%B9%B4%E8%BF%9B%E8%A1%8C%E7%BB%9F%E8%AE%A1%EF%BC%8C%E4%BD%BF%E7%94%A8-matplotlib-%E7%BB%98%E5%88%B6%E6%9F%B1%E7%8A%B6%E5%9B%BE%E6%98%BE%E7%A4%BA%E6%AF%8F%E5%B9%B4%E9%94%80%E5%94%AE%E9%87%8F%E6%9C%80%E5%A4%A7%E7%9A%84%E6%9C%88%E4%BB%BD%E5%8F%8A%E9%94%80%E5%94%AE%E9%A2%9D%EF%BC%8C%E5%B9%B6%E6%8A%8A%E5%9B%BE%E5%BD%A2%E4%BF%9D%E5%AD%98%E4%B8%BA%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6-three-jpg%EF%BC%9B"><span class="nav-text">（5）按年进行统计，使用 matplotlib 绘制柱状图显示每年销售量最大的月份及销售额，并把图形保存为本地文件 three.jpg；</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-4"><span class="nav-text">代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C-2"><span class="nav-text">结果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%886%EF%BC%89%E6%8C%89%E5%B9%B4%E5%BA%A6%E7%BB%9F%E8%AE%A1%E8%AF%A5%E5%95%86%E5%93%81%E7%9A%84%E8%90%A5%E4%B8%9A%E9%A2%9D%E6%95%B0%E6%8D%AE%EF%BC%8C%E4%BD%BF%E7%94%A8-matplotlib-%E7%94%9F%E6%88%90%E9%A5%BC%E7%8A%B6%E5%9B%BE%E6%98%BE%E7%A4%BA%E6%AF%8F%E5%B9%B4%E9%83%BD%E7%9A%84%E8%90%A5%E4%B8%9A%E9%A2%9D%E5%88%86%E5%B8%83%E6%83%85%E5%86%B5%EF%BC%8C%E5%B9%B6%E6%8A%8A%E5%9B%BE%E5%BD%A2%E4%BF%9D%E5%AD%98%E4%B8%BA%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6-four-jpg%E3%80%82"><span class="nav-text">（6）按年度统计该商品的营业额数据，使用 matplotlib 生成饼状图显示每年都的营业额分布情况，并把图形保存为本地文件 four.jpg。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-5"><span class="nav-text">代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C-3"><span class="nav-text">结果</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/code-block.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/post-helper.js"></script>
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/libs/anime.min.js"></script>
+        
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/toc.js"></script>
+        
+    
+    
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+
+    
+        
+    
+
+</body>
+</html>

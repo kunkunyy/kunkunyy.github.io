@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="姚永坤">
+    
+    <title>
+        
+            JavaScript学习笔记——DOM类型（Node类型） |
+        
+        坤坤的百宝箱
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/head.3yoe3br9tws0.png">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/brands.min.css">
+    
+        
+            
+        
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true,"layout":"left"},"style":{"primary_color":"#0066cc","logo":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/op.3zg25jxprna0.png","favicon":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/head.3yoe3br9tws0.png","avatar":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/logo.6qi88yzn2jg0.jpg","shadow":true,"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"黑夜降临之处，便是黎明之始。|| Where blackness falls, begins dawn.","hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":true,"use":"giscus","valine":{"appid":"Peml0rEJ7HZNQA1gZrKxXgPr-gzGzoHsz","appkey":"vVJRDKBsUlnpc3zr69GFbCTI","placeholder":"快来评论吧！！！"},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2},"giscus":{"repo":"kunkunyy/discussion","repo_id":"R_kgDOKOnLlw","category":"Announcements","category_id":"DIC_kwDOKOnLl84CZCrc","reactions_enabled":true}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"wordcount":true,"min2read":true},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":true},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"version":"3.7.3"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="姚永坤的小窝" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container border-box">
+
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/op.3zg25jxprna0.png">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               坤坤的百宝箱
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/changelog"
+                            >
+                                更新日志
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/changelog">更新日志</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+
+                
+
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+
+        <div class="article-content-container border-box">
+
+            <div class="article-title">
+                <span class="title-hover-animation">JavaScript学习笔记——DOM类型（Node类型）</span>
+            </div>
+
+            
+                <div class="article-header border-box">
+                    
+                        <div class="avatar-box border-box">
+                            <img src="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/logo.6qi88yzn2jg0.jpg">
+                        </div>
+                    
+                    <div class="info-box">
+                        <div class="author">
+                            <span class="name">姚永坤</span>
+                            
+                                <span class="author-label">Lv6</span>
+                            
+                        </div>
+                        <div class="meta-info border-box">
+                            
+
+<div class="article-meta-info-container border-box post">
+    <div class="article-meta-info border-box">
+        
+
+
+        
+            <span class="meta-info-item article-create-date">
+                <i class="icon fa-solid fa-calendar-check"></i>&nbsp;
+                <span class="pc">2021-11-24 15:37:57</span>
+                <span class="mobile">2021-11-24 15:37</span>
+            </span>
+
+            <span class="meta-info-item article-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="pc">2023-11-06 11:29:16</span>
+            </span>
+        
+
+        
+            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul>
+                    
+                            <li class="category-item">
+                                
+                                <a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a>
+                            </li>
+                        
+                    
+                            <li class="category-item">
+                                
+                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
+                                
+                                <a href="/categories/JS/">JS</a>
+                            </li>
+                        
+                    
+                            <li class="category-item">
+                                
+                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
+                                
+                                <a href="/categories/DOM/">DOM</a>
+                            </li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="article-tag meta-info-item border-box">
+                <i class="icon fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item article-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>1.6k 字</span>
+            </span>
+        
+        
+            <span class="meta-info-item article-min2read">
+                <i class="icon fas fa-clock"></i>&nbsp;<span>6 分钟</span>
+            </span>
+        
+        
+            <span class="meta-info-item article-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <h1 id="Node类型"><a href="#Node类型" class="headerlink" title="Node类型"></a>Node类型</h1><ul>
+<li>DOMLevel 1描述了名为Node的接口，这个接口时所有DOM节点类型都必须实现的。</li>
+<li>每个节点都有nodeType 属性，表示该节点的类型。节点类型由定义在 Node类型上的12个数值常量表示:<ul>
+<li>Node.ELEMENT_NODE（1） </li>
+<li>Node.ATTRIBUTE_NODE（2） </li>
+<li>Node.TEXT_NODE（3） </li>
+<li>Node.CDATA_SECTION_NODE（4） </li>
+<li>Node.ENTITY_REFERENCE_NODE（5） </li>
+<li>Node.ENTITY_NODE（6） </li>
+<li>Node.PROCESSING_INSTRUCTION_NODE（7） </li>
+<li>Node.COMMENT_NODE（8） </li>
+<li>Node.DOCUMENT_NODE（9） </li>
+<li>Node.DOCUMENT_TYPE_NODE（10） </li>
+<li>Node.DOCUMENT_FRAGMENT_NODE（11） </li>
+<li>Node.NOTATION_NODE（12）</li>
+</ul>
+</li>
+</ul>
+<h2 id="1、nodeName与nodeValue"><a href="#1、nodeName与nodeValue" class="headerlink" title="1、nodeName与nodeValue"></a>1、nodeName与nodeValue</h2><ul>
+<li>nodeName 与nodeValue 保存着有关节点的信息。</li>
+<li>这两个属性的值完全取决于节点类型，在使用这两个属性前,最好先检测节点类型。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (someNode.<span class="property">nodeType</span> == <span class="number">1</span>)&#123; </span><br><span class="line">    value = someNode.<span class="property">nodeName</span>; <span class="comment">// 会显示元素的标签名</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">在这个例子中，先检查了节点是不是元素。如果是，则将其nodeName 的值赋给一个变量。对元素而言，nodeName始终等于元素的标签名，而nodevalue 则始终为null。</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2、节点关系"><a href="#2、节点关系" class="headerlink" title="2、节点关系"></a>2、节点关系</h2><ul>
+<li>文档中的所有节点都与其他节点有关系，这些关系可以形容为家族关系，相当于把文档树比作家谱。</li>
+<li>每个节点都有一个childNodes属性，其中包含一个NodeList的实例。</li>
+<li>NodeList是一个类数组对象，用于存储可以按位置存取的有序节点。</li>
+<li>NodeList并不是Array的实例，但可以使用中括号访问它的值,而且它也有length属性。</li>
+<li>NodeList是一个对DOM结构的查询，DOM结构的变化会自动地在NodeList 中反映出来。</li>
+<li>我们通常说NodeList 是实时的活动对象，而不是第一次访问时所获得内容的快照。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> firstChild = someNode.<span class="property">childNodes</span>[<span class="number">0</span>]; </span><br><span class="line"><span class="keyword">let</span> secondChild = someNode.<span class="property">childNodes</span>.<span class="title function_">item</span>(<span class="number">1</span>); </span><br><span class="line"><span class="keyword">let</span> count = someNode.<span class="property">childNodes</span>.<span class="property">length</span>; </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用Array.prototype.slice()可以把NodeList对象转换为数组。</li>
+<li>ES6的Array.from()静态方法同样也能实现。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arrayOfNodes1 = <span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">slice</span>.<span class="title function_">call</span>(someNode.<span class="property">childNodes</span>,<span class="number">0</span>);</span><br><span class="line"><span class="keyword">let</span> arrayOfNodes2 = <span class="title class_">Array</span>.<span class="title function_">from</span>(someNode.<span class="property">childNodes</span>); </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>每个节点都有一个parentNode属性，指向其DOM树中的父元素。</p>
+</li>
+<li><p>childNodes中的所有节点都有同一个父元素，因此它们的parentNode属性都指向同一个节点。</p>
+</li>
+<li><p>childNodes列表中的每个节点都是同一列表中其他节点的同胞节点。</p>
+</li>
+<li><p>使用previoussibling 和nextsibling可以在这个列表的节点间导航。</p>
+</li>
+<li><p>这个列表中第一个节点的previoussibling属性是 null，最后一个节点的nextSibling属性也是null。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (someNode.<span class="property">nextSibling</span> === <span class="literal">null</span>)&#123; </span><br><span class="line">     <span class="title function_">alert</span>(<span class="string">&quot;Last node in the parent&#x27;s childNodes list.&quot;</span>); </span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (someNode.<span class="property">previousSibling</span> === <span class="literal">null</span>)&#123; </span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&quot;First node in the parent&#x27;s childNodes list.&quot;</span>); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>如果childlNodes中只有一个节点,则它的previoussibling和 nextsibling 属性都是null。</p>
+</li>
+<li><p>父节点和它的第一个及最后一个子节点也有专门属性：firstchild 和 lastchild 分别指向childNodes 中的第一个和最后一个子节点。</p>
+</li>
+<li><p>someNode.firstchild的值始终等于someNode.childNodes[0]，而someNode.lastChild 的值始终等于someNode.childNodes[someNode.childNodes.length-1]。</p>
+</li>
+<li><p>如果只有一个子节点，则firstchild和 lastchild指向同一个节点。</p>
+</li>
+<li><p>如果没有子节点，则firstchild和 lastchild都是 null。</p>
+</li>
+</ul>
+<img lazyload alt="image" data-src="/2021/11/24/js-34-1/pic2.png" class title="# tu1">
+
+<h2 id="3、操纵节点"><a href="#3、操纵节点" class="headerlink" title="3、操纵节点"></a>3、操纵节点</h2><ul>
+<li>由于所有的关系指针都是只读的，DOM提供了一些操纵节点的方法。</li>
+<li>appendChild()：用于在childNodes列表末尾添加节点<ul>
+<li>添加新节点会更新相关的关系指针，包括父节点和之前一个子节点。</li>
+<li>appendChild()会返回新添加的节点。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> returnedNode = someNode.<span class="title function_">appendChild</span>(newNode); </span><br><span class="line"><span class="title function_">alert</span>(returnedNode == newNode); <span class="comment">// true </span></span><br><span class="line"><span class="title function_">alert</span>(someNode.<span class="property">lastChild</span> == newNode); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果把文档中已经存在的节点传给appendChild() ,则这个节点会从之前的位置被转移到新位置。</li>
+<li>即使DOM树通过各种关系指针维系，一个节点也不会在文档中同时出现在两个或更多个地方。</li>
+<li><strong>如果调用appendChild()传入父元素的第一个子节点，则这个节点会成为父元素的最后一个子节点。</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 假设 someNode 有多个子节点</span></span><br><span class="line"><span class="keyword">let</span> returnedNode = someNode.<span class="title function_">appendChild</span>(someNode.<span class="property">firstChild</span>); </span><br><span class="line"><span class="title function_">alert</span>(returnedNode == someNode.<span class="property">firstChild</span>); <span class="comment">// false </span></span><br><span class="line"><span class="title function_">alert</span>(returnedNode == someNode.<span class="property">lastChild</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果想把节点放到childNodes中的特定位置而不是末尾，则可以使用**insertBefore()**方法。<ul>
+<li>方法接收两个参数：<strong>要插入的节点</strong>和<strong>参照节点</strong>。</li>
+<li>调用这个方法后，要插入的节点会变成参照节点的前一个同胞节点，并被返回。</li>
+<li>如果参照节点是 null，则insertBefore()与 appendchild()效果相同。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 作为最后一个子节点插入</span></span><br><span class="line">returnedNode = someNode.<span class="title function_">insertBefore</span>(newNode, <span class="literal">null</span>); </span><br><span class="line"><span class="title function_">alert</span>(newNode == someNode.<span class="property">lastChild</span>); <span class="comment">// true </span></span><br><span class="line"><span class="comment">// 作为新的第一个子节点插入</span></span><br><span class="line">returnedNode = someNode.<span class="title function_">insertBefore</span>(newNode, someNode.<span class="property">firstChild</span>); </span><br><span class="line"><span class="title function_">alert</span>(returnedNode == newNode); <span class="comment">// true </span></span><br><span class="line"><span class="title function_">alert</span>(newNode == someNode.<span class="property">firstChild</span>); <span class="comment">// true </span></span><br><span class="line"><span class="comment">// 插入最后一个子节点前面</span></span><br><span class="line">returnedNode = someNode.<span class="title function_">insertBefore</span>(newNode, someNode.<span class="property">lastChild</span>); </span><br><span class="line"><span class="title function_">alert</span>(newNode == someNode.<span class="property">childNodes</span>[someNode.<span class="property">childNodes</span>.<span class="property">length</span> - <span class="number">2</span>]); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>appendChild()和insertBefore()在插入节点时不会删除任何已有节点</strong>。</li>
+<li><strong>replacechild()方法</strong>接收两个参数：<strong>要插入的节点和要替换的节点。</strong></li>
+<li>要替换的节点会被返回并从文档树中完全移除，要插入的节点会取而代之。</li>
+<li>使用replacechild()插入一个节点后，所有关系指针都会从被替换的节点复制过来。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 替换第一个子节点</span></span><br><span class="line"><span class="keyword">let</span> returnedNode = someNode.<span class="title function_">replaceChild</span>(newNode, someNode.<span class="property">firstChild</span>); </span><br><span class="line"><span class="comment">// 替换最后一个子节点</span></span><br><span class="line">returnedNode = someNode.<span class="title function_">replaceChild</span>(newNode, someNode.<span class="property">lastChild</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>移除节点可以使用<strong>removeChild()方法</strong>。<ul>
+<li>这个方法接收一个参数，即要移除的节点。</li>
+<li>被移除的节点会被返回,</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 删除第一个子节点</span></span><br><span class="line"><span class="keyword">let</span> formerFirstChild = someNode.<span class="title function_">removeChild</span>(someNode.<span class="property">firstChild</span>); </span><br><span class="line"><span class="comment">// 删除最后一个子节点</span></span><br><span class="line"><span class="keyword">let</span> formerLastChild = someNode.<span class="title function_">removeChild</span>(someNode.<span class="property">lastChild</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>上面介绍的4个方法都用于操纵某个节点的子元素，也就是说使用它们之前必须先取得父节点（使用前面介绍的parentNode属性）。</li>
+<li>并非所有节点类型都有子节点，如果在不支持子节点的节点上调用这些方法,则会导致抛出错误。</li>
+</ul>
+<h2 id="4、其他方法"><a href="#4、其他方法" class="headerlink" title="4、其他方法"></a>4、其他方法</h2><ul>
+<li><p>cloneNode()会返回与调用它的节点一模一样的节点。</p>
+<ul>
+<li>方法接收一个布尔值参数，表示是否深复制。即复制节点及其整个子DOM树。</li>
+<li>如果传入 false，则只会复制调用该方法的节点。</li>
+<li>复制返回的节点属于文档所有，但尚未指定父节点，所以可称为孤儿节点 ( orphan )。</li>
+<li>可以通过appendchild()，insertBefore()或replacechild()方法把孤儿节点添加到文档中。</li>
+</ul>
+</li>
+<li><p>normalize()用于处理文档子树中的文本节点。</p>
+<ul>
+<li>在节点上调用normalize()方法会检测这个节点的所有后代，从中搜索上述两种情形。</li>
+<li>如果发现空文本节点，则将其删除；</li>
+<li>如果两个同胞节点是相邻的，则将其合并为一个文本节点。</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">JavaScript学习笔记——DOM类型（Node类型）</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">姚永坤</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2021-11-24 15:37:57</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">2021/11/24/js-34-1/</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/JS%E5%AD%A6%E4%B9%A0/"><i class="icon fas fa-hashtag"></i>JS学习</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/2021/11/24/js-34-2/"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item text-ellipsis">JavaScript学习笔记——DOM类型（Document类型）</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/2021/11/18/js-34/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item text-ellipsis">JavaScript学习笔记（三十四）DOM（一）</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+                
+
+
+    <div class="comments-container">
+        <div id="comments-anchor"></div>
+        <div class="comment-area-title">
+            <i class="fas fa-comments"></i>&nbsp;评论
+        </div>
+        
+            
+
+    <div class="giscus-comments-container">
+        <div class="giscus" id="giscus"></div>
+        <script data-pjax>
+
+          if (!window?.__getGiscusTheme) {
+            window.__getGiscusTheme = () => {
+              return document.body.classList.contains("dark-mode") ? "dark_dimmed" : "light_tritanopia";
+            };
+          }
+
+          if (!window?.__changeGiscusTheme) {
+            window.__changeGiscusTheme = () => {
+              const iframe = document.querySelector("iframe.giscus-frame");
+              iframe && iframe.contentWindow.postMessage({
+                giscus: {
+                  setConfig: {
+                    theme: __getGiscusTheme()
+                  }
+                }
+              }, "https://giscus.app");
+            };
+          }
+
+          if (!window?.__loadGiscus) {
+            window.__loadGiscus = () => {
+              const script = document.createElement("script");
+              script.async = true;
+              script.src = "https://giscus.app/client.js";
+              script.setAttribute("data-repo", 'kunkunyy/discussion');
+              script.setAttribute("data-repo-id", 'R_kgDOKOnLlw');
+              script.setAttribute("data-category", 'Announcements');
+              script.setAttribute("data-category-id", 'DIC_kwDOKOnLl84CZCrc');
+              script.setAttribute("data-reactions-enabled", '1');
+              script.setAttribute("data-lang", 'zh-CN');
+              script.setAttribute("data-mapping", "pathname");
+              script.setAttribute("data-strict", "0");
+              script.setAttribute("data-emit-metadata", "0");
+              script.setAttribute("data-input-position", "top");
+              script.setAttribute("crossorigin", "anonymous");
+              script.setAttribute("loading", "lazy");
+              script.setAttribute("data-theme", __getGiscusTheme());
+              document.querySelector(".giscus-comments-container").appendChild(script);
+
+              const toggleThemeBtn = document.querySelector(".tool-dark-light-toggle");
+              toggleThemeBtn && toggleThemeBtn.addEventListener("click", () => {
+                __changeGiscusTheme();
+              });
+            }
+          }
+
+          if ('true' === "true") {
+            setTimeout(() => {
+              __loadGiscus();
+            }, 1000);
+          } else {
+            window.addEventListener("DOMContentLoaded", () => {
+              setTimeout(() => {
+                __loadGiscus();
+              }, 1000);
+            });
+          }
+        </script>
+    </div>
+
+
+        
+    </div>
+
+
+
+
+
+            
+        </div>
+
+        
+            <div class="pc-post-toc left-toc">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Node%E7%B1%BB%E5%9E%8B"><span class="nav-text">Node类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81nodeName%E4%B8%8EnodeValue"><span class="nav-text">1、nodeName与nodeValue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E8%8A%82%E7%82%B9%E5%85%B3%E7%B3%BB"><span class="nav-text">2、节点关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E6%93%8D%E7%BA%B5%E8%8A%82%E7%82%B9"><span class="nav-text">3、操纵节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%E3%80%81%E5%85%B6%E4%BB%96%E6%96%B9%E6%B3%95"><span class="nav-text">4、其他方法</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="border-box website-info-box default">
+        
+            <div class="copyright-info info-item default">
+                &copy;&nbsp;<span>2021</span>&nbsp;-&nbsp;2023
+                
+                    &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">姚永坤</a>
+                
+            </div>
+
+            <div class="theme-info info-item default">
+                由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.7.3</a>
+            </div>
+
+            
+
+            
+        
+
+        <div class="count-item info-item default">
+            
+                <span class="count-box border-box word">
+                    <span class="item-type border-box">全站总字数</span>
+                    <span class="item-value border-box word">198.2k</span>
+                </span>
+            
+
+            
+                <span class="count-box border-box uv">
+                    <span class="item-type border-box">访问人数</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-box border-box pv">
+                    <span class="item-type border-box">总访问量</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools left-toc">
+            <div class="post-tools-container border-box">
+    <ul class="tools-list border-box">
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+            <li class="tools-item go-to-comments-tablet flex-center">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Node%E7%B1%BB%E5%9E%8B"><span class="nav-text">Node类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81nodeName%E4%B8%8EnodeValue"><span class="nav-text">1、nodeName与nodeValue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E8%8A%82%E7%82%B9%E5%85%B3%E7%B3%BB"><span class="nav-text">2、节点关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E6%93%8D%E7%BA%B5%E8%8A%82%E7%82%B9"><span class="nav-text">3、操纵节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%E3%80%81%E5%85%B6%E4%BB%96%E6%96%B9%E6%B3%95"><span class="nav-text">4、其他方法</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/code-block.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/post-helper.js"></script>
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/libs/anime.min.js"></script>
+        
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/toc.js"></script>
+        
+    
+    
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+
+    
+        
+    
+
+</body>
+</html>

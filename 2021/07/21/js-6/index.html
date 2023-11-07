@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="姚永坤">
+    
+    <title>
+        
+            JavaScript学习笔记（六）操作符 |
+        
+        坤坤的百宝箱
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/head.3yoe3br9tws0.png">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/brands.min.css">
+    
+        
+            
+        
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true,"layout":"left"},"style":{"primary_color":"#0066cc","logo":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/op.3zg25jxprna0.png","favicon":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/head.3yoe3br9tws0.png","avatar":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/logo.6qi88yzn2jg0.jpg","shadow":true,"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"黑夜降临之处，便是黎明之始。|| Where blackness falls, begins dawn.","hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":true,"use":"giscus","valine":{"appid":"Peml0rEJ7HZNQA1gZrKxXgPr-gzGzoHsz","appkey":"vVJRDKBsUlnpc3zr69GFbCTI","placeholder":"快来评论吧！！！"},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2},"giscus":{"repo":"kunkunyy/discussion","repo_id":"R_kgDOKOnLlw","category":"Announcements","category_id":"DIC_kwDOKOnLl84CZCrc","reactions_enabled":true}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"wordcount":true,"min2read":true},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":true},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"version":"3.7.3"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="姚永坤的小窝" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container border-box">
+
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/op.3zg25jxprna0.png">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               坤坤的百宝箱
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/changelog"
+                            >
+                                更新日志
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/changelog">更新日志</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+
+                
+
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+
+        <div class="article-content-container border-box">
+
+            <div class="article-title">
+                <span class="title-hover-animation">JavaScript学习笔记（六）操作符</span>
+            </div>
+
+            
+                <div class="article-header border-box">
+                    
+                        <div class="avatar-box border-box">
+                            <img src="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/logo.6qi88yzn2jg0.jpg">
+                        </div>
+                    
+                    <div class="info-box">
+                        <div class="author">
+                            <span class="name">姚永坤</span>
+                            
+                                <span class="author-label">Lv6</span>
+                            
+                        </div>
+                        <div class="meta-info border-box">
+                            
+
+<div class="article-meta-info-container border-box post">
+    <div class="article-meta-info border-box">
+        
+
+
+        
+            <span class="meta-info-item article-create-date">
+                <i class="icon fa-solid fa-calendar-check"></i>&nbsp;
+                <span class="pc">2021-07-21 17:17:36</span>
+                <span class="mobile">2021-07-21 17:17</span>
+            </span>
+
+            <span class="meta-info-item article-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="pc">2023-11-06 11:29:16</span>
+            </span>
+        
+
+        
+            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul>
+                    
+                            <li class="category-item">
+                                
+                                <a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a>
+                            </li>
+                        
+                    
+                            <li class="category-item">
+                                
+                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
+                                
+                                <a href="/categories/JS/">JS</a>
+                            </li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="article-tag meta-info-item border-box">
+                <i class="icon fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item article-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>3.4k 字</span>
+            </span>
+        
+        
+            <span class="meta-info-item article-min2read">
+                <i class="icon fas fa-clock"></i>&nbsp;<span>12 分钟</span>
+            </span>
+        
+        
+            <span class="meta-info-item article-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <ul>
+<li>操作符包括：<strong>数学操作符、位操作符、关系操作符和相等操作符。</strong></li>
+<li>操作符可用于各种值，包括字符串、数值、布尔值、甚至还有对象。</li>
+<li>在应用给对象时，操作符通常会调用 valueOf()和/或 toString()方法来取得可以计算的值。</li>
+</ul>
+<h1 id="一元操作符"><a href="#一元操作符" class="headerlink" title="一元操作符"></a>一元操作符</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><ul>
+<li><strong>只操作一个值的操作符叫一元操作符</strong></li>
+</ul>
+<h2 id="递增-递减操作符"><a href="#递增-递减操作符" class="headerlink" title="递增/递减操作符"></a>递增/递减操作符</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul>
+<li>前缀版<ul>
+<li>操作符位于待操作变量的前面</li>
+<li>副作用：无论使用前缀递增还是前缀递减操作符，变量的值都会在语句被求值之前改变<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">let</span> other = --num + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">let</span> another = num + <span class="number">5</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(num);<span class="comment">//9</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(other);<span class="comment">//14</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(another);<span class="comment">//14</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>后缀版<ul>
+<li>操作符位于待操作变量的后面</li>
+<li>后缀版递增和递减在语句被求值后才发生<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">let</span> another = num-- + <span class="number">5</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(num);<span class="comment">//10</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(another);<span class="comment">//14</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>前缀递增和递减在语句中的优先级是相等的，因此会从左到右依次求值。</li>
+</ul>
+<h3 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h3><table>
+<thead>
+<tr>
+<th align="center">数据类型</th>
+<th align="center">规则</th>
+<th align="center">类型转换</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">字符串</td>
+<td align="center">有效数值形式，转换为数值再应用改变</td>
+<td align="center">字符串→数值</td>
+</tr>
+<tr>
+<td align="center">字符串</td>
+<td align="center">非有效数值形式，将变量的值设置为NaN</td>
+<td align="center">字符串→数值</td>
+</tr>
+<tr>
+<td align="center">true</td>
+<td align="center">转换为1再应用改变</td>
+<td align="center">布尔值→数值</td>
+</tr>
+<tr>
+<td align="center">false</td>
+<td align="center">转换为0再应用改变</td>
+<td align="center">布尔值→数值</td>
+</tr>
+<tr>
+<td align="center">浮点数</td>
+<td align="center">加1或减1</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">对象</td>
+<td align="center">调用valueOf()方法取得可以操作的值，对得到的值应用上述规则；如果是NaN，则调用toString()并再次应用其他规则</td>
+<td align="center">对象→数值</td>
+</tr>
+</tbody></table>
+<h2 id="一元加和减"><a href="#一元加和减" class="headerlink" title="一元加和减"></a>一元加和减</h2><h3 id="一元加号"><a href="#一元加号" class="headerlink" title="一元加号"></a>一元加号</h3><ul>
+<li>如果将一元加应用到非数值，则会执行与使用 Number()转型函数一样的类型转换；</li>
+<li>布尔值 false和 true 转换为 0 和 1；</li>
+<li>字符串根据特殊规则进行解析；</li>
+<li>对象会调用它们的 valueOf()和/或 toString()方法以得到可以转换的值。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> s1 = <span class="string">&quot;01&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> s2 = <span class="string">&quot;1.1&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> s3 = <span class="string">&quot;z&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> a = <span class="string">&#x27;25&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> b = <span class="literal">false</span>;</span><br><span class="line"><span class="keyword">let</span> f = <span class="number">1.1</span>;</span><br><span class="line"><span class="keyword">let</span> o = &#123;</span><br><span class="line">    <span class="title function_">valueOf</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(+s1);<span class="comment">//1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(+s2);<span class="comment">//1.1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(+s3);<span class="comment">//NaN</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(+a);<span class="comment">//25</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(+b);<span class="comment">//0</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(+f);<span class="comment">//1.1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(+o);<span class="comment">//-1</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="一元减号"><a href="#一元减号" class="headerlink" title="一元减号"></a>一元减号</h3><ul>
+<li>一元减由一个减号（-）表示，放在变量前头，主要用于把数值变成负值；</li>
+<li>在应用到非数值时，一元减会遵循与一元加同样的规则，先对它们进行转换，然后再取负值：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> s1 = <span class="string">&quot;01&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> s2 = <span class="string">&quot;1.1&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> s3 = <span class="string">&quot;z&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> a = <span class="string">&#x27;25&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> b = <span class="literal">false</span>;</span><br><span class="line"><span class="keyword">let</span> f = <span class="number">1.1</span>;</span><br><span class="line"><span class="keyword">let</span> o = &#123;</span><br><span class="line">    <span class="title function_">valueOf</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(-s1);<span class="comment">//-1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(-s2);<span class="comment">//-1.1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(-s3);<span class="comment">//NaN</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(-a);<span class="comment">//-25</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(-b);<span class="comment">//0</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(-f);<span class="comment">//-1.1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(-o);<span class="comment">//-1</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="位操作符"><a href="#位操作符" class="headerlink" title="位操作符"></a>位操作符</h1><ul>
+<li>ECMAScript中的所有数值都以 IEEE 754 64位格式存储；</li>
+<li>位操作并不直接应用到 64 位表示，而是先把值转换为32位整数，再进行位操作，之后再把结果转换为64位；</li>
+<li><strong>有符号整数使用 32 位的前 31 位表示整数值；第 32 位表示数值的符号，如 0 表示正，1 表示负。</strong></li>
+<li>负值以一种称为二补数（或补码）的二进制编码存储。</li>
+<li>特殊值NaN 和Infinity在位操作中都会被当成 0 处理；</li>
+<li>如果将位操作符应用到非数值，那么首先会使用 Number()函数将该值转换为数值（这个过程是自动的），然后再应用位操作。最终结果是数值。</li>
+</ul>
+<h2 id="按位非"><a href="#按位非" class="headerlink" title="按位非"></a>按位非</h2><ul>
+<li>按位非操作符用波浪符（~）表示</li>
+<li><strong>按位非的最终效果是对数值取反并减 1</strong></li>
+</ul>
+<h2 id="按位与"><a href="#按位与" class="headerlink" title="按位与"></a>按位与</h2><ul>
+<li>按位与操作符用和号（&amp;）表示。</li>
+<li>真值表：a&amp;b</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">a</th>
+<th align="center">b</th>
+<th align="center">result</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+</tbody></table>
+<h2 id="按位或"><a href="#按位或" class="headerlink" title="按位或"></a>按位或</h2><ul>
+<li>按位或操作符用管道符（|）表示。</li>
+<li>真值表：a|b</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">a</th>
+<th align="center">b</th>
+<th align="center">result</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+</tbody></table>
+<h2 id="按位异或"><a href="#按位异或" class="headerlink" title="按位异或"></a>按位异或</h2><ul>
+<li>按位异或操作符用脱字符（^）表示。</li>
+<li>真值表：a^b</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">a</th>
+<th align="center">b</th>
+<th align="center">result</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+</tbody></table>
+<h2 id="左移"><a href="#左移" class="headerlink" title="左移"></a>左移</h2><ul>
+<li>左移操作符用两个小于号（&lt;&lt;）表示</li>
+<li>如果数值 2（二进制 10）向左移 5 位，就会得到 64（二进制 1000000）</li>
+</ul>
+<img lazyload alt="image" data-src="/2021/07/21/js-6/pic1.png" class title="# tu">
+
+<h2 id="有符号右移"><a href="#有符号右移" class="headerlink" title="有符号右移"></a>有符号右移</h2><ul>
+<li>有符号右移由两个大于号（&gt;&gt;）表示，会将数值的所有 32 位都向右移，同时保留符号（正或负）</li>
+</ul>
+<img lazyload alt="image" data-src="/2021/07/21/js-6/pic2.png" class title="# tu">
+
+<h2 id="无符号右移"><a href="#无符号右移" class="headerlink" title="无符号右移"></a>无符号右移</h2><ul>
+<li>无符号移用 3 个大于号表示（&gt;&gt;&gt;），会将数值的所有 32 位都向右移</li>
+<li>对于正数，无符号右移与有符号右移结果相同。</li>
+</ul>
+<h1 id="布尔操作符"><a href="#布尔操作符" class="headerlink" title="布尔操作符"></a>布尔操作符</h1><p>布尔操作符一共有 3 个：逻辑非、逻辑与和逻辑或。</p>
+<h2 id="逻辑非"><a href="#逻辑非" class="headerlink" title="逻辑非"></a>逻辑非</h2><ul>
+<li>逻辑非操作符由一个叹号（!）表示，可应用给 ECMAScript 中的任何值，始终返回布尔值。</li>
+<li>逻辑非操作符首先将操作数转换为布尔值，然后再对其取反。</li>
+<li>转化规则：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">操作数</th>
+<th align="center">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">对象</td>
+<td align="center">false</td>
+</tr>
+<tr>
+<td align="center">空字符串</td>
+<td align="center">true</td>
+</tr>
+<tr>
+<td align="center">非空字符串</td>
+<td align="center">false</td>
+</tr>
+<tr>
+<td align="center">数值0</td>
+<td align="center">true</td>
+</tr>
+<tr>
+<td align="center">非0数值</td>
+<td align="center">false</td>
+</tr>
+<tr>
+<td align="center">null</td>
+<td align="center">true</td>
+</tr>
+<tr>
+<td align="center">NaN</td>
+<td align="center">true</td>
+</tr>
+<tr>
+<td align="center">underfined</td>
+<td align="center">true</td>
+</tr>
+</tbody></table>
+<ul>
+<li>同时使用两个叹号（!!），相当于调用了转型函数 Boolean()。</li>
+</ul>
+<h2 id="逻辑与"><a href="#逻辑与" class="headerlink" title="逻辑与"></a>逻辑与</h2><ul>
+<li><strong>逻辑与操作符由两个和号（&amp;&amp;）表示</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">操作数一</th>
+<th align="center">操作数二</th>
+<th align="center">result</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">true</td>
+<td align="center">true</td>
+<td align="center">true</td>
+</tr>
+<tr>
+<td align="center">true</td>
+<td align="center">false</td>
+<td align="center">false</td>
+</tr>
+<tr>
+<td align="center">false</td>
+<td align="center">true</td>
+<td align="center">false</td>
+</tr>
+<tr>
+<td align="center">false</td>
+<td align="center">false</td>
+<td align="center">false</td>
+</tr>
+</tbody></table>
+<ul>
+<li>如果有操作数不是布尔值，则逻辑与并不一定会返回布尔值，而是遵循如下规则：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">操作数</th>
+<th align="center">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">第一个操作数是对象</td>
+<td align="center">返回第二个操作数</td>
+</tr>
+<tr>
+<td align="center">第二个操作数是对象</td>
+<td align="center">只有第一个操作数求值为true才会返回该对象</td>
+</tr>
+<tr>
+<td align="center">两个操作数都是对象</td>
+<td align="center">返回第二个操作数</td>
+</tr>
+<tr>
+<td align="center">有一个操作数是null</td>
+<td align="center">返回null</td>
+</tr>
+<tr>
+<td align="center">有一个操作数是NaN</td>
+<td align="center">返回NaN</td>
+</tr>
+<tr>
+<td align="center">有一个操作数是underfined</td>
+<td align="center">返回underfinded</td>
+</tr>
+</tbody></table>
+<ul>
+<li>逻辑与操作符是一种短路操作符，意思就是如果第一个操作数决定了结果，那么永远不会对第二个操作数求值。</li>
+<li>当变量未被定义则不能对它应用逻辑与操作符。</li>
+</ul>
+<h2 id="逻辑或"><a href="#逻辑或" class="headerlink" title="逻辑或"></a>逻辑或</h2><ul>
+<li><strong>逻辑或操作符由两个管道符（||）表示</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">操作数一</th>
+<th align="center">操作数二</th>
+<th align="center">result</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">true</td>
+<td align="center">true</td>
+<td align="center">true</td>
+</tr>
+<tr>
+<td align="center">true</td>
+<td align="center">false</td>
+<td align="center">true</td>
+</tr>
+<tr>
+<td align="center">false</td>
+<td align="center">true</td>
+<td align="center">true</td>
+</tr>
+<tr>
+<td align="center">false</td>
+<td align="center">false</td>
+<td align="center">false</td>
+</tr>
+</tbody></table>
+<ul>
+<li>如果有操作数不是布尔值，则逻辑与并不一定会返回布尔值，而是遵循如下规则：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">操作数</th>
+<th align="center">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">第一个操作数是对象</td>
+<td align="center">返回第一个操作数</td>
+</tr>
+<tr>
+<td align="center">第二个操作数求值为false</td>
+<td align="center">返回第二个操作数</td>
+</tr>
+<tr>
+<td align="center">两个操作数都是对象</td>
+<td align="center">返回第一个操作数</td>
+</tr>
+<tr>
+<td align="center">两个操作数是null</td>
+<td align="center">返回null</td>
+</tr>
+<tr>
+<td align="center">两个操作数是NaN</td>
+<td align="center">返回NaN</td>
+</tr>
+<tr>
+<td align="center">两个操作数是underfined</td>
+<td align="center">返回underfinded</td>
+</tr>
+</tbody></table>
+<ul>
+<li>逻辑或操作符也具有短路的特性，第一个操作数求值为true，第二个操作数就不会再被求值了。</li>
+</ul>
+<h1 id="乘性操作符"><a href="#乘性操作符" class="headerlink" title="乘性操作符"></a>乘性操作符</h1><ul>
+<li>ECMAScript 定义了 3 个乘性操作符：<strong>乘法、除法和取模</strong>。</li>
+<li>如果乘性操作符有不是数值的操作数，则该操作数会在后台被使用 Number()转型函数转换为数值。</li>
+</ul>
+<h2 id="乘法操作符（-）"><a href="#乘法操作符（-）" class="headerlink" title="乘法操作符（*）"></a>乘法操作符（*）</h2><table>
+<thead>
+<tr>
+<th align="center">操作数</th>
+<th align="center">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">都是数值</td>
+<td align="center">正值相乘为正，负值相乘为正，正负不同相乘为负；<strong>如果 ECMAScript 不能表示乘积，则返回 Infinity 或-Infinity。</strong></td>
+</tr>
+<tr>
+<td align="center">如果有任一操作数是 NaN</td>
+<td align="center">返回 NaN</td>
+</tr>
+<tr>
+<td align="center">如果是 Infinity乘以 0</td>
+<td align="center">返回 NaN</td>
+</tr>
+<tr>
+<td align="center">如果是 Infinity 乘以非 0的有限数值</td>
+<td align="center">根据第二个操作数的符号返回 Infinity 或-Infinity</td>
+</tr>
+<tr>
+<td align="center">如果是 Infinity 乘以 Infinity</td>
+<td align="center">返回 Infinity</td>
+</tr>
+<tr>
+<td align="center">如果有不是数值的操作数</td>
+<td align="center">先在后台用 Number()将其转换为数值，然后再应用上述规则</td>
+</tr>
+</tbody></table>
+<h2 id="除法操作符（-）"><a href="#除法操作符（-）" class="headerlink" title="除法操作符（/）"></a>除法操作符（/）</h2><table>
+<thead>
+<tr>
+<th align="center">操作数</th>
+<th align="center">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">都是数值</td>
+<td align="center">正值相乘为正，负值相除为正，正负不同相除为负；<strong>如果 ECMAScript 不能表示商，则返回 Infinity 或-Infinity。</strong></td>
+</tr>
+<tr>
+<td align="center">如果有任一操作数是 NaN</td>
+<td align="center">返回 NaN</td>
+</tr>
+<tr>
+<td align="center">如果是 Infinity除以 Infinity</td>
+<td align="center">返回 NaN</td>
+</tr>
+<tr>
+<td align="center">如果是 0除以 0</td>
+<td align="center">返回 NaN</td>
+</tr>
+<tr>
+<td align="center">如果是 非0的有限值除以0</td>
+<td align="center">根据第一个操作数的符号返回 Infinity 或-Infinity</td>
+</tr>
+<tr>
+<td align="center">如果是 Infinity 除以任何数值</td>
+<td align="center">根据第二个操作数的符号返回 Infinity</td>
+</tr>
+<tr>
+<td align="center">如果有不是数值的操作数</td>
+<td align="center">先在后台用 Number()将其转换为数值，然后再应用上述规则</td>
+</tr>
+</tbody></table>
+<h2 id="取模操作数（-）"><a href="#取模操作数（-）" class="headerlink" title="取模操作数（%）"></a>取模操作数（%）</h2><table>
+<thead>
+<tr>
+<th align="center">操作数</th>
+<th align="center">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">都是数值</td>
+<td align="center">执行常规除法运算，返回余数</td>
+</tr>
+<tr>
+<td align="center">如果被除数是无限值，除数是有限值</td>
+<td align="center">返回 NaN</td>
+</tr>
+<tr>
+<td align="center">如果被除数是有限值，除数是0</td>
+<td align="center">返回 NaN</td>
+</tr>
+<tr>
+<td align="center">如果是 0 除以 0</td>
+<td align="center">返回 NaN</td>
+</tr>
+<tr>
+<td align="center">如果是 Infinity 除以 Infinity</td>
+<td align="center">返回NaN</td>
+</tr>
+<tr>
+<td align="center">如果被除数是有限值，除数是无限值</td>
+<td align="center">返回NaN</td>
+</tr>
+<tr>
+<td align="center">如果被除数是 0 ，除数不是 0</td>
+<td align="center">返回0</td>
+</tr>
+<tr>
+<td align="center">如果有不是数值的操作数</td>
+<td align="center">先在后台用 Number()将其转换为数值，然后再应用上述规则</td>
+</tr>
+</tbody></table>
+<h1 id="指数操作数"><a href="#指数操作数" class="headerlink" title="指数操作数"></a>指数操作数</h1><ul>
+<li>ES7新增了指数操作符“**”等价于Math.pow()</li>
+<li>指数操作符也有指数赋值操作符**=</li>
+</ul>
+<h1 id="加性操作符"><a href="#加性操作符" class="headerlink" title="加性操作符"></a>加性操作符</h1><h2 id="加法操作符"><a href="#加法操作符" class="headerlink" title="加法操作符"></a>加法操作符</h2><ul>
+<li>如果两个操作数都是数值，应用如下规则：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">操作数</th>
+<th align="center">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">如果有任一操作数是 NaN</td>
+<td align="center">返回 NaN</td>
+</tr>
+<tr>
+<td align="center">如果是 Infinity 加 Infinity</td>
+<td align="center">返回 Infinity</td>
+</tr>
+<tr>
+<td align="center">如果是 -Infinity 加 -Infinity</td>
+<td align="center">返回 -Infinity</td>
+</tr>
+<tr>
+<td align="center">如果是 Infinity 加 -Infinity</td>
+<td align="center">返回 NaN</td>
+</tr>
+<tr>
+<td align="center">如果是 +0 加 +0</td>
+<td align="center">返回 +0</td>
+</tr>
+<tr>
+<td align="center">如果是 -0 加 +0</td>
+<td align="center">返回 +0</td>
+</tr>
+<tr>
+<td align="center">如果是 -0 加 -0</td>
+<td align="center">返回 -0</td>
+</tr>
+</tbody></table>
+<ul>
+<li>如果有一操作数是字符串，应用如下规则：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">操作数</th>
+<th align="center">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">如果两个操作数都是字符串</td>
+<td align="center">第二个字符串拼接到第一个字符串后面</td>
+</tr>
+<tr>
+<td align="center">如果只有一个操作数是字符串</td>
+<td align="center">将另一个操作数转为字符串，然后再将两个字符串拼接在一起</td>
+</tr>
+</tbody></table>
+<ul>
+<li>如果有任一操作数是对象、数值或布尔值，则调用它们的 toString()方法以获取字符串，然后再应用前面的关于字符串的规则。</li>
+<li>对于 undefined 和 null，则调用 String()函数，分别获取”undefined”和”null”。</li>
+</ul>
+<h2 id="减法操作符"><a href="#减法操作符" class="headerlink" title="减法操作符"></a>减法操作符</h2><table>
+<thead>
+<tr>
+<th align="center">操作数</th>
+<th align="center">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">如果有任一操作数是 NaN</td>
+<td align="center">返回 NaN</td>
+</tr>
+<tr>
+<td align="center">如果是 Infinity 减 Infinity</td>
+<td align="center">返回 NaN</td>
+</tr>
+<tr>
+<td align="center">如果是 -Infinity 减 -Infinity</td>
+<td align="center">返回 NaN</td>
+</tr>
+<tr>
+<td align="center">如果是 Infinity 减 -Infinity</td>
+<td align="center">返回 Infinity</td>
+</tr>
+<tr>
+<td align="center">如果是 -Infinity 减 Infinity</td>
+<td align="center">返回 -Infinity</td>
+</tr>
+<tr>
+<td align="center">如果是 +0 加 +0</td>
+<td align="center">返回 +0</td>
+</tr>
+<tr>
+<td align="center">如果是 +0 加 -0</td>
+<td align="center">返回 -0</td>
+</tr>
+<tr>
+<td align="center">如果是 -0 加 -0</td>
+<td align="center">返回 +0</td>
+</tr>
+</tbody></table>
+<ul>
+<li>如果有任一操作数是字符串、布尔值、null 或 undefined，则先在后台使用 Number()将其转换为数值，然后再根据前面的规则执行数学运算。如果转换结果是 NaN，则减法计算的结果是NaN。</li>
+<li>如果有任一操作数是对象，则调用其 valueOf()方法取得表示它的数值。如果该值是 NaN，则减法计算的结果是 NaN。如果对象没有 valueOf()方法，则调用其 toString()方法，然后再将得到的字符串转换为数值。</li>
+</ul>
+<h1 id="关系操作符"><a href="#关系操作符" class="headerlink" title="关系操作符"></a>关系操作符</h1><ul>
+<li>关系操作符执行比较两个值的操作，包括小于（&lt;）、大于（&gt;）、小于等于（&lt;=）和大于等于（&gt;=）。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">操作数</th>
+<th align="center">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">都是数值</td>
+<td align="center">执行数值比较</td>
+</tr>
+<tr>
+<td align="center">都是字符串</td>
+<td align="center">比较字符串中对应字符的编码</td>
+</tr>
+<tr>
+<td align="center">如果有任一操作数是数值</td>
+<td align="center">将另一个操作数转换为数值，执行数值比较</td>
+</tr>
+<tr>
+<td align="center">如果有任一操作数是对象</td>
+<td align="center">调用其valueOf()方法，取得结果后再根据前面的规则执行比较;如果对象没有 valueOf()方法，则调用其 toString()方法,取得结果后再根据前面的规则执行比较</td>
+</tr>
+<tr>
+<td align="center">如果有任一操作数是布尔值</td>
+<td align="center">将其转换为数值再执行比较</td>
+</tr>
+</tbody></table>
+<h1 id="相等操作符"><a href="#相等操作符" class="headerlink" title="相等操作符"></a>相等操作符</h1><h2 id="等于和不等于"><a href="#等于和不等于" class="headerlink" title="等于和不等于"></a>等于和不等于</h2><ul>
+<li>等于操作符用两个等于号（==）表示</li>
+<li>不等于操作符用叹号和等于号（!=）表示</li>
+<li>这两个操作符都会先进行类型转换（通常称为强制类型转换）再确定操作数是否相等。</li>
+<li>转换规则如下：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">操作数</th>
+<th align="center">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">如果有任一操作数是布尔值</td>
+<td align="center">将其转换为数值再比较是否相等</td>
+</tr>
+<tr>
+<td align="center">如果一个操作数是字符串，另一个操作数是数值</td>
+<td align="center">࠼试将字符串转换为数值，再比较是否相等</td>
+</tr>
+<tr>
+<td align="center">如果一个操作数是对象，另一个操作数不是</td>
+<td align="center">调用对象的 valueOf()方法取得其原始值，再根据前面的规则进行比较</td>
+</tr>
+</tbody></table>
+<ul>
+<li>在进行比较时，这两个操作符会遵循以下规则：<ul>
+<li>null和underfined相等</li>
+<li>null 和 undefined 不能转换为其他类型的值再进行比较</li>
+<li>如果有任一操作数是 NaN，则相等操作符返回 false，不相等操作符返回 true</li>
+<li>如果两个操作数都是对象，则比较它们是不是同一个对象</li>
+</ul>
+</li>
+</ul>
+<h2 id="全等和不全等"><a href="#全等和不全等" class="headerlink" title="全等和不全等"></a>全等和不全等</h2><ul>
+<li><strong>全等操作符由 3 个等于号（===）表示，只有两个操作数在不转换的前提下相等才返回回 true</strong></li>
+</ul>
+<h1 id="条件操作符"><a href="#条件操作符" class="headerlink" title="条件操作符"></a>条件操作符</h1><p><strong>variable = boolean_expression ? true_value : false_value</strong></p>
+<h1 id="赋值操作符"><a href="#赋值操作符" class="headerlink" title="赋值操作符"></a>赋值操作符</h1><ul>
+<li>简单赋值用等于号（=）表示，将左手边的值赋给右手边的变量</li>
+<li>复合赋值：仅仅是简写语法，使用它们不会提升性能</li>
+</ul>
+<h1 id="逗号操作符"><a href="#逗号操作符" class="headerlink" title="逗号操作符"></a>逗号操作符</h1><ul>
+<li>逗号操作符可以用来在一条语句中执行多个操作</li>
+<li>在赋值时使用逗号操作符分隔值，最终会返回表达式中最后一个值<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num = (<span class="number">5</span>,<span class="number">1</span>,<span class="number">4</span>,<span class="number">8</span>,<span class="number">0</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(num);<span class="comment">//0</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">JavaScript学习笔记（六）操作符</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">姚永坤</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2021-07-21 17:17:36</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">2021/07/21/js-6/</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/JS%E5%AD%A6%E4%B9%A0/"><i class="icon fas fa-hashtag"></i>JS学习</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/2021/07/21/js-7/"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item text-ellipsis">JavaScript学习笔记（七）语句</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/2021/07/21/js-5/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item text-ellipsis">JavaScript学习笔记（五）数据类型概述</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+                
+
+
+    <div class="comments-container">
+        <div id="comments-anchor"></div>
+        <div class="comment-area-title">
+            <i class="fas fa-comments"></i>&nbsp;评论
+        </div>
+        
+            
+
+    <div class="giscus-comments-container">
+        <div class="giscus" id="giscus"></div>
+        <script data-pjax>
+
+          if (!window?.__getGiscusTheme) {
+            window.__getGiscusTheme = () => {
+              return document.body.classList.contains("dark-mode") ? "dark_dimmed" : "light_tritanopia";
+            };
+          }
+
+          if (!window?.__changeGiscusTheme) {
+            window.__changeGiscusTheme = () => {
+              const iframe = document.querySelector("iframe.giscus-frame");
+              iframe && iframe.contentWindow.postMessage({
+                giscus: {
+                  setConfig: {
+                    theme: __getGiscusTheme()
+                  }
+                }
+              }, "https://giscus.app");
+            };
+          }
+
+          if (!window?.__loadGiscus) {
+            window.__loadGiscus = () => {
+              const script = document.createElement("script");
+              script.async = true;
+              script.src = "https://giscus.app/client.js";
+              script.setAttribute("data-repo", 'kunkunyy/discussion');
+              script.setAttribute("data-repo-id", 'R_kgDOKOnLlw');
+              script.setAttribute("data-category", 'Announcements');
+              script.setAttribute("data-category-id", 'DIC_kwDOKOnLl84CZCrc');
+              script.setAttribute("data-reactions-enabled", '1');
+              script.setAttribute("data-lang", 'zh-CN');
+              script.setAttribute("data-mapping", "pathname");
+              script.setAttribute("data-strict", "0");
+              script.setAttribute("data-emit-metadata", "0");
+              script.setAttribute("data-input-position", "top");
+              script.setAttribute("crossorigin", "anonymous");
+              script.setAttribute("loading", "lazy");
+              script.setAttribute("data-theme", __getGiscusTheme());
+              document.querySelector(".giscus-comments-container").appendChild(script);
+
+              const toggleThemeBtn = document.querySelector(".tool-dark-light-toggle");
+              toggleThemeBtn && toggleThemeBtn.addEventListener("click", () => {
+                __changeGiscusTheme();
+              });
+            }
+          }
+
+          if ('true' === "true") {
+            setTimeout(() => {
+              __loadGiscus();
+            }, 1000);
+          } else {
+            window.addEventListener("DOMContentLoaded", () => {
+              setTimeout(() => {
+                __loadGiscus();
+              }, 1000);
+            });
+          }
+        </script>
+    </div>
+
+
+        
+    </div>
+
+
+
+
+
+            
+        </div>
+
+        
+            <div class="pc-post-toc left-toc">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E5%85%83%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-text">一元操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%92%E5%A2%9E-%E9%80%92%E5%87%8F%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-text">递增&#x2F;递减操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E7%B1%BB"><span class="nav-text">分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%84%E5%88%99"><span class="nav-text">规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E5%85%83%E5%8A%A0%E5%92%8C%E5%87%8F"><span class="nav-text">一元加和减</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E5%85%83%E5%8A%A0%E5%8F%B7"><span class="nav-text">一元加号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E5%85%83%E5%87%8F%E5%8F%B7"><span class="nav-text">一元减号</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%8D%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-text">位操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%89%E4%BD%8D%E9%9D%9E"><span class="nav-text">按位非</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%89%E4%BD%8D%E4%B8%8E"><span class="nav-text">按位与</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%89%E4%BD%8D%E6%88%96"><span class="nav-text">按位或</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%89%E4%BD%8D%E5%BC%82%E6%88%96"><span class="nav-text">按位异或</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A6%E7%A7%BB"><span class="nav-text">左移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E7%AC%A6%E5%8F%B7%E5%8F%B3%E7%A7%BB"><span class="nav-text">有符号右移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A0%E7%AC%A6%E5%8F%B7%E5%8F%B3%E7%A7%BB"><span class="nav-text">无符号右移</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%83%E5%B0%94%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-text">布尔操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E9%9D%9E"><span class="nav-text">逻辑非</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E4%B8%8E"><span class="nav-text">逻辑与</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E6%88%96"><span class="nav-text">逻辑或</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B9%98%E6%80%A7%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-text">乘性操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%98%E6%B3%95%E6%93%8D%E4%BD%9C%E7%AC%A6%EF%BC%88-%EF%BC%89"><span class="nav-text">乘法操作符（*）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%A4%E6%B3%95%E6%93%8D%E4%BD%9C%E7%AC%A6%EF%BC%88-%EF%BC%89"><span class="nav-text">除法操作符（&#x2F;）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%96%E6%A8%A1%E6%93%8D%E4%BD%9C%E6%95%B0%EF%BC%88-%EF%BC%89"><span class="nav-text">取模操作数（%）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%87%E6%95%B0%E6%93%8D%E4%BD%9C%E6%95%B0"><span class="nav-text">指数操作数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8A%A0%E6%80%A7%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-text">加性操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E6%B3%95%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-text">加法操作符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%8F%E6%B3%95%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-text">减法操作符</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-text">关系操作符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E7%AD%89%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-text">相等操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AD%89%E4%BA%8E%E5%92%8C%E4%B8%8D%E7%AD%89%E4%BA%8E"><span class="nav-text">等于和不等于</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%A8%E7%AD%89%E5%92%8C%E4%B8%8D%E5%85%A8%E7%AD%89"><span class="nav-text">全等和不全等</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-text">条件操作符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B5%8B%E5%80%BC%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-text">赋值操作符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%97%E5%8F%B7%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-text">逗号操作符</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="border-box website-info-box default">
+        
+            <div class="copyright-info info-item default">
+                &copy;&nbsp;<span>2021</span>&nbsp;-&nbsp;2023
+                
+                    &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">姚永坤</a>
+                
+            </div>
+
+            <div class="theme-info info-item default">
+                由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.7.3</a>
+            </div>
+
+            
+
+            
+        
+
+        <div class="count-item info-item default">
+            
+                <span class="count-box border-box word">
+                    <span class="item-type border-box">全站总字数</span>
+                    <span class="item-value border-box word">198.2k</span>
+                </span>
+            
+
+            
+                <span class="count-box border-box uv">
+                    <span class="item-type border-box">访问人数</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-box border-box pv">
+                    <span class="item-type border-box">总访问量</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools left-toc">
+            <div class="post-tools-container border-box">
+    <ul class="tools-list border-box">
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+            <li class="tools-item go-to-comments-tablet flex-center">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E5%85%83%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-text">一元操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%92%E5%A2%9E-%E9%80%92%E5%87%8F%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-text">递增&#x2F;递减操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E7%B1%BB"><span class="nav-text">分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%84%E5%88%99"><span class="nav-text">规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E5%85%83%E5%8A%A0%E5%92%8C%E5%87%8F"><span class="nav-text">一元加和减</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E5%85%83%E5%8A%A0%E5%8F%B7"><span class="nav-text">一元加号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E5%85%83%E5%87%8F%E5%8F%B7"><span class="nav-text">一元减号</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%8D%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-text">位操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%89%E4%BD%8D%E9%9D%9E"><span class="nav-text">按位非</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%89%E4%BD%8D%E4%B8%8E"><span class="nav-text">按位与</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%89%E4%BD%8D%E6%88%96"><span class="nav-text">按位或</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%89%E4%BD%8D%E5%BC%82%E6%88%96"><span class="nav-text">按位异或</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A6%E7%A7%BB"><span class="nav-text">左移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E7%AC%A6%E5%8F%B7%E5%8F%B3%E7%A7%BB"><span class="nav-text">有符号右移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A0%E7%AC%A6%E5%8F%B7%E5%8F%B3%E7%A7%BB"><span class="nav-text">无符号右移</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%83%E5%B0%94%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-text">布尔操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E9%9D%9E"><span class="nav-text">逻辑非</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E4%B8%8E"><span class="nav-text">逻辑与</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E6%88%96"><span class="nav-text">逻辑或</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B9%98%E6%80%A7%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-text">乘性操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%98%E6%B3%95%E6%93%8D%E4%BD%9C%E7%AC%A6%EF%BC%88-%EF%BC%89"><span class="nav-text">乘法操作符（*）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%A4%E6%B3%95%E6%93%8D%E4%BD%9C%E7%AC%A6%EF%BC%88-%EF%BC%89"><span class="nav-text">除法操作符（&#x2F;）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%96%E6%A8%A1%E6%93%8D%E4%BD%9C%E6%95%B0%EF%BC%88-%EF%BC%89"><span class="nav-text">取模操作数（%）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%87%E6%95%B0%E6%93%8D%E4%BD%9C%E6%95%B0"><span class="nav-text">指数操作数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8A%A0%E6%80%A7%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-text">加性操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E6%B3%95%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-text">加法操作符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%8F%E6%B3%95%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-text">减法操作符</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-text">关系操作符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E7%AD%89%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-text">相等操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AD%89%E4%BA%8E%E5%92%8C%E4%B8%8D%E7%AD%89%E4%BA%8E"><span class="nav-text">等于和不等于</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%A8%E7%AD%89%E5%92%8C%E4%B8%8D%E5%85%A8%E7%AD%89"><span class="nav-text">全等和不全等</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-text">条件操作符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B5%8B%E5%80%BC%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-text">赋值操作符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%97%E5%8F%B7%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-text">逗号操作符</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/code-block.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/post-helper.js"></script>
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/libs/anime.min.js"></script>
+        
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/toc.js"></script>
+        
+    
+    
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+
+    
+        
+    
+
+</body>
+</html>

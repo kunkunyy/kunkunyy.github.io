@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="姚永坤">
+    
+    <title>
+        
+            数据库实验（二）数据查询 |
+        
+        坤坤的百宝箱
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/head.3yoe3br9tws0.png">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/brands.min.css">
+    
+        
+            
+        
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true,"layout":"left"},"style":{"primary_color":"#0066cc","logo":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/op.3zg25jxprna0.png","favicon":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/head.3yoe3br9tws0.png","avatar":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/logo.6qi88yzn2jg0.jpg","shadow":true,"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"黑夜降临之处，便是黎明之始。|| Where blackness falls, begins dawn.","hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":true,"use":"giscus","valine":{"appid":"Peml0rEJ7HZNQA1gZrKxXgPr-gzGzoHsz","appkey":"vVJRDKBsUlnpc3zr69GFbCTI","placeholder":"快来评论吧！！！"},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2},"giscus":{"repo":"kunkunyy/discussion","repo_id":"R_kgDOKOnLlw","category":"Announcements","category_id":"DIC_kwDOKOnLl84CZCrc","reactions_enabled":true}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"wordcount":true,"min2read":true},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":true},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"version":"3.7.3"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="姚永坤的小窝" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container border-box">
+
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/op.3zg25jxprna0.png">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               坤坤的百宝箱
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/changelog"
+                            >
+                                更新日志
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/changelog">更新日志</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+
+                
+
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+
+        <div class="article-content-container border-box">
+
+            <div class="article-title">
+                <span class="title-hover-animation">数据库实验（二）数据查询</span>
+            </div>
+
+            
+                <div class="article-header border-box">
+                    
+                        <div class="avatar-box border-box">
+                            <img src="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/logo.6qi88yzn2jg0.jpg">
+                        </div>
+                    
+                    <div class="info-box">
+                        <div class="author">
+                            <span class="name">姚永坤</span>
+                            
+                                <span class="author-label">Lv6</span>
+                            
+                        </div>
+                        <div class="meta-info border-box">
+                            
+
+<div class="article-meta-info-container border-box post">
+    <div class="article-meta-info border-box">
+        
+
+
+        
+            <span class="meta-info-item article-create-date">
+                <i class="icon fa-solid fa-calendar-check"></i>&nbsp;
+                <span class="pc">2021-04-28 10:36:50</span>
+                <span class="mobile">2021-04-28 10:36</span>
+            </span>
+
+            <span class="meta-info-item article-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="pc">2023-11-06 11:29:16</span>
+            </span>
+        
+
+        
+            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul>
+                    
+                            <li class="category-item">
+                                
+                                <a href="/categories/experiment/">experiment</a>
+                            </li>
+                        
+                    
+                            <li class="category-item">
+                                
+                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
+                                
+                                <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%9E%E9%AA%8C/">数据库实验</a>
+                            </li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="article-tag meta-info-item border-box">
+                <i class="icon fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/experiment/">experiment</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Database-experiment/">Database-experiment</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item article-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>2.2k 字</span>
+            </span>
+        
+        
+            <span class="meta-info-item article-min2read">
+                <i class="icon fas fa-clock"></i>&nbsp;<span>8 分钟</span>
+            </span>
+        
+        
+            <span class="meta-info-item article-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <h1 id="实验类型"><a href="#实验类型" class="headerlink" title="实验类型"></a>实验类型</h1><p>验证型实验</p>
+<h1 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h1><ul>
+<li>掌握查询语句的一般格式；</li>
+<li>熟练掌握单表查询、连接查询、集合查询、统计查询和嵌套查询。</li>
+</ul>
+<h1 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h1><ul>
+<li>单表查询</li>
+<li>连接查询</li>
+<li>嵌套查询</li>
+<li>集合查询</li>
+</ul>
+<h1 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h1><ol>
+<li>查询“红楼梦”目前可借的各图书编号，及所属版本信息。（是否借出为‘否‘的图书）</li>
+<li>查找高等教育出版社的所有书目及单价，结果按单价降序排序。</li>
+<li>统计“红楼梦”各版的藏书数量（ISBN不同则版本不同）。</li>
+<li>查询学号“20061234”号借书证借阅未还的图书的信息。</li>
+<li>查询各个出版社的图书最高单价、平均单价。</li>
+<li>要查询借阅了两本和两本以上图书的读者的个人信息。</li>
+<li>查询“王菲”的单位、所借图书的书名和借阅日期。</li>
+<li>查询每类图书的册数和平均单价。</li>
+<li>统计从未借书的读者人数。</li>
+<li>统计参与借书的人数。</li>
+<li>找出所有借书未还的读者的信息及所借图书编号及名称。</li>
+<li>检索书名是以“红”开头的所有图书的书名和作者。</li>
+<li>查询各图书的罚款总数。</li>
+<li>查询借阅及罚款分类信息，如果有罚款则显示借阅信息及罚款名称、罚金，如果没有罚款则罚款名称、罚金显示空（左外连接）</li>
+<li>查询借阅了所有“文学”类书目的读者的姓名、单位。</li>
+</ol>
+<h1 id="实验扩展"><a href="#实验扩展" class="headerlink" title="实验扩展"></a>实验扩展</h1><ol>
+<li><p>在书目关系中新增“出版年份”，并在该属性下添加数据。（使用SQL完成）</p>
+<table>
+<thead>
+<tr>
+<th align="center">ISBN</th>
+<th align="center">书名</th>
+<th align="center">作者</th>
+<th align="center">出版单位</th>
+<th align="center">出版年份</th>
+<th align="center">单价</th>
+<th align="center">图书分类号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">7040195836</td>
+<td align="center">数据库系统概论</td>
+<td align="center">王珊</td>
+<td align="center">高等教育出版社</td>
+<td align="center">2005</td>
+<td align="center">39.00</td>
+<td align="center">200</td>
+</tr>
+<tr>
+<td align="center">9787508040110</td>
+<td align="center">红楼梦</td>
+<td align="center">曹雪芹</td>
+<td align="center">人民出版社</td>
+<td align="center">1983</td>
+<td align="center">20.00</td>
+<td align="center">100</td>
+</tr>
+<tr>
+<td align="center">9787506336239</td>
+<td align="center">红楼梦</td>
+<td align="center">曹雪芹</td>
+<td align="center">作家出版社</td>
+<td align="center">2008</td>
+<td align="center">34.30</td>
+<td align="center">100</td>
+</tr>
+<tr>
+<td align="center">9787010073750</td>
+<td align="center">心学之路</td>
+<td align="center">张立文</td>
+<td align="center">人民出版社</td>
+<td align="center">2009</td>
+<td align="center">33.80</td>
+<td align="center">300</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>求总藏书量、藏书总金额，总库存册数、最高价、最低价。</p>
+</li>
+<li><p>列出藏书在5本以上的书目（书名、作者、出版社、出版年份）。</p>
+</li>
+<li><p>列出年份最久远的书?</p>
+</li>
+<li><p>目前实际已借出多少册书？</p>
+</li>
+<li><p>哪一年的图书最多？</p>
+</li>
+<li><p>哪本借书证未归还的图书最多？</p>
+</li>
+<li><p>平均每本借书证的借书册数。</p>
+</li>
+<li><p>哪个单位的读者平均借书册数最多？</p>
+</li>
+<li><p>最近两年都未被借过的书。<br>注意：Oracle 系统日期时间 sysdate，更多关于oracle日期函数请自行查阅。</p>
+</li>
+<li><p>今年未借过书的借书证。</p>
+</li>
+</ol>
+<h1 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h1><h2 id="实验内容-1"><a href="#实验内容-1" class="headerlink" title="实验内容"></a>实验内容</h2><ol>
+<li>查询“红楼梦”目前可借的各图书编号，及所属版本信息。（是否借出为‘否‘的图书）</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">from</span> 书目,图书</span><br><span class="line"><span class="keyword">where</span> 书目.ISBN<span class="operator">=</span>图书.ISBN</span><br><span class="line"><span class="keyword">and</span> 书名<span class="operator">=</span><span class="string">&#x27;红楼梦&#x27;</span></span><br><span class="line"><span class="keyword">and</span> 是否借出<span class="operator">=</span><span class="string">&#x27;否&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>   查找高等教育出版社的所有书目及单价，结果按单价降序排序。</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">from</span> 书目</span><br><span class="line"><span class="keyword">where</span> 出版单位<span class="operator">=</span><span class="string">&#x27;高等教育出版社&#x27;</span></span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> 单价 <span class="keyword">desc</span>;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>   统计“红楼梦”各版的藏书数量（ISBN不同则版本不同）。</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(ISBN),ISBN</span><br><span class="line"><span class="keyword">from</span> 书目</span><br><span class="line"><span class="keyword">where</span> 书名<span class="operator">=</span><span class="string">&#x27;红楼梦&#x27;</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> ISBN;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>   查询学号“20061234”号借书证借阅未还的图书的信息。</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> 借书证号,书名,书目.ISBN ,出版单位,作者,单价,    图书分类号</span><br><span class="line"><span class="keyword">from</span> 书目,借阅,图书</span><br><span class="line"><span class="keyword">where</span> 书目.ISBN<span class="operator">=</span>图书.ISBN</span><br><span class="line"><span class="keyword">and</span> 借阅.图书编号<span class="operator">=</span>图书.图书编号 </span><br><span class="line"><span class="keyword">and</span> 是否借出<span class="operator">=</span><span class="string">&#x27;是&#x27;</span></span><br><span class="line"><span class="keyword">and</span>  归还日期 <span class="keyword">is</span> <span class="keyword">NULL</span></span><br><span class="line"><span class="keyword">and</span> 借书证号<span class="operator">=</span><span class="number">20061234</span>;</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>   查询各个出版社的图书最高单价、平均单价。（同上）</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> 出版单位,<span class="built_in">max</span>(单价),<span class="built_in">avg</span>(单价)</span><br><span class="line"><span class="keyword">from</span> 书目</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> 出版单位;</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>   要查询借阅了两本和两本以上图书的读者的个人信息。</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> 读者 </span><br><span class="line"><span class="keyword">where</span> 借书证号 <span class="keyword">in</span></span><br><span class="line">(</span><br><span class="line"><span class="keyword">select</span> 借书证号</span><br><span class="line"><span class="keyword">from</span> 借阅</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> 借书证号 </span><br><span class="line"><span class="keyword">having</span> <span class="built_in">count</span>(借书证号)<span class="operator">&gt;=</span><span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li>   查询“王菲”的单位、所借图书的书名和借阅日期。</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> 单位,书名,借书日期</span><br><span class="line"><span class="keyword">from</span> 读者,借阅,书目,图书</span><br><span class="line"><span class="keyword">where</span>  姓名<span class="operator">=</span><span class="string">&#x27;王菲&#x27;</span></span><br><span class="line"><span class="keyword">and</span> 读者.借书证号<span class="operator">=</span>借阅.借书证号</span><br><span class="line"><span class="keyword">and</span> 借阅.图书编号<span class="operator">=</span>图书.图书编号</span><br><span class="line"><span class="keyword">and</span> 图书.ISBN<span class="operator">=</span>书目.ISBN ;</span><br></pre></td></tr></table></figure>
+
+<ol start="8">
+<li>   查询每类图书的册数和平均单价。</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(图书分类号),<span class="built_in">avg</span>(单价)</span><br><span class="line"><span class="keyword">from</span> 书目</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> 图书分类号;</span><br></pre></td></tr></table></figure>
+
+<ol start="9">
+<li>   统计从未借书的读者人数。</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(姓名)</span><br><span class="line"><span class="keyword">from</span> 读者</span><br><span class="line"><span class="keyword">where</span> <span class="keyword">not</span> <span class="keyword">exists</span> (<span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> 借阅 </span><br><span class="line"><span class="keyword">where</span> 读者.借书证号<span class="operator">=</span>借阅.借书证号);</span><br></pre></td></tr></table></figure>
+
+<ol start="10">
+<li>   统计参与借书的人数。</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(姓名)</span><br><span class="line"><span class="keyword">from</span> 读者</span><br><span class="line"><span class="keyword">where</span> <span class="keyword">exists</span> (</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> 借阅 </span><br><span class="line"><span class="keyword">where</span> 读者.借书证号<span class="operator">=</span>借阅.借书证号);</span><br></pre></td></tr></table></figure>
+
+<ol start="11">
+<li>   找出所有借书未还的读者的信息及所借图书编号及名称。</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> 借阅.借书证号,姓名,单位,性别,地址,联系电话,身份证编号,借阅.图书编号,书名</span><br><span class="line"><span class="keyword">from</span> 借阅,书目,读者,图书</span><br><span class="line"><span class="keyword">where</span> 借阅.借书证号<span class="operator">=</span>读者.借书证号</span><br><span class="line"><span class="keyword">and</span> 借阅.图书编号<span class="operator">=</span>图书.图书编号</span><br><span class="line"><span class="keyword">and</span> 书目.ISBN<span class="operator">=</span>图书.ISBN</span><br><span class="line"><span class="keyword">and</span> 归还日期 <span class="keyword">is</span> <span class="keyword">null</span>;</span><br></pre></td></tr></table></figure>
+
+<ol start="12">
+<li>   检索书名是以“红”开头的所有图书的书名和作者。</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> 书名,作者</span><br><span class="line"><span class="keyword">from</span> 书目</span><br><span class="line"><span class="keyword">where</span> 书名 <span class="keyword">like</span> <span class="string">&#x27;红%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<ol start="13">
+<li>   查询各图书的罚款总数。（分组，图书编号+罚款总数）</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> 书目.ISBN,<span class="built_in">sum</span>(罚金)</span><br><span class="line"><span class="keyword">from</span> 借阅,罚款分类,书目,图书</span><br><span class="line"><span class="keyword">where</span> 借阅.罚款分类号<span class="operator">=</span>罚款分类.罚款分类号</span><br><span class="line"><span class="keyword">and</span> 借阅.图书编号<span class="operator">=</span>图书.图书编号</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> 书目.ISBN</span><br></pre></td></tr></table></figure>
+
+<ol start="14">
+<li>   查询借阅及罚款分类信息，如果有罚款则显示借阅信息及罚款名称、罚金，如果没有罚款则罚款名称、罚金显示空</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> 借阅  <span class="keyword">left</span> <span class="keyword">outer</span> <span class="keyword">join</span> 罚款分类 <span class="keyword">on</span>(借阅.罚款分类号<span class="operator">=</span>罚款分类.罚款分类号)</span><br></pre></td></tr></table></figure>
+
+<ol start="15">
+<li>   查询借阅了所有“文学”类书目的读者的姓名、单位。（判断条件）</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> 读者.姓名,读者.单位</span><br><span class="line"><span class="keyword">from</span> 读者</span><br><span class="line"><span class="keyword">where</span> <span class="keyword">not</span> <span class="keyword">exists</span>(</span><br><span class="line">      <span class="keyword">select</span> <span class="operator">*</span></span><br><span class="line">      <span class="keyword">from</span> 书目,图书分类</span><br><span class="line">      <span class="keyword">where</span> 书目.图书分类号<span class="operator">=</span>图书分类.图书分类号 <span class="keyword">and</span> 图书分类.类名<span class="operator">=</span><span class="string">&#x27;文学&#x27;</span> <span class="keyword">and</span> <span class="keyword">not</span> <span class="keyword">exists</span></span><br><span class="line">      (</span><br><span class="line">            <span class="keyword">select</span> <span class="operator">*</span></span><br><span class="line">            <span class="keyword">from</span> 借阅,图书</span><br><span class="line">            <span class="keyword">where</span> 借阅.图书编号<span class="operator">=</span>图书.图书编号 <span class="keyword">and</span> 借阅.借书证号<span class="operator">=</span>读者.借书证号 <span class="keyword">and</span> 书目.ISBN<span class="operator">=</span>图书.ISBN</span><br><span class="line">      )</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h2 id="实验扩展-1"><a href="#实验扩展-1" class="headerlink" title="实验扩展"></a>实验扩展</h2><ol>
+<li>在书目关系中新增“出版年份”，并在该属性下添加数据。（使用SQL完成）<table>
+<thead>
+<tr>
+<th align="center">ISBN</th>
+<th align="center">书名</th>
+<th align="center">作者</th>
+<th align="center">出版单位</th>
+<th align="center">出版年份</th>
+<th align="center">单价</th>
+<th align="center">图书分类号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">7040195836</td>
+<td align="center">数据库系统概论</td>
+<td align="center">王珊</td>
+<td align="center">高等教育出版社</td>
+<td align="center">2005</td>
+<td align="center">39.00</td>
+<td align="center">200</td>
+</tr>
+<tr>
+<td align="center">9787508040110</td>
+<td align="center">红楼梦</td>
+<td align="center">曹雪芹</td>
+<td align="center">人民出版社</td>
+<td align="center">1983</td>
+<td align="center">20.00</td>
+<td align="center">100</td>
+</tr>
+<tr>
+<td align="center">9787506336239</td>
+<td align="center">红楼梦</td>
+<td align="center">曹雪芹</td>
+<td align="center">作家出版社</td>
+<td align="center">2008</td>
+<td align="center">34.30</td>
+<td align="center">100</td>
+</tr>
+<tr>
+<td align="center">9787010073750</td>
+<td align="center">心学之路</td>
+<td align="center">张立文</td>
+<td align="center">人民出版社</td>
+<td align="center">2009</td>
+<td align="center">33.80</td>
+<td align="center">300</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> 书目</span><br><span class="line"><span class="keyword">add</span> 出版年份 number;</span><br><span class="line"><span class="keyword">update</span> 书目 <span class="keyword">set</span> 出版年份<span class="operator">=</span><span class="number">2005</span> <span class="keyword">where</span> ISBN<span class="operator">=</span><span class="number">7040195836</span>;</span><br><span class="line"><span class="keyword">update</span> 书目 <span class="keyword">set</span> 出版年份<span class="operator">=</span><span class="number">1983</span> <span class="keyword">where</span> ISBN<span class="operator">=</span><span class="number">9787508040110</span>;</span><br><span class="line"><span class="keyword">update</span> 书目 <span class="keyword">set</span> 出版年份<span class="operator">=</span><span class="number">2008</span> <span class="keyword">where</span> ISBN<span class="operator">=</span><span class="number">9787506336239</span>;</span><br><span class="line"><span class="keyword">update</span> 书目 <span class="keyword">set</span> 出版年份<span class="operator">=</span><span class="number">2009</span> <span class="keyword">where</span> ISBN<span class="operator">=</span><span class="number">9787010073750</span>;</span><br></pre></td></tr></table></figure>
+
+<p>2、求总藏书量、藏书总金额，总库存册数、最高价、最低价。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(图书编号),<span class="built_in">sum</span>(单价),<span class="built_in">max</span>(单价),<span class="built_in">min</span>(单价)</span><br><span class="line"><span class="keyword">from</span> 书目,图书</span><br><span class="line"><span class="keyword">where</span> 书目.ISBN<span class="operator">=</span>图书.ISBN;</span><br></pre></td></tr></table></figure>
+
+<p>3、列出藏书在5本以上的书目（书名、作者、出版社、出版年份）。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> 书名,作者,出版单位,出版年份</span><br><span class="line"><span class="keyword">from</span> 书目</span><br><span class="line"><span class="keyword">where</span> 书目.ISBN <span class="keyword">in</span></span><br><span class="line">(</span><br><span class="line"><span class="keyword">select</span> 图书.ISBN</span><br><span class="line"><span class="keyword">from</span> 图书</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> 图书.ISBN <span class="keyword">having</span> <span class="built_in">count</span>( 图书.ISBN)<span class="operator">&gt;</span><span class="number">5</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>4、列出年份最久远的书?</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> 书名,作者,出版单位,出版年份</span><br><span class="line"><span class="keyword">from</span> 书目</span><br><span class="line"><span class="keyword">where</span> 书目.出版年份 <span class="keyword">in</span></span><br><span class="line">(</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">min</span>(书目.出版年份)</span><br><span class="line"><span class="keyword">from</span> 书目</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>5、目前实际已借出多少册书？</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(借阅.借阅流水号) 借出数量</span><br><span class="line"><span class="keyword">from</span> 借阅</span><br><span class="line"><span class="keyword">where</span> 归还日期 <span class="keyword">is</span> <span class="keyword">null</span>;</span><br></pre></td></tr></table></figure>
+
+<p>6、哪一年的图书最多？</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> (</span><br><span class="line"><span class="keyword">select</span> 出版年份,<span class="built_in">count</span>(出版年份) 数量 </span><br><span class="line"><span class="keyword">from</span> 图书,书目 </span><br><span class="line"><span class="keyword">where</span> 图书.ISBN <span class="operator">=</span> 书目.ISBN</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> 出版年份 </span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> <span class="built_in">count</span>(出版年份) <span class="keyword">desc</span> </span><br><span class="line">) <span class="keyword">where</span> rownum<span class="operator">=</span><span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<p>7、 哪本借书证未归还的图书最多？</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> (</span><br><span class="line"><span class="keyword">select</span> 借书证号</span><br><span class="line"><span class="keyword">from</span> 借阅</span><br><span class="line"><span class="keyword">where</span> 归还日期 <span class="keyword">is</span> <span class="keyword">null</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> 借书证号</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> <span class="built_in">count</span>(借书证号) <span class="keyword">desc</span></span><br><span class="line">) <span class="keyword">where</span> rownum<span class="operator">=</span><span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>8、平均每本借书证的借书册数。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> 借书证号,<span class="built_in">count</span>(借书证号)</span><br><span class="line"><span class="keyword">from</span> 借阅 </span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> 借书证号;</span><br></pre></td></tr></table></figure>
+
+<p>9、哪个单位的读者平均借书册数最多？</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> 读者.单位</span><br><span class="line"><span class="keyword">from</span> 读者</span><br><span class="line"><span class="keyword">where</span> 读者.借书证号 <span class="keyword">in</span> (</span><br><span class="line"><span class="keyword">select</span> 借书证号 <span class="keyword">from</span> (</span><br><span class="line"><span class="keyword">select</span> 借书证号, <span class="built_in">count</span>(借书证号)</span><br><span class="line"><span class="keyword">from</span> 借阅</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> 借书证号</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span>  <span class="built_in">count</span>(借书证号) <span class="keyword">desc</span> </span><br><span class="line">) <span class="keyword">where</span> rownum<span class="operator">=</span><span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+<p>10、最近两年都未被借过的书。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span>(书目.ISBN),书目.书名,书目.出版单位</span><br><span class="line"><span class="keyword">from</span> 图书,书目,借阅</span><br><span class="line"><span class="keyword">where</span> 图书.图书编号<span class="operator">=</span>借阅.图书编号</span><br><span class="line"><span class="keyword">and</span> 书目.ISBN<span class="operator">=</span>图书.ISBN</span><br><span class="line"><span class="keyword">and</span> 借阅.借书日期</span><br><span class="line"><span class="keyword">not</span> <span class="keyword">between</span> to_date(<span class="string">&#x27;20180101&#x27;</span>,<span class="string">&#x27;yyyy/mm/dd&#x27;</span>)</span><br><span class="line"><span class="keyword">and</span> to_date(<span class="string">&#x27;20191231&#x27;</span>,<span class="string">&#x27;yyyy/mm/dd&#x27;</span>);</span><br></pre></td></tr></table></figure>
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">数据库实验（二）数据查询</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">姚永坤</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2021-04-28 10:36:50</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">2021/04/28/Database-experiment-2/</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/experiment/"><i class="icon fas fa-hashtag"></i>experiment</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/Database-experiment/"><i class="icon fas fa-hashtag"></i>Database-experiment</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/2021/04/28/Database-experiment-3/"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item text-ellipsis">数据库实验三、四</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/2021/04/07/Database-experiment-1/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item text-ellipsis">数据库实验（一）建立数据库</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+                
+
+
+    <div class="comments-container">
+        <div id="comments-anchor"></div>
+        <div class="comment-area-title">
+            <i class="fas fa-comments"></i>&nbsp;评论
+        </div>
+        
+            
+
+    <div class="giscus-comments-container">
+        <div class="giscus" id="giscus"></div>
+        <script data-pjax>
+
+          if (!window?.__getGiscusTheme) {
+            window.__getGiscusTheme = () => {
+              return document.body.classList.contains("dark-mode") ? "dark_dimmed" : "light_tritanopia";
+            };
+          }
+
+          if (!window?.__changeGiscusTheme) {
+            window.__changeGiscusTheme = () => {
+              const iframe = document.querySelector("iframe.giscus-frame");
+              iframe && iframe.contentWindow.postMessage({
+                giscus: {
+                  setConfig: {
+                    theme: __getGiscusTheme()
+                  }
+                }
+              }, "https://giscus.app");
+            };
+          }
+
+          if (!window?.__loadGiscus) {
+            window.__loadGiscus = () => {
+              const script = document.createElement("script");
+              script.async = true;
+              script.src = "https://giscus.app/client.js";
+              script.setAttribute("data-repo", 'kunkunyy/discussion');
+              script.setAttribute("data-repo-id", 'R_kgDOKOnLlw');
+              script.setAttribute("data-category", 'Announcements');
+              script.setAttribute("data-category-id", 'DIC_kwDOKOnLl84CZCrc');
+              script.setAttribute("data-reactions-enabled", '1');
+              script.setAttribute("data-lang", 'zh-CN');
+              script.setAttribute("data-mapping", "pathname");
+              script.setAttribute("data-strict", "0");
+              script.setAttribute("data-emit-metadata", "0");
+              script.setAttribute("data-input-position", "top");
+              script.setAttribute("crossorigin", "anonymous");
+              script.setAttribute("loading", "lazy");
+              script.setAttribute("data-theme", __getGiscusTheme());
+              document.querySelector(".giscus-comments-container").appendChild(script);
+
+              const toggleThemeBtn = document.querySelector(".tool-dark-light-toggle");
+              toggleThemeBtn && toggleThemeBtn.addEventListener("click", () => {
+                __changeGiscusTheme();
+              });
+            }
+          }
+
+          if ('true' === "true") {
+            setTimeout(() => {
+              __loadGiscus();
+            }, 1000);
+          } else {
+            window.addEventListener("DOMContentLoaded", () => {
+              setTimeout(() => {
+                __loadGiscus();
+              }, 1000);
+            });
+          }
+        </script>
+    </div>
+
+
+        
+    </div>
+
+
+
+
+
+            
+        </div>
+
+        
+            <div class="pc-post-toc left-toc">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%B1%BB%E5%9E%8B"><span class="nav-text">实验类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84"><span class="nav-text">实验目的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E5%86%85%E5%AE%B9"><span class="nav-text">实验内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4"><span class="nav-text">实验步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E6%89%A9%E5%B1%95"><span class="nav-text">实验扩展</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="nav-text">实验结果</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E5%86%85%E5%AE%B9-1"><span class="nav-text">实验内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E6%89%A9%E5%B1%95-1"><span class="nav-text">实验扩展</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="border-box website-info-box default">
+        
+            <div class="copyright-info info-item default">
+                &copy;&nbsp;<span>2021</span>&nbsp;-&nbsp;2023
+                
+                    &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">姚永坤</a>
+                
+            </div>
+
+            <div class="theme-info info-item default">
+                由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.7.3</a>
+            </div>
+
+            
+
+            
+        
+
+        <div class="count-item info-item default">
+            
+                <span class="count-box border-box word">
+                    <span class="item-type border-box">全站总字数</span>
+                    <span class="item-value border-box word">198.2k</span>
+                </span>
+            
+
+            
+                <span class="count-box border-box uv">
+                    <span class="item-type border-box">访问人数</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-box border-box pv">
+                    <span class="item-type border-box">总访问量</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools left-toc">
+            <div class="post-tools-container border-box">
+    <ul class="tools-list border-box">
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+            <li class="tools-item go-to-comments-tablet flex-center">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%B1%BB%E5%9E%8B"><span class="nav-text">实验类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84"><span class="nav-text">实验目的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E5%86%85%E5%AE%B9"><span class="nav-text">实验内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4"><span class="nav-text">实验步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E6%89%A9%E5%B1%95"><span class="nav-text">实验扩展</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="nav-text">实验结果</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E5%86%85%E5%AE%B9-1"><span class="nav-text">实验内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E6%89%A9%E5%B1%95-1"><span class="nav-text">实验扩展</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/code-block.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/post-helper.js"></script>
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/libs/anime.min.js"></script>
+        
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/toc.js"></script>
+        
+    
+    
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+
+    
+        
+    
+
+</body>
+</html>

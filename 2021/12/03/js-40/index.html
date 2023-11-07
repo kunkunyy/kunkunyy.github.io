@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="姚永坤">
+    
+    <title>
+        
+            JavaScript学习笔记（四十）DOM2和DOM3（一） |
+        
+        坤坤的百宝箱
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/head.3yoe3br9tws0.png">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/brands.min.css">
+    
+        
+            
+        
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true,"layout":"left"},"style":{"primary_color":"#0066cc","logo":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/op.3zg25jxprna0.png","favicon":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/head.3yoe3br9tws0.png","avatar":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/logo.6qi88yzn2jg0.jpg","shadow":true,"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"黑夜降临之处，便是黎明之始。|| Where blackness falls, begins dawn.","hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":true,"use":"giscus","valine":{"appid":"Peml0rEJ7HZNQA1gZrKxXgPr-gzGzoHsz","appkey":"vVJRDKBsUlnpc3zr69GFbCTI","placeholder":"快来评论吧！！！"},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2},"giscus":{"repo":"kunkunyy/discussion","repo_id":"R_kgDOKOnLlw","category":"Announcements","category_id":"DIC_kwDOKOnLl84CZCrc","reactions_enabled":true}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"wordcount":true,"min2read":true},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":true},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"version":"3.7.3"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="姚永坤的小窝" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container border-box">
+
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/op.3zg25jxprna0.png">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               坤坤的百宝箱
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/changelog"
+                            >
+                                更新日志
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/changelog">更新日志</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+
+                
+
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+
+        <div class="article-content-container border-box">
+
+            <div class="article-title">
+                <span class="title-hover-animation">JavaScript学习笔记（四十）DOM2和DOM3（一）</span>
+            </div>
+
+            
+                <div class="article-header border-box">
+                    
+                        <div class="avatar-box border-box">
+                            <img src="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/logo.6qi88yzn2jg0.jpg">
+                        </div>
+                    
+                    <div class="info-box">
+                        <div class="author">
+                            <span class="name">姚永坤</span>
+                            
+                                <span class="author-label">Lv6</span>
+                            
+                        </div>
+                        <div class="meta-info border-box">
+                            
+
+<div class="article-meta-info-container border-box post">
+    <div class="article-meta-info border-box">
+        
+
+
+        
+            <span class="meta-info-item article-create-date">
+                <i class="icon fa-solid fa-calendar-check"></i>&nbsp;
+                <span class="pc">2021-12-03 18:45:34</span>
+                <span class="mobile">2021-12-03 18:45</span>
+            </span>
+
+            <span class="meta-info-item article-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="pc">2023-11-06 11:29:16</span>
+            </span>
+        
+
+        
+            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul>
+                    
+                            <li class="category-item">
+                                
+                                <a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a>
+                            </li>
+                        
+                    
+                            <li class="category-item">
+                                
+                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
+                                
+                                <a href="/categories/JS/">JS</a>
+                            </li>
+                        
+                    
+                            <li class="category-item">
+                                
+                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
+                                
+                                <a href="/categories/DOM/">DOM</a>
+                            </li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="article-tag meta-info-item border-box">
+                <i class="icon fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item article-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>2.6k 字</span>
+            </span>
+        
+        
+            <span class="meta-info-item article-min2read">
+                <i class="icon fas fa-clock"></i>&nbsp;<span>10 分钟</span>
+            </span>
+        
+        
+            <span class="meta-info-item article-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <ul>
+<li>DOM1(DOMLevel1)主要定义了HTML和XML文档的底层结构。</li>
+<li>DOM2(DOMLevel2)和DOM3 ( DOM Level3 )在这些结构之上加入更多交互能力，提供了更高级的XML特性。</li>
+<li>DOM2和DOM3是按照模块化的思路来制定标准的，每个模块之间有一定关联，但分别针对某个DOM子集。这些模式如下所示。<ul>
+<li>DOM Core:在DOM1核心部分的基础上，为节点增加方法和属性。</li>
+<li>DOM Views:定义基于样式信息的不同视图。</li>
+<li>DOM Events:定义通过事件实现DOM文档交互。</li>
+<li>DOM Style:定义以编程方式访问和修改CSS样式的接口。</li>
+<li>DOM Traversal and Range:新增遍历DOM文档及选择文档内容的接口。</li>
+<li>DOM HTML:在DOM1 HTML部分的基础上，增加属性、方法和新接口。</li>
+<li>DOM Mutation Observers:定义基于DOM变化触发回调的接口。这个模块是DOM4级模块，用于取代Mutation Events。</li>
+</ul>
+</li>
+</ul>
+<h1 id="DOM的演进"><a href="#DOM的演进" class="headerlink" title="DOM的演进"></a>DOM的演进</h1><ul>
+<li>DOM2和DOM3Core模块的目标是扩展DOMAPI,满足XML的所有需求并提供更好的错误处理和特性检测。</li>
+<li>DOM2 Core没有新增任何类型，仅仅在DOM1 Core基础上增加了一些方法和属性。</li>
+<li>DOM3 Core除了增强原有类型，也新增了一些新类型。</li>
+</ul>
+<h2 id="1、XML命名空间"><a href="#1、XML命名空间" class="headerlink" title="1、XML命名空间"></a>1、XML命名空间</h2><ul>
+<li>XML命名空间可以实现在一个格式规范的文档中混用不同的XML语言，而不必担心元素命名冲突。严格来讲，XML命名空间在XHTML中才支持，HTML并不支持。</li>
+<li>命名空间是使用xmlns指定的。XHTML的命名空间是”<a class="link" target="_blank" rel="noopener" href="http://www.w3.org/1999/xhtml&quot;%EF%BC%8C%E5%BA%94%E8%AF%A5%E5%8C%85%E5%90%AB%E5%9C%A8%E4%BB%BB%E4%BD%95%E6%A0%BC%E5%BC%8F%E8%A7%84%E8%8C%83%E7%9A%84XHTML%E9%A1%B5%E9%9D%A2%E7%9A%84%60%60%60">http://www.w3.org/1999/xhtml&quot;，应该包含在任何格式规范的XHTML页面的```<i class="fas fa-external-link-alt"></i></a><html>```元素中：</html></li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/1999/xhtml&quot;</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>Example XHTML page<span class="tag">&lt;/<span class="name">title</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        Hello world! </span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span> </span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>对这个例子来说，所有元素都默认属于XHTML命名空间。可以使用xmlns给命名空间创建一个前缀，格式为“xmlns：前缀”，如下所示：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">xhtml:html</span> <span class="attr">xmlns:xhtml</span>=<span class="string">&quot;http://www.w3.org/1999/xhtml&quot;</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">xhtml:head</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">xhtml:title</span>&gt;</span>Example XHTML page<span class="tag">&lt;/<span class="name">xhtml:title</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;/<span class="name">xhtml:head</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">xhtml:body</span>&gt;</span> </span><br><span class="line">    Hello world! </span><br><span class="line">    <span class="tag">&lt;/<span class="name">xhtml:body</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">xhtml:html</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>DOM2 Core为解决以下问题，给大部分DOM1方法提供了特定于命名空间的版本。</p>
+<ul>
+<li>创建了一个新元素，那这个元素属于哪个命名空间？</li>
+<li>查询特定标签名时，结果中应该包含哪个命名空间下的元素？</li>
+</ul>
+</li>
+</ul>
+<h3 id="1）Node的变化"><a href="#1）Node的变化" class="headerlink" title="1）Node的变化"></a>1）Node的变化</h3><ul>
+<li>在DOM2中，Node类型包含以下特定于命名空间的属性：<ul>
+<li>localName：不包含命名空间前缀的节点名；</li>
+<li>namespaceURI：节点的命名空间URL，如果未指定则为null；</li>
+<li>prefix：命名空间前缀，如果未指定则为null。</li>
+<li><strong>在节点使用命名空间前缀的情况下，nodeName 等于prefix+ “:”+ localName。</strong></li>
+</ul>
+</li>
+<li>DOM3进一步增加了如下与命名空间相关的方法：<ul>
+<li>isDefaultNamespace(namespaceURI)，返回布尔值，表示namespaceURI是否为节点的默认命名空间。</li>
+<li>lookupNamespaceURI(prefix)，返回给定prefix的命名空间URI；</li>
+<li>lookupPrefix(namespaceURI)，返回给定namespaceURI的前缀。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/1999/xhtml&quot;</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span> </span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>Example XHTML page<span class="tag">&lt;/<span class="name">title</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span> </span><br><span class="line">        <span class="tag">&lt;<span class="name">s:svg</span> <span class="attr">xmlns:s</span>=<span class="string">&quot;http://www.w3.org/2000/svg&quot;</span> <span class="attr">version</span>=<span class="string">&quot;1.1&quot;</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">viewBox</span>=<span class="string">&quot;0 0 100 100&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width:100%; height:100%&quot;</span>&gt;</span> </span><br><span class="line">            <span class="tag">&lt;<span class="name">s:rect</span> <span class="attr">x</span>=<span class="string">&quot;0&quot;</span> <span class="attr">y</span>=<span class="string">&quot;0&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100&quot;</span> <span class="attr">style</span>=<span class="string">&quot;fill:red&quot;</span> /&gt;</span> </span><br><span class="line">        <span class="tag">&lt;/<span class="name">s:svg</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span> </span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">isDefaultNamespace</span>(<span class="string">&quot;http://www.w3.org/1999/xhtml&quot;</span>)); <span class="comment">// true </span></span><br><span class="line"><span class="comment">// 假设 svg 包含对&lt;s:svg&gt;元素的引用</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(svg.<span class="title function_">lookupPrefix</span>(<span class="string">&quot;http://www.w3.org/2000/svg&quot;</span>)); <span class="comment">// &quot;s&quot; </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(svg.<span class="title function_">lookupNamespaceURI</span>(<span class="string">&quot;s&quot;</span>)); <span class="comment">// &quot;http://www.w3.org/2000/svg&quot; </span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2）Document的变化"><a href="#2）Document的变化" class="headerlink" title="2）Document的变化"></a>2）Document的变化</h3><ul>
+<li>DOM2在Document类型上新增了如下命名空间特定的方法：<ul>
+<li>createElementNs(namespaceURI, tagName), 以给定的标签名tagName创建指定命名空间namespaceURI的一个新元素；</li>
+<li>createAttributeNS (namespaceURI, attributeName),以给定的属性名attributeName创建指定命名空间namespaceURI的一个新属性；</li>
+<li>getElementsByTagNameNS (namespaceURI, tagName) ，返回指定命名空间namespaceURI中所有标签名为tagName的元素的NodeList。</li>
+</ul>
+</li>
+<li>这些命名控件特定的方法只在文档中包含两个或两个以上命名空间时才有用。</li>
+</ul>
+<h3 id="3）Element的变化"><a href="#3）Element的变化" class="headerlink" title="3）Element的变化"></a>3）Element的变化</h3><ul>
+<li>DOM2 Core对Element类型的更新主要集中在对属性的操作上。下面是新增的方法：<ul>
+<li>getElementsByTagNameNS (namespaceURI, tagName) ，取得指定命名空间namespaceURI中标签名为tagName的元素的NodeList;</li>
+<li>hasAttributeNS (namespaceURI, localName)， 返回布尔值，表示元素中是否有命名空间namespaceURI下名为localName的属性(注意，DOM2Core也添加不带命名空间的hasAttribute()方法);</li>
+<li>removeAttributeNS (namespaceURI, localName) ，删除指定命名空间namespaceURI中名为localName的属性;</li>
+<li>setAttributeNS (namespaceURI, qualifiedName,value)，设置指定命名空间namespaceURI中名为qualifiedName的属性为value；</li>
+<li>setAttributeNodeNS (attNode)，为元素设置(添加)包含命名空间信息的属性节点attNode。</li>
+</ul>
+</li>
+<li>这些方法与DOM1中对应的方法行为相同，除setAttributeNodeNS()之外都只是多了一个命名空间参数。</li>
+</ul>
+<h3 id="4）NamedNodeMap的变化"><a href="#4）NamedNodeMap的变化" class="headerlink" title="4）NamedNodeMap的变化"></a>4）NamedNodeMap的变化</h3><ul>
+<li>NamedNodeMap也增加了以下处理命名空间的方法。<strong>因为NamedNodeMap主要表示属性，所以这些方法大都适用于属性</strong>：<ul>
+<li>getNamedItemNS (namespaceURI, localName), 取得指定命名空间namespaceURI中名为localName的项; </li>
+<li>removeNamedItemNS (namespaceURI, localName)，删除指定命名空间namespaceURI 中名为loca1Name的项；</li>
+<li>setNamedItemNS (node)，为元素设置(添加)包含命名空间信息的节点。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2、其他变化"><a href="#2、其他变化" class="headerlink" title="2、其他变化"></a>2、其他变化</h2><h3 id="1）DocumentType的变化"><a href="#1）DocumentType的变化" class="headerlink" title="1）DocumentType的变化"></a>1）DocumentType的变化</h3><ul>
+<li>新增了三个属性：publicId、systemId和internalSubset。publicId、systemId属性表示文档类型声明中有效但无法使用DOM1 API访问的数据。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">HTML</span> <span class="keyword">PUBLIC</span> <span class="string">&quot;-// W3C// DTD HTML 4.01// EN&quot;</span> <span class="string">&quot;http://www.w3.org/TR/html4/strict.dtd&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>publicId是”-// W3C// DTD HTML 4.01// EN”；</li>
+<li>systemId是”<a class="link" target="_blank" rel="noopener" href="http://www.w3.org/TR/html4/strict.dtd&quot;%EF%BC%9B">http://www.w3.org/TR/html4/strict.dtd&quot;；<i class="fas fa-external-link-alt"></i></a></li>
+<li>支持DOM2的浏览器应该可以运行以下JavaScript代码：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">document</span>.<span class="property">doctype</span>.<span class="property">publicId</span>); </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">document</span>.<span class="property">doctype</span>.<span class="property">systemId</span>); </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>internalsubset用于访问文档类型声明中可能包含的额外定义，如下面的例子所示：</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span> <span class="keyword">PUBLIC</span> <span class="string">&quot;-// W3C// DTD XHTML 1.0 Strict// EN&quot;</span> </span></span><br><span class="line"><span class="meta"><span class="string">&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;</span> </span></span><br><span class="line"><span class="meta">[<span class="meta">&lt;!ELEMENT <span class="keyword">name</span> (<span class="keyword">#PCDATA</span>)&gt;</span>] &gt;</span> </span><br></pre></td></tr></table></figure>
+<ul>
+<li>对于以上声明，document . doctype. internalSubset会返回”<!ELEMENT name (#PCDATA)>“。HTML文档中几乎不会涉及文档类型的内部子集，XML文档中稍微常用一些。</li>
+</ul>
+<h3 id="2）Document的变化-1"><a href="#2）Document的变化-1" class="headerlink" title="2）Document的变化"></a>2）Document的变化</h3><ul>
+<li><p>唯一与命名空间无关的方法：importNode()。</p>
+<ul>
+<li>用于从其他文档获取一个节点并导入到新文档，以便将其插入新文档。</li>
+<li>接收两个参数：要复制的节点和表示是否同时复制子树的布尔值。</li>
+<li>返回结果是适合在当前文档中使用的新节点。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> newNode = <span class="variable language_">document</span>.<span class="title function_">importNode</span>(oldNode, <span class="literal">true</span>); <span class="comment">// 导入节点及所有后代</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(newNode);</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>由于每个节点都有一个ownerDocument属性，表示所属文档；如果调用appendChild()方法时传入节点的owerDocument不是指向当前文档，则会发生错误；而调用importNode()导入其他文档的节点会返回一个新节点，这个新节点的owerDocument属性时正确的。</p>
+</li>
+<li><p>DOM2 View给Document类型增加了新属性defaultView，是一个指向拥有当前文档的窗口的指针。</p>
+<ul>
+<li>并没有明确视图何时可用，因此这是添加的唯一一个属性。</li>
+<li>可用于确定拥有文档的窗口。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> parentWindow = <span class="variable language_">document</span>.<span class="property">defaultView</span> || <span class="variable language_">document</span>.<span class="property">parentWindow</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>DOM2 Core还针对document.implementation对象增加了两个新方法: createDocumentType ()和createDocument ()。</p>
+</li>
+<li><p><strong>createDocumentType：</strong></p>
+<ul>
+<li>用于创建DocumentType类型的新节点；</li>
+<li>接收三个参数：文档类型名称、publicId和systemld。</li>
+<li>createDocumentType()只在创建新文档时才会用到。</li>
+</ul>
+</li>
+<li><p><strong>createDocument()：</strong></p>
+<ul>
+<li>接收三个参数：文档元素的namespaceURI、文档元素的标签名和文档类型。</li>
+</ul>
+</li>
+<li><p>要创建一个XHTML文档，可以使用以下代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> doctype = <span class="variable language_">document</span>.<span class="property">implementation</span>.<span class="title function_">createDocumentType</span>(<span class="string">&quot;html&quot;</span>, <span class="string">&quot;-// W3C// DTD XHTML 1.0 Strict// EN&quot;</span>, <span class="string">&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;</span>); </span><br><span class="line"><span class="keyword">let</span> doc = <span class="variable language_">document</span>.<span class="property">implementation</span>.<span class="title function_">createDocument</span>(<span class="string">&quot;http://www.w3.org/1999/xhtml&quot;</span>, </span><br><span class="line"> <span class="string">&quot;html&quot;</span>, doctype); </span><br></pre></td></tr></table></figure></li>
+<li><p>DOM2 HTML模块也为document.implamentation对象添加了createHTMLDocument()方法。</p>
+<ul>
+<li>方法可以创建一个完整的HTML文档，包含<code>&lt;html&gt;、&lt;head&gt;、&lt;title&gt;和&lt;body&gt;</code>元素。</li>
+<li>直接收一个参数：创建文档的标题（放到title元素中）</li>
+<li>返回一个新的HTML文档。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> htmldoc = <span class="variable language_">document</span>.<span class="property">implementation</span>.<span class="title function_">createHTMLDocument</span>(<span class="string">&quot;New Doc&quot;</span>); </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(htmldoc.<span class="property">title</span>); <span class="comment">// &quot;New Doc&quot; </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> htmldoc.<span class="property">body</span>); <span class="comment">// &quot;object&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3）Node的变化"><a href="#3）Node的变化" class="headerlink" title="3）Node的变化"></a>3）Node的变化</h3><ul>
+<li><p>DOM3新增了两个用于比较节点的方法：isSameNode()和isEqualNode()。</p>
+<ul>
+<li>两个方法都接收一个参数：节点参数；</li>
+<li>返回值：如果这个节点与参考节点相同或相等，则返回true；反之返回false。</li>
+<li>节点相同，意味着引用同一个对象；</li>
+<li>节点相等，意味着节点类型相同，拥有相等的属性( nodeName、nodevalue等)，而且attributes和childNodes也相等(即同样的位置包含相等的值)。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> div1 = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&quot;div&quot;</span>); </span><br><span class="line">div1.<span class="title function_">setAttribute</span>(<span class="string">&quot;class&quot;</span>, <span class="string">&quot;box&quot;</span>); </span><br><span class="line"><span class="keyword">let</span> div2 = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&quot;div&quot;</span>); </span><br><span class="line">div2.<span class="title function_">setAttribute</span>(<span class="string">&quot;class&quot;</span>, <span class="string">&quot;box&quot;</span>); </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(div1.<span class="title function_">isSameNode</span>(div1)); <span class="comment">// true </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(div1.<span class="title function_">isEqualNode</span>(div2)); <span class="comment">// true </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(div1.<span class="title function_">isSameNode</span>(div2)); <span class="comment">// false</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>setUserData()：</p>
+<ul>
+<li>给DOM节点附加额外数据的方法。</li>
+<li>接收三个参数：键、值、处理函数。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">setUserData</span>(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;Nicholas&quot;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;&#125;); </span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>处理函数会在包含数据的节点被复制、删除、重命名或导入其他文档的时候执行，可以在这时候决定如何处理用户数据。</p>
+</li>
+<li><p>处理函数接收五个参数：<strong>表示操作类型的数值</strong>( 1代表复制，2代表导人，3代表删除，4代表重命名)<strong>、数据的键、数据的值、源节点和目标节点</strong>。</p>
+</li>
+<li><p>删除节点时，源节点为null；除复制外，目标节点都为null。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> div = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&quot;div&quot;</span>); </span><br><span class="line">div.<span class="title function_">setUserData</span>(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;Nicholas&quot;</span>, <span class="keyword">function</span>(<span class="params">operation, key, value, src, dest</span>) &#123; </span><br><span class="line">    <span class="keyword">if</span> (operation == <span class="number">1</span>) &#123; </span><br><span class="line">        dest.<span class="title function_">setUserData</span>(key, value, <span class="keyword">function</span>(<span class="params"></span>) &#123;&#125;);</span><br><span class="line">    &#125; </span><br><span class="line">&#125;); </span><br><span class="line"><span class="keyword">let</span> newDiv = div.<span class="title function_">cloneNode</span>(<span class="literal">true</span>); </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(newDiv.<span class="title function_">getUserData</span>(<span class="string">&quot;name&quot;</span>)); <span class="comment">// &quot;Nicholas&quot; </span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">这里先创建了一个&lt;div&gt;元素，然后给它添加了一-些数据，包含用户的名字。在使用cloneNode ()复制这个元素时，就会调用处理函数，从而将同样的数据再附加给复制得到的目标节点。然后，在副本节点上调用getUserData ()能够取得附加到源节点上的数据。</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="4）内嵌窗格的变化"><a href="#4）内嵌窗格的变化" class="headerlink" title="4）内嵌窗格的变化"></a>4）内嵌窗格的变化</h3><ul>
+<li>DOM2 HTML给HTMLIFrameElement类型新增了一个属性：contentDocument。<ul>
+<li>contentDocument属性时Document的实例，拥有所有文档属性和方法</li>
+</ul>
+</li>
+<li>contentWindow属性返回相应窗格的window对象，这个对象上有一个document属性。</li>
+</ul>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">JavaScript学习笔记（四十）DOM2和DOM3（一）</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">姚永坤</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2021-12-03 18:45:34</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">2021/12/03/js-40/</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/JS%E5%AD%A6%E4%B9%A0/"><i class="icon fas fa-hashtag"></i>JS学习</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/2021/12/06/js-41/"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item text-ellipsis">JavaScript学习笔记（四十一）DOM2和DOM3（二）</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/2021/12/02/js-39/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item text-ellipsis">JavaScript学习笔记（三十九）DOM扩展（二）</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+                
+
+
+    <div class="comments-container">
+        <div id="comments-anchor"></div>
+        <div class="comment-area-title">
+            <i class="fas fa-comments"></i>&nbsp;评论
+        </div>
+        
+            
+
+    <div class="giscus-comments-container">
+        <div class="giscus" id="giscus"></div>
+        <script data-pjax>
+
+          if (!window?.__getGiscusTheme) {
+            window.__getGiscusTheme = () => {
+              return document.body.classList.contains("dark-mode") ? "dark_dimmed" : "light_tritanopia";
+            };
+          }
+
+          if (!window?.__changeGiscusTheme) {
+            window.__changeGiscusTheme = () => {
+              const iframe = document.querySelector("iframe.giscus-frame");
+              iframe && iframe.contentWindow.postMessage({
+                giscus: {
+                  setConfig: {
+                    theme: __getGiscusTheme()
+                  }
+                }
+              }, "https://giscus.app");
+            };
+          }
+
+          if (!window?.__loadGiscus) {
+            window.__loadGiscus = () => {
+              const script = document.createElement("script");
+              script.async = true;
+              script.src = "https://giscus.app/client.js";
+              script.setAttribute("data-repo", 'kunkunyy/discussion');
+              script.setAttribute("data-repo-id", 'R_kgDOKOnLlw');
+              script.setAttribute("data-category", 'Announcements');
+              script.setAttribute("data-category-id", 'DIC_kwDOKOnLl84CZCrc');
+              script.setAttribute("data-reactions-enabled", '1');
+              script.setAttribute("data-lang", 'zh-CN');
+              script.setAttribute("data-mapping", "pathname");
+              script.setAttribute("data-strict", "0");
+              script.setAttribute("data-emit-metadata", "0");
+              script.setAttribute("data-input-position", "top");
+              script.setAttribute("crossorigin", "anonymous");
+              script.setAttribute("loading", "lazy");
+              script.setAttribute("data-theme", __getGiscusTheme());
+              document.querySelector(".giscus-comments-container").appendChild(script);
+
+              const toggleThemeBtn = document.querySelector(".tool-dark-light-toggle");
+              toggleThemeBtn && toggleThemeBtn.addEventListener("click", () => {
+                __changeGiscusTheme();
+              });
+            }
+          }
+
+          if ('true' === "true") {
+            setTimeout(() => {
+              __loadGiscus();
+            }, 1000);
+          } else {
+            window.addEventListener("DOMContentLoaded", () => {
+              setTimeout(() => {
+                __loadGiscus();
+              }, 1000);
+            });
+          }
+        </script>
+    </div>
+
+
+        
+    </div>
+
+
+
+
+
+            
+        </div>
+
+        
+            <div class="pc-post-toc left-toc">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM%E7%9A%84%E6%BC%94%E8%BF%9B"><span class="nav-text">DOM的演进</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81XML%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="nav-text">1、XML命名空间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%89Node%E7%9A%84%E5%8F%98%E5%8C%96"><span class="nav-text">1）Node的变化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%89Document%E7%9A%84%E5%8F%98%E5%8C%96"><span class="nav-text">2）Document的变化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%89Element%E7%9A%84%E5%8F%98%E5%8C%96"><span class="nav-text">3）Element的变化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%EF%BC%89NamedNodeMap%E7%9A%84%E5%8F%98%E5%8C%96"><span class="nav-text">4）NamedNodeMap的变化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E5%85%B6%E4%BB%96%E5%8F%98%E5%8C%96"><span class="nav-text">2、其他变化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%89DocumentType%E7%9A%84%E5%8F%98%E5%8C%96"><span class="nav-text">1）DocumentType的变化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%89Document%E7%9A%84%E5%8F%98%E5%8C%96-1"><span class="nav-text">2）Document的变化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%89Node%E7%9A%84%E5%8F%98%E5%8C%96"><span class="nav-text">3）Node的变化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%EF%BC%89%E5%86%85%E5%B5%8C%E7%AA%97%E6%A0%BC%E7%9A%84%E5%8F%98%E5%8C%96"><span class="nav-text">4）内嵌窗格的变化</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="border-box website-info-box default">
+        
+            <div class="copyright-info info-item default">
+                &copy;&nbsp;<span>2021</span>&nbsp;-&nbsp;2023
+                
+                    &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">姚永坤</a>
+                
+            </div>
+
+            <div class="theme-info info-item default">
+                由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.7.3</a>
+            </div>
+
+            
+
+            
+        
+
+        <div class="count-item info-item default">
+            
+                <span class="count-box border-box word">
+                    <span class="item-type border-box">全站总字数</span>
+                    <span class="item-value border-box word">198.2k</span>
+                </span>
+            
+
+            
+                <span class="count-box border-box uv">
+                    <span class="item-type border-box">访问人数</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-box border-box pv">
+                    <span class="item-type border-box">总访问量</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools left-toc">
+            <div class="post-tools-container border-box">
+    <ul class="tools-list border-box">
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+            <li class="tools-item go-to-comments-tablet flex-center">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM%E7%9A%84%E6%BC%94%E8%BF%9B"><span class="nav-text">DOM的演进</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81XML%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="nav-text">1、XML命名空间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%89Node%E7%9A%84%E5%8F%98%E5%8C%96"><span class="nav-text">1）Node的变化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%89Document%E7%9A%84%E5%8F%98%E5%8C%96"><span class="nav-text">2）Document的变化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%89Element%E7%9A%84%E5%8F%98%E5%8C%96"><span class="nav-text">3）Element的变化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%EF%BC%89NamedNodeMap%E7%9A%84%E5%8F%98%E5%8C%96"><span class="nav-text">4）NamedNodeMap的变化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E5%85%B6%E4%BB%96%E5%8F%98%E5%8C%96"><span class="nav-text">2、其他变化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%89DocumentType%E7%9A%84%E5%8F%98%E5%8C%96"><span class="nav-text">1）DocumentType的变化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%89Document%E7%9A%84%E5%8F%98%E5%8C%96-1"><span class="nav-text">2）Document的变化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%89Node%E7%9A%84%E5%8F%98%E5%8C%96"><span class="nav-text">3）Node的变化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%EF%BC%89%E5%86%85%E5%B5%8C%E7%AA%97%E6%A0%BC%E7%9A%84%E5%8F%98%E5%8C%96"><span class="nav-text">4）内嵌窗格的变化</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/code-block.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/post-helper.js"></script>
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/libs/anime.min.js"></script>
+        
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/toc.js"></script>
+        
+    
+    
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+
+    
+        
+    
+
+</body>
+</html>
