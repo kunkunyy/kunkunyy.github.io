@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="姚永坤">
+    
+    <title>
+        
+            Cookies 详解 |
+        
+        坤坤的百宝箱
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/head.3yoe3br9tws0.png">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/brands.min.css">
+    
+        
+            
+        
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true,"layout":"left"},"style":{"primary_color":"#0066cc","logo":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/op.3zg25jxprna0.png","favicon":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/head.3yoe3br9tws0.png","avatar":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/logo.6qi88yzn2jg0.jpg","shadow":true,"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"黑夜降临之处，便是黎明之始。|| Where blackness falls, begins dawn.","hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":true,"use":"giscus","valine":{"appid":"Peml0rEJ7HZNQA1gZrKxXgPr-gzGzoHsz","appkey":"vVJRDKBsUlnpc3zr69GFbCTI","placeholder":"快来评论吧！！！"},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2},"giscus":{"repo":"kunkunyy/discussion","repo_id":"R_kgDOKOnLlw","category":"Announcements","category_id":"DIC_kwDOKOnLl84CZCrc","reactions_enabled":true}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"wordcount":true,"min2read":true},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":true},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"version":"3.7.3"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="姚永坤的小窝" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container border-box">
+
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/op.3zg25jxprna0.png">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               坤坤的百宝箱
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/changelog"
+                            >
+                                更新日志
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/changelog">更新日志</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+
+                
+
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+
+        <div class="article-content-container border-box">
+
+            <div class="article-title">
+                <span class="title-hover-animation">Cookies 详解</span>
+            </div>
+
+            
+                <div class="article-header border-box">
+                    
+                        <div class="avatar-box border-box">
+                            <img src="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/logo.6qi88yzn2jg0.jpg">
+                        </div>
+                    
+                    <div class="info-box">
+                        <div class="author">
+                            <span class="name">姚永坤</span>
+                            
+                                <span class="author-label">Lv6</span>
+                            
+                        </div>
+                        <div class="meta-info border-box">
+                            
+
+<div class="article-meta-info-container border-box post">
+    <div class="article-meta-info border-box">
+        
+
+
+        
+            <span class="meta-info-item article-create-date">
+                <i class="icon fa-solid fa-calendar-check"></i>&nbsp;
+                <span class="pc">2023-11-10 10:13:51</span>
+                <span class="mobile">2023-11-10 10:13</span>
+            </span>
+
+            <span class="meta-info-item article-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="pc">2023-11-10 14:44:00</span>
+            </span>
+        
+
+        
+            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul>
+                    
+                            <li class="category-item">
+                                
+                                <a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a>
+                            </li>
+                        
+                    
+                            <li class="category-item">
+                                
+                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
+                                
+                                <a href="/categories/Cookies/">Cookies</a>
+                            </li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="article-tag meta-info-item border-box">
+                <i class="icon fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9B%B8%E5%85%B3/">浏览器相关</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item article-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>1.6k 字</span>
+            </span>
+        
+        
+            <span class="meta-info-item article-min2read">
+                <i class="icon fas fa-clock"></i>&nbsp;<span>6 分钟</span>
+            </span>
+        
+        
+            <span class="meta-info-item article-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <h1 id="一、Cookies-是怎么来的？"><a href="#一、Cookies-是怎么来的？" class="headerlink" title="一、Cookies 是怎么来的？"></a>一、Cookies 是怎么来的？</h1><blockquote>
+<p>90 年代初期，Netscape 的开发人员 Lou Montoulli 遇到了一个问题 —— 他正在为另一家公司 MCI 开发一个在线商店，该商店会在服务器中存储每个客户购物车中的商品。这意味着人们必须首先创建一个帐户，创建账户需要花费一些时间，存储每个用户购物车的内容也会占用大量存储空间。<br>MCI 要求将这些数据存储在客户自己的计算机上。他们还希望客户在没有登录时也能添加商品到购物车。<br>为了解决这个问题，Lou 提出了一个在程序员中已经广为人知的想法：魔力 cookie。</p>
+</blockquote>
+<p>因此，使用cookie最初的想法是：</p>
+<ul>
+<li>可以在客户端和服务器之间传递少量数据。</li>
+<li>通常在cookie中村的数据是随机密钥或令牌，只对使用它的软件才有意义。</li>
+</ul>
+<h1 id="二、Cookies-是怎么工作的？"><a href="#二、Cookies-是怎么工作的？" class="headerlink" title="二、Cookies 是怎么工作的？"></a>二、Cookies 是怎么工作的？</h1><h2 id="Cookies-是由谁创建的"><a href="#Cookies-是由谁创建的" class="headerlink" title="Cookies 是由谁创建的"></a>Cookies 是由谁创建的</h2><ul>
+<li>虽然浏览器提供了 <code>document.cookie</code> 来创建（前端），但大部分时间主要是由 <code>backend</code> 在生成 <code>response</code> 的时候，设置需要让客户端记住的 <code>cookie</code>，并发送到 <code>client</code>（后端）。</li>
+<li>当我们说 <code>backend</code> 的时候，可能指的有两种情况：<ul>
+<li>由 <code>application</code> 本身设置的 <code>cookie</code>（<code>Python，JavaScript，PHP，Java</code>等）</li>
+<li>由 <code>webserver</code> 或其他反向代理设置的 <code>cookie</code>（如: <code>Nginx，Apache</code>）</li>
+</ul>
+</li>
+<li>通过 <code>HTTP Response</code> 的 <code>headers</code> 里的 <code>Set-Cookie</code> 字段，可设置某个 <code>cookie</code> 的键值对，并带上跟这个 <code>cookie</code> 有关的一定的参数。</li>
+</ul>
+<h2 id="Cookies-的限制"><a href="#Cookies-的限制" class="headerlink" title="Cookies 的限制"></a>Cookies 的限制</h2><h3 id="数据存储的限制"><a href="#数据存储的限制" class="headerlink" title="数据存储的限制"></a>数据存储的限制</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>Cookies</th>
+<th>LocalStorage</th>
+<th>SessionStorage</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>容量</td>
+<td>4KB</td>
+<td>10MB</td>
+<td>5MB</td>
+</tr>
+<tr>
+<td>可访问</td>
+<td>任何窗口</td>
+<td>任何窗口</td>
+<td>相同标签页</td>
+</tr>
+<tr>
+<td>过期</td>
+<td>手动设置</td>
+<td>永不过期</td>
+<td>标签页被关闭</td>
+</tr>
+<tr>
+<td>存储位置</td>
+<td>浏览器和服务端</td>
+<td>浏览器</td>
+<td>浏览器</td>
+</tr>
+<tr>
+<td>通过请求发送</td>
+<td>是</td>
+<td>否</td>
+<td>否</td>
+</tr>
+</tbody></table>
+<h3 id="作用域的限制"><a href="#作用域的限制" class="headerlink" title="作用域的限制"></a>作用域的限制</h3><ol>
+<li>域（Domain）：出于安全的原因，浏览器<strong>仅允许cookie在一个域名</strong>中可见。</li>
+</ol>
+<ul>
+<li>域的作用范围：允许在<strong>该域名及其子域名内</strong>起作用。</li>
+</ul>
+<ol start="2">
+<li>路径（Path）：默认为 <code>/</code></li>
+</ol>
+<blockquote>
+<p><strong>⚠️注意</strong>：cookie时随着浏览器中的请求一起发送的，不管你是否愿意不该有的想法：通过javascript脚本，从cookie里面将内容读出来，然后塞到AJAX请求的headers里面发送出去。</p>
+</blockquote>
+<h3 id="过期时间"><a href="#过期时间" class="headerlink" title="过期时间"></a>过期时间</h3><ul>
+<li><code>max-age</code>: 用于控制 <code>Cookie</code> 的存活时间，以秒为单位。<ul>
+<li>如果 <code>max-age</code> 未设置，则 <code>Cookie</code> 将在浏览器关闭时过期。</li>
+<li>如果 <code>max-age</code> 和 <code>expires</code> 两者同时出现，那么以 <code>max-age</code> 为准；一般来说，两者应该设为同一个时间<br>值。</li>
+</ul>
+</li>
+<li><code>expires</code>: 指定 <code>Cookie</code> 的过期时间，以 <code>UTC</code> 格式的日期字符串为值。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: myfirstcookie=somecookievalue; expires=Tue, 09 Jun 2020 15:46:52 GMT; Max-Age=1209600</span><br></pre></td></tr></table></figure>
+
+<h3 id="访问控制（Secure-HttpOnly-SameSite）"><a href="#访问控制（Secure-HttpOnly-SameSite）" class="headerlink" title="访问控制（Secure, HttpOnly, SameSite）"></a>访问控制（Secure, HttpOnly, SameSite）</h3><h4 id="用于-HTTPS-访问控制的-Secure-HttpOnly"><a href="#用于-HTTPS-访问控制的-Secure-HttpOnly" class="headerlink" title="用于 HTTPS 访问控制的 Secure, HttpOnly"></a>用于 <code>HTTPS</code> 访问控制的 <code>Secure, HttpOnly</code></h4><ul>
+<li>为确保 <code>Cookie</code> 只能通过安全的 <code>HTTPS</code> 连接访问，并且不能被 <code>JavaScript</code> 等客户端脚本访问，我们可以设置这两个属性：<ul>
+<li><code>Secure</code> 只能通过 <code>HTTPS</code> 链接发送。</li>
+<li><code>HttpOnly</code> 只能由服务器访问，不能由浏览器的 <code>Document.cookie</code> API访问。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: &quot;id=3db4adj3d; Secure; HttpOnly&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="用于跨站场景的-SameSite"><a href="#用于跨站场景的-SameSite" class="headerlink" title="用于跨站场景的 SameSite"></a>用于跨站场景的 SameSite</h4><p>我们目前的网站中，会出现大量的跨站访问请求（如CDN、Analytics、第三方服务等）。当访问站点A的时候，可能会到站点B、C请求内容，当B、C想设置自己的 <code>Cookie</code> 的时候，对A站点的整个会话过程来说，就出现了第三方（third-party）<code>Cookie</code>的存储请求。 <code>SameSite</code> 是新提出的一个致力于改进 <code>Cookie</code> 安全，防止 <code>CSRF攻击</code> 以及隐私泄漏的浏览器<code>Cookie</code>特性。</p>
+<ul>
+<li><p>跨站场景案例</p>
+<ul>
+<li>用户访问 <a class="link" target="_blank" rel="noopener" href="https://www.a-example.dev/">https://www.a-example.dev<i class="fas fa-external-link-alt"></i></a></li>
+<li>用户点击按钮发起了一个跨站的请求：<a class="link" target="_blank" rel="noopener" href="https://api.b-example.dev/">https://api.b-example.dev<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://api.b-example.dev/">https://api.b-example.dev<i class="fas fa-external-link-alt"></i></a> 设置了一个 Cookie Domain=api.b-example.dev</li>
+<li>现在 <a class="link" target="_blank" rel="noopener" href="https://www.a-example.dev/">https://www.a-example.dev<i class="fas fa-external-link-alt"></i></a> 页面得到了一个来自 <a class="link" target="_blank" rel="noopener" href="https://api.b-example.dev/">https://api.b-example.dev<i class="fas fa-external-link-alt"></i></a> 的第三方cookie的设置请求</li>
+</ul>
+</li>
+<li><p>通过设置<code>SameSite</code>属性，可以限制<code>Cookie</code>在跨站场景下的cookie存储和发送策略：</p>
+<ul>
+<li><code>SameSite</code> 属有三个值<ul>
+<li><strong>Strict</strong><ul>
+<li>浏览器将会拒绝存储第三方<code>Cookie</code>。意味着我方应用只能在本站访问时设置<code>Cookie</code>，不能作为第三方给其他站点提供访问。</li>
+</ul>
+</li>
+<li><strong>Lax（默认）</strong><ul>
+<li>无论是第一方还是第三方的<code>Cookie</code>，浏览器在<code>Cookie</code>缺少<code>SameSite</code>属性时，都会默认设置为此模式。</li>
+<li>在此模式下，针对<code>Safe HTTP Methods</code>（安全的HTTP请求，GET/HEAD/OPTIONS/TRACE）可以向第三方发送该<code>Cookie</code>，但POST请求就不会。</li>
+</ul>
+</li>
+<li><strong>None</strong><ul>
+<li>如果我方是向第三方提供内嵌（<code>iframe</code>）应用的，比如WPS编辑器。需要将我方的<code>Cookie</code>设置为 <code>SameSite=None</code>;<code>Secure</code>，否则浏览器在第三方中访问我方应用时，会拒绝存我方的<code>Cookie</code>。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="center">INCOMING COOKIE</th>
+<th align="center">OUTGOING COOKIE</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Strict</td>
+<td align="center">Reject</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">Lax</td>
+<td align="center">Accept</td>
+<td align="center">Send with safe HTTP methods</td>
+</tr>
+<tr>
+<td align="center">None + Secure</td>
+<td align="center">Accept</td>
+<td align="center">Send</td>
+</tr>
+</tbody></table>
+<h4 id="CORS-场景"><a href="#CORS-场景" class="headerlink" title="CORS 场景"></a>CORS 场景</h4><p>在<code>CORS（Cross-Origin Resource Sharing）</code>跨源资源共享中，浏览器默认情况下不会发送包含<code>Cookie</code>的跨域请求，这是为了防止<code>跨站点请求伪造（CSRF）</code>攻击。<br>要让CORS请求带上<code>Cookie</code>，则需要以下步骤：</p>
+<ul>
+<li>访问第一方页面的时候，服务端返回这两个响应头<ul>
+<li><code>Access-Control-Allow-Origin</code></li>
+<li><code>Access-Control-Allow-Credentials</code></li>
+</ul>
+</li>
+<li><code>fetch()</code> 加上 <code>credentials: &quot;include&quot;</code> 参数</li>
+</ul>
+<h1 id="Cookies-的常见使用场景"><a href="#Cookies-的常见使用场景" class="headerlink" title="Cookies 的常见使用场景"></a>Cookies 的常见使用场景</h1><h2 id="会话跟踪"><a href="#会话跟踪" class="headerlink" title="会话跟踪"></a>会话跟踪</h2><ul>
+<li>当你向网站发出登录请求时，服务器检查你的用户名和密码，创建并存储会话，生成唯一的会话ID，然后发送回带有该会话ID的cookie</li>
+<li>当你向网站发出其他请求时，浏览器将带有会话ID的<code>cookie</code>发送回服务器。</li>
+<li>服务器使用你的会话ID检查会话，如果是已登录并有权访问数据的时候，返回请求的数据</li>
+<li>当你要离开网站时，将带有会话ID连同注销请求发送到服务端，服务端删除会话，并告知浏览器删除去相应session id的cookie</li>
+</ul>
+<p>一个典型的session cookie会类似这样</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: sessionid=sty1z3kz1am3xdjv348mqwlx4ginpt6c; expires=Tue, 09 Jun 2020 15:46:52 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax</span><br></pre></td></tr></table></figure>
+
+<h2 id="单点登录"><a href="#单点登录" class="headerlink" title="单点登录"></a>单点登录</h2><h2 id="内嵌页面"><a href="#内嵌页面" class="headerlink" title="内嵌页面"></a>内嵌页面</h2><h1 id="常见安全问题"><a href="#常见安全问题" class="headerlink" title="常见安全问题"></a>常见安全问题</h1><h2 id="中间人攻击（MitM）"><a href="#中间人攻击（MitM）" class="headerlink" title="中间人攻击（MitM）"></a>中间人攻击（MitM）</h2><img lazyload alt="image" data-src="/2023/11/10/cookie/mitm.png" class title="# mitm">
+
+<h2 id="跨站点脚本攻击（XSS）"><a href="#跨站点脚本攻击（XSS）" class="headerlink" title="跨站点脚本攻击（XSS）"></a>跨站点脚本攻击（XSS）</h2><img lazyload alt="image" data-src="/2023/11/10/cookie/xss.png" class title="# xss">
+
+<h2 id="跨站点请求伪造攻击（CSRF）"><a href="#跨站点请求伪造攻击（CSRF）" class="headerlink" title="跨站点请求伪造攻击（CSRF）"></a>跨站点请求伪造攻击（CSRF）</h2><img lazyload alt="image" data-src="/2023/11/10/cookie/csrf.png" class title="# csrf">
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">Cookies 详解</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">姚永坤</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2023-11-10 10:13:51</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">2023/11/10/cookie/</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9B%B8%E5%85%B3/"><i class="icon fas fa-hashtag"></i>浏览器相关</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/2023/11/09/style-component-1/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item text-ellipsis">style-component 学习笔记（一）介绍</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+                
+
+
+    <div class="comments-container">
+        <div id="comments-anchor"></div>
+        <div class="comment-area-title">
+            <i class="fas fa-comments"></i>&nbsp;评论
+        </div>
+        
+            
+
+    <div class="giscus-comments-container">
+        <div class="giscus" id="giscus"></div>
+        <script data-pjax>
+
+          if (!window?.__getGiscusTheme) {
+            window.__getGiscusTheme = () => {
+              return document.body.classList.contains("dark-mode") ? "dark_dimmed" : "light_tritanopia";
+            };
+          }
+
+          if (!window?.__changeGiscusTheme) {
+            window.__changeGiscusTheme = () => {
+              const iframe = document.querySelector("iframe.giscus-frame");
+              iframe && iframe.contentWindow.postMessage({
+                giscus: {
+                  setConfig: {
+                    theme: __getGiscusTheme()
+                  }
+                }
+              }, "https://giscus.app");
+            };
+          }
+
+          if (!window?.__loadGiscus) {
+            window.__loadGiscus = () => {
+              const script = document.createElement("script");
+              script.async = true;
+              script.src = "https://giscus.app/client.js";
+              script.setAttribute("data-repo", 'kunkunyy/discussion');
+              script.setAttribute("data-repo-id", 'R_kgDOKOnLlw');
+              script.setAttribute("data-category", 'Announcements');
+              script.setAttribute("data-category-id", 'DIC_kwDOKOnLl84CZCrc');
+              script.setAttribute("data-reactions-enabled", '1');
+              script.setAttribute("data-lang", 'zh-CN');
+              script.setAttribute("data-mapping", "pathname");
+              script.setAttribute("data-strict", "0");
+              script.setAttribute("data-emit-metadata", "0");
+              script.setAttribute("data-input-position", "top");
+              script.setAttribute("crossorigin", "anonymous");
+              script.setAttribute("loading", "lazy");
+              script.setAttribute("data-theme", __getGiscusTheme());
+              document.querySelector(".giscus-comments-container").appendChild(script);
+
+              const toggleThemeBtn = document.querySelector(".tool-dark-light-toggle");
+              toggleThemeBtn && toggleThemeBtn.addEventListener("click", () => {
+                __changeGiscusTheme();
+              });
+            }
+          }
+
+          if ('true' === "true") {
+            setTimeout(() => {
+              __loadGiscus();
+            }, 1000);
+          } else {
+            window.addEventListener("DOMContentLoaded", () => {
+              setTimeout(() => {
+                __loadGiscus();
+              }, 1000);
+            });
+          }
+        </script>
+    </div>
+
+
+        
+    </div>
+
+
+
+
+
+            
+        </div>
+
+        
+            <div class="pc-post-toc left-toc">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81Cookies-%E6%98%AF%E6%80%8E%E4%B9%88%E6%9D%A5%E7%9A%84%EF%BC%9F"><span class="nav-text">一、Cookies 是怎么来的？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81Cookies-%E6%98%AF%E6%80%8E%E4%B9%88%E5%B7%A5%E4%BD%9C%E7%9A%84%EF%BC%9F"><span class="nav-text">二、Cookies 是怎么工作的？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookies-%E6%98%AF%E7%94%B1%E8%B0%81%E5%88%9B%E5%BB%BA%E7%9A%84"><span class="nav-text">Cookies 是由谁创建的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookies-%E7%9A%84%E9%99%90%E5%88%B6"><span class="nav-text">Cookies 的限制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E7%9A%84%E9%99%90%E5%88%B6"><span class="nav-text">数据存储的限制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F%E7%9A%84%E9%99%90%E5%88%B6"><span class="nav-text">作用域的限制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%87%E6%9C%9F%E6%97%B6%E9%97%B4"><span class="nav-text">过期时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%EF%BC%88Secure-HttpOnly-SameSite%EF%BC%89"><span class="nav-text">访问控制（Secure, HttpOnly, SameSite）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8%E4%BA%8E-HTTPS-%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%E7%9A%84-Secure-HttpOnly"><span class="nav-text">用于 HTTPS 访问控制的 Secure, HttpOnly</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8%E4%BA%8E%E8%B7%A8%E7%AB%99%E5%9C%BA%E6%99%AF%E7%9A%84-SameSite"><span class="nav-text">用于跨站场景的 SameSite</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CORS-%E5%9C%BA%E6%99%AF"><span class="nav-text">CORS 场景</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cookies-%E7%9A%84%E5%B8%B8%E8%A7%81%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">Cookies 的常见使用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%9A%E8%AF%9D%E8%B7%9F%E8%B8%AA"><span class="nav-text">会话跟踪</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95"><span class="nav-text">单点登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E5%B5%8C%E9%A1%B5%E9%9D%A2"><span class="nav-text">内嵌页面</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98"><span class="nav-text">常见安全问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB%EF%BC%88MitM%EF%BC%89"><span class="nav-text">中间人攻击（MitM）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%A8%E7%AB%99%E7%82%B9%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB%EF%BC%88XSS%EF%BC%89"><span class="nav-text">跨站点脚本攻击（XSS）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%A8%E7%AB%99%E7%82%B9%E8%AF%B7%E6%B1%82%E4%BC%AA%E9%80%A0%E6%94%BB%E5%87%BB%EF%BC%88CSRF%EF%BC%89"><span class="nav-text">跨站点请求伪造攻击（CSRF）</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="border-box website-info-box default">
+        
+            <div class="copyright-info info-item default">
+                &copy;&nbsp;<span>2021</span>&nbsp;-&nbsp;2023
+                
+                    &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">姚永坤</a>
+                
+            </div>
+
+            <div class="theme-info info-item default">
+                由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.7.3</a>
+            </div>
+
+            
+
+            
+        
+
+        <div class="count-item info-item default">
+            
+                <span class="count-box border-box word">
+                    <span class="item-type border-box">全站总字数</span>
+                    <span class="item-value border-box word">201.6k</span>
+                </span>
+            
+
+            
+                <span class="count-box border-box uv">
+                    <span class="item-type border-box">访问人数</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-box border-box pv">
+                    <span class="item-type border-box">总访问量</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools left-toc">
+            <div class="post-tools-container border-box">
+    <ul class="tools-list border-box">
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+            <li class="tools-item go-to-comments-tablet flex-center">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81Cookies-%E6%98%AF%E6%80%8E%E4%B9%88%E6%9D%A5%E7%9A%84%EF%BC%9F"><span class="nav-text">一、Cookies 是怎么来的？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81Cookies-%E6%98%AF%E6%80%8E%E4%B9%88%E5%B7%A5%E4%BD%9C%E7%9A%84%EF%BC%9F"><span class="nav-text">二、Cookies 是怎么工作的？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookies-%E6%98%AF%E7%94%B1%E8%B0%81%E5%88%9B%E5%BB%BA%E7%9A%84"><span class="nav-text">Cookies 是由谁创建的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookies-%E7%9A%84%E9%99%90%E5%88%B6"><span class="nav-text">Cookies 的限制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E7%9A%84%E9%99%90%E5%88%B6"><span class="nav-text">数据存储的限制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F%E7%9A%84%E9%99%90%E5%88%B6"><span class="nav-text">作用域的限制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%87%E6%9C%9F%E6%97%B6%E9%97%B4"><span class="nav-text">过期时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%EF%BC%88Secure-HttpOnly-SameSite%EF%BC%89"><span class="nav-text">访问控制（Secure, HttpOnly, SameSite）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8%E4%BA%8E-HTTPS-%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%E7%9A%84-Secure-HttpOnly"><span class="nav-text">用于 HTTPS 访问控制的 Secure, HttpOnly</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8%E4%BA%8E%E8%B7%A8%E7%AB%99%E5%9C%BA%E6%99%AF%E7%9A%84-SameSite"><span class="nav-text">用于跨站场景的 SameSite</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CORS-%E5%9C%BA%E6%99%AF"><span class="nav-text">CORS 场景</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cookies-%E7%9A%84%E5%B8%B8%E8%A7%81%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">Cookies 的常见使用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%9A%E8%AF%9D%E8%B7%9F%E8%B8%AA"><span class="nav-text">会话跟踪</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95"><span class="nav-text">单点登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E5%B5%8C%E9%A1%B5%E9%9D%A2"><span class="nav-text">内嵌页面</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98"><span class="nav-text">常见安全问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB%EF%BC%88MitM%EF%BC%89"><span class="nav-text">中间人攻击（MitM）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%A8%E7%AB%99%E7%82%B9%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB%EF%BC%88XSS%EF%BC%89"><span class="nav-text">跨站点脚本攻击（XSS）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%A8%E7%AB%99%E7%82%B9%E8%AF%B7%E6%B1%82%E4%BC%AA%E9%80%A0%E6%94%BB%E5%87%BB%EF%BC%88CSRF%EF%BC%89"><span class="nav-text">跨站点请求伪造攻击（CSRF）</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/code-block.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/post-helper.js"></script>
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/libs/anime.min.js"></script>
+        
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/toc.js"></script>
+        
+    
+    
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+
+    
+        
+    
+
+</body>
+</html>
