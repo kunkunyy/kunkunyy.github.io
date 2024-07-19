@@ -62,6 +62,8 @@ String({})=> "[object Object]"
 
 ## 面试题
 
+* 重写valueOf和toString方法，使得a==1&&a==2&&a==3为true
+  
 ```js
 let a = {
   value: 1;
@@ -76,3 +78,11 @@ if(a == 1 && a == 2 && a == 3){
   console.log(true)
 }
 ```
+
+* 下面代码输出什么？
+
+```js
+[9,8,7,6][1,2,3] // outputs 6
+[9,8,7,6][8,2,3,1] // outputs 8
+```
+* 解释：逗号运算符会返回最后一个表达式的值
