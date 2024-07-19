@@ -1,539 +1,179 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="keywords" content="Hexo Theme Keep">
-    <meta name="description" content="Hexo Theme Keep">
-    <meta name="author" content="姚永坤">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>标签: LeetCode刷题 | 姚永坤的小窝</title><meta name="author" content="姚永坤"><meta name="copyright" content="姚永坤"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="姚永坤的小窝">
+<meta property="og:url" content="http://example.com/tags/LeetCode%E5%88%B7%E9%A2%98/page/5/index.html">
+<meta property="og:site_name" content="姚永坤的小窝">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/avatar/github_avatar.jpeg">
+<meta property="article:author" content="姚永坤">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/avatar/github_avatar.jpeg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/tags/LeetCode%E5%88%B7%E9%A2%98/page/5/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.json","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 姚永坤","link":"链接: ","source":"来源: 姚永坤的小窝","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '标签: LeetCode刷题',
+  isPost: false,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-07-19 16:01:53'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
     
-    <title>
-        
-            标签: LeetCode刷题 |
-        
-        坤坤的百宝箱
-    </title>
-    
-<link rel="stylesheet" href="/css/style.css">
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
 
-    
-        <link rel="shortcut icon" href="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/head.3yoe3br9tws0.png">
-    
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/fontawesome.min.css">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/regular.min.css">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/solid.min.css">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/brands.min.css">
-    
-        
-            
-        
-    
-    <script id="hexo-configurations">
-    let KEEP = window.KEEP || {}
-    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"}
-    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true,"layout":"left"},"style":{"primary_color":"#0066cc","logo":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/op.3zg25jxprna0.png","favicon":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/head.3yoe3br9tws0.png","avatar":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/logo.6qi88yzn2jg0.jpg","shadow":true,"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"黑夜降临之处，便是黎明之始。|| Where blackness falls, begins dawn.","hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":true,"use":"giscus","valine":{"appid":"Peml0rEJ7HZNQA1gZrKxXgPr-gzGzoHsz","appkey":"vVJRDKBsUlnpc3zr69GFbCTI","placeholder":"快来评论吧！！！"},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2},"giscus":{"repo":"kunkunyy/discussion","repo_id":"R_kgDOKOnLlw","category":"Announcements","category_id":"DIC_kwDOKOnLl84CZCrc","reactions_enabled":true}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"wordcount":true,"min2read":true},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":true},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"version":"3.7.3"}
-    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
-    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
-    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
-  </script>
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="姚永坤的小窝" type="application/atom+xml">
-</head>
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
 
-
-<body>
-<div class="progress-bar-container">
+        document.head.appendChild(script)
+      })
     
-        <span class="scroll-progress-bar"></span>
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
     
-
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
-        <span class="pjax-progress-bar"></span>
-        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
     
-</div>
-
-
-<main class="page-container border-box">
-
-    <!-- home first screen  -->
-    
-
-    <!-- page content -->
-    <div class="page-main-content border-box">
-        <div class="page-main-content-top">
-            
-<header class="header-wrapper">
-
-    <div class="border-box header-content">
-        <div class="left border-box">
-            
-                <a class="logo-image border-box" href="/">
-                    <img src="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/op.3zg25jxprna0.png">
-                </a>
-            
-            <a class="site-name border-box" href="/">
-               坤坤的百宝箱
-            </a>
-        </div>
-
-        <div class="right border-box">
-            <div class="pc">
-                <ul class="menu-list">
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/"
-                            >
-                                首页
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/archives"
-                            >
-                                归档
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class="active"
-                               href="/tags"
-                            >
-                                标签
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/categories"
-                            >
-                                分类
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/about"
-                            >
-                                关于
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/changelog"
-                            >
-                                更新日志
-                            </a>
-                        </li>
-                    
-                    
-                        <li class="menu-item search search-popup-trigger">
-                            <i class="fas fa-search"></i>
-                        </li>
-                    
-                </ul>
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="姚永坤的小窝" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar/github_avatar.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">256</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">48</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">78</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header" style="background-image: url('/img/tag/tag.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="姚永坤的小窝"><span class="site-name">姚永坤的小窝</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="page-site-info"><h1 id="site-title">LeetCode刷题</h1></div></header><main class="layout" id="content-inner"><div id="tag"><div class="article-sort-title">标签 - LeetCode刷题</div><div class="article-sort"><div class="article-sort-item year">2022</div><div class="article-sort-item"><a class="article-sort-item-img" href="/2022/02/15/lc-19/" title="19. 删除链表的倒数第 N 个结点"><img src="/img/home/warming.webp" alt="19. 删除链表的倒数第 N 个结点" onerror="this.onerror=null;this.src='/img/404.jpg'"></a><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2022-02-15T13:13:06.000Z" title="发表于 2022-02-15 21:13:06">2022-02-15</time></div><a class="article-sort-item-title" href="/2022/02/15/lc-19/" title="19. 删除链表的倒数第 N 个结点">19. 删除链表的倒数第 N 个结点</a></div></div><div class="article-sort-item"><a class="article-sort-item-img" href="/2022/02/15/lc-24/" title="24. 两两交换链表中的节点"><img src="/img/home/warming.webp" alt="24. 两两交换链表中的节点" onerror="this.onerror=null;this.src='/img/404.jpg'"></a><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2022-02-15T07:35:12.000Z" title="发表于 2022-02-15 15:35:12">2022-02-15</time></div><a class="article-sort-item-title" href="/2022/02/15/lc-24/" title="24. 两两交换链表中的节点">24. 两两交换链表中的节点</a></div></div><div class="article-sort-item"><a class="article-sort-item-img" href="/2022/02/15/lc-206/" title="206. 反转链表"><img src="/img/home/warming.webp" alt="206. 反转链表" onerror="this.onerror=null;this.src='/img/404.jpg'"></a><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2022-02-15T06:28:25.000Z" title="发表于 2022-02-15 14:28:25">2022-02-15</time></div><a class="article-sort-item-title" href="/2022/02/15/lc-206/" title="206. 反转链表">206. 反转链表</a></div></div><div class="article-sort-item"><a class="article-sort-item-img" href="/2022/02/14/lc-707/" title="707.设计链表"><img src="/img/home/warming.webp" alt="707.设计链表" onerror="this.onerror=null;this.src='/img/404.jpg'"></a><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2022-02-14T08:49:16.000Z" title="发表于 2022-02-14 16:49:16">2022-02-14</time></div><a class="article-sort-item-title" href="/2022/02/14/lc-707/" title="707.设计链表">707.设计链表</a></div></div><div class="article-sort-item"><a class="article-sort-item-img" href="/2022/02/14/lc-203/" title="203.移除链表元素"><img src="/img/home/warming.webp" alt="203.移除链表元素" onerror="this.onerror=null;this.src='/img/404.jpg'"></a><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2022-02-14T06:25:45.000Z" title="发表于 2022-02-14 14:25:45">2022-02-14</time></div><a class="article-sort-item-title" href="/2022/02/14/lc-203/" title="203.移除链表元素">203.移除链表元素</a></div></div><div class="article-sort-item"><a class="article-sort-item-img" href="/2022/02/13/lc-59/" title="59. 螺旋矩阵 II"><img src="/img/home/warming.webp" alt="59. 螺旋矩阵 II" onerror="this.onerror=null;this.src='/img/404.jpg'"></a><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2022-02-13T07:45:28.000Z" title="发表于 2022-02-13 15:45:28">2022-02-13</time></div><a class="article-sort-item-title" href="/2022/02/13/lc-59/" title="59. 螺旋矩阵 II">59. 螺旋矩阵 II</a></div></div><div class="article-sort-item"><a class="article-sort-item-img" href="/2022/02/13/lc-209/" title="209. 长度最小的子数组"><img src="/img/home/warming.webp" alt="209. 长度最小的子数组" onerror="this.onerror=null;this.src='/img/404.jpg'"></a><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2022-02-13T06:49:56.000Z" title="发表于 2022-02-13 14:49:56">2022-02-13</time></div><a class="article-sort-item-title" href="/2022/02/13/lc-209/" title="209. 长度最小的子数组">209. 长度最小的子数组</a></div></div><div class="article-sort-item"><a class="article-sort-item-img" href="/2022/02/13/lc-977/" title="977. 有序数组的平方"><img src="/img/home/warming.webp" alt="977. 有序数组的平方" onerror="this.onerror=null;this.src='/img/404.jpg'"></a><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2022-02-13T05:48:49.000Z" title="发表于 2022-02-13 13:48:49">2022-02-13</time></div><a class="article-sort-item-title" href="/2022/02/13/lc-977/" title="977. 有序数组的平方">977. 有序数组的平方</a></div></div><div class="article-sort-item"><a class="article-sort-item-img" href="/2022/02/13/lc-27/" title="27.移除元素"><img src="/img/home/warming.webp" alt="27.移除元素" onerror="this.onerror=null;this.src='/img/404.jpg'"></a><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2022-02-12T19:45:48.000Z" title="发表于 2022-02-13 03:45:48">2022-02-13</time></div><a class="article-sort-item-title" href="/2022/02/13/lc-27/" title="27.移除元素">27.移除元素</a></div></div><div class="article-sort-item"><a class="article-sort-item-img" href="/2022/02/13/lc-704/" title="704.二分查找"><img src="/img/home/warming.webp" alt="704.二分查找" onerror="this.onerror=null;this.src='/img/404.jpg'"></a><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2022-02-12T17:04:32.000Z" title="发表于 2022-02-13 01:04:32">2022-02-13</time></div><a class="article-sort-item-title" href="/2022/02/13/lc-704/" title="704.二分查找">704.二分查找</a></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/tags/LeetCode%E5%88%B7%E9%A2%98/page/4/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/tags/LeetCode%E5%88%B7%E9%A2%98/">1</a><span class="space">&hellip;</span><a class="page-number" href="/tags/LeetCode%E5%88%B7%E9%A2%98/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/tags/LeetCode%E5%88%B7%E9%A2%98/page/6/">6</a><a class="extend next" rel="next" href="/tags/LeetCode%E5%88%B7%E9%A2%98/page/6/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar/github_avatar.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">姚永坤</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">256</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">48</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">78</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/kunkunyy" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="/kunkunyy1314@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/04/17/pattern-in-node/" title="设计模式在 Node 中的应用"><img src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="设计模式在 Node 中的应用"/></a><div class="content"><a class="title" href="/2024/04/17/pattern-in-node/" title="设计模式在 Node 中的应用">设计模式在 Node 中的应用</a><time datetime="2024-04-17T04:19:44.000Z" title="发表于 2024-04-17 12:19:44">2024-04-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/17/js-skill-2/" title="JS 基础技能2"><img src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JS 基础技能2"/></a><div class="content"><a class="title" href="/2024/04/17/js-skill-2/" title="JS 基础技能2">JS 基础技能2</a><time datetime="2024-04-17T02:20:08.000Z" title="发表于 2024-04-17 10:20:08">2024-04-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/16/usestate-vs-useref/" title="useState vs useRef"><img src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="useState vs useRef"/></a><div class="content"><a class="title" href="/2024/04/16/usestate-vs-useref/" title="useState vs useRef">useState vs useRef</a><time datetime="2024-04-16T11:50:04.000Z" title="发表于 2024-04-16 19:50:04">2024-04-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/16/6-advanced-typescript-tricks-for-clean-code/" title="让代码更简洁的6个高级 TypeScript 技巧"><img src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="让代码更简洁的6个高级 TypeScript 技巧"/></a><div class="content"><a class="title" href="/2024/04/16/6-advanced-typescript-tricks-for-clean-code/" title="让代码更简洁的6个高级 TypeScript 技巧">让代码更简洁的6个高级 TypeScript 技巧</a><time datetime="2024-04-16T06:41:28.000Z" title="发表于 2024-04-16 14:41:28">2024-04-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/16/react-usestate-mistake/" title="使用 useState 时的误区"><img src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用 useState 时的误区"/></a><div class="content"><a class="title" href="/2024/04/16/react-usestate-mistake/" title="使用 useState 时的误区">使用 useState 时的误区</a><time datetime="2024-04-16T01:39:56.000Z" title="发表于 2024-04-16 09:39:56">2024-04-16</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
             </div>
-            <div class="mobile">
-                
-                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
-                
-                <div class="icon-item menu-bar">
-                    <div class="menu-bar-middle"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="header-drawer">
-        <ul class="drawer-menu-list">
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/">首页</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/archives">归档</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class="active"
-                       href="/tags">标签</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/categories">分类</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/about">关于</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/changelog">更新日志</a>
-                </li>
-            
-        </ul>
-    </div>
-
-    <div class="window-mask"></div>
-
-</header>
-
-
-        </div>
-
-        <div class="page-main-content-middle border-box">
-
-            <div class="main-content border-box">
-
-                
-
-                    <div class="fade-in-down-animation">
-    <div class="tag-container">
-        <div class="tag-name"><i class="fas fa-tag"></i>&nbsp;LeetCode刷题
-        </div>
-        <div class="tag-post-list">
-            
-<div class="archive-list-container border-box">
-    
-        <section class="archive-item border-box">
-            <div class="archive-item-header border-box">
-                <span class="archive-year">2022</span>
-            </div>
-            <ul class="article-list border-box">
-                
-                    <li class="article-item border-box">
-                        <a class="article-title border-box text-ellipsis"
-                           href="/2022/02/15/lc-19/"
-                        >19. 删除链表的倒数第 N 个结点</a>
-                        <span class="article-date border-box">02-15</span>
-                    </li>
-                
-                    <li class="article-item border-box">
-                        <a class="article-title border-box text-ellipsis"
-                           href="/2022/02/15/lc-24/"
-                        >24. 两两交换链表中的节点</a>
-                        <span class="article-date border-box">02-15</span>
-                    </li>
-                
-                    <li class="article-item border-box">
-                        <a class="article-title border-box text-ellipsis"
-                           href="/2022/02/15/lc-206/"
-                        >206. 反转链表</a>
-                        <span class="article-date border-box">02-15</span>
-                    </li>
-                
-                    <li class="article-item border-box">
-                        <a class="article-title border-box text-ellipsis"
-                           href="/2022/02/14/lc-707/"
-                        >707.设计链表</a>
-                        <span class="article-date border-box">02-14</span>
-                    </li>
-                
-                    <li class="article-item border-box">
-                        <a class="article-title border-box text-ellipsis"
-                           href="/2022/02/14/lc-203/"
-                        >203.移除链表元素</a>
-                        <span class="article-date border-box">02-14</span>
-                    </li>
-                
-                    <li class="article-item border-box">
-                        <a class="article-title border-box text-ellipsis"
-                           href="/2022/02/13/lc-59/"
-                        >59. 螺旋矩阵 II</a>
-                        <span class="article-date border-box">02-13</span>
-                    </li>
-                
-                    <li class="article-item border-box">
-                        <a class="article-title border-box text-ellipsis"
-                           href="/2022/02/13/lc-209/"
-                        >209. 长度最小的子数组</a>
-                        <span class="article-date border-box">02-13</span>
-                    </li>
-                
-                    <li class="article-item border-box">
-                        <a class="article-title border-box text-ellipsis"
-                           href="/2022/02/13/lc-977/"
-                        >977. 有序数组的平方</a>
-                        <span class="article-date border-box">02-13</span>
-                    </li>
-                
-                    <li class="article-item border-box">
-                        <a class="article-title border-box text-ellipsis"
-                           href="/2022/02/13/lc-27/"
-                        >27.移除元素</a>
-                        <span class="article-date border-box">02-13</span>
-                    </li>
-                
-                    <li class="article-item border-box">
-                        <a class="article-title border-box text-ellipsis"
-                           href="/2022/02/13/lc-704/"
-                        >704.二分查找</a>
-                        <span class="article-date border-box">02-13</span>
-                    </li>
-                
-            </ul>
-        </section>
-    
-</div>
-
-        </div>
-    </div>
-    
-    <div class="paginator border-box flex-center">
-        <div class="btn-wrap allowed">
-            <a class="jump-btn"
-               href="/tags/LeetCode%E5%88%B7%E9%A2%98/page/4/"
-            ><i class="fa-solid fa-chevron-left"></i></a>
-        </div>
-
-
-        <div class="page-number-box border-box flex-center">
-            <input class="page-number-input border-box base-color-size"
-                   type="number"
-                   value="5"
-                   min="1"
-                   max="6"
-            ><span class="delimiter base-color-size">/</span><span class="base-color-size">6</span>
-        </div>
-
-
-        <div class="btn-wrap allowed">
-            <a class="jump-btn"
-               href="/tags/LeetCode%E5%88%B7%E9%A2%98/page/6/"
-            ><i class="fa-solid fa-chevron-right"></i></a>
-        </div>
-    </div>
-
-
-
-
-</div>
-
-
-                
-            </div>
-
-        </div>
-
-        <div class="page-main-content-bottom border-box">
-            
-<footer class="footer border-box">
-    <div class="border-box website-info-box default">
-        
-            <div class="copyright-info info-item default">
-                &copy;&nbsp;<span>2021</span>&nbsp;-&nbsp;2023
-                
-                    &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">姚永坤</a>
-                
-            </div>
-
-            <div class="theme-info info-item default">
-                由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.7.3</a>
-            </div>
-
-            
-
-            
-        
-
-        <div class="count-item info-item default">
-            
-                <span class="count-box border-box word">
-                    <span class="item-type border-box">全站总字数</span>
-                    <span class="item-value border-box word">201.6k</span>
-                </span>
-            
-
-            
-                <span class="count-box border-box uv">
-                    <span class="item-type border-box">访问人数</span>
-                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
-                </span>
-            
-
-            
-                <span class="count-box border-box pv">
-                    <span class="item-type border-box">总访问量</span>
-                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
-                </span>
-            
-        </div>
-    </div>
-</footer>
-
-        </div>
-    </div>
-
-    <!-- post tools -->
-    
-
-    <!-- side tools -->
-    <div class="side-tools">
-        <div class="side-tools-container">
-    <ul class="side-tools-list">
-        <li class="tools-item tool-font-adjust-plus flex-center">
-            <i class="fas fa-search-plus"></i>
-        </li>
-
-        <li class="tools-item tool-font-adjust-minus flex-center">
-            <i class="fas fa-search-minus"></i>
-        </li>
-
-        <li class="tools-item tool-dark-light-toggle flex-center">
-            <i class="fas fa-moon"></i>
-        </li>
-
-        <!-- rss -->
-        
-            <li class="tools-item rss flex-center">
-                <a class="flex-center"
-                   href="/atom.xml"
-                   target="_blank"
-                >
-                    <i class="fas fa-rss"></i>
-                </a>
-            </li>
-        
-
-        
-
-        <li class="tools-item tool-scroll-to-bottom flex-center">
-            <i class="fas fa-arrow-down"></i>
-        </li>
-    </ul>
-
-    <ul class="exposed-tools-list">
-        
-
-        
-
-        <li class="tools-item tool-toggle-show flex-center">
-            <i class="fas fa-cog fa-spin"></i>
-        </li>
-
-        
-            <li class="tools-item tool-scroll-to-top flex-center">
-                <i class="arrow-up fas fa-arrow-up"></i>
-                <span class="percent"></span>
-            </li>
-        
-    </ul>
-</div>
-
-    </div>
-
-    <!-- image mask -->
-    <div class="zoom-in-image-mask">
-    <img class="zoom-in-image">
-</div>
-
-
-    <!-- local search -->
-    
-        <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-          <span class="search-input-field-pre">
-            <i class="fas fa-keyboard"></i>
-          </span>
-            <div class="search-input-container">
-                <input autocomplete="off"
-                       autocorrect="off"
-                       autocapitalize="off"
-                       placeholder="搜索..."
-                       spellcheck="false"
-                       type="search"
-                       class="search-input"
-                >
-            </div>
-            <span class="close-popup-btn">
-                <i class="fas fa-times"></i>
-            </span>
-        </div>
-        <div id="search-result">
-            <div id="no-result">
-                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
-            </div>
-        </div>
-    </div>
-</div>
-
-    
-
-    <!-- tablet toc -->
-    
-</main>
-
-
-
-<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/dark-light-toggle.js"></script>
-
-
-
-
-    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/local-search.js"></script>
-
-
-
-    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/code-block.js"></script>
-
-
-
-    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/lazyload.js"></script>
-
-
-<div class="post-scripts pjax">
-    
-    
-    
-</div>
-
-
-    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/libs/pjax.min.js"></script>
-<script>
-    window.addEventListener('DOMContentLoaded', () => {
-        window.pjax = new Pjax({
-            selectors: [
-                'head title',
-                '.page-container',
-                '.pjax'
-            ],
-            history: true,
-            debug: false,
-            cacheBust: false,
-            timeout: 0,
-            analytics: false,
-            currentUrlFullReload: false,
-            scrollRestoration: false,
-            // scrollTo: true,
-        });
-
-        document.addEventListener('pjax:send', () => {
-            KEEP.utils.pjaxProgressBarStart();
-        });
-
-        document.addEventListener('pjax:complete', () => {
-            KEEP.utils.pjaxProgressBarEnd();
-            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
-            KEEP.refresh();
-        });
-    });
-</script>
-
-
-
-
-    
-        
-    
-
-</body>
-</html>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Antd%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/"><span class="card-category-list-name">Antd组件解析</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Array/"><span class="card-category-list-name">Array</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/BOM/"><span class="card-category-list-name">BOM</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><span class="card-category-list-name">C++学习笔记</span><span class="card-category-list-count">12</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"><span class="card-category-list-name">C++面向对象</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CSS/"><span class="card-category-list-name">CSS</span><span class="card-category-list-count">18</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Canvas/"><span class="card-category-list-name">Canvas</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Cookies/"><span class="card-category-list-name">Cookies</span><span class="card-category-list-count">1</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Vue%E5%AD%A6%E4%B9%A0/" style="font-size: 1.25em; color: #999fa8">Vue学习</a> <a href="/tags/python/" style="font-size: 1.28em; color: #99a0ab">python</a> <a href="/tags/JavaScript/" style="font-size: 1.1em; color: #999">JavaScript</a> <a href="/tags/css-in-js/" style="font-size: 1.1em; color: #999">css-in-js</a> <a href="/tags/LeetCode%E5%88%B7%E9%A2%98/" style="font-size: 1.47em; color: #99a8bc">LeetCode刷题</a> <a href="/tags/Https/" style="font-size: 1.1em; color: #999">Https</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%9F%BA%E6%9C%AC%E5%8A%9F/" style="font-size: 1.32em; color: #99a2ad">前端面试基本功</a> <a href="/tags/C-%E5%AD%A6%E4%B9%A0/" style="font-size: 1.35em; color: #99a3b0">C++学习</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.13em; color: #999a9c">数据结构</a> <a href="/tags/%E7%BB%84%E4%BB%B6%E5%BA%93/" style="font-size: 1.1em; color: #999">组件库</a> <a href="/tags/SVG-%E5%AD%A6%E4%B9%A0/" style="font-size: 1.19em; color: #999da2">SVG 学习</a> <a href="/tags/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/" style="font-size: 1.22em; color: #999ea5">算法学习</a> <a href="/tags/useRef/" style="font-size: 1.1em; color: #999">useRef</a> <a href="/tags/big-data-analysis-experiment/" style="font-size: 1.1em; color: #999">big data analysis experiment</a> <a href="/tags/python-experiment/" style="font-size: 1.41em; color: #99a5b6">python-experiment</a> <a href="/tags/HTML/" style="font-size: 1.1em; color: #999">HTML</a> <a href="/tags/experiment/" style="font-size: 1.44em; color: #99a7b9">experiment</a> <a href="/tags/JS/" style="font-size: 1.1em; color: #999">JS</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 1.1em; color: #999">网络</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97%E5%AF%BC%E8%AE%BA/" style="font-size: 1.1em; color: #999">科学计算导论</a> <a href="/tags/Skill/" style="font-size: 1.13em; color: #999a9c">Skill</a> <a href="/tags/Http/" style="font-size: 1.1em; color: #999">Http</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/" style="font-size: 1.1em; color: #999">知识点总结</a> <a href="/tags/React%E5%AD%A6%E4%B9%A0/" style="font-size: 1.22em; color: #999ea5">React学习</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 1.1em; color: #999">正则表达式</a> <a href="/tags/Lodash/" style="font-size: 1.1em; color: #999">Lodash</a> <a href="/tags/TypeScript/" style="font-size: 1.1em; color: #999">TypeScript</a> <a href="/tags/JS%E5%AD%A6%E4%B9%A0/" style="font-size: 1.5em; color: #99a9bf">JS学习</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7%E5%8C%85/" style="font-size: 1.1em; color: #999">前端工具包</a> <a href="/tags/study-notes/" style="font-size: 1.19em; color: #999da2">study-notes</a> <a href="/tags/TypeScript%E5%AD%A6%E4%B9%A0/" style="font-size: 1.38em; color: #99a4b3">TypeScript学习</a> <a href="/tags/less-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 1.1em; color: #999">less 学习笔记</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9B%B8%E5%85%B3/" style="font-size: 1.1em; color: #999">浏览器相关</a> <a href="/tags/UDP/" style="font-size: 1.1em; color: #999">UDP</a> <a href="/tags/Database-experiment/" style="font-size: 1.19em; color: #999da2">Database-experiment</a> <a href="/tags/style-component/" style="font-size: 1.1em; color: #999">style-component</a> <a href="/tags/study-notes/" style="font-size: 1.16em; color: #999b9f">study notes</a> <a href="/tags/Node/" style="font-size: 1.1em; color: #999">Node</a> <a href="/tags/useState/" style="font-size: 1.13em; color: #999a9c">useState</a> <a href="/tags/localhost/" style="font-size: 1.1em; color: #999">localhost</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">四月 2024</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/12/"><span class="card-archive-list-date">十二月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/11/"><span class="card-archive-list-date">十一月 2023</span><span class="card-archive-list-count">9</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">十月 2023</span><span class="card-archive-list-count">11</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">九月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">二月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/09/"><span class="card-archive-list-date">九月 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/08/"><span class="card-archive-list-date">八月 2022</span><span class="card-archive-list-count">7</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">256</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-07-19T08:01:52.933Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/tag/tag.webp')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2024 By 姚永坤</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="/js/tw_cn.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>

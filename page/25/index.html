@@ -1,1088 +1,277 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="keywords" content="Hexo Theme Keep">
-    <meta name="description" content="Hexo Theme Keep">
-    <meta name="author" content="姚永坤">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>姚永坤的小窝</title><meta name="author" content="姚永坤"><meta name="copyright" content="姚永坤"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="姚永坤的小窝">
+<meta property="og:url" content="http://example.com/page/25/index.html">
+<meta property="og:site_name" content="姚永坤的小窝">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/avatar/github_avatar.jpeg">
+<meta property="article:author" content="姚永坤">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/avatar/github_avatar.jpeg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/page/25/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.json","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 姚永坤","link":"链接: ","source":"来源: 姚永坤的小窝","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '姚永坤的小窝',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-07-19 16:01:53'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
     
-    <title>
-        
-        坤坤的百宝箱
-    </title>
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
     
-<link rel="stylesheet" href="/css/style.css">
-
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
     
-        <link rel="shortcut icon" href="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/head.3yoe3br9tws0.png">
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/fontawesome.min.css">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/regular.min.css">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/solid.min.css">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/brands.min.css">
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
     
-        
-            
-        
-    
-    <script id="hexo-configurations">
-    let KEEP = window.KEEP || {}
-    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"}
-    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true,"layout":"left"},"style":{"primary_color":"#0066cc","logo":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/op.3zg25jxprna0.png","favicon":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/head.3yoe3br9tws0.png","avatar":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/logo.6qi88yzn2jg0.jpg","shadow":true,"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"黑夜降临之处，便是黎明之始。|| Where blackness falls, begins dawn.","hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":true,"use":"giscus","valine":{"appid":"Peml0rEJ7HZNQA1gZrKxXgPr-gzGzoHsz","appkey":"vVJRDKBsUlnpc3zr69GFbCTI","placeholder":"快来评论吧！！！"},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2},"giscus":{"repo":"kunkunyy/discussion","repo_id":"R_kgDOKOnLlw","category":"Announcements","category_id":"DIC_kwDOKOnLl84CZCrc","reactions_enabled":true}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"wordcount":true,"min2read":true},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":true},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"version":"3.7.3"}
-    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
-    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
-    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
-  </script>
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="姚永坤的小窝" type="application/atom+xml">
-</head>
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="姚永坤的小窝" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar/github_avatar.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">256</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">48</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">78</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/img/home/warming.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="姚永坤的小窝"><span class="site-name">姚永坤的小窝</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">姚永坤的小窝</h1><div id="site_social_icons"><a class="social-icon" href="https://github.com/kunkunyy" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="/kunkunyy1314@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/2021/04/05/python-experiment-6/" title="Python 实验六"><img class="post-bg" src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python 实验六"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/04/05/python-experiment-6/" title="Python 实验六">Python 实验六</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-04-05T09:37:30.000Z" title="发表于 2021-04-05 17:37:30">2021-04-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/experiment/">experiment</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/experiment/">experiment</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/python-experiment/">python-experiment</a></span></div><div class="content">实验目的1、 培养分析问题并对进行建模的能力。2、 熟练使用组合数据类型解决实际问题。3、 熟练运用选择结构和循环结构解决实际问题。
+实验内容练习一题目统计《三国演义》中人物出场次数最多的前 20 人。
+代码12345678910111213141516171819202122232425262728293031323334353637import jieba as jietext = (open(&#x27;三国演义.txt&#x27;,&#x27;r&#x27;,encoding=&#x27;utf-8&#x27;)).read()words = jie.lcut(text)nowords =&#123;&quot;这个&quot;,&quot;引兵&quot;,&quot;次日&quot;,&quot;人马&quot;,&quot;不知&quot;,&quot;汉中&quot;,&quot;众将&quot;,&quot;只见&quot;,&quot;大喜&quot;,&quot;天下&quot;,&quot;东吴&quot;,&quot;于是&quot;,&quot;今日&quo ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/04/05/python-experiment-5/" title="Python 实验五 组合数据类型"><img class="post-bg" src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python 实验五 组合数据类型"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/04/05/python-experiment-5/" title="Python 实验五 组合数据类型">Python 实验五 组合数据类型</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-04-05T09:34:20.000Z" title="发表于 2021-04-05 17:34:20">2021-04-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/experiment/">experiment</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/experiment/">experiment</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/python-experiment/">python-experiment</a></span></div><div class="content">实验目的1、理解组合数据类型的概念2、掌握列表、字典与集合的定义和使用方法3、熟练 random 模块的应用
+实验内容练习一题目编写程序，在 26 个字母大小写和 10 个数字组成的列表中随机生成 10个 8 位密码。
+代码1234567891011121314#设置的密码没有重复的元素import randomList =[]#存入字母和数字for i in range(26):	List.append(chr(ord(&#x27;A&#x27;)+i))	List.append(chr(ord(&#x27;a&#x27;)+i))for i in range(10):	List.append(str(i))#随机生成 10 个 8 位数的密码for i in range(10):	password_List = random.sample(List,8) #生成结果仍为列表	password = &quot;&quot;.join(password_List) #将列表转化成字符串	print(password)
+练习二题目通过键盘输入系列整数值，输入 0 则表示输入结束，将这些值 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/04/05/python-experiment-4/" title="Python 实验四 程序的控制结构（循环）"><img class="post-bg" src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python 实验四 程序的控制结构（循环）"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/04/05/python-experiment-4/" title="Python 实验四 程序的控制结构（循环）">Python 实验四 程序的控制结构（循环）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-04-05T09:31:53.000Z" title="发表于 2021-04-05 17:31:53">2021-04-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/experiment/">experiment</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/experiment/">experiment</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/python-experiment/">python-experiment</a></span></div><div class="content">实验目的1、掌握程序的几种循环结构及扩展用法2、掌握 break 和 continue 的用法3、掌握 random 库的用法4、了解程序的异常处理及用法
+实验内容练习一题目：统计不同字符个数用户从键盘输入一行字符，编写一个程序，统计并输出其中英文字符、数字、空格和其它字符的个数。
+代码123456789101112charts = input(&quot;请输入一行字符：&quot;)english = num = space = other = 0for i in charts:	if &#x27;0&#x27;&lt;= i &lt;= &#x27;9&#x27;:		num += 1	elif (&#x27;a&#x27; &lt;= i &lt;= &#x27;z&#x27;) or (&#x27;A&#x27; &lt;= i &lt;=&#x27;Z&#x27;):		english += 1	elif i == &#x27; &#x27;:		space += 1	else:		other += 1print(&quot;在你输入的字符串中：英文字符有&#123;&#1 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/04/05/python-experiment-3/" title="Python 实验三 程序的控制结构（分支）"><img class="post-bg" src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python 实验三 程序的控制结构（分支）"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/04/05/python-experiment-3/" title="Python 实验三 程序的控制结构（分支）">Python 实验三 程序的控制结构（分支）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-04-05T09:28:55.000Z" title="发表于 2021-04-05 17:28:55">2021-04-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/experiment/">experiment</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/experiment/">experiment</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/python-experiment/">python-experiment</a></span></div><div class="content">实验目的1、掌握程序的单分支结构2、掌握程序的双分支结构3、掌握程序的多分支结构4、掌握 if 的嵌套
+实验内容练习一题目：身体质量指数 BMIBMI 值可以“客观的”衡量个人的肥胖程度或者说健康程度。世界卫生组织（WHO）根据对全球人口体重的统计认为，BMI 值低于 18.5 kg/m2 时属于“过轻”，表明个体可能营养不良或者饮食无法保障；BMI 值高于 25 kg/m2 时属于“过重”。根据下表所示指标编程测试自己的身体指数状况。￼
+代码1234567891011121314151617height ,weight = eval(input(&quot;请输入身高（米）和体重（公斤）[逗号隔开]：&quot;))bmi = weight / pow(height,2)print(&quot;BMI 指数为：&#123;:.2f&#125;&quot;.format(bmi))who,dom=&quot;&quot;,&quot;&quot;if bmi &lt; 18.5:	who,dom = &quot;偏瘦&quot;,&quot;偏瘦&quot;elif 18.5&lt;= ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/04/05/python-experiment-2/" title="Python 实验二 字符串及基本数据类型操作"><img class="post-bg" src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python 实验二 字符串及基本数据类型操作"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/04/05/python-experiment-2/" title="Python 实验二 字符串及基本数据类型操作">Python 实验二 字符串及基本数据类型操作</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-04-05T09:26:04.000Z" title="发表于 2021-04-05 17:26:04">2021-04-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/experiment/">experiment</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/experiment/">experiment</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/python-experiment/">python-experiment</a></span></div><div class="content">实验目的1．掌握字符串编码、索引方式2．掌握字符串的操作3．掌握字符串格式化4．掌握基本数据类型的运算操作
+实验内容练习一题目完成以下代码练习，熟悉字符串的相关使用。
+1略
+练习二题目输出由任意字符串堆积的 10 行等腰三角形。其中，str.center()方法用于字符串两边填充：str.rjust(width[,fillchar])方法用于字符串右填充。
+代码1234width = 2*10-1for i in range(1,11):    str = &#x27;*&#x27;*(2*i-1)    print(str.center(width,&#x27; &#x27;))
+运行结果￼
+练习三题目能力值的计算：一年 365 天，以第 1 天的能力值为基数，记为 1.0，当每天好好学习时能力值相比前一天提高 1‰，当没有学习时由于遗忘等原因能力值相比前一天下降 1‰，完成下列能力值的计算：(1) 每天努力和每天放任，一年下来的能力值分别多少？(2) 一周 5 个工作日，如果每个工作日都好好学习，在周末放任一下，计算 1 年后的能力值。
+代码12345678910111213141 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/04/05/python-experiment-1/" title="Python 实验一 Python运行环境搭建及使用"><img class="post-bg" src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python 实验一 Python运行环境搭建及使用"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/04/05/python-experiment-1/" title="Python 实验一 Python运行环境搭建及使用">Python 实验一 Python运行环境搭建及使用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-04-05T07:51:52.000Z" title="发表于 2021-04-05 15:51:52">2021-04-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/experiment/">experiment</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/experiment/">experiment</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/python-experiment/">python-experiment</a></span></div><div class="content">实验目的
+熟悉 Python 开发环境的使用
+熟悉 Python 应用程序的创建与运行
+掌握 Python 输入与输出实验内容练习一题目分别用交互模式和批量模式完成以下代码的练习。123str1=input(&quot;请输入一个人的名字：&quot;)str2=input(&quot;请输入一个国家的名字：&quot;)print(&quot;世界这么大，&#123;&#125;想去&#123;&#125;看看&quot;.format(str1,str2))
+练习二题目整数序列求和：用户输入一个正整数 N,计算从 1 到 N(包含 1 和 N)相加之后的结果。代码12345N = input(&quot;请输入一个正整数N：&quot;)sum = 0for i in range (int(N)):    sum += i + 1print(&quot;1到N相加后的结果为：&quot;,sum)
+练习三题目健康食谱输出：列出 5 种不同的食材，输出它们可能组成的所有菜式名称。代码12345array = [&#x27;土豆&#x27;,&#x27;豇豆&#x27;,&#x27;辣 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/04/05/python-study-notes-6/" title="Python 学习笔记（六）"><img class="post-bg" src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python 学习笔记（六）"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/04/05/python-study-notes-6/" title="Python 学习笔记（六）">Python 学习笔记（六）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-04-05T06:59:54.000Z" title="发表于 2021-04-05 14:59:54">2021-04-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/python/">python</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/python/">python</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/study-notes/">study-notes</a></span></div><div class="content">文件操作文件概述定义和分类
+定义：文件是一个存储在辅助存储器上的数据序列，可以包含任何数据内容。
+概念上:文件是数据的集合和抽象。
+优点：组织和表达数据更有效、更灵活。
+分类：文本文件和二进制文件。
+
+文本文件和二进制文件
 
 
-<body>
-<div class="progress-bar-container">
-    
-        <span class="scroll-progress-bar"></span>
-    
-
-    
-        <span class="pjax-progress-bar"></span>
-        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
-    
-</div>
+比较项
+文本文件
+二进制文件
 
 
-<main class="page-container border-box">
 
-    <!-- home first screen  -->
-    
-
-    <!-- page content -->
-    <div class="page-main-content border-box is-home">
-        <div class="page-main-content-top">
-            
-<header class="header-wrapper transparent-1">
-
-    <div class="border-box header-content">
-        <div class="left border-box">
-            
-                <a class="logo-image border-box" href="/">
-                    <img src="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/op.3zg25jxprna0.png">
-                </a>
-            
-            <a class="site-name border-box" href="/">
-               坤坤的百宝箱
-            </a>
-        </div>
-
-        <div class="right border-box">
-            <div class="pc">
-                <ul class="menu-list">
-                    
-                        <li class="menu-item">
-                            <a class="active"
-                               href="/"
-                            >
-                                首页
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/archives"
-                            >
-                                归档
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/tags"
-                            >
-                                标签
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/categories"
-                            >
-                                分类
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/about"
-                            >
-                                关于
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/changelog"
-                            >
-                                更新日志
-                            </a>
-                        </li>
-                    
-                    
-                        <li class="menu-item search search-popup-trigger">
-                            <i class="fas fa-search"></i>
-                        </li>
-                    
-                </ul>
-            </div>
-            <div class="mobile">
-                
-                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
-                
-                <div class="icon-item menu-bar">
-                    <div class="menu-bar-middle"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="header-drawer">
-        <ul class="drawer-menu-list">
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class="active"
-                       href="/">首页</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/archives">归档</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/tags">标签</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/categories">分类</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/about">关于</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/changelog">更新日志</a>
-                </li>
-            
-        </ul>
-    </div>
-
-    <div class="window-mask"></div>
-
-</header>
+定义
+由文本字符为内容的文件
+直接由比特0和1组成
 
 
-        </div>
+字符编码
+是
+否
 
-        <div class="page-main-content-middle border-box">
 
-            <div class="main-content border-box">
+读取方式
+文件经编码形成字符串，打印出含有意义的字符
+文件被解析为字节（比特）流
 
-                
 
-                    <div class="home-content-container fade-in-down-animation">
-    <ul class="home-article-list border-box">
-        
-            <li class="home-article-item">
+表示形式
+一个字符由2个字节表示
+单一字节表示
 
-                
 
-                <div class="home-article-item-bottom border-box">
-                    
-                    <h3 class="home-article-title border-box">
-                        <a href="/2021/04/01/Big-data-analysis-experiment-1/">
-                            大数据分析实验（一）
-                        </a>
-                    </h3>
+123456textFile = open(&quot;7.1.txt&quot;,&quot;rt&quot;) #t表示文本文件方式print(textFile.readline())textFile.close()binFile = open(&quot;7-1.txt&quot;,&quot;rb&quot;)	#r表示二进制文件方式print(binFile.readline())binFile.close()
+123&gt;&gt;&gt;中国是个伟大的国家！ b&#x27;\xd6\xd0\xb9\x ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/04/03/python-study-notes-5/" title="Python学习笔记（五）"><img class="post-bg" src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python学习笔记（五）"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/04/03/python-study-notes-5/" title="Python学习笔记（五）">Python学习笔记（五）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-04-03T13:02:02.000Z" title="发表于 2021-04-03 21:02:02">2021-04-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/python/">python</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/python/">python</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/study-notes/">study-notes</a></span></div><div class="content">组合数据类型集合基本内容
+定义：包含0个或多个数据项的无序组合
+特点：
+元素之间无序，每个元素唯一，不存在相同元素
+元素不可更改，不能是可变数据类型
+用大括号 {} 表示，元素间用逗号分隔
 
-                    <div class="home-article-content keep-markdown-body">
-                        
-                            Python 快速开发实验目的和要求
+
+创建方式：建立集合类型用 {} 或 set()
+tips：空集合必须用set()创建12345678&gt;&gt;&gt; A = &#123;&quot;python&quot;, 123, (&quot;python&quot;,123)&#125;&#123;123, &#x27;python&#x27;, (&#x27;python&#x27;, 123)&#125;&gt;&gt;&gt; B = set(&quot;pypy123&quot;)&#123;&#x27;1&#x27;, &#x27;p&#x27;, &#x27;2&#x27;, &#x27;3&#x27;, &#x27;y&#x27;&#125;&gt;&gt;&gt; C = &#123;&quot;python&quot;, 123, &quot;python&quot;,123&#125;&#123;&#x27 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/04/01/Big-data-analysis-experiment-1/" title="大数据分析实验（一）"><img class="post-bg" src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="大数据分析实验（一）"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/04/01/Big-data-analysis-experiment-1/" title="大数据分析实验（一）">大数据分析实验（一）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-04-01T13:18:27.000Z" title="发表于 2021-04-01 21:18:27">2021-04-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/experiment/">experiment</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/big-data-analysis-experiment/">big data analysis experiment</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/experiment/">experiment</a></span></div><div class="content">Python 快速开发实验目的和要求
 熟悉 Python 开发环境；
 掌握项目和文件的建立；
 掌握 Python 的基本语法；
 
 实验内容和分析题目一：自定义函数，设置固定次数的登陆题目内容
 由键盘输入密码；
-若密码正确则屏幕显示：“Login su...
-                        
-                    </div>
+若密码正确则屏幕显示：“Login success!”
+若密码错误则显示：“Wrong password or invalid input”，并显示剩余输入机会次数；
+共 3 次机会，用完则屏幕显示：“Your account has been suspended”，并退出程序。
 
-                    
-
-<div class="article-meta-info-container border-box home">
-    <div class="article-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fas fa-history"></i>&nbsp;<span class="home-article-history" data-updated="Mon Nov 06 2023 11:29:16 GMT+0800">2023-11-06</span>
-            </span>
-        
-
-
-        
-
-        
-            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                            <li class="category-item">
-                                
-                                <a href="/categories/experiment/">experiment</a>
-                            </li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-            <span class="article-tag meta-info-item border-box">
-                <i class="icon fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/big-data-analysis-experiment/">big data analysis experiment</a></li>
-                        
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/experiment/">experiment</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/2021/04/01/Big-data-analysis-experiment-1/">阅读全文&nbsp;<i class="icon fas fa-angles-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <div class="home-article-item-bottom border-box">
-                    
-                    <h3 class="home-article-title border-box">
-                        <a href="/2021/03/27/python-study-notes-4/">
-                            Python学习笔记（四）
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content keep-markdown-body">
-                        
-                            函数的使用函数定义在Python中我们时常会使用函数来提高代码的效率和复用性，函数的定义如下：
+解题思路① 首先创建一个文件模拟数据库用于存储用户的账户和密码② 通过读取用户的输入来和文件中的账户密码进行比较③ 如果存在则显示登陆成功，否则显示登陆失败④ 定义一个变量用于存储用户失败次数，当失败次数大于3后，显示账户已被锁定然后结束程序。
+实验设计① 定义一个函数其参数为用户输入的用户名和密码，该函数将数据库文件打开然后按照存储形式进行比较，如果存在就返回True否则返回False② 主函数定义变量frequency用于标记用户登陆失败次数③ 利用while语句实现失败重新登陆这一过程；当匹配成 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/03/27/python-study-notes-4/" title="Python学习笔记（四）"><img class="post-bg" src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python学习笔记（四）"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/03/27/python-study-notes-4/" title="Python学习笔记（四）">Python学习笔记（四）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-03-27T09:20:38.000Z" title="发表于 2021-03-27 17:20:38">2021-03-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/python/">python</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/python/">python</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/study-notes/">study-notes</a></span></div><div class="content">函数的使用函数定义在Python中我们时常会使用函数来提高代码的效率和复用性，函数的定义如下：
 123def &lt;函数名&gt;(&lt;参数&gt;):    &lt;函数体&gt;    return &lt;返回值&gt;
 
-这里def保留...
-                        
-                    </div>
-
-                    
-
-<div class="article-meta-info-container border-box home">
-    <div class="article-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fas fa-history"></i>&nbsp;<span class="home-article-history" data-updated="Mon Nov 06 2023 11:29:16 GMT+0800">2023-11-06</span>
-            </span>
-        
-
-
-        
-
-        
-            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                            <li class="category-item">
-                                
-                                <a href="/categories/python/">python</a>
-                            </li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-            <span class="article-tag meta-info-item border-box">
-                <i class="icon fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/python/">python</a></li>
-                        
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/study-notes/">study-notes</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/2021/03/27/python-study-notes-4/">阅读全文&nbsp;<i class="icon fas fa-angles-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <div class="home-article-item-bottom border-box">
-                    
-                    <h3 class="home-article-title border-box">
-                        <a href="/2021/03/22/python-study-notes-3/">
-                            Python学习笔记（三）
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content keep-markdown-body">
-                        
-                            程序控制结构是每一种程序设计语言都会涉及到的一块，这边文章就来讲讲python中的程序设计结构。
-条件语句用于条件组合的三个保留字设x，y为两个条件：
-
-
-
-操作符
-描述
-
-
-
-x and y
-逻辑与
-
-
-x or y
-逻辑或
-
-
-not x
-逻辑非...
-                        
-                    </div>
-
-                    
-
-<div class="article-meta-info-container border-box home">
-    <div class="article-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fas fa-history"></i>&nbsp;<span class="home-article-history" data-updated="Mon Nov 06 2023 11:29:16 GMT+0800">2023-11-06</span>
-            </span>
-        
-
-
-        
-
-        
-            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                            <li class="category-item">
-                                
-                                <a href="/categories/python/">python</a>
-                            </li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-            <span class="article-tag meta-info-item border-box">
-                <i class="icon fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/python/">python</a></li>
-                        
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/study-notes/">study-notes</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/2021/03/22/python-study-notes-3/">阅读全文&nbsp;<i class="icon fas fa-angles-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <div class="home-article-item-bottom border-box">
-                    
-                    <h3 class="home-article-title border-box">
-                        <a href="/2021/03/16/python-skill-string-concatenation/">
-                            Python 字符串连接方法
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content keep-markdown-body">
-                        
-                            之前在学习Python的时候对于字符串的连接并没有过多的研究，能应付考试就好啦。最近在写博客遇到相关内容去查了查，发现字符串连接的方法还是非常多的，这篇博客就来记录一下方便以后查看。
-字符串连接方法总结假设’str1’，’str2’为两个字符串。
-‘...
-                        
-                    </div>
-
-                    
-
-<div class="article-meta-info-container border-box home">
-    <div class="article-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fas fa-history"></i>&nbsp;<span class="home-article-history" data-updated="Mon Nov 06 2023 11:29:16 GMT+0800">2023-11-06</span>
-            </span>
-        
-
-
-        
-
-        
-            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                            <li class="category-item">
-                                
-                                <a href="/categories/python/">python</a>
-                            </li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-            <span class="article-tag meta-info-item border-box">
-                <i class="icon fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Skill/">Skill</a></li>
-                        
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/python/">python</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/2021/03/16/python-skill-string-concatenation/">阅读全文&nbsp;<i class="icon fas fa-angles-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <div class="home-article-item-bottom border-box">
-                    
-                    <h3 class="home-article-title border-box">
-                        <a href="/2021/03/15/python-skill-max/">
-                            Python max函数不同参数结果比较
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content keep-markdown-body">
-                        
-                            前言&emsp; &emsp; 在菜鸟教程中对于max函数描述是这样的：max() 方法返回给定参数的最大值，参数可以为序列。这个描述只是客观的将这个函数的功能给描述出来了，但这只是一个模糊的定义。由于没有指定可传入参数的类型，所以说这就带给了这个函...
-                        
-                    </div>
-
-                    
-
-<div class="article-meta-info-container border-box home">
-    <div class="article-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fas fa-history"></i>&nbsp;<span class="home-article-history" data-updated="Mon Nov 06 2023 11:29:16 GMT+0800">2023-11-06</span>
-            </span>
-        
-
-
-        
-
-        
-            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                            <li class="category-item">
-                                
-                                <a href="/categories/python/">python</a>
-                            </li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-            <span class="article-tag meta-info-item border-box">
-                <i class="icon fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Skill/">Skill</a></li>
-                        
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/python/">python</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/2021/03/15/python-skill-max/">阅读全文&nbsp;<i class="icon fas fa-angles-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <div class="home-article-item-bottom border-box">
-                    
-                    <h3 class="home-article-title border-box">
-                        <a href="/2021/03/15/python-study-notes-2/">
-                            python学习笔记（二）
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content keep-markdown-body">
-                        
-                            第三章这一章主要是对基本数据类型的学习，包括数字和字符串类型以及对应的操作。
-数字类型
-类型：整数、浮点数、复数
-
-浮点数
-浮点数间运算存在不确定尾数，如下图所示：
-
-
-原因：浮点数是小数的一种二进制表示方法，由于浮点数存在精度限制，在使用浮点数做运...
-                        
-                    </div>
-
-                    
-
-<div class="article-meta-info-container border-box home">
-    <div class="article-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fas fa-history"></i>&nbsp;<span class="home-article-history" data-updated="Mon Nov 06 2023 11:29:16 GMT+0800">2023-11-06</span>
-            </span>
-        
-
-
-        
-
-        
-            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                            <li class="category-item">
-                                
-                                <a href="/categories/python/">python</a>
-                            </li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-            <span class="article-tag meta-info-item border-box">
-                <i class="icon fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/study-notes/">study notes</a></li>
-                        
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/python/">python</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/2021/03/15/python-study-notes-2/">阅读全文&nbsp;<i class="icon fas fa-angles-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <div class="home-article-item-bottom border-box">
-                    
-                    <h3 class="home-article-title border-box">
-                        <a href="/2021/03/15/python-study-note/">
-                            python学习笔记（一）
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content keep-markdown-body">
-                        
-                            本科学习python课程笔记，之前使用的有道云笔记记载，现在将它搬运到博客中。
-第一章是一些基本概念，所以从第二章开始记的。所以，一起加油咯！
-
-第二章主要是turtle库的使用，然后简单介绍了python中的字符串的使用，第三章会详细讲字符串。
-字...
-                        
-                    </div>
-
-                    
-
-<div class="article-meta-info-container border-box home">
-    <div class="article-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fas fa-history"></i>&nbsp;<span class="home-article-history" data-updated="Mon Nov 06 2023 11:29:16 GMT+0800">2023-11-06</span>
-            </span>
-        
-
-
-        
-
-        
-            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                            <li class="category-item">
-                                
-                                <a href="/categories/python/">python</a>
-                            </li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-            <span class="article-tag meta-info-item border-box">
-                <i class="icon fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/study-notes/">study notes</a></li>
-                        
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/python/">python</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/2021/03/15/python-study-note/">阅读全文&nbsp;<i class="icon fas fa-angles-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <div class="home-article-item-bottom border-box">
-                    
-                    <h3 class="home-article-title border-box">
-                        <a href="/2021/03/12/markdown-study-notes/">
-                            Markdown学习笔记
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content keep-markdown-body">
-                        
-                             之前只是用markdown写过博客并没有系统的去了markdown语法，现在将创建博客后的第一篇文章用来记录我学习markdown的经历以及对于知识点的理解。
-markdown官方介绍和个人理解菜鸟教程介绍
-Markdown 是一种轻量级标记语言，...
-                        
-                    </div>
-
-                    
-
-<div class="article-meta-info-container border-box home">
-    <div class="article-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fas fa-history"></i>&nbsp;<span class="home-article-history" data-updated="Mon Nov 06 2023 11:29:16 GMT+0800">2023-11-06</span>
-            </span>
-        
-
-
-        
-
-        
-            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                            <li class="category-item">
-                                
-                                <a href="/categories/markdown/">markdown</a>
-                            </li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-            <span class="article-tag meta-info-item border-box">
-                <i class="icon fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/markdown/">markdown</a></li>
-                        
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/study-notes/">study notes</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/2021/03/12/markdown-study-notes/">阅读全文&nbsp;<i class="icon fas fa-angles-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-    </ul>
-    
-    <div class="paginator border-box flex-center">
-        <div class="btn-wrap allowed">
-            <a class="jump-btn"
-               href="/page/24/"
-            ><i class="fa-solid fa-chevron-left"></i></a>
-        </div>
-
-
-        <div class="page-number-box border-box flex-center">
-            <input class="page-number-input border-box base-color-size"
-                   type="number"
-                   value="25"
-                   min="1"
-                   max="25"
-            ><span class="delimiter base-color-size">/</span><span class="base-color-size">25</span>
-        </div>
-
-
-        <div class="btn-wrap">
-            <a class="jump-btn"
-               href="/"
-            ><i class="fa-solid fa-chevron-right"></i></a>
-        </div>
-    </div>
-
-
-
-
-</div>
-
-
-                
+这里def保留字用于声明函数，必须填写。
+
+参数设置
+参数设置主要有四类：必选参数、默认参数、可选参数、关键字参数
+
+123def &lt;函数名&gt;(&lt;必选参数&gt;,&lt;默认参数&gt;&lt;可选参数&gt;&lt;关键字参数&gt;):    &lt;函数体&gt;    return &lt;返回值&gt;
+下面以计算n!这个函数为例子来介绍这些参数：
+必选参数传递
+当函数只有一个参数时默认该参数为必选参数
+
+默认参数传递
+优势：减低函数的难度
+tips：默认参数必须指向不变对象
+下面例子当中的参数m就是可选参数，12345def fact(n,m=1):    s = 1    for i in range(1,n+1):        s *= i    return s//m
+
+可变参数传递
+传入参数的个数是可变的。
+在参 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/24/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/#content-inner">24</a><span class="page-number current">25</span><a class="page-number" href="/page/26/#content-inner">26</a><a class="extend next" rel="next" href="/page/26/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar/github_avatar.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">姚永坤</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">256</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">48</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">78</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/kunkunyy" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="/kunkunyy1314@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/04/17/pattern-in-node/" title="设计模式在 Node 中的应用"><img src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="设计模式在 Node 中的应用"/></a><div class="content"><a class="title" href="/2024/04/17/pattern-in-node/" title="设计模式在 Node 中的应用">设计模式在 Node 中的应用</a><time datetime="2024-04-17T04:19:44.000Z" title="发表于 2024-04-17 12:19:44">2024-04-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/17/js-skill-2/" title="JS 基础技能2"><img src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JS 基础技能2"/></a><div class="content"><a class="title" href="/2024/04/17/js-skill-2/" title="JS 基础技能2">JS 基础技能2</a><time datetime="2024-04-17T02:20:08.000Z" title="发表于 2024-04-17 10:20:08">2024-04-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/16/usestate-vs-useref/" title="useState vs useRef"><img src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="useState vs useRef"/></a><div class="content"><a class="title" href="/2024/04/16/usestate-vs-useref/" title="useState vs useRef">useState vs useRef</a><time datetime="2024-04-16T11:50:04.000Z" title="发表于 2024-04-16 19:50:04">2024-04-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/16/6-advanced-typescript-tricks-for-clean-code/" title="让代码更简洁的6个高级 TypeScript 技巧"><img src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="让代码更简洁的6个高级 TypeScript 技巧"/></a><div class="content"><a class="title" href="/2024/04/16/6-advanced-typescript-tricks-for-clean-code/" title="让代码更简洁的6个高级 TypeScript 技巧">让代码更简洁的6个高级 TypeScript 技巧</a><time datetime="2024-04-16T06:41:28.000Z" title="发表于 2024-04-16 14:41:28">2024-04-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/16/react-usestate-mistake/" title="使用 useState 时的误区"><img src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用 useState 时的误区"/></a><div class="content"><a class="title" href="/2024/04/16/react-usestate-mistake/" title="使用 useState 时的误区">使用 useState 时的误区</a><time datetime="2024-04-16T01:39:56.000Z" title="发表于 2024-04-16 09:39:56">2024-04-16</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
             </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Antd%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/"><span class="card-category-list-name">Antd组件解析</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Array/"><span class="card-category-list-name">Array</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/BOM/"><span class="card-category-list-name">BOM</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><span class="card-category-list-name">C++学习笔记</span><span class="card-category-list-count">12</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"><span class="card-category-list-name">C++面向对象</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CSS/"><span class="card-category-list-name">CSS</span><span class="card-category-list-count">18</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Canvas/"><span class="card-category-list-name">Canvas</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Cookies/"><span class="card-category-list-name">Cookies</span><span class="card-category-list-count">1</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Vue%E5%AD%A6%E4%B9%A0/" style="font-size: 1.25em; color: #999fa8">Vue学习</a> <a href="/tags/python/" style="font-size: 1.28em; color: #99a0ab">python</a> <a href="/tags/JavaScript/" style="font-size: 1.1em; color: #999">JavaScript</a> <a href="/tags/css-in-js/" style="font-size: 1.1em; color: #999">css-in-js</a> <a href="/tags/LeetCode%E5%88%B7%E9%A2%98/" style="font-size: 1.47em; color: #99a8bc">LeetCode刷题</a> <a href="/tags/Https/" style="font-size: 1.1em; color: #999">Https</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%9F%BA%E6%9C%AC%E5%8A%9F/" style="font-size: 1.32em; color: #99a2ad">前端面试基本功</a> <a href="/tags/C-%E5%AD%A6%E4%B9%A0/" style="font-size: 1.35em; color: #99a3b0">C++学习</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.13em; color: #999a9c">数据结构</a> <a href="/tags/%E7%BB%84%E4%BB%B6%E5%BA%93/" style="font-size: 1.1em; color: #999">组件库</a> <a href="/tags/SVG-%E5%AD%A6%E4%B9%A0/" style="font-size: 1.19em; color: #999da2">SVG 学习</a> <a href="/tags/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/" style="font-size: 1.22em; color: #999ea5">算法学习</a> <a href="/tags/useRef/" style="font-size: 1.1em; color: #999">useRef</a> <a href="/tags/big-data-analysis-experiment/" style="font-size: 1.1em; color: #999">big data analysis experiment</a> <a href="/tags/python-experiment/" style="font-size: 1.41em; color: #99a5b6">python-experiment</a> <a href="/tags/HTML/" style="font-size: 1.1em; color: #999">HTML</a> <a href="/tags/experiment/" style="font-size: 1.44em; color: #99a7b9">experiment</a> <a href="/tags/JS/" style="font-size: 1.1em; color: #999">JS</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 1.1em; color: #999">网络</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97%E5%AF%BC%E8%AE%BA/" style="font-size: 1.1em; color: #999">科学计算导论</a> <a href="/tags/Skill/" style="font-size: 1.13em; color: #999a9c">Skill</a> <a href="/tags/Http/" style="font-size: 1.1em; color: #999">Http</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/" style="font-size: 1.1em; color: #999">知识点总结</a> <a href="/tags/React%E5%AD%A6%E4%B9%A0/" style="font-size: 1.22em; color: #999ea5">React学习</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 1.1em; color: #999">正则表达式</a> <a href="/tags/Lodash/" style="font-size: 1.1em; color: #999">Lodash</a> <a href="/tags/TypeScript/" style="font-size: 1.1em; color: #999">TypeScript</a> <a href="/tags/JS%E5%AD%A6%E4%B9%A0/" style="font-size: 1.5em; color: #99a9bf">JS学习</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7%E5%8C%85/" style="font-size: 1.1em; color: #999">前端工具包</a> <a href="/tags/study-notes/" style="font-size: 1.19em; color: #999da2">study-notes</a> <a href="/tags/TypeScript%E5%AD%A6%E4%B9%A0/" style="font-size: 1.38em; color: #99a4b3">TypeScript学习</a> <a href="/tags/less-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 1.1em; color: #999">less 学习笔记</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9B%B8%E5%85%B3/" style="font-size: 1.1em; color: #999">浏览器相关</a> <a href="/tags/UDP/" style="font-size: 1.1em; color: #999">UDP</a> <a href="/tags/Database-experiment/" style="font-size: 1.19em; color: #999da2">Database-experiment</a> <a href="/tags/style-component/" style="font-size: 1.1em; color: #999">style-component</a> <a href="/tags/study-notes/" style="font-size: 1.16em; color: #999b9f">study notes</a> <a href="/tags/Node/" style="font-size: 1.1em; color: #999">Node</a> <a href="/tags/useState/" style="font-size: 1.13em; color: #999a9c">useState</a> <a href="/tags/localhost/" style="font-size: 1.1em; color: #999">localhost</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">四月 2024</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/12/"><span class="card-archive-list-date">十二月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/11/"><span class="card-archive-list-date">十一月 2023</span><span class="card-archive-list-count">9</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">十月 2023</span><span class="card-archive-list-count">11</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">九月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">二月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/09/"><span class="card-archive-list-date">九月 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/08/"><span class="card-archive-list-date">八月 2022</span><span class="card-archive-list-count">7</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">256</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-07-19T08:01:52.933Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/home/warming.webp')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2024 By 姚永坤</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="/js/tw_cn.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
 
-        </div>
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
 
-        <div class="page-main-content-bottom border-box">
-            
-<footer class="footer border-box">
-    <div class="border-box website-info-box default">
-        
-            <div class="copyright-info info-item default">
-                &copy;&nbsp;<span>2021</span>&nbsp;-&nbsp;2023
-                
-                    &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">姚永坤</a>
-                
-            </div>
-
-            <div class="theme-info info-item default">
-                由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.7.3</a>
-            </div>
-
-            
-
-            
-        
-
-        <div class="count-item info-item default">
-            
-                <span class="count-box border-box word">
-                    <span class="item-type border-box">全站总字数</span>
-                    <span class="item-value border-box word">201.6k</span>
-                </span>
-            
-
-            
-                <span class="count-box border-box uv">
-                    <span class="item-type border-box">访问人数</span>
-                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
-                </span>
-            
-
-            
-                <span class="count-box border-box pv">
-                    <span class="item-type border-box">总访问量</span>
-                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
-                </span>
-            
-        </div>
-    </div>
-</footer>
-
-        </div>
-    </div>
-
-    <!-- post tools -->
-    
-
-    <!-- side tools -->
-    <div class="side-tools">
-        <div class="side-tools-container">
-    <ul class="side-tools-list">
-        <li class="tools-item tool-font-adjust-plus flex-center">
-            <i class="fas fa-search-plus"></i>
-        </li>
-
-        <li class="tools-item tool-font-adjust-minus flex-center">
-            <i class="fas fa-search-minus"></i>
-        </li>
-
-        <li class="tools-item tool-dark-light-toggle flex-center">
-            <i class="fas fa-moon"></i>
-        </li>
-
-        <!-- rss -->
-        
-            <li class="tools-item rss flex-center">
-                <a class="flex-center"
-                   href="/atom.xml"
-                   target="_blank"
-                >
-                    <i class="fas fa-rss"></i>
-                </a>
-            </li>
-        
-
-        
-
-        <li class="tools-item tool-scroll-to-bottom flex-center">
-            <i class="fas fa-arrow-down"></i>
-        </li>
-    </ul>
-
-    <ul class="exposed-tools-list">
-        
-
-        
-
-        <li class="tools-item tool-toggle-show flex-center">
-            <i class="fas fa-cog fa-spin"></i>
-        </li>
-
-        
-            <li class="tools-item tool-scroll-to-top flex-center">
-                <i class="arrow-up fas fa-arrow-up"></i>
-                <span class="percent"></span>
-            </li>
-        
-    </ul>
-</div>
-
-    </div>
-
-    <!-- image mask -->
-    <div class="zoom-in-image-mask">
-    <img class="zoom-in-image">
-</div>
-
-
-    <!-- local search -->
-    
-        <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-          <span class="search-input-field-pre">
-            <i class="fas fa-keyboard"></i>
-          </span>
-            <div class="search-input-container">
-                <input autocomplete="off"
-                       autocorrect="off"
-                       autocapitalize="off"
-                       placeholder="搜索..."
-                       spellcheck="false"
-                       type="search"
-                       class="search-input"
-                >
-            </div>
-            <span class="close-popup-btn">
-                <i class="fas fa-times"></i>
-            </span>
-        </div>
-        <div id="search-result">
-            <div id="no-result">
-                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
-            </div>
-        </div>
-    </div>
-</div>
-
-    
-
-    <!-- tablet toc -->
-    
-</main>
-
-
-
-
-<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/dark-light-toggle.js"></script>
-
-
-
-
-    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/local-search.js"></script>
-
-
-
-    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/code-block.js"></script>
-
-
-
-    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/lazyload.js"></script>
-
-
-<div class="post-scripts pjax">
-    
-    
-    
-</div>
-
-
-    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/libs/pjax.min.js"></script>
-<script>
-    window.addEventListener('DOMContentLoaded', () => {
-        window.pjax = new Pjax({
-            selectors: [
-                'head title',
-                '.page-container',
-                '.pjax'
-            ],
-            history: true,
-            debug: false,
-            cacheBust: false,
-            timeout: 0,
-            analytics: false,
-            currentUrlFullReload: false,
-            scrollRestoration: false,
-            // scrollTo: true,
-        });
-
-        document.addEventListener('pjax:send', () => {
-            KEEP.utils.pjaxProgressBarStart();
-        });
-
-        document.addEventListener('pjax:complete', () => {
-            KEEP.utils.pjaxProgressBarEnd();
-            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
-            KEEP.refresh();
-        });
-    });
-</script>
-
-
-
-
-    
-        
-    
-
-</body>
-</html>
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>

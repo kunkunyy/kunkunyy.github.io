@@ -1,1350 +1,277 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="keywords" content="Hexo Theme Keep">
-    <meta name="description" content="Hexo Theme Keep">
-    <meta name="author" content="姚永坤">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>姚永坤的小窝</title><meta name="author" content="姚永坤"><meta name="copyright" content="姚永坤"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="姚永坤的小窝">
+<meta property="og:url" content="http://example.com/page/20/index.html">
+<meta property="og:site_name" content="姚永坤的小窝">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/avatar/github_avatar.jpeg">
+<meta property="article:author" content="姚永坤">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/avatar/github_avatar.jpeg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/page/20/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.json","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 姚永坤","link":"链接: ","source":"来源: 姚永坤的小窝","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '姚永坤的小窝',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-07-19 16:01:53'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
     
-    <title>
-        
-        坤坤的百宝箱
-    </title>
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
     
-<link rel="stylesheet" href="/css/style.css">
-
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
     
-        <link rel="shortcut icon" href="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/head.3yoe3br9tws0.png">
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/fontawesome.min.css">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/regular.min.css">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/solid.min.css">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/brands.min.css">
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
     
-        
-            
-        
-    
-    <script id="hexo-configurations">
-    let KEEP = window.KEEP || {}
-    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"}
-    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true,"layout":"left"},"style":{"primary_color":"#0066cc","logo":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/op.3zg25jxprna0.png","favicon":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/head.3yoe3br9tws0.png","avatar":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/logo.6qi88yzn2jg0.jpg","shadow":true,"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"黑夜降临之处，便是黎明之始。|| Where blackness falls, begins dawn.","hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":true,"use":"giscus","valine":{"appid":"Peml0rEJ7HZNQA1gZrKxXgPr-gzGzoHsz","appkey":"vVJRDKBsUlnpc3zr69GFbCTI","placeholder":"快来评论吧！！！"},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2},"giscus":{"repo":"kunkunyy/discussion","repo_id":"R_kgDOKOnLlw","category":"Announcements","category_id":"DIC_kwDOKOnLl84CZCrc","reactions_enabled":true}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"wordcount":true,"min2read":true},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":true},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"version":"3.7.3"}
-    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
-    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
-    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
-  </script>
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="姚永坤的小窝" type="application/atom+xml">
-</head>
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="姚永坤的小窝" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar/github_avatar.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">256</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">48</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">78</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/img/home/warming.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="姚永坤的小窝"><span class="site-name">姚永坤的小窝</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">姚永坤的小窝</h1><div id="site_social_icons"><a class="social-icon" href="https://github.com/kunkunyy" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="/kunkunyy1314@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/2021/10/26/algo-1/" title="算法学习笔记（一）动态规划"><img class="post-bg" src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="算法学习笔记（一）动态规划"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/10/26/algo-1/" title="算法学习笔记（一）动态规划">算法学习笔记（一）动态规划</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-10-26T09:00:25.000Z" title="发表于 2021-10-26 17:00:25">2021-10-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">算法学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/">算法学习</a></span></div><div class="content">基础知识
+动态规划问题的一般形式就是求最值。
+求解动态规划的核心问题是穷举。
+动态规划问题一定会具备最优子结构。
+只有找到并列出正确的状态转移方程才能正确的穷举。
+要符合最优子结构就需要子问题间必须相互独立。
+
+斐波那契数列常见方式为递归，代码如下：
+1234function fib(n)&#123;    if(n==1||n==2) return 1;    return fib(n-1)+fib(n-2);&#125;
 
 
-<body>
-<div class="progress-bar-container">
-    
-        <span class="scroll-progress-bar"></span>
-    
-
-    
-        <span class="pjax-progress-bar"></span>
-        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
-    
-</div>
+递归算法的时间复杂度等于子问题个数乘以解决一个子问题需要的时间。
+其中：子问题个数就是递归树中节点的总数，二叉节点总数为制数级别，故为O(2^n)。
+时间复杂度为制数级别十分费时。
 
 
-<main class="page-container border-box">
 
-    <!-- home first screen  -->
-    
-
-    <!-- page content -->
-    <div class="page-main-content border-box is-home">
-        <div class="page-main-content-top">
-            
-<header class="header-wrapper transparent-1">
-
-    <div class="border-box header-content">
-        <div class="left border-box">
-            
-                <a class="logo-image border-box" href="/">
-                    <img src="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/op.3zg25jxprna0.png">
-                </a>
-            
-            <a class="site-name border-box" href="/">
-               坤坤的百宝箱
-            </a>
-        </div>
-
-        <div class="right border-box">
-            <div class="pc">
-                <ul class="menu-list">
-                    
-                        <li class="menu-item">
-                            <a class="active"
-                               href="/"
-                            >
-                                首页
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/archives"
-                            >
-                                归档
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/tags"
-                            >
-                                标签
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/categories"
-                            >
-                                分类
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/about"
-                            >
-                                关于
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/changelog"
-                            >
-                                更新日志
-                            </a>
-                        </li>
-                    
-                    
-                        <li class="menu-item search search-popup-trigger">
-                            <i class="fas fa-search"></i>
-                        </li>
-                    
-                </ul>
-            </div>
-            <div class="mobile">
-                
-                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
-                
-                <div class="icon-item menu-bar">
-                    <div class="menu-bar-middle"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="header-drawer">
-        <ul class="drawer-menu-list">
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class="active"
-                       href="/">首页</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/archives">归档</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/tags">标签</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/categories">分类</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/about">关于</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/changelog">更新日志</a>
-                </li>
-            
-        </ul>
-    </div>
-
-    <div class="window-mask"></div>
-
-</header>
+重叠子问题观察下面的递归树：可以发现存在大量的重复计算
 
 
-        </div>
 
-        <div class="page-main-content-middle border-box">
+构建备忘录解决重叠子问题步骤：  1、 构造备忘录（数组/字典）；  2、 计算出子问题的答案先将其存储在备忘录中，再返回；  3、 每次遇到一个子问题先去备忘录中查询，如果已存在答案直接使用。
 
-            <div class="main-content border-box">
+1234567891011function fib(n)&#123;    if(n&lt;1) return 0;  ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/10/26/lc-496/" title="496.下一个更大元素 I"><img class="post-bg" src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="496.下一个更大元素 I"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/10/26/lc-496/" title="496.下一个更大元素 I">496.下一个更大元素 I</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-10-26T08:18:18.000Z" title="发表于 2021-10-26 16:18:18">2021-10-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%93%88%E5%B8%8C%E8%A1%A8/">哈希表</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JS/">JS</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%88%B7%E9%A2%98/">前端刷题</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%8D%95%E8%B0%83%E6%A0%88/">单调栈</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/LeetCode%E5%88%B7%E9%A2%98/">LeetCode刷题</a></span></div><div class="content">题目给你两个 没有重复元素 的数组 nums1 和 nums2 ，其中nums1 是 nums2 的子集。请你找出 nums1 中每个元素在 nums2 中的下一个比其大的值。nums1 中数字 x 的下一个更大元素是指 x 在 nums2 中对应位置的右边的第一个比 x 大的元素。如果不存在，对应位置输出 -1 。
+解题思路1、暴力破解优先处理nums2中的数值，找出每个数值对应题目要求的数，然后使用map进行存储：nums2的值为key，下一个比它大的值为value。然后遍历nums1，对应map中的值输出结果。
+代码123456789101112131415161718192021222324252627/** * @param &#123;number[]&#125; nums1 * @param &#123;number[]&#125; nums2 * @return &#123;number[]&#125; */var nextGreaterElement = function(nums1, nums2) &#123;    let dic = new Map();     ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/10/22/lc-229/" title="229.求众数Ⅱ"><img class="post-bg" src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="229.求众数Ⅱ"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/10/22/lc-229/" title="229.求众数Ⅱ">229.求众数Ⅱ</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-10-22T05:27:39.000Z" title="发表于 2021-10-22 13:27:39">2021-10-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JS/">JS</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%88%B7%E9%A2%98/">前端刷题</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/LeetCode%E5%88%B7%E9%A2%98/">LeetCode刷题</a></span></div><div class="content">题目给定一个大小为 n 的整数数组，找出其中所有出现超过 ⌊ n/3 ⌋ 次的元素。
+解题思路思路一：哈希统计对数组进行遍历，使用map对所有的数值进行统计；然后再对map进行遍历找出符合题目要求的数值。时间复杂度O(n)，空间复杂度O(n)。
+代码123456789101112131415161718192021/** * @param &#123;number[]&#125; nums * @return &#123;number[]&#125; */var majorityElement = function(nums) &#123;    let count = new Map();    for(let i=0;i&lt;nums.length;i++)&#123;        if(count.has(nums[i]))&#123;            count.set(nums[i],count.get(nums[i])+1);        &#125;else&#123;            count.set(nums[i],1);        &#125 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/10/21/js-17/" title="JavaScript学习笔记（十七）对象"><img class="post-bg" src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JavaScript学习笔记（十七）对象"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/10/21/js-17/" title="JavaScript学习笔记（十七）对象">JavaScript学习笔记（十七）对象</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-10-21T02:14:54.000Z" title="发表于 2021-10-21 10:14:54">2021-10-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JS/">JS</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AF%B9%E8%B1%A1/">对象</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a></span></div><div class="content">理解对象
+创建自定义对象的通常方式是创建object的一个新实例，然后再给它添加属性和方法。
+也可以使用对象字面量进行创建。
 
-                
+12345678910111213141516let person = new Object(); person.name = &quot;Nicholas&quot;; person.age = 29; person.job = &quot;Software Engineer&quot;; person.sayName = function() &#123;  console.log(this.name); &#125;;//===========等价于============let person = &#123;     name: &quot;Nicholas&quot;,     age: 29,     job: &quot;Software Engineer&quot;,     sayName() &#123;         console.log(this.name);     &#125; &#125;; 
 
-                    <div class="home-content-container fade-in-down-animation">
-    <ul class="home-article-list border-box">
-        
-            <li class="home-article-item">
+属性类型
+属性分两种:数据属性 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/10/20/lc-453/" title="453.最小操作次数使数组元素相等"><img class="post-bg" src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="453.最小操作次数使数组元素相等"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/10/20/lc-453/" title="453.最小操作次数使数组元素相等">453.最小操作次数使数组元素相等</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-10-20T14:02:36.000Z" title="发表于 2021-10-20 22:02:36">2021-10-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JS/">JS</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%88%B7%E9%A2%98/">前端刷题</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/LeetCode%E5%88%B7%E9%A2%98/">LeetCode刷题</a></span></div><div class="content">题目给你一个长度为 n 的整数数组，每次操作将会使 n - 1 个元素增加 1 。返回让数组所有元素相等的最小操作次数。
+错误解题历程错误一思路
+根据题目要求找出数组中的最大值，遍历数组中每一个元素如果比最大值小那么就将该值加一，否则不变；
+当首次遇到与最大值相等的值的时候该值不变并标记，下次遇到时加一；
+遍历数组判断是否全部相等；
 
-                
+结果当遇到的数组最大值较大或者数组长度较长时的时候循环次数较多导致代码运行超时。
+代码1234567891011121314151617181920212223242526272829303132333435363738/** * @param &#123;number[]&#125; nums * @return &#123;number&#125; */var minMoves = function(nums) &#123;    let a =0;    let flag = true;    let maxN = 0;    while(flag)&#123;        maxN = Math.max(...nums);        let ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/10/20/js-16/" title="JavaScript学习笔记（十六）迭代器与生成器"><img class="post-bg" src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JavaScript学习笔记（十六）迭代器与生成器"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/10/20/js-16/" title="JavaScript学习笔记（十六）迭代器与生成器">JavaScript学习笔记（十六）迭代器与生成器</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-10-20T05:08:52.000Z" title="发表于 2021-10-20 13:08:52">2021-10-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JS/">JS</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a></span></div><div class="content">迭代与迭代器定义
+官方定义的迭代意思是：按照顺序反复多次执行一段程序,通常会有明确的终止条件。
+实际上计数循环就是最简单的迭代。
+循环是迭代机制的基础，这是因为它可以指定迭代的次数，以及每次迭代要执行什么操作。每次循环都会在下一次迭代开始之前完成，而每次迭代的顺序都是事先定义好的。
+迭代会在一个有序集合上进行。(“有序”可以理解为集合中所有项都可以按照既定的顺序被遍历到,特别是开始和结束项有明确的定义。)数组是JavaScript 中有序集合的最典型例子。
 
-                <div class="home-article-item-bottom border-box">
-                    
-                    <h3 class="home-article-title border-box">
-                        <a href="/2021/10/17/js-15-3/">
-                            JavaScript集合引用类型——WeakMap
-                        </a>
-                    </h3>
+迭代器模式
+迭代器模式（特别是在 ECMAScript这个语境下)描述了一个方案，即可以把有些结构称为“可迭代对象”( iterable)，因为它们实现了正式的工terable接口，而且可以通过迭代器工terator消费。
+基本上，可以把可迭代对象理解成数组或集合这样的集合类型的对
 
-                    <div class="home-article-content keep-markdown-body">
-                        
-                            
+可迭代协议
+可迭代协议指的是Iterable接口
+实现工terable接口(可迭代协议)要求同时具备两种能力:支持迭代的自我识别能力和创建实现Iterator接口的对象的能力。
+实现可迭代协议的所有类型都会白动兼容接收可迭代对象的任何语言特性。
+接收 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/10/18/js-15-5/" title="JavaScript集合引用类型——WeakSet"><img class="post-bg" src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JavaScript集合引用类型——WeakSet"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/10/18/js-15-5/" title="JavaScript集合引用类型——WeakSet">JavaScript集合引用类型——WeakSet</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-10-18T06:21:19.000Z" title="发表于 2021-10-18 14:21:19">2021-10-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JS/">JS</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/ES6/">ES6</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/WeakSet/">WeakSet</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a></span></div><div class="content">基本API
+使用new关键字实例化一个空的WeakSet:
+弱集合中的值只能是object或者继承自object的类型，尝试使用非对象设置值会抛出TypeError。
+如果想在初始化时填充弱集合，则构造函数可以接收-一个可迭代对象，其中需要包含有效的值。可迭代对象中的每个值都会按照迭代顺序插入到新实例中:
+
+123456789101112131415161718const val1 = &#123;id: 1&#125;,     val2 = &#123;id: 2&#125;,     val3 = &#123;id: 3&#125;; // 使用数组初始化弱集合const ws1 = new WeakSet([val1, val2, val3]); alert(ws1.has(val1)); // true alert(ws1.has(val2)); // true alert(ws1.has(val3)); // true // 初始化是全有或全无的操作// 只要有一个值无效就会抛出错误，导致整个初始化失败const ws2 = new WeakSet([val1, &quot ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/10/18/js-15-4/" title="JavaScript集合引用类型——Set"><img class="post-bg" src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JavaScript集合引用类型——Set"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/10/18/js-15-4/" title="JavaScript集合引用类型——Set">JavaScript集合引用类型——Set</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-10-18T05:56:01.000Z" title="发表于 2021-10-18 13:56:01">2021-10-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JS/">JS</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/ES6/">ES6</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Set/">Set</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a></span></div><div class="content">基本API
+创建的同时初始化实例：
+
+123456789101112// 使用数组初始化集合 const s1 = new Set([&quot;val1&quot;, &quot;val2&quot;, &quot;val3&quot;]); alert(s1.size); // 3 // 使用自定义迭代器初始化集合const s2 = new Set(&#123;     [Symbol.iterator]: function*() &#123;         yield &quot;val1&quot;;         yield &quot;val2&quot;;         yield &quot;val3&quot;;     &#125; &#125;); alert(s2.size); // 3
+
+
+初始化之后，可以使用：
+add ()增加值；
+has()查询；
+size取得元素数量；
+delete()删除元素；
+
+
+
+123456789101112131415const s = new Set(); alert(s.has(&quot;Matt&quot;)) ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/10/17/js-15-3/" title="JavaScript集合引用类型——WeakMap"><img class="post-bg" src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JavaScript集合引用类型——WeakMap"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/10/17/js-15-3/" title="JavaScript集合引用类型——WeakMap">JavaScript集合引用类型——WeakMap</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-10-17T10:42:00.000Z" title="发表于 2021-10-17 18:42:00">2021-10-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JS/">JS</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/ES6/">ES6</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/WeakMap/">WeakMap</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a></span></div><div class="content">
 WeakMap是Map 的“兄弟”类型,其API也是Map的子集。
 WeakMap中的”weak”(弱).描述的是JavaScript垃圾回收程序对待“弱映射”中键的方式。
 
 基本API
 可以使用 new 关键字实例化一个空的 WeakMap：
 
-...
-                        
-                    </div>
+1const wm = new WeakMap();
 
-                    
 
-<div class="article-meta-info-container border-box home">
-    <div class="article-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fas fa-history"></i>&nbsp;<span class="home-article-history" data-updated="Mon Nov 06 2023 11:29:16 GMT+0800">2023-11-06</span>
-            </span>
-        
+弱映射中的键只能是 Object 或者继承自 Object的类型,尝试使用非对象设置键会抛出TypeError。
+值的类型没有限制。
+如果想在初始化时填充弱映射，则构造函数可以接收一个可迭代对象，其中需要包含键/值对数组。可迭代对象中的每个键/值都会按照迭代顺序插人新实例中:
 
+12345678910111213141516171819202122232425262728const key1 = &#123;id: 1&#125;,     key2 = &#123;id: 2&#125;,    key3 = &#123;id: 3&#125;;// 使用嵌套数组初始化弱映射const wm1 = new WeakMap([     [key1, &quot;val1&quot;] ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/10/17/js-tips-1/" title="Javascript——Object和Map比较分析"><img class="post-bg" src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Javascript——Object和Map比较分析"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/10/17/js-tips-1/" title="Javascript——Object和Map比较分析">Javascript——Object和Map比较分析</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-10-17T06:18:22.000Z" title="发表于 2021-10-17 14:18:22">2021-10-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JS/">JS</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Map/">Map</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Object/">Object</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a></span></div><div class="content">内存占用
+Object 和 Map 的工程级实现在不同浏览器间存在明显差异，但存储单个键/值对所占用的内存数量都会随键的数量线性增加。批量添加或删除键/值对则取决于各浏览器对该类型内存分配的工程实现。不同浏览器的情况不同，但给定固定大小的内存，Map 大约可以比 Object 多存储 50%的键/值对;
 
-        
+插入性能
+向object和 Map中插入新键/值对的消耗大致相当，不过插人Map在所有浏览器中一般会稍微快一点儿。对这两个类型来说，插入速度并不会随着键/值对数量而线性增加。如果代码涉及大量插入操作，那么显然 Map 的性能更佳。
 
-        
-            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                            <li class="category-item">
-                                
-                                <a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a>
-                            </li>
-                        
-                    
-                            <li class="category-item">
-                                
-                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
-                                
-                                <a href="/categories/JS/">JS</a>
-                            </li>
-                        
-                    
-                            <li class="category-item">
-                                
-                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
-                                
-                                <a href="/categories/ES6/">ES6</a>
-                            </li>
-                        
-                    
-                    
-                </ul>
-            </span>
-        
+查找速度
+与插入不同，从大型object和 Map中查找键/值对的性能差异极小，但如果只包含少量键/值对,则object有时候速度更快。在把object 当成数组使用的情况下（比如使用连续整数作为属性)，浏览器引擎可以进行优化，在内存中使用更高效的布局。这对Map来说是不可能的。对这两个类型而言,查找速度不会随着键/值对数量增加而线性增加。如果代码涉及大量查找操作，那么某些情况下可能选择Obiect更好一些。
 
-        
-            <span class="article-tag meta-info-item border-box">
-                <i class="icon fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/2021/10/17/js-15-3/">阅读全文&nbsp;<i class="icon fas fa-angles-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <div class="home-article-item-bottom border-box">
-                    
-                    <h3 class="home-article-title border-box">
-                        <a href="/2021/10/17/js-tips-1/">
-                            Javascript——Object和Map比较分析
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content keep-markdown-body">
-                        
-                            内存占用
-Object 和 Map 的工程级实现在不同浏览器间存在明显差异，但存储单个键/值对所占用的内存数量都会随键的数量线性增加。批量添加或删除键/值对则取决于各浏览器对该类型内存分配的工程实现。不同浏览器的情况不同，但给定固定大小的内存，Map...
-                        
-                    </div>
-
-                    
-
-<div class="article-meta-info-container border-box home">
-    <div class="article-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fas fa-history"></i>&nbsp;<span class="home-article-history" data-updated="Mon Nov 06 2023 11:29:16 GMT+0800">2023-11-06</span>
-            </span>
-        
-
-
-        
-
-        
-            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                            <li class="category-item">
-                                
-                                <a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a>
-                            </li>
-                        
-                    
-                            <li class="category-item">
-                                
-                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
-                                
-                                <a href="/categories/JS/">JS</a>
-                            </li>
-                        
-                    
-                            <li class="category-item">
-                                
-                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
-                                
-                                <a href="/categories/Map/">Map</a>
-                            </li>
-                        
-                    
-                    
-                </ul>
-            </span>
-        
-
-        
-            <span class="article-tag meta-info-item border-box">
-                <i class="icon fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/2021/10/17/js-tips-1/">阅读全文&nbsp;<i class="icon fas fa-angles-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <div class="home-article-item-bottom border-box">
-                    
-                    <h3 class="home-article-title border-box">
-                        <a href="/2021/10/08/js-15-2/">
-                            JavaScript集合引用类型——Map
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content keep-markdown-body">
-                        
-                            基本API
-使用 new 关键字和 Map 构造函数可以创建一个空映射；
-如果想在创建的同时初始化实例，可以给 Map 构造函数传入一个可迭代对象，需要包含键/值对数组：
-初始化之后，可以使用 set()方法再添加键/值对；
-可以使用 get()和 ...
-                        
-                    </div>
-
-                    
-
-<div class="article-meta-info-container border-box home">
-    <div class="article-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fas fa-history"></i>&nbsp;<span class="home-article-history" data-updated="Mon Nov 06 2023 11:29:16 GMT+0800">2023-11-06</span>
-            </span>
-        
-
-
-        
-
-        
-            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                            <li class="category-item">
-                                
-                                <a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a>
-                            </li>
-                        
-                    
-                            <li class="category-item">
-                                
-                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
-                                
-                                <a href="/categories/JS/">JS</a>
-                            </li>
-                        
-                    
-                            <li class="category-item">
-                                
-                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
-                                
-                                <a href="/categories/Map/">Map</a>
-                            </li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-            <span class="article-tag meta-info-item border-box">
-                <i class="icon fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/2021/10/08/js-15-2/">阅读全文&nbsp;<i class="icon fas fa-angles-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <div class="home-article-item-bottom border-box">
-                    
-                    <h3 class="home-article-title border-box">
-                        <a href="/2021/09/22/js-14-2/">
-                            JavaScript——Math对象
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content keep-markdown-body">
-                        
-                            
-Math 对象上提供的计算要比直接在JavaScript实现的快得多，因为Math对象上的计算使用了JavaScript引擎中更高效的实现和处理器指令
-
-Math对象属性
-
-min() 和 max()方法
-min()和 max()方法用于确定一组数...
-                        
-                    </div>
-
-                    
-
-<div class="article-meta-info-container border-box home">
-    <div class="article-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fas fa-history"></i>&nbsp;<span class="home-article-history" data-updated="Mon Nov 06 2023 11:29:16 GMT+0800">2023-11-06</span>
-            </span>
-        
-
-
-        
-
-        
-            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                            <li class="category-item">
-                                
-                                <a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a>
-                            </li>
-                        
-                    
-                            <li class="category-item">
-                                
-                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
-                                
-                                <a href="/categories/JS/">JS</a>
-                            </li>
-                        
-                    
-                            <li class="category-item">
-                                
-                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
-                                
-                                <a href="/categories/Global%E5%AF%B9%E8%B1%A1/">Global对象</a>
-                            </li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-            <span class="article-tag meta-info-item border-box">
-                <i class="icon fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/2021/09/22/js-14-2/">阅读全文&nbsp;<i class="icon fas fa-angles-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <div class="home-article-item-bottom border-box">
-                    
-                    <h3 class="home-article-title border-box">
-                        <a href="/2021/09/15/js-14-1/">
-                            JavaScript——Global对象
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content keep-markdown-body">
-                        
-                            特点
-代码不会显式地访问它；
-Global对象为一种兜底对象，它所针对的是不属于任何对象的属性和方法；
-在全局作用域中定义的变量和函数都会变成 Global 对象的属性；
-
-方法URL编码方式
-
-12345let uri = &quot;http:/...
-                        
-                    </div>
-
-                    
-
-<div class="article-meta-info-container border-box home">
-    <div class="article-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fas fa-history"></i>&nbsp;<span class="home-article-history" data-updated="Mon Nov 06 2023 11:29:16 GMT+0800">2023-11-06</span>
-            </span>
-        
-
-
-        
-
-        
-            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                            <li class="category-item">
-                                
-                                <a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a>
-                            </li>
-                        
-                    
-                            <li class="category-item">
-                                
-                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
-                                
-                                <a href="/categories/JS/">JS</a>
-                            </li>
-                        
-                    
-                            <li class="category-item">
-                                
-                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
-                                
-                                <a href="/categories/Global%E5%AF%B9%E8%B1%A1/">Global对象</a>
-                            </li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-            <span class="article-tag meta-info-item border-box">
-                <i class="icon fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/2021/09/15/js-14-1/">阅读全文&nbsp;<i class="icon fas fa-angles-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <div class="home-article-item-bottom border-box">
-                    
-                    <h3 class="home-article-title border-box">
-                        <a href="/2021/09/13/js-13-1/">
-                            JavaScript字符串操作方法
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content keep-markdown-body">
-                        
-                            字符串拼接方法
-concat()用于将一个或多个字符串拼接成一个新字符串
-
-1234let stringValue = &quot;hello &quot;; let result = stringValue.concat(&quot;world&q...
-                        
-                    </div>
-
-                    
-
-<div class="article-meta-info-container border-box home">
-    <div class="article-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fas fa-history"></i>&nbsp;<span class="home-article-history" data-updated="Mon Nov 06 2023 11:29:16 GMT+0800">2023-11-06</span>
-            </span>
-        
-
-
-        
-
-        
-            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                            <li class="category-item">
-                                
-                                <a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a>
-                            </li>
-                        
-                    
-                            <li class="category-item">
-                                
-                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
-                                
-                                <a href="/categories/JS/">JS</a>
-                            </li>
-                        
-                    
-                            <li class="category-item">
-                                
-                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
-                                
-                                <a href="/categories/%E5%AD%97%E7%AC%A6%E4%B8%B2/">字符串</a>
-                            </li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-            <span class="article-tag meta-info-item border-box">
-                <i class="icon fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/2021/09/13/js-13-1/">阅读全文&nbsp;<i class="icon fas fa-angles-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <div class="home-article-item-bottom border-box">
-                    
-                    <h3 class="home-article-title border-box">
-                        <a href="/2021/09/08/js-15-1/">
-                            JavaScript集合引用类型——Array
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content keep-markdown-body">
-                        
-                            创建数组① 使用 Array 构造函数
-在使用 Array 构造函数时，也可以省略 new 操作符；
-
-1let colors = new Array();
-
-
-如果知道数组中元素的数量，那么可以给构造函数传入一个数值，然后 length 属性就会被...
-                        
-                    </div>
-
-                    
-
-<div class="article-meta-info-container border-box home">
-    <div class="article-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fas fa-history"></i>&nbsp;<span class="home-article-history" data-updated="Mon Nov 06 2023 11:29:16 GMT+0800">2023-11-06</span>
-            </span>
-        
-
-
-        
-
-        
-            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                            <li class="category-item">
-                                
-                                <a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a>
-                            </li>
-                        
-                    
-                            <li class="category-item">
-                                
-                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
-                                
-                                <a href="/categories/JS/">JS</a>
-                            </li>
-                        
-                    
-                            <li class="category-item">
-                                
-                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
-                                
-                                <a href="/categories/Array/">Array</a>
-                            </li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-            <span class="article-tag meta-info-item border-box">
-                <i class="icon fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/2021/09/08/js-15-1/">阅读全文&nbsp;<i class="icon fas fa-angles-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <div class="home-article-item-bottom border-box">
-                    
-                    <h3 class="home-article-title border-box">
-                        <a href="/2021/08/13/js-15/">
-                            JavaScript学习笔记（十五）集合引用类型
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content keep-markdown-body">
-                        
-                            Object
-Object 的实例没有多少功能，但很适合存储和在应用程序间交换数据；
-创建 Object 的实例有两种方式：
-使用 new 操作符和 Object 构造函数；
-使用对象字面量（object literal）表示法；
-
-
-在对象字面量表...
-                        
-                    </div>
-
-                    
-
-<div class="article-meta-info-container border-box home">
-    <div class="article-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fas fa-history"></i>&nbsp;<span class="home-article-history" data-updated="Mon Nov 06 2023 11:29:16 GMT+0800">2023-11-06</span>
-            </span>
-        
-
-
-        
-
-        
-            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                            <li class="category-item">
-                                
-                                <a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a>
-                            </li>
-                        
-                    
-                            <li class="category-item">
-                                
-                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
-                                
-                                <a href="/categories/JS/">JS</a>
-                            </li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-            <span class="article-tag meta-info-item border-box">
-                <i class="icon fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/2021/08/13/js-15/">阅读全文&nbsp;<i class="icon fas fa-angles-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <div class="home-article-item-bottom border-box">
-                    
-                    <h3 class="home-article-title border-box">
-                        <a href="/2021/08/13/js-14/">
-                            JavaScript学习笔记（十四）单例内置对象
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content keep-markdown-body">
-                        
-                            
-定义：任何由 ECMAScript 实现提供、与宿主环境无关，并在 ECMAScript 程序开始执行时就存在的对象
-这就意味着，开发者不用显式地实例化内置对象，因为它们已经实例化好了；
-
-GlobalGlobal对象
-
-MathMath对象
-                        
-                    </div>
-
-                    
-
-<div class="article-meta-info-container border-box home">
-    <div class="article-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fas fa-history"></i>&nbsp;<span class="home-article-history" data-updated="Mon Nov 06 2023 11:29:16 GMT+0800">2023-11-06</span>
-            </span>
-        
-
-
-        
-
-        
-            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                            <li class="category-item">
-                                
-                                <a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a>
-                            </li>
-                        
-                    
-                            <li class="category-item">
-                                
-                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
-                                
-                                <a href="/categories/JS/">JS</a>
-                            </li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-            <span class="article-tag meta-info-item border-box">
-                <i class="icon fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/2021/08/13/js-14/">阅读全文&nbsp;<i class="icon fas fa-angles-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <div class="home-article-item-bottom border-box">
-                    
-                    <h3 class="home-article-title border-box">
-                        <a href="/2021/08/13/js-13/">
-                            JavaScript学习笔记（十三）原始值包装类型
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content keep-markdown-body">
-                        
-                            
-为了方便操作原始值，ECMAScript 提供了 3 种特殊的引用类型：Boolean、Number 和 String。
-每当用到౼个原始值的方法或属性时，后台都会创建一个相应原始包装类型的对象，从而暴露出操作原始值的各种方法。
-
-123456le...
-                        
-                    </div>
-
-                    
-
-<div class="article-meta-info-container border-box home">
-    <div class="article-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fas fa-history"></i>&nbsp;<span class="home-article-history" data-updated="Mon Nov 06 2023 11:29:16 GMT+0800">2023-11-06</span>
-            </span>
-        
-
-
-        
-
-        
-            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                            <li class="category-item">
-                                
-                                <a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a>
-                            </li>
-                        
-                    
-                            <li class="category-item">
-                                
-                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
-                                
-                                <a href="/categories/JS/">JS</a>
-                            </li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-            <span class="article-tag meta-info-item border-box">
-                <i class="icon fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/2021/08/13/js-13/">阅读全文&nbsp;<i class="icon fas fa-angles-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-    </ul>
-    
-    <div class="paginator border-box flex-center">
-        <div class="btn-wrap allowed">
-            <a class="jump-btn"
-               href="/page/19/"
-            ><i class="fa-solid fa-chevron-left"></i></a>
-        </div>
-
-
-        <div class="page-number-box border-box flex-center">
-            <input class="page-number-input border-box base-color-size"
-                   type="number"
-                   value="20"
-                   min="1"
-                   max="25"
-            ><span class="delimiter base-color-size">/</span><span class="base-color-size">25</span>
-        </div>
-
-
-        <div class="btn-wrap allowed">
-            <a class="jump-btn"
-               href="/page/21/"
-            ><i class="fa-solid fa-chevron-right"></i></a>
-        </div>
-    </div>
-
-
-
-
-</div>
-
-
-                
+删除性能
+使用delete删除object ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/19/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/#content-inner">19</a><span class="page-number current">20</span><a class="page-number" href="/page/21/#content-inner">21</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/#content-inner">26</a><a class="extend next" rel="next" href="/page/21/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar/github_avatar.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">姚永坤</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">256</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">48</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">78</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/kunkunyy" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="/kunkunyy1314@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/04/17/pattern-in-node/" title="设计模式在 Node 中的应用"><img src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="设计模式在 Node 中的应用"/></a><div class="content"><a class="title" href="/2024/04/17/pattern-in-node/" title="设计模式在 Node 中的应用">设计模式在 Node 中的应用</a><time datetime="2024-04-17T04:19:44.000Z" title="发表于 2024-04-17 12:19:44">2024-04-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/17/js-skill-2/" title="JS 基础技能2"><img src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JS 基础技能2"/></a><div class="content"><a class="title" href="/2024/04/17/js-skill-2/" title="JS 基础技能2">JS 基础技能2</a><time datetime="2024-04-17T02:20:08.000Z" title="发表于 2024-04-17 10:20:08">2024-04-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/16/usestate-vs-useref/" title="useState vs useRef"><img src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="useState vs useRef"/></a><div class="content"><a class="title" href="/2024/04/16/usestate-vs-useref/" title="useState vs useRef">useState vs useRef</a><time datetime="2024-04-16T11:50:04.000Z" title="发表于 2024-04-16 19:50:04">2024-04-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/16/6-advanced-typescript-tricks-for-clean-code/" title="让代码更简洁的6个高级 TypeScript 技巧"><img src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="让代码更简洁的6个高级 TypeScript 技巧"/></a><div class="content"><a class="title" href="/2024/04/16/6-advanced-typescript-tricks-for-clean-code/" title="让代码更简洁的6个高级 TypeScript 技巧">让代码更简洁的6个高级 TypeScript 技巧</a><time datetime="2024-04-16T06:41:28.000Z" title="发表于 2024-04-16 14:41:28">2024-04-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/16/react-usestate-mistake/" title="使用 useState 时的误区"><img src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用 useState 时的误区"/></a><div class="content"><a class="title" href="/2024/04/16/react-usestate-mistake/" title="使用 useState 时的误区">使用 useState 时的误区</a><time datetime="2024-04-16T01:39:56.000Z" title="发表于 2024-04-16 09:39:56">2024-04-16</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
             </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Antd%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/"><span class="card-category-list-name">Antd组件解析</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Array/"><span class="card-category-list-name">Array</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/BOM/"><span class="card-category-list-name">BOM</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><span class="card-category-list-name">C++学习笔记</span><span class="card-category-list-count">12</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"><span class="card-category-list-name">C++面向对象</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CSS/"><span class="card-category-list-name">CSS</span><span class="card-category-list-count">18</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Canvas/"><span class="card-category-list-name">Canvas</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Cookies/"><span class="card-category-list-name">Cookies</span><span class="card-category-list-count">1</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Vue%E5%AD%A6%E4%B9%A0/" style="font-size: 1.25em; color: #999fa8">Vue学习</a> <a href="/tags/python/" style="font-size: 1.28em; color: #99a0ab">python</a> <a href="/tags/JavaScript/" style="font-size: 1.1em; color: #999">JavaScript</a> <a href="/tags/css-in-js/" style="font-size: 1.1em; color: #999">css-in-js</a> <a href="/tags/LeetCode%E5%88%B7%E9%A2%98/" style="font-size: 1.47em; color: #99a8bc">LeetCode刷题</a> <a href="/tags/Https/" style="font-size: 1.1em; color: #999">Https</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%9F%BA%E6%9C%AC%E5%8A%9F/" style="font-size: 1.32em; color: #99a2ad">前端面试基本功</a> <a href="/tags/C-%E5%AD%A6%E4%B9%A0/" style="font-size: 1.35em; color: #99a3b0">C++学习</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.13em; color: #999a9c">数据结构</a> <a href="/tags/%E7%BB%84%E4%BB%B6%E5%BA%93/" style="font-size: 1.1em; color: #999">组件库</a> <a href="/tags/SVG-%E5%AD%A6%E4%B9%A0/" style="font-size: 1.19em; color: #999da2">SVG 学习</a> <a href="/tags/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/" style="font-size: 1.22em; color: #999ea5">算法学习</a> <a href="/tags/useRef/" style="font-size: 1.1em; color: #999">useRef</a> <a href="/tags/big-data-analysis-experiment/" style="font-size: 1.1em; color: #999">big data analysis experiment</a> <a href="/tags/python-experiment/" style="font-size: 1.41em; color: #99a5b6">python-experiment</a> <a href="/tags/HTML/" style="font-size: 1.1em; color: #999">HTML</a> <a href="/tags/experiment/" style="font-size: 1.44em; color: #99a7b9">experiment</a> <a href="/tags/JS/" style="font-size: 1.1em; color: #999">JS</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 1.1em; color: #999">网络</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97%E5%AF%BC%E8%AE%BA/" style="font-size: 1.1em; color: #999">科学计算导论</a> <a href="/tags/Skill/" style="font-size: 1.13em; color: #999a9c">Skill</a> <a href="/tags/Http/" style="font-size: 1.1em; color: #999">Http</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/" style="font-size: 1.1em; color: #999">知识点总结</a> <a href="/tags/React%E5%AD%A6%E4%B9%A0/" style="font-size: 1.22em; color: #999ea5">React学习</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 1.1em; color: #999">正则表达式</a> <a href="/tags/Lodash/" style="font-size: 1.1em; color: #999">Lodash</a> <a href="/tags/TypeScript/" style="font-size: 1.1em; color: #999">TypeScript</a> <a href="/tags/JS%E5%AD%A6%E4%B9%A0/" style="font-size: 1.5em; color: #99a9bf">JS学习</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7%E5%8C%85/" style="font-size: 1.1em; color: #999">前端工具包</a> <a href="/tags/study-notes/" style="font-size: 1.19em; color: #999da2">study-notes</a> <a href="/tags/TypeScript%E5%AD%A6%E4%B9%A0/" style="font-size: 1.38em; color: #99a4b3">TypeScript学习</a> <a href="/tags/less-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 1.1em; color: #999">less 学习笔记</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9B%B8%E5%85%B3/" style="font-size: 1.1em; color: #999">浏览器相关</a> <a href="/tags/UDP/" style="font-size: 1.1em; color: #999">UDP</a> <a href="/tags/Database-experiment/" style="font-size: 1.19em; color: #999da2">Database-experiment</a> <a href="/tags/style-component/" style="font-size: 1.1em; color: #999">style-component</a> <a href="/tags/study-notes/" style="font-size: 1.16em; color: #999b9f">study notes</a> <a href="/tags/Node/" style="font-size: 1.1em; color: #999">Node</a> <a href="/tags/useState/" style="font-size: 1.13em; color: #999a9c">useState</a> <a href="/tags/localhost/" style="font-size: 1.1em; color: #999">localhost</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">四月 2024</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/12/"><span class="card-archive-list-date">十二月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/11/"><span class="card-archive-list-date">十一月 2023</span><span class="card-archive-list-count">9</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">十月 2023</span><span class="card-archive-list-count">11</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">九月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">二月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/09/"><span class="card-archive-list-date">九月 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/08/"><span class="card-archive-list-date">八月 2022</span><span class="card-archive-list-count">7</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">256</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-07-19T08:01:52.933Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/home/warming.webp')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2024 By 姚永坤</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="/js/tw_cn.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
 
-        </div>
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
 
-        <div class="page-main-content-bottom border-box">
-            
-<footer class="footer border-box">
-    <div class="border-box website-info-box default">
-        
-            <div class="copyright-info info-item default">
-                &copy;&nbsp;<span>2021</span>&nbsp;-&nbsp;2023
-                
-                    &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">姚永坤</a>
-                
-            </div>
-
-            <div class="theme-info info-item default">
-                由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.7.3</a>
-            </div>
-
-            
-
-            
-        
-
-        <div class="count-item info-item default">
-            
-                <span class="count-box border-box word">
-                    <span class="item-type border-box">全站总字数</span>
-                    <span class="item-value border-box word">201.6k</span>
-                </span>
-            
-
-            
-                <span class="count-box border-box uv">
-                    <span class="item-type border-box">访问人数</span>
-                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
-                </span>
-            
-
-            
-                <span class="count-box border-box pv">
-                    <span class="item-type border-box">总访问量</span>
-                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
-                </span>
-            
-        </div>
-    </div>
-</footer>
-
-        </div>
-    </div>
-
-    <!-- post tools -->
-    
-
-    <!-- side tools -->
-    <div class="side-tools">
-        <div class="side-tools-container">
-    <ul class="side-tools-list">
-        <li class="tools-item tool-font-adjust-plus flex-center">
-            <i class="fas fa-search-plus"></i>
-        </li>
-
-        <li class="tools-item tool-font-adjust-minus flex-center">
-            <i class="fas fa-search-minus"></i>
-        </li>
-
-        <li class="tools-item tool-dark-light-toggle flex-center">
-            <i class="fas fa-moon"></i>
-        </li>
-
-        <!-- rss -->
-        
-            <li class="tools-item rss flex-center">
-                <a class="flex-center"
-                   href="/atom.xml"
-                   target="_blank"
-                >
-                    <i class="fas fa-rss"></i>
-                </a>
-            </li>
-        
-
-        
-
-        <li class="tools-item tool-scroll-to-bottom flex-center">
-            <i class="fas fa-arrow-down"></i>
-        </li>
-    </ul>
-
-    <ul class="exposed-tools-list">
-        
-
-        
-
-        <li class="tools-item tool-toggle-show flex-center">
-            <i class="fas fa-cog fa-spin"></i>
-        </li>
-
-        
-            <li class="tools-item tool-scroll-to-top flex-center">
-                <i class="arrow-up fas fa-arrow-up"></i>
-                <span class="percent"></span>
-            </li>
-        
-    </ul>
-</div>
-
-    </div>
-
-    <!-- image mask -->
-    <div class="zoom-in-image-mask">
-    <img class="zoom-in-image">
-</div>
-
-
-    <!-- local search -->
-    
-        <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-          <span class="search-input-field-pre">
-            <i class="fas fa-keyboard"></i>
-          </span>
-            <div class="search-input-container">
-                <input autocomplete="off"
-                       autocorrect="off"
-                       autocapitalize="off"
-                       placeholder="搜索..."
-                       spellcheck="false"
-                       type="search"
-                       class="search-input"
-                >
-            </div>
-            <span class="close-popup-btn">
-                <i class="fas fa-times"></i>
-            </span>
-        </div>
-        <div id="search-result">
-            <div id="no-result">
-                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
-            </div>
-        </div>
-    </div>
-</div>
-
-    
-
-    <!-- tablet toc -->
-    
-</main>
-
-
-
-
-<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/dark-light-toggle.js"></script>
-
-
-
-
-    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/local-search.js"></script>
-
-
-
-    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/code-block.js"></script>
-
-
-
-    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/lazyload.js"></script>
-
-
-<div class="post-scripts pjax">
-    
-    
-    
-</div>
-
-
-    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/libs/pjax.min.js"></script>
-<script>
-    window.addEventListener('DOMContentLoaded', () => {
-        window.pjax = new Pjax({
-            selectors: [
-                'head title',
-                '.page-container',
-                '.pjax'
-            ],
-            history: true,
-            debug: false,
-            cacheBust: false,
-            timeout: 0,
-            analytics: false,
-            currentUrlFullReload: false,
-            scrollRestoration: false,
-            // scrollTo: true,
-        });
-
-        document.addEventListener('pjax:send', () => {
-            KEEP.utils.pjaxProgressBarStart();
-        });
-
-        document.addEventListener('pjax:complete', () => {
-            KEEP.utils.pjaxProgressBarEnd();
-            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
-            KEEP.refresh();
-        });
-    });
-</script>
-
-
-
-
-    
-        
-    
-
-</body>
-</html>
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>

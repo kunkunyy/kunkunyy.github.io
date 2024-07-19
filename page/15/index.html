@@ -1,1365 +1,353 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="keywords" content="Hexo Theme Keep">
-    <meta name="description" content="Hexo Theme Keep">
-    <meta name="author" content="姚永坤">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>姚永坤的小窝</title><meta name="author" content="姚永坤"><meta name="copyright" content="姚永坤"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="姚永坤的小窝">
+<meta property="og:url" content="http://example.com/page/15/index.html">
+<meta property="og:site_name" content="姚永坤的小窝">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/avatar/github_avatar.jpeg">
+<meta property="article:author" content="姚永坤">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/avatar/github_avatar.jpeg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/page/15/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.json","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 姚永坤","link":"链接: ","source":"来源: 姚永坤的小窝","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '姚永坤的小窝',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-07-19 16:01:53'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
     
-    <title>
-        
-        坤坤的百宝箱
-    </title>
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
     
-<link rel="stylesheet" href="/css/style.css">
-
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
     
-        <link rel="shortcut icon" href="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/head.3yoe3br9tws0.png">
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/fontawesome.min.css">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/regular.min.css">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/solid.min.css">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/font/css/brands.min.css">
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
     
-        
-            
-        
-    
-    <script id="hexo-configurations">
-    let KEEP = window.KEEP || {}
-    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"}
-    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true,"layout":"left"},"style":{"primary_color":"#0066cc","logo":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/op.3zg25jxprna0.png","favicon":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/head.3yoe3br9tws0.png","avatar":"https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/logo.6qi88yzn2jg0.jpg","shadow":true,"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"黑夜降临之处，便是黎明之始。|| Where blackness falls, begins dawn.","hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":true,"use":"giscus","valine":{"appid":"Peml0rEJ7HZNQA1gZrKxXgPr-gzGzoHsz","appkey":"vVJRDKBsUlnpc3zr69GFbCTI","placeholder":"快来评论吧！！！"},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2},"giscus":{"repo":"kunkunyy/discussion","repo_id":"R_kgDOKOnLlw","category":"Announcements","category_id":"DIC_kwDOKOnLl84CZCrc","reactions_enabled":true}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"wordcount":true,"min2read":true},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":true},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"version":"3.7.3"}
-    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
-    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
-    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
-  </script>
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="姚永坤的小窝" type="application/atom+xml">
-</head>
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="姚永坤的小窝" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar/github_avatar.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">256</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">48</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">78</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/img/home/warming.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="姚永坤的小窝"><span class="site-name">姚永坤的小窝</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">姚永坤的小窝</h1><div id="site_social_icons"><a class="social-icon" href="https://github.com/kunkunyy" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="/kunkunyy1314@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/2022/01/10/css-6/" title="CSS学习笔记（六）形状（二）"><img class="post-bg" src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CSS学习笔记（六）形状（二）"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/01/10/css-6/" title="CSS学习笔记（六）形状（二）">CSS学习笔记（六）形状（二）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-01-10T08:21:32.000Z" title="发表于 2022-01-10 16:21:32">2022-01-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CSS/">CSS</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/CSS%E5%AD%A6%E4%B9%A0/">CSS学习</a></span></div><div class="content">十、平行四边形提出问题
+平行四边形其实是矩形的超集：它的各条边是两两平行的，但各个角则不一定都是直角。
+有没有办法只让容器的形状倾斜，而保持其内容不变呢？
+
+解决方案嵌套元素方案
+以对内容再应用一次反向的 skew() 变形，从而抵消容器的变形效果。
+
+123&lt;a href=&quot;#yolo&quot; class=&quot;button&quot;&gt;    &lt;div&gt;Click me&lt;/div&gt;&lt;/a&gt;
+12.button &#123; transform: skewX(-45deg); &#125;.button &gt; div &#123; transform: skewX(45deg); &#125;
+
+伪元素方案
+把所有样式（背景、边框等）应用到伪元素上，然后再对伪元素进行变形。
+一个简单的办法是给宿主元素应用 position: relative 样式，并为伪元素设置 position: absolute，然后再把所有偏移量设置为零，以便让它在水平和垂直方向上都被拉伸至宿主元素的尺寸。
+同时设置z-index：-1样 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/01/10/css-5/" title="CSS学习笔记（五）形状（一）"><img class="post-bg" src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CSS学习笔记（五）形状（一）"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/01/10/css-5/" title="CSS学习笔记（五）形状（一）">CSS学习笔记（五）形状（一）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-01-10T03:22:21.000Z" title="发表于 2022-01-10 11:22:21">2022-01-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CSS/">CSS</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/CSS%E5%AD%A6%E4%B9%A0/">CSS学习</a></span></div><div class="content">九、自适应的椭圆提出问题
+如果它的宽高相等，就显示为一个圆；如果宽高不等，就显示为一个椭圆。
+
+解决问题
+border-radius：它可以单独指定水平和垂直半径，只要用一个斜杠（/）分隔这两个值即可。
+同时，它不仅可以接受长度值，还可以接受百分比值。这个百分比值会基于元素的尺寸进行解析，即宽度用于水平半径的解析，而高度用于垂直半径的解析。
+
+123div&#123;    border-radius: 50%;&#125;
+
+半椭圆
+border-radius是一个简写属性。我们可以为元素的每个角指定不同的值，而且还有两种方法可以做到这一点。第一种方法就是使用它所对应的各个展开式属性：
+
+border-top-left-radius
+border-top-right-radius
+border-bottom-right-radius
+border-bottom-left-radius
 
 
-<body>
-<div class="progress-bar-container">
-    
-        <span class="scroll-progress-bar"></span>
-    
+一次性提供用空格分开的多个值。
 
-    
-        <span class="pjax-progress-bar"></span>
-        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
-    
-</div>
+如果我们传给它四个值，这四个值就会被分别从左上角开始以顺时针顺序应用到元素的各个拐角。
+如果我们提供的值少于四个，则它们会以 CSS 的常规方式重复，类似于 bor ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/01/08/css-4/" title="CSS学习笔记（四）背景与边框（四）"><img class="post-bg" src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CSS学习笔记（四）背景与边框（四）"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/01/08/css-4/" title="CSS学习笔记（四）背景与边框（四）">CSS学习笔记（四）背景与边框（四）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-01-08T07:07:26.000Z" title="发表于 2022-01-08 15:07:26">2022-01-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CSS/">CSS</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/CSS%E5%AD%A6%E4%B9%A0/">CSS学习</a></span></div><div class="content">七、伪随机背景
+通过质数来增加随机真实性。
 
+1、问题提出
+自然界中的事物都不是以无限平铺的方式存在的。即使重复，也往往伴随着多样性和随机性。
+当你注意到一个有辨识度的特征（比如，木纹上的节疤）在以固定的规律循环重复时，那它试图营造的自然随机性就会立刻崩塌。
+重现大自然的随机性是一个挑战，因为 CSS 本身没有提供任何随机功能。
 
-<main class="page-container border-box">
-
-    <!-- home first screen  -->
-    
-
-    <!-- page content -->
-    <div class="page-main-content border-box is-home">
-        <div class="page-main-content-top">
-            
-<header class="header-wrapper transparent-1">
-
-    <div class="border-box header-content">
-        <div class="left border-box">
-            
-                <a class="logo-image border-box" href="/">
-                    <img src="https://cdn.staticaly.com/gh/kunkunyy/picx-images-hosting@master/op.3zg25jxprna0.png">
-                </a>
-            
-            <a class="site-name border-box" href="/">
-               坤坤的百宝箱
-            </a>
-        </div>
-
-        <div class="right border-box">
-            <div class="pc">
-                <ul class="menu-list">
-                    
-                        <li class="menu-item">
-                            <a class="active"
-                               href="/"
-                            >
-                                首页
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/archives"
-                            >
-                                归档
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/tags"
-                            >
-                                标签
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/categories"
-                            >
-                                分类
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/about"
-                            >
-                                关于
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/changelog"
-                            >
-                                更新日志
-                            </a>
-                        </li>
-                    
-                    
-                        <li class="menu-item search search-popup-trigger">
-                            <i class="fas fa-search"></i>
-                        </li>
-                    
-                </ul>
-            </div>
-            <div class="mobile">
-                
-                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
-                
-                <div class="icon-item menu-bar">
-                    <div class="menu-bar-middle"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="header-drawer">
-        <ul class="drawer-menu-list">
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class="active"
-                       href="/">首页</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/archives">归档</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/tags">标签</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/categories">分类</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/about">关于</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/changelog">更新日志</a>
-                </li>
-            
-        </ul>
-    </div>
-
-    <div class="window-mask"></div>
-
-</header>
+2、解决方案
+把这组条纹从一个平面拆散为多个图层：一种颜色作为底色，另三种颜色作为条纹，然后再让条纹以不同的间隔进行重复平铺。
+操作步骤：
+创建指定宽度的条纹；
+使用background-size来控制条纹的间距。
 
 
-        </div>
 
-        <div class="page-main-content-middle border-box">
+12345678#pic&#123;    background: hsl(20, 40%, 90%);    background-image:        linear-gradient(90deg, #fb3 10px, transparent 0),        linear-gradient(90deg, #ab4 20px, transparent 0),        linear-gradient(90deg, #655 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/01/04/css-3/" title="CSS学习笔记（三）背景与边框（三）"><img class="post-bg" src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CSS学习笔记（三）背景与边框（三）"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/01/04/css-3/" title="CSS学习笔记（三）背景与边框（三）">CSS学习笔记（三）背景与边框（三）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-01-04T15:24:19.000Z" title="发表于 2022-01-04 23:24:19">2022-01-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CSS/">CSS</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/CSS%E5%AD%A6%E4%B9%A0/">CSS学习</a></span></div><div class="content">六、复杂的背景图案
+水平渐变图案跟垂直渐变图案配合实现简单的蓝图网格图案。
 
-            <div class="main-content border-box">
+0、知识点
+linear-gradient(direction, color-stop1 position, color-stop2  position, …)：
+用于创建一个表示两种或多种颜色线性渐变的图片。
+direction：用角度值指定渐变的方向（或角度）。
+color-stop1, color-stop2,…：用于指定渐变的起止颜色。
 
-                
 
-                    <div class="home-content-container fade-in-down-animation">
-    <ul class="home-article-list border-box">
-        
-            <li class="home-article-item">
+radial-gradient
+repeating-linear-gradient
+repeating-radial-gradient
 
-                
+1、网格
+把多个渐变图案组合起来，将其透过彼此的透明区域显现。
 
-                <div class="home-article-item-bottom border-box">
-                    
-                    <h3 class="home-article-title border-box">
-                        <a href="/2021/12/24/js-49/">
-                            JavaScript学习笔记（四十八）网络请求与远程资源（二）
-                        </a>
-                    </h3>
+12345678div&#123;    background: white;    background-image: linear-gradient(90deg,                    rgba(200,0,0,.5) 50%, transparent 0),                linear-gradient(            ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/01/03/css-2/" title="CSS学习笔记（二）背景与边框（二）"><img class="post-bg" src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CSS学习笔记（二）背景与边框（二）"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/01/03/css-2/" title="CSS学习笔记（二）背景与边框（二）">CSS学习笔记（二）背景与边框（二）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-01-02T16:37:52.000Z" title="发表于 2022-01-03 00:37:52">2022-01-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CSS/">CSS</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/CSS%E5%AD%A6%E4%B9%A0/">CSS学习</a></span></div><div class="content">五、条纹背景难题
+不论是在网页设计中，还是在其他传统媒介中（比如杂志和墙纸等），各种尺寸、颜色、角度的条纹图案在视觉设计中无处不在。
+要想在网页中实现条纹图案，其过程还远远不够理想。通常，我们的方法是创建一个单独的位图文件，然后每次需要做些调整时，都用图像编辑器来修改它。
+可能有人试过用 SVG 来取代位图，但这样还是会有一个独立的文件，而且它的语法也远远不够友好。
+如果可以直接在 CSS 中创建条纹图案，那该有多棒啊！你可能会惊讶地发现，我们居然真的可以。
 
-                    <div class="home-article-content keep-markdown-body">
-                        
-                            三、跨源资源共享
+解决方案
+假设我们有一条基本的垂直线性渐变，颜色从 #fb3 过渡到 #58a。
+
+123div&#123;    background: linear-gradient(#fb3, #58a);&#125;
+
+
+
+
+现在，让我们试着把这两个色标拉近一点。
+
+123div&#123;    background: linear-gradient(#fb3 20%, #58a 80%);&#125;
+
+
+
+
+现在容器顶部的 20% 区域被填充为 #fb3 实色，而底部 20% 区域被填充为 #58a 实色。真正的渐变只出现在容器  ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/12/30/css-1/" title="CSS学习笔记（一）背景与边框（一）"><img class="post-bg" src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CSS学习笔记（一）背景与边框（一）"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/12/30/css-1/" title="CSS学习笔记（一）背景与边框（一）">CSS学习笔记（一）背景与边框（一）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-12-30T08:41:09.000Z" title="发表于 2021-12-30 16:41:09">2021-12-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/CSS/">CSS</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/CSS%E5%AD%A6%E4%B9%A0/">CSS学习</a></span></div><div class="content">123456789101112131415161718192021222324&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;    &lt;meta charset=&quot;UTF-8&quot;&gt;    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;    &lt;title&gt;Document&lt;/title&gt;    &lt;style&gt;        body &#123;            background: rgb(78, 78, 85);        &#125;        #pic&#123;            width: 300px ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/12/30/js-51/" title="JavaScript学习笔记（四十八）网络请求与远程资源（四）"><img class="post-bg" src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JavaScript学习笔记（四十八）网络请求与远程资源（四）"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/12/30/js-51/" title="JavaScript学习笔记（四十八）网络请求与远程资源（四）">JavaScript学习笔记（四十八）网络请求与远程资源（四）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-12-29T16:06:09.000Z" title="发表于 2021-12-30 00:06:09">2021-12-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JS/">JS</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Web-Socket/">Web Socket</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a></span></div><div class="content">Web Socket
+Web Socket (套接字)的目标是通过一个长时连接实现与服务器全双工、双向的通信。
+
+1、API
+要创建一个新的WebSocket，就要实例化一个WebSocket对象并传人提供连接的URL。
+必须给WebSocket构造函数传人一个绝对URL。
+
+1let socket = new WebSocket(&quot;ws://www.example.com/server.php&quot;);
+
+
+同源策略不适用于Web Socket，因此可以打开到任意站点的连接。
+至于是否与来自特定源的页面通信，则完全取决于服务器。(在握手阶段就可以确定请求来自哪里。)
+浏览器会在初始化WebSocket对象之后立即创建连接。
+与XHR类似，WebSocket也有一个readyState属性表示当前状态。不过，这个值与XHR中相应的值不一样。
+
+
+
+
+WebSocket对象没有readystatechange 事件，而是有与上述不同状态对应的其他事件。readyState值从0开始。
+任何时候都可以调用close()方法关闭Web Socket连接，调用close()之后 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/12/25/js-50/" title="JavaScript学习笔记（四十八）网络请求与远程资源（三）"><img class="post-bg" src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JavaScript学习笔记（四十八）网络请求与远程资源（三）"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/12/25/js-50/" title="JavaScript学习笔记（四十八）网络请求与远程资源（三）">JavaScript学习笔记（四十八）网络请求与远程资源（三）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-12-25T12:05:11.000Z" title="发表于 2021-12-25 20:05:11">2021-12-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JS/">JS</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Fetch/">Fetch</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a></span></div><div class="content">五、Fetch API
+Fetch API则必须是异步
+
+1、基本用法
+fetch()方法是暴露在全局作用域中的，包括主页面执行线程、模块和工作线程。
+
+1）分派请求
+fetch()只有一个必需的参数input。多数情况下，这个参数是要获取资源的URL。
+这个方法返回一个期约。
+
+12let r = fetch(&#x27;/bar&#x27;); console.log(r); // Promise &lt;pending&gt;
+
+
+请求完成、资源可用时，期约会解决为一个Response对象。
+这个对象是API的封装，可以通过它取得相应资源。获取资源要使用这个对象的属性和方法，掌握响应的情况并将负载转换为有用的形式。
+
+12345fetch(&#x27;bar.txt&#x27;)  .then((response) =&gt; &#123;     console.log(response); &#125;); // Response &#123; type: &quot;basic&quot;, url: ... &#125;
+
+2、读取响应
+读取响应内容的最简单方式是取得纯文 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2021/12/24/js-49/" title="JavaScript学习笔记（四十八）网络请求与远程资源（二）"><img class="post-bg" src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JavaScript学习笔记（四十八）网络请求与远程资源（二）"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/12/24/js-49/" title="JavaScript学习笔记（四十八）网络请求与远程资源（二）">JavaScript学习笔记（四十八）网络请求与远程资源（二）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-12-24T06:24:34.000Z" title="发表于 2021-12-24 14:24:34">2021-12-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JS/">JS</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/">跨域问题</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a></span></div><div class="content">三、跨源资源共享
 跨源资源共享(CORS, Cross-Origin Resource Sharing)定义了浏览器与服务器如何实现跨源通信。
 
-CORS背后的基本思路就是使用自定义的HTTP头部允许浏览器和服务器相互了解，以确实请求或响应应该成功还...
-                        
-                    </div>
+CORS背后的基本思路就是使用自定义的HTTP头部允许浏览器和服务器相互了解，以确实请求或响应应该成功还是失败。
 
-                    
+对于简单的请求，比如GET或POST请求，没有自定义头部，而且请求体是text/plain类型，这样的请求在发送时会有一个额外的头部叫Origin。Origin头部包含发送请求的页面的源(协议域名和端口)，以便服务器确定是否为其提供响应。
 
-<div class="article-meta-info-container border-box home">
-    <div class="article-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fas fa-history"></i>&nbsp;<span class="home-article-history" data-updated="Mon Nov 06 2023 11:29:16 GMT+0800">2023-11-06</span>
-            </span>
-        
+现代浏览器通过XMLHttpRequest对象原生支持CORS。
+
+要向不同域的源发送请求，可以使用标准XHR对象并给open()方法传入一个绝对URL。
+
+跨域XHR对象允许访问status和statusText属性，也允许同步请求。
+
+跨域XHR对象有以下额外限制：
+
+不能使用setRequestHeader()设置自定义头部。
+不能发送和接收cookie。
+getAllResponseHeaders()方法始终返回空字符串。
 
 
-        
 
-        
-            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                            <li class="category-item">
-                                
-                                <a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a>
-                            </li>
-                        
-                    
-                            <li class="category-item">
-                                
-                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
-                                
-                                <a href="/categories/JS/">JS</a>
-                            </li>
-                        
-                    
-                            <li class="category-item">
-                                
-                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
-                                
-                                <a href="/categories/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/">跨域问题</a>
-                            </li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-            <span class="article-tag meta-info-item border-box">
-                <i class="icon fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/2021/12/24/js-49/">阅读全文&nbsp;<i class="icon fas fa-angles-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <div class="home-article-item-bottom border-box">
-                    
-                    <h3 class="home-article-title border-box">
-                        <a href="/2021/12/22/js-48/">
-                            JavaScript学习笔记（四十八）网络请求与远程资源（一）
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content keep-markdown-body">
-                        
-                            一、XMLHttpRequest对象1、使用XHR
+1、预检请求
+CORS通过一种叫预检请求的服务器验证机 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2021/12/22/js-48/" title="JavaScript学习笔记（四十八）网络请求与远程资源（一）"><img class="post-bg" src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JavaScript学习笔记（四十八）网络请求与远程资源（一）"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/12/22/js-48/" title="JavaScript学习笔记（四十八）网络请求与远程资源（一）">JavaScript学习笔记（四十八）网络请求与远程资源（一）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-12-22T07:24:56.000Z" title="发表于 2021-12-22 15:24:56">2021-12-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/JS/">JS</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a></span></div><div class="content">一、XMLHttpRequest对象1、使用XHR
 open()方法
 接收3个参数：请求类型、请求URL、表示请求是否异步的布尔值。
 调用open不会实际发送请求，只是为发送请求做好准备。
 
 
 send()方法用于发送定义好的请求
-方法接收一个参数：...
-                        
-                    </div>
+方法接收一个参数：作为请求体发送的数据。
+该请求为同步请求，JavaScript代码会等待服务器响应之后再继续执行。
 
-                    
 
-<div class="article-meta-info-container border-box home">
-    <div class="article-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fas fa-history"></i>&nbsp;<span class="home-article-history" data-updated="Mon Nov 06 2023 11:29:16 GMT+0800">2023-11-06</span>
-            </span>
-        
 
+123let xhr = new XMLHttpRequest(); xhr.open(&quot;get&quot;, &quot;example.php&quot;, false); xhr.send(null);
 
-        
 
-        
-            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                            <li class="category-item">
-                                
-                                <a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a>
-                            </li>
-                        
-                    
-                            <li class="category-item">
-                                
-                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
-                                
-                                <a href="/categories/JS/">JS</a>
-                            </li>
-                        
-                    
-                </ul>
-            </span>
-        
+收到响应后，XHR对象的以下属性会被填充上数据。
 
-        
-            <span class="article-tag meta-info-item border-box">
-                <i class="icon fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
 
-        
-        
-        
-        
-    </div>
 
-    
-        <a class="home-read-more" href="/2021/12/22/js-48/">阅读全文&nbsp;<i class="icon fas fa-angles-right"></i></a>
-    
-</div>
 
-                </div>
-            </li>
-        
-            <li class="home-article-item">
+收到响应后，第一步要检查status属性以确保响应成功返回。
 
-                
+一般来说，HTTP 状态码为2xx表示成功。此时，responseText 或responseXML (如果内容类型正确)属性中会有内容。
+如果HTTP状态码是304，则表示资源未修改过，是从浏览器缓存中直接拿取的。当然这也意味着响应有效。
 
-                <div class="home-article-item-bottom border-box">
-                    
-                    <h3 class="home-article-title border-box">
-                        <a href="/2021/12/22/js-47/">
-                            JavaScript学习笔记（四十七）JSON
-                        </a>
-                    </h3>
 
-                    <div class="home-article-content keep-markdown-body">
-                        
-                            一、语法
-JSON语法支持表示3种类型的值：
-简单值：字符串、数值、布尔值和null可以在JSON中出现，就像在JavaScript中一样。特殊值undefined不可以。
-对象：第一种复杂数据类型，对象表示有序键/值对。每个值可以是简单值，也可以是...
-                        
-                    </div>
-
-                    
-
-<div class="article-meta-info-container border-box home">
-    <div class="article-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fas fa-history"></i>&nbsp;<span class="home-article-history" data-updated="Mon Nov 06 2023 11:29:16 GMT+0800">2023-11-06</span>
-            </span>
-        
-
-
-        
-
-        
-            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                            <li class="category-item">
-                                
-                                <a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a>
-                            </li>
-                        
-                    
-                            <li class="category-item">
-                                
-                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
-                                
-                                <a href="/categories/JS/">JS</a>
-                            </li>
-                        
-                    
-                            <li class="category-item">
-                                
-                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
-                                
-                                <a href="/categories/Json/">Json</a>
-                            </li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-            <span class="article-tag meta-info-item border-box">
-                <i class="icon fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/2021/12/22/js-47/">阅读全文&nbsp;<i class="icon fas fa-angles-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <div class="home-article-item-bottom border-box">
-                    
-                    <h3 class="home-article-title border-box">
-                        <a href="/2021/12/20/js-46/">
-                            JavaScript学习笔记（四十六）动画与Canvas图形（二）
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content keep-markdown-body">
-                        
-                            WebGL1、WebGL上下文
-在完全支持的浏览器中：
-**WebGL 2.0上下文的名字叫” webgl2”**；
-**WebGL 1.0上下文的名字叫” webgl1”**。
-
-
-检测浏览器是否支持WebGL：
-
-12345678let draw...
-                        
-                    </div>
-
-                    
-
-<div class="article-meta-info-container border-box home">
-    <div class="article-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fas fa-history"></i>&nbsp;<span class="home-article-history" data-updated="Mon Nov 06 2023 11:29:16 GMT+0800">2023-11-06</span>
-            </span>
-        
-
-
-        
-
-        
-            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                            <li class="category-item">
-                                
-                                <a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a>
-                            </li>
-                        
-                    
-                            <li class="category-item">
-                                
-                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
-                                
-                                <a href="/categories/JS/">JS</a>
-                            </li>
-                        
-                    
-                            <li class="category-item">
-                                
-                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
-                                
-                                <a href="/categories/WebGL/">WebGL</a>
-                            </li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-            <span class="article-tag meta-info-item border-box">
-                <i class="icon fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/2021/12/20/js-46/">阅读全文&nbsp;<i class="icon fas fa-angles-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <div class="home-article-item-bottom border-box">
-                    
-                    <h3 class="home-article-title border-box">
-                        <a href="/2021/12/14/js-45/">
-                            JavaScript学习笔记（四十五）动画与Canvas图形（一）
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content keep-markdown-body">
-                        
-                            使用requestAnimationFrame1、早期定时动画
-早期使用setInterval()控制动画的执行。
-存在的问题：
-无法准确知晓循环之间的延时。
-不能保证时间精度。
-
-
-
-12345678(function() &#123;     f...
-                        
-                    </div>
-
-                    
-
-<div class="article-meta-info-container border-box home">
-    <div class="article-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fas fa-history"></i>&nbsp;<span class="home-article-history" data-updated="Mon Nov 06 2023 11:29:16 GMT+0800">2023-11-06</span>
-            </span>
-        
-
-
-        
-
-        
-            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                            <li class="category-item">
-                                
-                                <a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a>
-                            </li>
-                        
-                    
-                            <li class="category-item">
-                                
-                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
-                                
-                                <a href="/categories/JS/">JS</a>
-                            </li>
-                        
-                    
-                            <li class="category-item">
-                                
-                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
-                                
-                                <a href="/categories/Canvas/">Canvas</a>
-                            </li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-            <span class="article-tag meta-info-item border-box">
-                <i class="icon fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/2021/12/14/js-45/">阅读全文&nbsp;<i class="icon fas fa-angles-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <div class="home-article-item-bottom border-box">
-                    
-                    <h3 class="home-article-title border-box">
-                        <a href="/2021/12/12/js-44/">
-                            JavaScript学习笔记（四十四）事件（二）
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content keep-markdown-body">
-                        
-                            事件类型1、用户界面事件1）load事件
-在window对象上，load事件会在整个页面（包括所有外部资源如图片、JavaScript文件和CSS文件)加载完成后触发。
-可以通过两种方式指定load事件处理程序：
-JavaScript方式；
-向&lt...
-                        
-                    </div>
-
-                    
-
-<div class="article-meta-info-container border-box home">
-    <div class="article-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fas fa-history"></i>&nbsp;<span class="home-article-history" data-updated="Mon Nov 06 2023 11:29:16 GMT+0800">2023-11-06</span>
-            </span>
-        
-
-
-        
-
-        
-            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                            <li class="category-item">
-                                
-                                <a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a>
-                            </li>
-                        
-                    
-                            <li class="category-item">
-                                
-                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
-                                
-                                <a href="/categories/JS/">JS</a>
-                            </li>
-                        
-                    
-                            <li class="category-item">
-                                
-                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
-                                
-                                <a href="/categories/%E4%BA%8B%E4%BB%B6/">事件</a>
-                            </li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-            <span class="article-tag meta-info-item border-box">
-                <i class="icon fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/2021/12/12/js-44/">阅读全文&nbsp;<i class="icon fas fa-angles-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <div class="home-article-item-bottom border-box">
-                    
-                    <h3 class="home-article-title border-box">
-                        <a href="/2021/12/12/js-43/">
-                            JavaScript学习笔记（四十三）事件（一）
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content keep-markdown-body">
-                        
-                            事件流
-事件流描述了页面接收事件的顺序。
-
-1、事件冒泡
-IE事件流被称为事件冒泡。
-事件被定义为从最具体的元素(文档树中最深的节点)开始触发，然后向上传播至没有那么具体的元素（文档)。
-
-
-如下页面结构：
-当点击页面中的div元素后，click事件...
-                        
-                    </div>
-
-                    
-
-<div class="article-meta-info-container border-box home">
-    <div class="article-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fas fa-history"></i>&nbsp;<span class="home-article-history" data-updated="Mon Nov 06 2023 11:29:16 GMT+0800">2023-11-06</span>
-            </span>
-        
-
-
-        
-
-        
-            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                            <li class="category-item">
-                                
-                                <a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a>
-                            </li>
-                        
-                    
-                            <li class="category-item">
-                                
-                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
-                                
-                                <a href="/categories/JS/">JS</a>
-                            </li>
-                        
-                    
-                            <li class="category-item">
-                                
-                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
-                                
-                                <a href="/categories/%E4%BA%8B%E4%BB%B6/">事件</a>
-                            </li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-            <span class="article-tag meta-info-item border-box">
-                <i class="icon fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/2021/12/12/js-43/">阅读全文&nbsp;<i class="icon fas fa-angles-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <div class="home-article-item-bottom border-box">
-                    
-                    <h3 class="home-article-title border-box">
-                        <a href="/2021/12/09/js-42/">
-                            JavaScript学习笔记（四十二）DOM2和DOM3（三）
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content keep-markdown-body">
-                        
-                            遍历
-DOM2 Traversal and Range模块定义了两个类型用于辅助顺序遍历DOM结构。这两个类型NodeIterator和Treewalker从某个起点开始执行对DOM结构的深度优先遍历。
-DOM遍历是**对DOM结构的深度优先遍历，至...
-                        
-                    </div>
-
-                    
-
-<div class="article-meta-info-container border-box home">
-    <div class="article-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fas fa-history"></i>&nbsp;<span class="home-article-history" data-updated="Mon Nov 06 2023 11:29:16 GMT+0800">2023-11-06</span>
-            </span>
-        
-
-
-        
-
-        
-            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                            <li class="category-item">
-                                
-                                <a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a>
-                            </li>
-                        
-                    
-                            <li class="category-item">
-                                
-                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
-                                
-                                <a href="/categories/JS/">JS</a>
-                            </li>
-                        
-                    
-                            <li class="category-item">
-                                
-                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
-                                
-                                <a href="/categories/DOM/">DOM</a>
-                            </li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-            <span class="article-tag meta-info-item border-box">
-                <i class="icon fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/2021/12/09/js-42/">阅读全文&nbsp;<i class="icon fas fa-angles-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <div class="home-article-item-bottom border-box">
-                    
-                    <h3 class="home-article-title border-box">
-                        <a href="/2021/12/06/js-41/">
-                            JavaScript学习笔记（四十一）DOM2和DOM3（二）
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content keep-markdown-body">
-                        
-                            样式
-HTML样式有3种定义方法：外部样式表、文档样式表、元素特定样式。
-
-1、存取元素样式
-任何支持style属性的HTML元素在JavaScript中都会有一-个对应的style属性。
-style属性是cssstyleDeclaration类型的...
-                        
-                    </div>
-
-                    
-
-<div class="article-meta-info-container border-box home">
-    <div class="article-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fas fa-history"></i>&nbsp;<span class="home-article-history" data-updated="Mon Nov 06 2023 11:29:16 GMT+0800">2023-11-06</span>
-            </span>
-        
-
-
-        
-
-        
-            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                            <li class="category-item">
-                                
-                                <a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a>
-                            </li>
-                        
-                    
-                            <li class="category-item">
-                                
-                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
-                                
-                                <a href="/categories/JS/">JS</a>
-                            </li>
-                        
-                    
-                            <li class="category-item">
-                                
-                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
-                                
-                                <a href="/categories/DOM/">DOM</a>
-                            </li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-            <span class="article-tag meta-info-item border-box">
-                <i class="icon fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/2021/12/06/js-41/">阅读全文&nbsp;<i class="icon fas fa-angles-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <div class="home-article-item-bottom border-box">
-                    
-                    <h3 class="home-article-title border-box">
-                        <a href="/2021/12/03/js-40/">
-                            JavaScript学习笔记（四十）DOM2和DOM3（一）
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content keep-markdown-body">
-                        
-                            
-DOM1(DOMLevel1)主要定义了HTML和XML文档的底层结构。
-DOM2(DOMLevel2)和DOM3 ( DOM Level3 )在这些结构之上加入更多交互能力，提供了更高级的XML特性。
-DOM2和DOM3是按照模块化的思路来制定标...
-                        
-                    </div>
-
-                    
-
-<div class="article-meta-info-container border-box home">
-    <div class="article-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fas fa-history"></i>&nbsp;<span class="home-article-history" data-updated="Mon Nov 06 2023 11:29:16 GMT+0800">2023-11-06</span>
-            </span>
-        
-
-
-        
-
-        
-            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                            <li class="category-item">
-                                
-                                <a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">前端学习笔记</a>
-                            </li>
-                        
-                    
-                            <li class="category-item">
-                                
-                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
-                                
-                                <a href="/categories/JS/">JS</a>
-                            </li>
-                        
-                    
-                            <li class="category-item">
-                                
-                                    <span class="category-separator"><i class="icon fas fa-angle-right"></i></span>
-                                
-                                <a href="/categories/DOM/">DOM</a>
-                            </li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-            <span class="article-tag meta-info-item border-box">
-                <i class="icon fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/JS%E5%AD%A6%E4%B9%A0/">JS学习</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/2021/12/03/js-40/">阅读全文&nbsp;<i class="icon fas fa-angles-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-    </ul>
-    
-    <div class="paginator border-box flex-center">
-        <div class="btn-wrap allowed">
-            <a class="jump-btn"
-               href="/page/14/"
-            ><i class="fa-solid fa-chevron-left"></i></a>
-        </div>
-
-
-        <div class="page-number-box border-box flex-center">
-            <input class="page-number-input border-box base-color-size"
-                   type="number"
-                   value="15"
-                   min="1"
-                   max="25"
-            ><span class="delimiter base-color-size">/</span><span class="base-color-size">25</span>
-        </div>
-
-
-        <div class="btn-wrap allowed">
-            <a class="jump-btn"
-               href="/page/16/"
-            ><i class="fa-solid fa-chevron-right"></i></a>
-        </div>
-    </div>
-
-
-
-
-</div>
-
-
-                
+XHR对象有一个readyState属性，表示当前处 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/14/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/#content-inner">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/#content-inner">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/#content-inner">26</a><a class="extend next" rel="next" href="/page/16/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar/github_avatar.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">姚永坤</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">256</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">48</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">78</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/kunkunyy" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="/kunkunyy1314@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/04/17/pattern-in-node/" title="设计模式在 Node 中的应用"><img src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="设计模式在 Node 中的应用"/></a><div class="content"><a class="title" href="/2024/04/17/pattern-in-node/" title="设计模式在 Node 中的应用">设计模式在 Node 中的应用</a><time datetime="2024-04-17T04:19:44.000Z" title="发表于 2024-04-17 12:19:44">2024-04-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/17/js-skill-2/" title="JS 基础技能2"><img src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JS 基础技能2"/></a><div class="content"><a class="title" href="/2024/04/17/js-skill-2/" title="JS 基础技能2">JS 基础技能2</a><time datetime="2024-04-17T02:20:08.000Z" title="发表于 2024-04-17 10:20:08">2024-04-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/16/usestate-vs-useref/" title="useState vs useRef"><img src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="useState vs useRef"/></a><div class="content"><a class="title" href="/2024/04/16/usestate-vs-useref/" title="useState vs useRef">useState vs useRef</a><time datetime="2024-04-16T11:50:04.000Z" title="发表于 2024-04-16 19:50:04">2024-04-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/16/6-advanced-typescript-tricks-for-clean-code/" title="让代码更简洁的6个高级 TypeScript 技巧"><img src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="让代码更简洁的6个高级 TypeScript 技巧"/></a><div class="content"><a class="title" href="/2024/04/16/6-advanced-typescript-tricks-for-clean-code/" title="让代码更简洁的6个高级 TypeScript 技巧">让代码更简洁的6个高级 TypeScript 技巧</a><time datetime="2024-04-16T06:41:28.000Z" title="发表于 2024-04-16 14:41:28">2024-04-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/16/react-usestate-mistake/" title="使用 useState 时的误区"><img src="/img/home/warming.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用 useState 时的误区"/></a><div class="content"><a class="title" href="/2024/04/16/react-usestate-mistake/" title="使用 useState 时的误区">使用 useState 时的误区</a><time datetime="2024-04-16T01:39:56.000Z" title="发表于 2024-04-16 09:39:56">2024-04-16</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
             </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Antd%E7%BB%84%E4%BB%B6%E8%A7%A3%E6%9E%90/"><span class="card-category-list-name">Antd组件解析</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Array/"><span class="card-category-list-name">Array</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/BOM/"><span class="card-category-list-name">BOM</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><span class="card-category-list-name">C++学习笔记</span><span class="card-category-list-count">12</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"><span class="card-category-list-name">C++面向对象</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/CSS/"><span class="card-category-list-name">CSS</span><span class="card-category-list-count">18</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Canvas/"><span class="card-category-list-name">Canvas</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Cookies/"><span class="card-category-list-name">Cookies</span><span class="card-category-list-count">1</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Vue%E5%AD%A6%E4%B9%A0/" style="font-size: 1.25em; color: #999fa8">Vue学习</a> <a href="/tags/python/" style="font-size: 1.28em; color: #99a0ab">python</a> <a href="/tags/JavaScript/" style="font-size: 1.1em; color: #999">JavaScript</a> <a href="/tags/css-in-js/" style="font-size: 1.1em; color: #999">css-in-js</a> <a href="/tags/LeetCode%E5%88%B7%E9%A2%98/" style="font-size: 1.47em; color: #99a8bc">LeetCode刷题</a> <a href="/tags/Https/" style="font-size: 1.1em; color: #999">Https</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%9F%BA%E6%9C%AC%E5%8A%9F/" style="font-size: 1.32em; color: #99a2ad">前端面试基本功</a> <a href="/tags/C-%E5%AD%A6%E4%B9%A0/" style="font-size: 1.35em; color: #99a3b0">C++学习</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.13em; color: #999a9c">数据结构</a> <a href="/tags/%E7%BB%84%E4%BB%B6%E5%BA%93/" style="font-size: 1.1em; color: #999">组件库</a> <a href="/tags/SVG-%E5%AD%A6%E4%B9%A0/" style="font-size: 1.19em; color: #999da2">SVG 学习</a> <a href="/tags/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/" style="font-size: 1.22em; color: #999ea5">算法学习</a> <a href="/tags/useRef/" style="font-size: 1.1em; color: #999">useRef</a> <a href="/tags/big-data-analysis-experiment/" style="font-size: 1.1em; color: #999">big data analysis experiment</a> <a href="/tags/python-experiment/" style="font-size: 1.41em; color: #99a5b6">python-experiment</a> <a href="/tags/HTML/" style="font-size: 1.1em; color: #999">HTML</a> <a href="/tags/experiment/" style="font-size: 1.44em; color: #99a7b9">experiment</a> <a href="/tags/JS/" style="font-size: 1.1em; color: #999">JS</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 1.1em; color: #999">网络</a> <a href="/tags/%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97%E5%AF%BC%E8%AE%BA/" style="font-size: 1.1em; color: #999">科学计算导论</a> <a href="/tags/Skill/" style="font-size: 1.13em; color: #999a9c">Skill</a> <a href="/tags/Http/" style="font-size: 1.1em; color: #999">Http</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/" style="font-size: 1.1em; color: #999">知识点总结</a> <a href="/tags/React%E5%AD%A6%E4%B9%A0/" style="font-size: 1.22em; color: #999ea5">React学习</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 1.1em; color: #999">正则表达式</a> <a href="/tags/Lodash/" style="font-size: 1.1em; color: #999">Lodash</a> <a href="/tags/TypeScript/" style="font-size: 1.1em; color: #999">TypeScript</a> <a href="/tags/JS%E5%AD%A6%E4%B9%A0/" style="font-size: 1.5em; color: #99a9bf">JS学习</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7%E5%8C%85/" style="font-size: 1.1em; color: #999">前端工具包</a> <a href="/tags/study-notes/" style="font-size: 1.19em; color: #999da2">study-notes</a> <a href="/tags/TypeScript%E5%AD%A6%E4%B9%A0/" style="font-size: 1.38em; color: #99a4b3">TypeScript学习</a> <a href="/tags/less-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 1.1em; color: #999">less 学习笔记</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9B%B8%E5%85%B3/" style="font-size: 1.1em; color: #999">浏览器相关</a> <a href="/tags/UDP/" style="font-size: 1.1em; color: #999">UDP</a> <a href="/tags/Database-experiment/" style="font-size: 1.19em; color: #999da2">Database-experiment</a> <a href="/tags/style-component/" style="font-size: 1.1em; color: #999">style-component</a> <a href="/tags/study-notes/" style="font-size: 1.16em; color: #999b9f">study notes</a> <a href="/tags/Node/" style="font-size: 1.1em; color: #999">Node</a> <a href="/tags/useState/" style="font-size: 1.13em; color: #999a9c">useState</a> <a href="/tags/localhost/" style="font-size: 1.1em; color: #999">localhost</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">四月 2024</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/12/"><span class="card-archive-list-date">十二月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/11/"><span class="card-archive-list-date">十一月 2023</span><span class="card-archive-list-count">9</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">十月 2023</span><span class="card-archive-list-count">11</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">九月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">二月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/09/"><span class="card-archive-list-date">九月 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/08/"><span class="card-archive-list-date">八月 2022</span><span class="card-archive-list-count">7</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">256</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-07-19T08:01:52.933Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/home/warming.webp')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2024 By 姚永坤</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="/js/tw_cn.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
 
-        </div>
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
 
-        <div class="page-main-content-bottom border-box">
-            
-<footer class="footer border-box">
-    <div class="border-box website-info-box default">
-        
-            <div class="copyright-info info-item default">
-                &copy;&nbsp;<span>2021</span>&nbsp;-&nbsp;2023
-                
-                    &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">姚永坤</a>
-                
-            </div>
-
-            <div class="theme-info info-item default">
-                由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.7.3</a>
-            </div>
-
-            
-
-            
-        
-
-        <div class="count-item info-item default">
-            
-                <span class="count-box border-box word">
-                    <span class="item-type border-box">全站总字数</span>
-                    <span class="item-value border-box word">201.6k</span>
-                </span>
-            
-
-            
-                <span class="count-box border-box uv">
-                    <span class="item-type border-box">访问人数</span>
-                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
-                </span>
-            
-
-            
-                <span class="count-box border-box pv">
-                    <span class="item-type border-box">总访问量</span>
-                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
-                </span>
-            
-        </div>
-    </div>
-</footer>
-
-        </div>
-    </div>
-
-    <!-- post tools -->
-    
-
-    <!-- side tools -->
-    <div class="side-tools">
-        <div class="side-tools-container">
-    <ul class="side-tools-list">
-        <li class="tools-item tool-font-adjust-plus flex-center">
-            <i class="fas fa-search-plus"></i>
-        </li>
-
-        <li class="tools-item tool-font-adjust-minus flex-center">
-            <i class="fas fa-search-minus"></i>
-        </li>
-
-        <li class="tools-item tool-dark-light-toggle flex-center">
-            <i class="fas fa-moon"></i>
-        </li>
-
-        <!-- rss -->
-        
-            <li class="tools-item rss flex-center">
-                <a class="flex-center"
-                   href="/atom.xml"
-                   target="_blank"
-                >
-                    <i class="fas fa-rss"></i>
-                </a>
-            </li>
-        
-
-        
-
-        <li class="tools-item tool-scroll-to-bottom flex-center">
-            <i class="fas fa-arrow-down"></i>
-        </li>
-    </ul>
-
-    <ul class="exposed-tools-list">
-        
-
-        
-
-        <li class="tools-item tool-toggle-show flex-center">
-            <i class="fas fa-cog fa-spin"></i>
-        </li>
-
-        
-            <li class="tools-item tool-scroll-to-top flex-center">
-                <i class="arrow-up fas fa-arrow-up"></i>
-                <span class="percent"></span>
-            </li>
-        
-    </ul>
-</div>
-
-    </div>
-
-    <!-- image mask -->
-    <div class="zoom-in-image-mask">
-    <img class="zoom-in-image">
-</div>
-
-
-    <!-- local search -->
-    
-        <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-          <span class="search-input-field-pre">
-            <i class="fas fa-keyboard"></i>
-          </span>
-            <div class="search-input-container">
-                <input autocomplete="off"
-                       autocorrect="off"
-                       autocapitalize="off"
-                       placeholder="搜索..."
-                       spellcheck="false"
-                       type="search"
-                       class="search-input"
-                >
-            </div>
-            <span class="close-popup-btn">
-                <i class="fas fa-times"></i>
-            </span>
-        </div>
-        <div id="search-result">
-            <div id="no-result">
-                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
-            </div>
-        </div>
-    </div>
-</div>
-
-    
-
-    <!-- tablet toc -->
-    
-</main>
-
-
-
-
-<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/dark-light-toggle.js"></script>
-
-
-
-
-    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/local-search.js"></script>
-
-
-
-    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/code-block.js"></script>
-
-
-
-    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/lazyload.js"></script>
-
-
-<div class="post-scripts pjax">
-    
-    
-    
-</div>
-
-
-    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.3/source/js/libs/pjax.min.js"></script>
-<script>
-    window.addEventListener('DOMContentLoaded', () => {
-        window.pjax = new Pjax({
-            selectors: [
-                'head title',
-                '.page-container',
-                '.pjax'
-            ],
-            history: true,
-            debug: false,
-            cacheBust: false,
-            timeout: 0,
-            analytics: false,
-            currentUrlFullReload: false,
-            scrollRestoration: false,
-            // scrollTo: true,
-        });
-
-        document.addEventListener('pjax:send', () => {
-            KEEP.utils.pjaxProgressBarStart();
-        });
-
-        document.addEventListener('pjax:complete', () => {
-            KEEP.utils.pjaxProgressBarEnd();
-            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
-            KEEP.refresh();
-        });
-    });
-</script>
-
-
-
-
-    
-        
-    
-
-</body>
-</html>
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>
