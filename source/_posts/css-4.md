@@ -1,6 +1,8 @@
 ---
 title: CSS学习笔记（四）背景与边框（四）
 date: 2022-01-08 15:07:26
+series: CSS 相关
+cover: /img/article/piece.webp
 tags:
 - CSS学习
 categories:

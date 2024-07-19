@@ -1,6 +1,8 @@
 ---
 title: 算法学习笔记（二）二分查找
 date: 2022-02-12 21:07:45
+series: 算法学习
+cover: /img/article/village-bridge-winter.webp
 tags:
 - 算法学习
 categories:

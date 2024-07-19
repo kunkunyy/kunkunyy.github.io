@@ -1,12 +1,16 @@
 ---
-title: JavaScript——判断字符串中是否包含某个字符/字符串
+title: JS 基础技能 1
 date: 2021-10-31 17:23:09
+series: JS 技巧
+cover: /img/article/js-skill.webp
 tags:
 - 知识点总结
 categories:
 - [前端刷题]
 - [JS]
 ---
+
+> JavaScript——判断字符串中是否包含某个字符/字符串
 
 # 方法一：indexOf()
 

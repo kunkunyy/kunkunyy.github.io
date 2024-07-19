@@ -1,6 +1,8 @@
 ---
 title: React学习笔记（一）前言
 date: 2022-05-17 20:16:36
+series: React 学习笔记
+cover: /img/article/village-bridge.webp
 tags:
 - React学习
 categories:

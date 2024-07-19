@@ -1,6 +1,8 @@
 ---
 title: CSS学习笔记（二）背景与边框（二）
 date: 2022-01-03 00:37:52
+series: CSS 相关
+cover: /img/article/vineyards.webp
 tags:
 - CSS学习
 categories:

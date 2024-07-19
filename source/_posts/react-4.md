@@ -1,6 +1,8 @@
 ---
 title: React学习笔记（四）（非）受控组件、函数柯里化和diff算法
 date: 2022-08-02 11:55:58
+series: React 学习笔记
+cover: /img/article/village-bridge.webp
 tags:
 - React学习
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 设计模式在 Node 中的应用
 date: 2024-04-17 12:19:44
+cover: /img/article/pattern-in-node.webp
 tags:
 - Node
 - 设计模式

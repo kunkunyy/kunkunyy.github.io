@@ -1,6 +1,8 @@
 ---
 title: 算法学习笔记（三）KMP
 date: 2022-02-14 13:31:44
+series: 算法学习
+cover: /img/article/village-bridge-winter.webp
 tags:
 - 算法学习
 categories:

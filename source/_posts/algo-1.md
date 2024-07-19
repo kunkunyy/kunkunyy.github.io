@@ -1,6 +1,8 @@
 ---
 title: 算法学习笔记（一）动态规划
 date: 2021-10-26 17:00:25
+series: 算法学习
+cover: /img/article/village-bridge-winter.webp
 tags:
 - 算法学习
 categories:

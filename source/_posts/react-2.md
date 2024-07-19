@@ -1,6 +1,8 @@
 ---
 title: React学习笔记（二）面向组件编程1
 date: 2022-05-22 10:34:33
+series: React 学习笔记
+cover: /img/article/village-bridge.webp
 tags:
 - React学习
 categories:

@@ -1,6 +1,8 @@
 ---
 title: React学习笔记（三）组件生命周期
 date: 2022-08-01 17:43:55
+series: React 学习笔记
+cover: /img/article/village-bridge.webp
 tags:
 - React学习
 categories:

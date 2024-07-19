@@ -1,6 +1,8 @@
 ---
 title: React学习笔记（五）React 路由
 date: 2022-08-28 22:23:25
+series: React 学习笔记
+cover: /img/article/village-bridge.webp
 tags:
 - React学习
 categories:

@@ -1,6 +1,8 @@
 ---
 title: CSS学习笔记（一）背景与边框（一）
 date: 2021-12-30 16:41:09
+series: CSS 相关
+cover: /img/article/vineyards.webp
 tags:
 - CSS学习
 categories:
@@ -51,7 +53,7 @@ categories:
 }
 ```
 
-{%asset_img pic1.png # tu1%}
+![tu1](css-1/pic1.png)
 
 * 通过background-clip属性来指定背景绘制区域。
     * background-clip属性默认值为border-box：背景绘制在边框方框内。
@@ -69,8 +71,7 @@ categories:
     box-shadow: 0 0 0 10px #655;
 }
 ```
-
-{%asset_img pic2.png # tu1%}
+![tu1](css-1/pic2.png)
 
 * **box-shadow支持逗号分隔语法，可以创建任意数量的投影。**
 * box-shadow 是层层叠加的，第一层投影位于最顶层，依次类推。
@@ -82,7 +83,7 @@ categories:
 }
 ```
 
-{%asset_img pic3.png # tu1%}
+![tu1](css-1/pic3.png)
 
 ## 2、outline方案
 
@@ -104,7 +105,7 @@ categories:
     * 针对某个角对背景图片做偏移定位。
     * 在CSS 2.1中，我们只能指定距离左上角的偏移量，或者干脆完全靠齐到其他三个角。如下图：
 
-{%asset_img pic4.png # tu1%}
+![tu1](css-1/pic4.png)
 
 ## 1、background-position的扩展语法方案
 
@@ -118,7 +119,8 @@ categories:
     background-position: right 20px bottom 10px;
 }
 ```
-{%asset_img pic5.png # tu1%}
+
+![tu1](css-1/pic5.png)
 
 * 在不支持background-position扩展语法的浏览器中，背景图片会紧贴在左上角（背景图片的默认位置）。
 * 提供一个回退方案也很简单，就是把老套的bottom right 定位值写进 background 的简写属性中
@@ -164,8 +166,8 @@ categories:
 
 * 有时我们需要一个容器，**只在内侧有圆角，而边框或描边的四个角在外部仍然保持直角的形状**，如图下所示。这是一个有趣的效果，目前还没有被滥用。
 
-{%asset_img pic6.png # tu1%}
+![tu1](css-1/pic6.png)
 
 * 用两个元素可以实现这个效果，这并没有什么特别的。
 
-{%asset_img pic7.png # tu1%}
+![tu1](css-1/pic7.png)

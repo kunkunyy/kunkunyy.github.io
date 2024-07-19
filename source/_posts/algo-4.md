@@ -1,6 +1,8 @@
 ---
 title: 算法学习笔记（四）常见的排序算法
 date: 2022-03-01 22:43:17
+series: 算法学习
+cover: /img/article/waterfall.webp
 tags:
 - 算法学习
 categories:

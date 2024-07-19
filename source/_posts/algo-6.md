@@ -1,6 +1,8 @@
 ---
 title: 算法学习笔记（六）二叉树的层序遍历（理论）
 date: 2022-03-13 16:16:12
+series: 算法学习
+cover: /img/article/waterfall.webp
 tags:
 - 算法学习
 categories:

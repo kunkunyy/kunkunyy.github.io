@@ -2,6 +2,7 @@
 title: 让代码更简洁的6个高级 TypeScript 技巧
 date: 2024-04-16 14:41:28
 updated: 2024-04-16 14:41:28
+series: TypeScript 使用技巧
 tags:
   - TypeScript
   - JavaScript

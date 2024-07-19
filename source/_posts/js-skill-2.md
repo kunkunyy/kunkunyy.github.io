@@ -1,11 +1,16 @@
 ---
 title: JS 基础技能2
 date: 2024-04-17 10:20:08
+series: JS 技巧
+cover: /img/article/js-skill.webp
 tags:
-- JS
+- 知识点总结
+categories:
+- [前端刷题]
+- [JS]
 ---
 
-# 1. Object.groupBy
+# Object.groupBy
 
 `Object.groupBy` 方法可以根据指定的键将数组分组为对象。
 **参数**
@@ -44,7 +49,7 @@ console.log(data.at(0)); // 1
 console.log(data.at(-1)); // 5
 ```
 
-# 3. Object.hasOwn
+# Object.hasOwn
 
 `Object.hasOwn` 方法用于检查对象是否具有指定的属性。
 
