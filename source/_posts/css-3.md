@@ -39,7 +39,7 @@ div{
 }
 ```
 
-{%asset_img pic1.png # tu1%}
+![tu1](css-3/pic1.png)
 
 * **网格中每个格子的大小可以调整，而网格线条的粗细同时保持固定。**
 
@@ -53,7 +53,7 @@ div{
 }
 ```
 
-{%asset_img pic2.png # tu1%}
+![tu1](css-3/pic2.png)
 
 * **把两幅不同线宽、不同颜色的网格图案叠加起来，得到一个更加逼真的蓝图网格。**
 
@@ -70,7 +70,7 @@ div{
 }
 ```
 
-{%asset_img pic3.png # tu1%}
+![tu1](css-3/pic3.png)
 
 ## 2、波点
 
@@ -84,7 +84,7 @@ div{
 }
 ```
 
-{%asset_img pic4.png # tu1%}
+![tu1](css-3/pic4-1.png)
 
 * **通过两层圆点阵列图案的错位排列可以实现真正的波点图案，第二个背景图片的偏移量正好等于贴片宽高的一半。**
 
@@ -99,7 +99,7 @@ div{
 }
 ```
 
-{%asset_img pic5.png # tu1%}
+![tu1](css-3/pic4-2.png)
 
 ## 3、棋盘
 
@@ -116,7 +116,7 @@ div{
 }
 ```
 
-{%asset_img pic5.png # tu1%}
+![tu1](css-3/pic5.png)
 
 ```css
 div{
@@ -128,7 +128,7 @@ div{
 }
 ```
 
-{%asset_img pic6.png # tu1%}
+![tu1](css-3/pic6.png)
 
 * 把第二层渐变在水平和垂直方向均移动贴片长度的一半，把它们拼合成一个完整的方块。
 
@@ -143,7 +143,7 @@ div{
 }
 ```
 
-{%asset_img pic7.png # tu1%}
+![tu1](css-3/pic7.png)
 
 * 要把现有的这一组渐变重复一份，创建出另一组正方形，并且偏移它们的定位值。
 
@@ -161,7 +161,7 @@ div{
 }
 ```
 
-{%asset_img pic8.png # tu1%}
+![tu1](css-3/pic8.png)
 
 * 以把深灰色改成半透明的黑色，这样我们只需要修改底色就可以改变整个棋盘的色调，不需要单独调整各层渐变的色标了。
 
@@ -180,4 +180,4 @@ div{
 }
 ```
 
-{%asset_img pic9.png # tu1%}
+![tu1](css-3/pic9.png)

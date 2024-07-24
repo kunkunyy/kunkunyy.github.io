@@ -1,6 +1,7 @@
 ---
 title: CSS学习笔记（五）形状（一）
 date: 2022-01-10 11:22:21
+cover: /img/article/spring-path.webp
 tags:
 - CSS学习
 categories:

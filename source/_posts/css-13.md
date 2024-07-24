@@ -1,6 +1,7 @@
 ---
 title: CSS学习笔记（十三）结构与布局
 date: 2022-02-03 00:34:01
+cover: /img/article/winter-field.webp
 tags:
 - CSS学习
 categories:

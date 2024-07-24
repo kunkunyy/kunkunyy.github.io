@@ -1,6 +1,7 @@
 ---
 title: CSS学习笔记（六）形状（二）
 date: 2022-01-10 16:21:32
+cover: /img/article/spring-path.webp
 tags: 
 - CSS学习
 categories:
@@ -78,7 +79,7 @@ categories:
 * 以上代码并未实现最终效果：主要问题在于 max-width: 100% 这条声明。100% 会被解析为容器（.picture）的边长。
 * **我们想让图片的宽度与容器的对角线相等，而不是与边长相等。**
 
-{%asset_img pic1.png # tu1%}
+![tu1](css-6/pic1.png)
 
 * 通过scale()来缩放图片。
 
@@ -94,7 +95,7 @@ categories:
 }
 ```
 
-{%asset_img pic2.png # tu1%}
+![tu1](css-6/pic2.png)
 
 ### 裁切路径方案
 

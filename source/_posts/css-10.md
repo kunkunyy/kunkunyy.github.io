@@ -1,6 +1,7 @@
 ---
 title: CSS学习笔记（十）字体排印（一）
 date: 2022-01-15 21:31:28
+cover: /img/article/spring-temple.webp
 tags:
 - CSS学习
 categories:
@@ -18,7 +19,7 @@ a {
 }
 ```
 
-{%asset_img pic1.png # tu1%}
+![tu1](css-10/pic1.png)
 
 * 解决方案：
     * hyphens属性：接受三个值none、manual、auto。
@@ -30,7 +31,7 @@ a {
 }
 ```
 
-{%asset_img pic2.png # tu1%}
+![tu1](css-10/pic2.png)
 
 # 二十一、插入换行
 
@@ -54,11 +55,11 @@ dd {
     font-weight: bold;
 }
 ```
-{%asset_img pic4.png # tu1%}
+![tu1](css-10/pic3.png)
 
 * 外加display:inline则会出现以下效果：
 
-{%asset_img pic5.png # tu1%}
+![tu1](css-10/pic4.png)
 
 ## 解决方案
 
@@ -87,7 +88,7 @@ dd::after {
 }
 ```
 
-{%asset_img pic6.png # tu1%}
+![tu1](css-10/pic5.png)
 
 * 如果有一对多情况则需要调整一下第二步：
     * 在每个前面有```<dd>```的```<dd>```头部插入逗号；
@@ -109,7 +110,7 @@ dd + dd::before {
 }
 ```
 
-{%asset_img pic6.png # tu1%}
+![tu1](css-10/pic6.png)
 
 # 二十二、文本行的斑马条纹
 
@@ -145,4 +146,4 @@ div{
 3、 padding属性将整体的文本调整位置不至于太过于靠边影响视觉效果。
 4、 由于文本调整了位置，这里我们需要将背景进行些调整：让它的默认外沿padding box调整为content box。
 
-{%asset_img pic7.png # tu1%}
+![tu1](css-10/pic7.png)

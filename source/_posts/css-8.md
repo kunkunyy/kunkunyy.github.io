@@ -1,6 +1,7 @@
 ---
 title: CSS学习笔记（八）形状（四）
 date: 2022-01-10 22:26:56
+cover: /img/article/summer-river.webp
 tags:
 - CSS学习
 categories:
@@ -66,7 +67,7 @@ nav > a::before {
 }
 ```
 
-{%asset_img pic1.png # tu1%}
+![tu1](css-8/pic1.png)
 
 # 十四、简单的饼图
 
@@ -84,7 +85,7 @@ nav > a::before {
 }
 ```
 
-{%asset_img pic2.png # tu1%}
+![tu1](css-8/pic2.png)
 
 * **把圆形的左右两部分指定为上述两种颜色，然后用伪元素覆盖上去，通过旋转来决定露出多大的扇区。**
 
@@ -131,7 +132,7 @@ nav > a::before {
 
 * 用虚线框表示伪元素覆盖位置。
 
-{%asset_img pic3.png # tu1%}
+![tu1](css-8/pic3.png)
 
 * 如果把 50%~100% 的比率看作另外一个问题，我们就会发现，可以使用上述技巧的一个反向版本来实现这个范围内的比率：设置一个棕色的伪元素，让它在 0 至 .5turn 的范围内旋转。因此，要得到一个 60% 比率的饼图，伪元素的代码可能是这样的：
 

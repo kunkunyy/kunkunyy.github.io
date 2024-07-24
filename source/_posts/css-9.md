@@ -1,6 +1,7 @@
 ---
 title: CSS学习笔记（九）视觉效果
 date: 2022-01-11 20:16:16
+cover: /img/article/spring-temple.webp
 tags:
 - CSS学习
 categories:
@@ -75,9 +76,8 @@ img{
     filter: sepia(1) saturate(4) hue-rotate(295deg);
 }
 ```
-
-{%asset_img pic1.png # tu1%}
-{%asset_img pic2.png # tu1%}
+![tu1](css-9/pic1.png)
+![tu1](css-9/pic2.png)
 
 ## 基于混合模式的方案
 
@@ -149,7 +149,7 @@ main {
 }
 ```
 
-{%asset_img pic3.png # tu1%}
+![tu1](css-9/pic3.png)
 
 ## 解决方案
 
@@ -169,11 +169,11 @@ main::before {
 }
 ```
 
-{%asset_img pic4.png # tu1%}
+![tu1](css-9/pic4.png)
 
 * 使用 z-index: -1; 来把伪元素移动到宿主元素的后面。
 
-{%asset_img pic5.png # tu1%}
+![tu1](css-9/pic5.png)
 
 * 现在该把半透明红色背景换掉了，换成跟背层完全匹配的背景。要实现这一点，我们要么把 ```<body>``` 的背景复制过来，要么把伪元素的背景声明合并过去。
 
@@ -193,16 +193,16 @@ main::before {
 }
 ```
 
-{%asset_img pic6.png # tu1%}
+![tu1](css-9/pic6.png)
 
 * 模糊效果在中心区域看起来非常完美，但在接近边缘处会逐渐消退。这是因为模糊效果会削减实色像素所能覆盖的范围，削减的幅度正是模糊半径的长度。
 
-{%asset_img pic7.png # tu1%}
+![tu1](css-9/pic7.png)
 
 * 为了补偿这种情况，我们需要让伪元素相对其宿主元素的尺寸再向外扩大至少 20px（即它的模糊半径）。可以通过 -20px 的外边距来达到目的，由于不同浏览器的模糊算法可能存在差异，用一个更大的绝对值（比如 -30px）会更保险一些。
 * 这个方法可以修复边缘模糊消退的问题，但现在的情况是有一圈模糊效果超出了容器，这让它看起来不像毛玻璃，而更像是玻璃脏了。
 
-{%asset_img pic8.png # tu1%}
+![tu1](css-9/pic8.png)
 
 * 不过幸运的是，这个问题也很容易修复：只要对 main 元素应用overflow: hidden;，就可以把多余的模糊区域裁切掉了。
 
@@ -224,4 +224,4 @@ main::before {
 }
 ```
 
-{%asset_img pic9.png # tu1%}
+![tu1](css-9/pic9.png)

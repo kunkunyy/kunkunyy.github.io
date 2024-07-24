@@ -1,6 +1,7 @@
 ---
 title: CSS学习笔记（十一）字体排印（二）
 date: 2022-01-24 17:20:30
+cover: /img/article/winter-field.webp
 tags:
 - CSS学习
 categories:
@@ -26,8 +27,8 @@ pre {
 ```
 * 视觉效果对比：
 
-{%asset_img pic1.png # tu1%}
-{%asset_img pic2.png # tu1%}
+![tu1](css-11/pic1.png)
+![tu1](css-11/pic2.png)
 
 # 二十四、连字
 
@@ -127,7 +128,7 @@ p {
 }
 ```
 
-{%asset_img pic3.png # tu1%}
+![tu1](css-11/pic3.png)
 
 ```css
 p {
@@ -137,7 +138,7 @@ p {
 }
 ```
 
-{%asset_img pic4.png # tu1%}
+![tu1](css-11/pic4.png)
 
 ## 空心字效果
 
@@ -153,7 +154,7 @@ p {
 }
 ```
 
-{%asset_img pic5.png # tu1%}
+![tu1](css-11/pic5.png)
 
 * 方法二：重叠多层轻微模糊的投影来模拟描边。
 
@@ -179,7 +180,7 @@ p {
 }
 ```
 
-{%asset_img pic6.png # tu1%}
+![tu1](css-11/pic6.png)
 
 * 依赖 text-shadow 来实现文字显示的做法无法实现平稳退化：如果浏览器不支持 text-shadow，那就什么字也看不见了。
 * **方法二**：使用 CSS 滤镜来实现文字的模糊效果
@@ -212,7 +213,7 @@ div{
 }
 ```
 
-{%asset_img pic7.png # tu1%}
+![tu1](css-11/pic7.png)
 
 # 二十八、环形文字
 

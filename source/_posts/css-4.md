@@ -38,7 +38,7 @@ categories:
 }
 ```
 
-{%asset_img pic1.png # tu1%}
+![tu1](css-4/pic1.png)
 
 * 因为最顶层贴片的重复规律最容易被察觉（它没有被任何东西遮挡），我们应该把平铺间距最大的贴片安排在最顶层。
 * **这个组合图案中第一个贴片的终点，就是各层背景图像以不同间距重复数次后再次统一对齐的点。**
@@ -57,7 +57,7 @@ categories:
 }
 ```
 
-{%asset_img pic2.png # tu1%}
+![tu1](css-4/pic2.png)
 
 # 八、连续的图像边框
 
@@ -66,11 +66,11 @@ categories:
 * 把一幅图案或图片应用为边框，而不是背景。
 * 我们期望望出现在拐角处的图片区域是随着元素宽高和边框厚度的变化而变化的，并不想让图片的某个特定部分固定在拐角处。
 
-{%asset_img pic4.png # tu1%}
+![tu1](css-4/pic4.png)
 
 * border-image 工作原理：
     * 九宫格伸缩法：把图片切割成九块，然后把它们应用到元素边框相应的边和角。
-{%asset_img pic3.png # tu1%}
+![tu1](css-4/pic3.png)
 
 * 最简单的办法是使用两个 HTML 元素：**一个元素用来把我们的石雕图片设为背景，另一个元素用来存放内容，并设置纯白背景，然后覆盖在前者之上**：
 
@@ -133,7 +133,7 @@ categories:
 
 ### 实现一个老式信封：
 
-{%asset_img pic5.png # tu1%}
+![tu1](css-4/pic5.png)
 
 ```css
 div{
@@ -152,7 +152,7 @@ div{
 * 创建两层背景：
     * linear-gradient(white, white) padding-box：用于创建第一层背景纯白色覆盖在最上层；
     * repeating-linear-gradient：用于创建重复线性梯度渐变。效果如下：
-{%asset_img pic6.png # tu1%}
+![tu1](css-4/pic6.png)
 
 * repeating-linear-gradient中参数解释：
     * -45deg：用于将整个条纹旋转-45度；
@@ -179,4 +179,4 @@ div{
 }
 ```
 
-{%asset_img pic7.png # tu1%}
+![tu1](css-4/pic7.png)

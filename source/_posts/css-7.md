@@ -1,6 +1,7 @@
 ---
 title: CSS学习笔记（七）形状（三）
 date: 2022-01-10 17:28:57
+cover: /img/article/summer-river.webp
 tags: 
 - CSS学习
 categories:
@@ -21,7 +22,7 @@ div{
 }
 ```
 
-{%asset_img pic1.png # tu1%}
+![tu1](css-7/pic1.png)
 
 * 左下角和右下角的切角效果。
 
@@ -36,7 +37,7 @@ div{
 }
 ```
 
-{%asset_img pic2.png # tu1%}
+![tu1](css-7/pic2.png)
 
 * 四个角都切。
 
@@ -53,7 +54,7 @@ div{
 }
 ```
 
-{%asset_img pic3.png # tu1%}
+![tu1](css-7/pic3.png)
 
 * SCSS如下，可以直接调用，并传入2~5个参数。
 
@@ -91,7 +92,7 @@ div{
 }
 ```
 
-{%asset_img pic4.png # tu1%}
+![tu1](css-7/pic4.png)
 
 ## 内联SVG与border-image方案
 
