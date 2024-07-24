@@ -1,6 +1,7 @@
 ---
 title: TypeScript学习笔记（五）联合类型
 date: 2022-07-30 23:31:41
+cover: /img/article/winter-trail.webp
 tags:
 - TypeScript学习
 categories:

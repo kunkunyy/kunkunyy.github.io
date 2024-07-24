@@ -1,6 +1,7 @@
 ---
 title: 前端面试题-CSS篇（二）
 date: 2022-02-27 14:28:50
+cover: /img/article/winter-pools.webp
 tags:
 - JS学习
 categories:

@@ -1,6 +1,7 @@
 ---
 title: TypeScript学习笔记（四）类型推论
 date: 2022-07-30 22:36:56
+cover: /img/article/winter-river.webp
 tags:
 - TypeScript学习
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 前端面试题-CSS篇（一）
 date: 2022-02-26 13:31:44
+cover: /img/article/winter-pools.webp
 tags:
 - JS学习
 categories:
@@ -13,12 +14,12 @@ categories:
 * 标准盒子模型：
     * 标准盒子模型：宽度 = 内容的宽度(content) + border + padding + margin
 
-{%asset_img css-1-1.jpg # tu1%}
+![css-1-1](interview-CSS-1/css-1-1.jpg)
 
 * IE盒子模型：
     * 宽度 = 内容宽度(content + border + padding) + margin
 
-{%asset_img css-1-2.jpg # tu1%}
+![css-1-2](interview-CSS-1/css-1-2.jpg)
 
 * 盒模型：内容(content)、填充(padding)、边界(margin)、边框(border)。
 
@@ -98,7 +99,7 @@ categories:
     border: 1px solid red;
 }
 
-.chilren {
+.children {
     left: 50%;
     width: 50px;
     height: 50px;
@@ -126,7 +127,7 @@ categories:
     display: table;
 }
 
-.chilren {
+.children {
     display: table-cell;
     vertical-align: middle;
     text-align: center;
@@ -152,7 +153,7 @@ categories:
     display: relative;
 }
 
-.chilren {
+.children {
     display: absolute;
     top: 50%;
     height: 100px;
@@ -167,7 +168,7 @@ categories:
     position: relative;
 }
 
-.chilren {
+.children {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -193,7 +194,7 @@ categories:
     display: grid;
 }
 
-.chilren {
+.children {
     margin: auto;
 }
 ```

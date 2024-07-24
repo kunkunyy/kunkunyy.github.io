@@ -1,6 +1,7 @@
 ---
 title: TypeScript学习笔记（六）对象的类型——接口
 date: 2022-07-31 00:31:57
+cover: /img/article/winter-trail.webp
 tags:
 - TypeScript学习
 categories:

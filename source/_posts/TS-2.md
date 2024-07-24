@@ -1,6 +1,7 @@
 ---
 title: TypeScript学习笔记（二）原始数据类型
 date: 2022-07-29 14:40:10
+cover: /img/article/winter-house.webp
 tags:
 - TypeScript学习
 categories:

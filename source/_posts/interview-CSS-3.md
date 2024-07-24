@@ -1,6 +1,7 @@
 ---
 title: 前端面试题-CSS篇（三）
 date: 2022-03-14 15:08:15
+cover: /img/article/winter-house.webp
 tags:
 - JS学习
 categories:

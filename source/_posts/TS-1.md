@@ -1,6 +1,7 @@
 ---
 title: TypeScript学习笔记（一）思维导图
 date: 2022-07-29 14:26:45
+cover: /img/article/winter-house.webp
 tags:
 - TypeScript学习
 categories:
@@ -10,8 +11,8 @@ categories:
 
 # TypeScript 基础
 
-{% asset_img TypeScript基础.png first %}
+![first](TS-1/TypeScript基础.png)
 
 # TypeScript 进阶
 
-{% asset_img TypeScript进阶.png second %}
+![second](TS-1/TypeScript进阶.png)

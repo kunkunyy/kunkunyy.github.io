@@ -1,6 +1,7 @@
 ---
 title: TypeScript学习笔记（三）任意值
 date: 2022-07-30 22:08:28
+cover: /img/article/winter-river.webp
 tags:
 - TypeScript学习
 categories:

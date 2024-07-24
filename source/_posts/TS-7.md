@@ -1,6 +1,7 @@
 ---
 title: TypeScript学习笔记（七）数组类型
 date: 2022-07-31 17:08:55
+cover: /img/article/winter-piece.webp
 tags:
 - TypeScript学习
 categories:
