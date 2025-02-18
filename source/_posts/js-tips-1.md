@@ -2,7 +2,7 @@
 title: Javascript——Object和Map比较分析
 date: 2021-10-17 14:18:22
 series: JS 技巧
-cover: /img/article/js-skill.webp
+cover: https://github.com/kunkunyy/picx-images-hosting/raw/master/article/js-skill.6f0l3u5ndr.webp
 tags:
 - JS学习
 categories:

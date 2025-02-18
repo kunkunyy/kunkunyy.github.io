@@ -2,7 +2,7 @@
 title: JS 基础技能 1
 date: 2021-10-31 17:23:09
 series: JS 技巧
-cover: /img/article/js-skill.webp
+cover: https://github.com/kunkunyy/picx-images-hosting/raw/master/article/js-skill.6f0l3u5ndr.webp
 tags:
 - 知识点总结
 categories:
